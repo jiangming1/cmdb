@@ -1,0 +1,160 @@
+apply plugin: 'com.android.application'
+
+android {
+
+	useLibrary 'org.apache.http.legacy'
+    lintOptions{
+	abortOnError false  	
+    }
+    signingConfigs {
+        release {
+            keyAlias 'laicunba1'
+            keyPassword 'PqkpNICxlFnK40sv'
+            storeFile file('C:/Users/Administrator/Desktop/来存吧签名/lcb.keystore')
+            storePassword 'PqkpNICxlFnK40sv'
+        }
+    }
+    
+
+    compileSdkVersion 23
+    buildToolsVersion '23.0.2'
+  
+    defaultConfig {
+
+	testInstrumentationRunner "android.support.test.uiautomator.UiAutomatorInstrumentationTestRunner"
+        applicationId "com.laicunba.licai"
+        minSdkVersion 15
+        targetSdkVersion 23
+
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a','x86'
+        }
+    }
+
+    buildTypes {
+        release {
+            //manifestPlaceholders = [jpush_app_key: "876102af0b8ae7e6834f03dd"]
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME : "com.laicunba.licai",
+                    JPUSH_APPKEY : "876102af0b8ae7e6834f03dd",
+                    JPUSH_CHANNEL : "developer-default"
+            ]
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("boolean", "IS_PRODUCT_ENV", "true")
+            signingConfig signingConfigs.release
+        }
+        debug {
+             //manifestPlaceholders = [jpush_app_key: "fbefd361460630e56ff4ccd5"]
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME :"com.laicunba.licai",
+                    JPUSH_APPKEY : "fbefd361460630e56ff4ccd5",
+                    JPUSH_CHANNEL : "developer-default"
+            ]
+            minifyEnabled true
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("boolean", "IS_PRODUCT_ENV", "false")
+        }
+    }
+    
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            java.srcDirs = ['src/main/java', 'src/main/javatest']
+        }
+        androidTest {
+            java.srcDirs = ['src/AndroidTest']
+        }
+        test {
+            java.srcDirs = [ 'src/Javatest']
+        }
+    }
+
+    repositories {
+
+		jcenter()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+        maven { url "https://jitpack.io" }
+        maven { url "http://repo.baichuan-android.taobao.com/content/groups/public/" }
+    }
+    productFlavors {
+		laicunba_insider{}
+        laicunba {}
+        laicunba_360sz {}
+        laicunba_baidusz {}
+        laicunba_yingyb {}
+        laicunba_wandj {}
+        laicunba_xiaomi {}
+        laicunba_huawei {}
+        laicunba_oppo {}
+        laicunba_flyme {}
+        laicunba_qita {}
+        laicunba_01 {}
+        laicunba_02 {}
+        laicunba_03 {}
+        laicunba_04 {}
+        laicunba_05 {}
+        laicunba_06 {}
+        laicunba_07 {}
+        laicunba_08 {}
+        laicunba_09 {}
+        laicunba_10 {}
+        laicunba_11 {}
+        laicunba_12 {}
+        laicunba_13 {}
+        laicunba_14 {}
+        laicunba_15 {}
+        laicunba_16 {}
+        laicunba_17 {}
+        laicunba_18 {}
+        laicunba_19 {}
+        laicunba_20 {}
+        laicunba_21 {}
+        laicunba_22 {}
+        laicunba_23 {}
+        laicunba_24 {}
+        laicunba_25 {}
+        laicunba_26 {}
+        laicunba_27 {}
+        laicunba_28 {}
+        laicunba_29 {}
+        laicunba_30 {}
+		liuliangbao_activity {}
+        
+        productFlavors.all { flavor ->
+            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+
+    }
+    
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            output.outputFile = new File(
+                    output.outputFile.parent,
+                    output.outputFile.name.replace(output.outputFile.name, variant.productFlavors[0].name + "_${variant.versionCode}" + "_${variant.versionName}.apk"))
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: '*.jar', dir: 'libs')
+    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.alibaba.sdk.android.plugins:alisdk-hotfix:1.0.0.3'
+    compile 'com.alibaba.sdk.android.plugins.jar:alisdk-utdid:0.0.1'
+    compile 'com.daimajia.numberprogressbar:library:1.2@aar'
+    compile 'com.github.chrisbanes:PhotoView:1.2.6'
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.alibaba:fastjson:1.1.54.android'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'com.github.bumptech.glide:glide:3.5.2'
+    compile('com.github.worker8:tourguide:1.0.17-SNAPSHOT@aar') {
+        transitive = true
+    }
+    compile 'cn.jiguang:jpush:2.2.0'
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.0'
+    testCompile 'junit:junit:4.12'
+    compile project(':module_um')
+}
+
