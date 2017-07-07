@@ -34,8 +34,8 @@ def login():
  d.get(url)
  time.sleep(1)
  d.find_element_by_css_selector("#J_Quick2Static").click()
- d.find_element_by_css_selector("#TPL_username_1").send_keys("99806761@qq.com")
- d.find_element_by_css_selector("#TPL_password_1").send_keys("810830.")
+ d.find_element_by_css_selector("#TPL_username_1").send_keys("1111@qq.com")
+ d.find_element_by_css_selector("#TPL_password_1").send_keys("1111")
  d.find_element_by_css_selector("#J_SubmitStatic").click()
  time.sleep(5)
 def xingneng():
