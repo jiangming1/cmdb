@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mingzi: MyString
+  svn: MyString
+  port: MyString
+  miaoshu: MyString
+  diannao_id: MyString
+
+two:
+  mingzi: MyString
+  svn: MyString
+  port: MyString
+  miaoshu: MyString
+  diannao_id: MyString

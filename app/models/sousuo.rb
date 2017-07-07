@@ -1,0 +1,2 @@
+class Sousuo < ApplicationRecord
+end

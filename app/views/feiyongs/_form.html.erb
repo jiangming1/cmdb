@@ -1,0 +1,32 @@
+<%= form_for(feiyong) do |f| %>
+  <% if feiyong.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(feiyong.errors.count, "error") %> prohibited this feiyong from being saved:</h2>
+
+      <ul>
+      <% feiyong.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mingzi %>
+    <%= f.text_field :mingzi %>
+  </div>
+
+  <div class="field">
+    <%= f.label :jine %>
+    <%= f.text_field :jine %>
+  </div>
+
+  <div class="field">
+    <%= f.label :miaoshu %>
+    <%= f.text_field :miaoshu %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

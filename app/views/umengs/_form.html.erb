@@ -1,0 +1,37 @@
+<%= form_for(umeng) do |f| %>
+  <% if umeng.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(umeng.errors.count, "error") %> prohibited this umeng from being saved:</h2>
+
+      <ul>
+      <% umeng.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :yingyongming %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :jinrixinzeng %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :huoyueyonghu %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :zuoriqidongcishu %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :zuorileiji %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

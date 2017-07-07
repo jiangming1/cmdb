@@ -1,0 +1,2 @@
+class Umeng < ApplicationRecord
+end

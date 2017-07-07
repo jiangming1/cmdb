@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mingzi:</strong>
+  <%= @menu.mingzi %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @menu.url %>
+</p>
+
+<%= link_to 'Edit', edit_menu_path(@menu) %> |
+<%= link_to 'Back', menus_path %>

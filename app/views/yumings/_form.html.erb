@@ -1,0 +1,32 @@
+<%= form_for(yuming) do |f| %>
+  <% if yuming.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(yuming.errors.count, "error") %> prohibited this yuming from being saved:</h2>
+
+      <ul>
+      <% yuming.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mingzi %>
+    <%= f.text_field :mingzi %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ip %>
+    <%= f.text_field :ip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :miaoshu %>
+    <%= f.text_field :miaoshu %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

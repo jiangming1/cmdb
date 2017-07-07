@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  zuoyemingchen: MyString
+  yuanwenjian: MyText
+  mubiaowenjian: MyString
+  zhixingzhanghu: MyString
+  mubiaojiqi: MyString
+
+two:
+  zuoyemingchen: MyString
+  yuanwenjian: MyText
+  mubiaowenjian: MyString
+  zhixingzhanghu: MyString
+  mubiaojiqi: MyString

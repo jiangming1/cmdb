@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mingzi:</strong>
+  <%= @dn.mingzi %>
+</p>
+
+<p>
+  <strong>Zhujijilu:</strong>
+  <%= @dn.zhujijilu %>
+</p>
+
+<p>
+  <strong>Ip:</strong>
+  <%= @dn.ip %>
+</p>
+
+<p>
+  <strong>Miaoshu:</strong>
+  <%= @dn.miaoshu %>
+</p>
+
+<p>
+  <strong>Ttl:</strong>
+  <%= @dn.ttl %>
+</p>
+
+<%= link_to 'Edit', edit_dn_path(@dn) %> |
+<%= link_to 'Back', dns_path %>

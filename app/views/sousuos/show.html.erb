@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>appname:</strong>
+  <%= @sousuo.appname %>
+</p>
+
+<p>
+  <strong>公司:</strong>
+  <%= @sousuo.gongsi %>
+</p>
+
+<p>
+  <strong>类型:</strong>
+  <%= @sousuo.leixing %>
+</p>
+
+<p>
+  <strong>type:</strong>
+  <%= @sousuo.type %>
+</p>
+
+<p>
+  <strong>趋势:</strong>
+  <%= @sousuo.qushi %>
+</p>
+
+<%= link_to 'Edit', edit_sousuo_path(@sousuo) %> |
+<%= link_to 'Back', sousuos_path %>

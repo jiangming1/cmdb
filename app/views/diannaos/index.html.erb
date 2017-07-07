@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Diannaos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mingzi</th>
+      <th>Ip</th>
+      <th>Neiip</th>
+      <th>Yonghu</th>
+      <th>Mima</th>
+      <th>Pubkey</th>
+      <th>Miaoshu</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @diannaos.each do |diannao| %>
+      <tr>
+        <td><%= diannao.mingzi %></td>
+        <td><%= diannao.ip %></td>
+        <td><%= diannao.neiip %></td>
+        <td><%= diannao.yonghu %></td>
+        <td><%= diannao.pubkey %></td>
+        <td><%= diannao.miaoshu %></td>
+        <td><%= link_to 'Show', diannao %></td>
+        <td><%= link_to 'Edit', edit_diannao_path(diannao) %></td>
+        <td><%= link_to 'Destroy', diannao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Diannao', new_diannao_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ip:</strong>
+  <%= @shouji.ip %>
+</p>
+
+<p>
+  <strong>Myid:</strong>
+  <%= @shouji.myid %>
+</p>
+
+<p>
+  <strong>Beizhu:</strong>
+  <%= @shouji.beizhu %>
+</p>
+
+<%= link_to 'Edit', edit_shouji_path(@shouji) %> |
+<%= link_to 'Back', shoujis_path %>

@@ -1,0 +1,2 @@
+class Feiyong < ApplicationRecord
+end

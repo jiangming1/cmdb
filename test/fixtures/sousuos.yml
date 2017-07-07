@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  appname: MyString
+  gongsi: MyString
+  leixing: MyString
+  type: 
+  qushi: MyString
+
+two:
+  appname: MyString
+  gongsi: MyString
+  leixing: MyString
+  type: 
+  qushi: MyString

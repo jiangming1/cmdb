@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Androidupdates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Shichang</th>
+      <th>Fabushijian</th>
+      <th>Apkurl</th>
+      <th>Versioncode</th>
+      <th>Versionname</th>
+      <th>Summary</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @androidupdates.each do |androidupdate| %>
+      <tr>
+        <td><%= androidupdate.shichang %></td>
+        <td><%= androidupdate.fabushijian %></td>
+        <td><%= androidupdate.apkurl %></td>
+        <td><%= androidupdate.versioncode %></td>
+        <td><%= androidupdate.versionname %></td>
+        <td><%= androidupdate.summary %></td>
+        <td><%= link_to 'Show', androidupdate %></td>
+        <td><%= link_to 'Edit', edit_androidupdate_path(androidupdate) %></td>
+        <td><%= link_to 'Destroy', androidupdate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Androidupdate', new_androidupdate_path %>

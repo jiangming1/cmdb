@@ -1,0 +1,2 @@
+class Androidupdate < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class Fuwu < ApplicationRecord
+end

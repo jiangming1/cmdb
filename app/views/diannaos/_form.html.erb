@@ -1,0 +1,52 @@
+<%= form_for(diannao) do |f| %>
+  <% if diannao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(diannao.errors.count, "error") %> prohibited this diannao from being saved:</h2>
+
+      <ul>
+      <% diannao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mingzi %>
+    <%= f.text_field :mingzi %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ip %>
+    <%= f.text_field :ip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :neiip %>
+    <%= f.text_field :neiip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :yonghu %>
+    <%= f.text_field :yonghu %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mima %>
+    <%= f.text_field :mima %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pubkey %>
+    <%= f.text_field :pubkey %>
+  </div>
+
+  <div class="field">
+    <%= f.label :miaoshu %>
+    <%= f.text_field :miaoshu %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

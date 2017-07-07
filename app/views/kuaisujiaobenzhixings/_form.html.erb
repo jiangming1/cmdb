@@ -1,0 +1,52 @@
+<%= form_for(kuaisujiaobenzhixing) do |f| %>
+  <% if kuaisujiaobenzhixing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(kuaisujiaobenzhixing.errors.count, "error") %> prohibited this kuaisujiaobenzhixing from being saved:</h2>
+
+      <ul>
+      <% kuaisujiaobenzhixing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    脚本名臣
+    <%= f.text_field :jiaobenmingchen %>
+  </div>
+
+  <div class="field">
+    执行账户
+    <%= f.text_field :zhixingzhanghu %>
+  </div>
+
+  <div class="field">
+    目标机器
+    <%= f.text_field :mubiaojiqi %>
+  </div>
+
+  <div class="field">
+    脚本来源
+    <%= f.text_field :jiaobenlaiyuan %>
+  </div>
+
+  <div class="field">
+    脚本内容
+    <%= f.text_field :jiaobenneirong %>
+  </div>
+
+  <div class="field">
+    脚本参数
+    <%= f.text_field :jiaobencanshu %>
+  </div>
+
+  <div class="field">
+    超时时间
+    <%= f.text_field :chaoshishijian %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module KuaisuzhixingsqljiaobensHelper
+end

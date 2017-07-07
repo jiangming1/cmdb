@@ -1,0 +1,47 @@
+<%= form_for(shujukuzhanghu) do |f| %>
+  <% if shujukuzhanghu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shujukuzhanghu.errors.count, "error") %> prohibited this shujukuzhanghu from being saved:</h2>
+
+      <ul>
+      <% shujukuzhanghu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    数据库账号别名
+    <%= f.text_field :shujukuzhanghaobieming %>
+  </div>
+
+  <div class="field">
+    数据库账号
+    <%= f.text_field :shujukuzhanghao %>
+  </div>
+
+  <div class="field">
+    数据库密码
+    <%= f.text_field :shujukumima %>
+  </div>
+
+  <div class="field">
+    duankou
+    <%= f.text_field :duankou %>
+  </div>
+
+  <div class="field">
+    类型
+    <%= f.text_field :leixing %>
+  </div>
+
+  <div class="field">
+    之星的系统账户
+    <%= f.text_field :zhixingdexitongzhanghu %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

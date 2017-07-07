@@ -1,0 +1,57 @@
+<%= form_for(shuabang) do |f| %>
+  <% if shuabang.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shuabang.errors.count, "error") %> prohibited this shuabang from being saved:</h2>
+
+      <ul>
+      <% shuabang.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    app名字
+    <%= f.text_field :appmingzi %>
+  </div>
+
+  <div class="field">
+    关键词
+    <%= f.text_field :guanjianci %>
+  </div>
+
+  <div class="field">
+    laopaiming
+    <%= f.text_field :laopaiming %>
+  </div>
+
+  <div class="field">
+    排名
+    <%= f.text_field :paiming %>
+  </div>
+
+  <div class="field">
+    apple数量
+    <%= f.text_field :appleshuliang %>
+  </div>
+
+  <div class="field">
+    刷榜时间
+    <%= f.text_field :shuabangshijian %>
+  </div>
+
+  <div class="field">
+    上升时间
+    <%= f.text_field :shangshengshijian %>
+  </div>
+
+  <div class="field">
+    备注
+    <%= f.text_field :beizhu %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

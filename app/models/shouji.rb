@@ -1,0 +1,2 @@
+class Shouji < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+module PingguodingshirenwusHelper
+end

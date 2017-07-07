@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>app名字:</strong>
+  <%= @shuabang.appmingzi %>
+</p>
+
+<p>
+  <strong>关键词:</strong>
+  <%= @shuabang.guanjianci %>
+</p>
+
+<p>
+  <strong>laopaiming:</strong>
+  <%= @shuabang.laopaiming %>
+</p>
+
+<p>
+  <strong>排名:</strong>
+  <%= @shuabang.paiming %>
+</p>
+
+<p>
+  <strong>apple数量:</strong>
+  <%= @shuabang.appleshuliang %>
+</p>
+
+<p>
+  <strong>刷榜时间:</strong>
+  <%= @shuabang.shuabangshijian %>
+</p>
+
+<p>
+  <strong>上升时间:</strong>
+  <%= @shuabang.shangshengshijian %>
+</p>
+
+<p>
+  <strong>备注:</strong>
+  <%= @shuabang.beizhu %>
+</p>
+
+<%= link_to 'Edit', edit_shuabang_path(@shuabang) %> |
+<%= link_to 'Back', shuabangs_path %>

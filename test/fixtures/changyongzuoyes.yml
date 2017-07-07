@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  zuoyemingchen: MyString
+  fenleibiaoqian: MyString
+  quanjubianliangshezhi: MyString
+  buzhoumingchen: MyString
+  jiaobenmingchen: MyString
+  zhixingzhanghu: MyString
+  fuwuqishu: MyString
+  jiaobencanshu: MyString
+  wanchenghouzhanting: MyString
+
+two:
+  zuoyemingchen: MyString
+  fenleibiaoqian: MyString
+  quanjubianliangshezhi: MyString
+  buzhoumingchen: MyString
+  jiaobenmingchen: MyString
+  zhixingzhanghu: MyString
+  fuwuqishu: MyString
+  jiaobencanshu: MyString
+  wanchenghouzhanting: MyString

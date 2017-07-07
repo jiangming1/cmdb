@@ -1,0 +1,42 @@
+<%= form_for(fuwu) do |f| %>
+  <% if fuwu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fuwu.errors.count, "error") %> prohibited this fuwu from being saved:</h2>
+
+      <ul>
+      <% fuwu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mingzi %>
+    <%= f.text_field :mingzi %>
+  </div>
+
+  <div class="field">
+    <%= f.label :svn %>
+    <%= f.text_field :svn %>
+  </div>
+
+  <div class="field">
+    <%= f.label :port %>
+    <%= f.text_field :port %>
+  </div>
+
+  <div class="field">
+    <%= f.label :miaoshu %>
+    <%= f.text_field :miaoshu %>
+  </div>
+
+  <div class="field">
+    <%= f.label :diannao_id %>
+    <%= f.text_field :diannao_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

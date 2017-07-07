@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Jiankongs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>mingzi</th>
+      <th>script</th>
+      <th>描述</th>
+      <th>Fuwu</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jiankongs.each do |jiankong| %>
+      <tr>
+        <td><%= jiankong.mingzi %></td>
+        <td><%= jiankong.script %></td>
+        <td><%= jiankong.miaoshu %></td>
+        <td><%= jiankong.fuwu_id %></td>
+        <td><%= link_to 'Show', jiankong %></td>
+        <td><%= link_to 'Edit', edit_jiankong_path(jiankong) %></td>
+        <td><%= link_to 'Destroy', jiankong, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Jiankong', new_jiankong_path %>

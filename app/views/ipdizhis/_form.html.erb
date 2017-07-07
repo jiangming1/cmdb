@@ -1,0 +1,62 @@
+<%= form_for(ipdizhi) do |f| %>
+  <% if ipdizhi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ipdizhi.errors.count, "error") %> prohibited this ipdizhi from being saved:</h2>
+
+      <ul>
+      <% ipdizhi.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    网段
+    <%= f.text_field :wangduan %>
+  </div>
+
+  <div class="field">
+    vlan
+    <%= f.text_field :vlan %>
+  </div>
+
+  <div class="field">
+    ip
+    <%= f.text_field :ip %>
+  </div>
+
+  <div class="field">
+    掩码
+    <%= f.text_field :yanma %>
+  </div>
+
+  <div class="field">
+    系统名称
+    <%= f.text_field :xitongmingcheng %>
+  </div>
+
+  <div class="field">
+    应用端口
+    <%= f.text_field :yingyongduankou %>
+  </div>
+
+  <div class="field">
+    域名
+    <%= f.text_field :yuming %>
+  </div>
+
+  <div class="field">
+    备注
+    <%= f.text_field :beizhu %>
+  </div>
+
+  <div class="field">
+    quyu
+    <%= f.text_field :quyu %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

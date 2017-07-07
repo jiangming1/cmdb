@@ -1,0 +1,42 @@
+<%= form_for(dn) do |f| %>
+  <% if dn.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dn.errors.count, "error") %> prohibited this dn from being saved:</h2>
+
+      <ul>
+      <% dn.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mingzi %>
+    <%= f.text_field :mingzi %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zhujijilu %>
+    <%= f.text_field :zhujijilu %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ip %>
+    <%= f.text_field :ip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :miaoshu %>
+    <%= f.text_field :miaoshu %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ttl %>
+    <%= f.number_field :ttl %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

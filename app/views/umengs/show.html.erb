@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>应用名:</strong>
+  <%= @umeng.yingyongming %>
+</p>
+
+<p>
+  <strong>今日新增:</strong>
+  <%= @umeng.jinrixinzeng %>
+</p>
+
+<p>
+  <strong>活跃用户:</strong>
+  <%= @umeng.huoyueyonghu %>
+</p>
+
+<p>
+  <strong>昨日启动次数:</strong>
+  <%= @umeng.zuoriqidongcishu %>
+</p>
+
+<p>
+  <strong>昨日累计:</strong>
+  <%= @umeng.zuorileiji %>
+</p>
+
+<%= link_to 'Edit', edit_umeng_path(@umeng) %> |
+<%= link_to 'Back', umengs_path %>

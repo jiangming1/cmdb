@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>苹果定时任务</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>程序名称</th>
+      <th>关键词</th>
+      <th>第几名</th>
+      <th>备注</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pingguodingshirenwus.each do |pingguodingshirenwu| %>
+      <tr>
+        <td><%= pingguodingshirenwu.chengxumingcheng %></td>
+        <td><%= pingguodingshirenwu.guanjianci %></td>
+        <td><%= pingguodingshirenwu.dijiming %></td>
+        <td><%= pingguodingshirenwu.beizhu %></td>
+        <td><%= link_to 'Show', pingguodingshirenwu %></td>
+        <td><%= link_to 'Edit', edit_pingguodingshirenwu_path(pingguodingshirenwu) %></td>
+        <td><%= link_to 'Destroy', pingguodingshirenwu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建苹果定时任务', new_pingguodingshirenwu_path %>

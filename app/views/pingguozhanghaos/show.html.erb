@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>账号:</strong>
+  <%= @pingguozhanghao.zhanghao %>
+</p>
+
+<p>
+  <strong>账号mima:</strong>
+  <%= @pingguozhanghao.zhanghaomima %>
+</p>
+
+<p>
+  <strong>备注:</strong>
+  <%= @pingguozhanghao.beizhu %>
+</p>
+
+<p>
+  <strong>状态:</strong>
+  <%= @pingguozhanghao.zhuangtai %>
+</p>
+
+<%= link_to 'Edit', edit_pingguozhanghao_path(@pingguozhanghao) %> |
+<%= link_to 'Back', pingguozhanghaos_path %>

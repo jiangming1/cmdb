@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shujukuzhanghaobieming: MyString
+  shujukuzhanghao: MyString
+  shujukumima: MyString
+  duankou: MyString
+  leixing: MyString
+  zhixingdexitongzhanghu: MyString
+
+two:
+  shujukuzhanghaobieming: MyString
+  shujukuzhanghao: MyString
+  shujukumima: MyString
+  duankou: MyString
+  leixing: MyString
+  zhixingdexitongzhanghu: MyString

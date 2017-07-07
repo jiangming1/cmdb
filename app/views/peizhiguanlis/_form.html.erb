@@ -1,0 +1,47 @@
+<%= form_for(peizhiguanli) do |f| %>
+  <% if peizhiguanli.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(peizhiguanli.errors.count, "error") %> prohibited this peizhiguanli from being saved:</h2>
+
+      <ul>
+      <% peizhiguanli.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    mingzi
+    <%= f.text_field :mingzi %>
+  </div>
+
+  <div class="field">
+    主机记录
+    <%= f.text_field :zhujijilu %>
+  </div>
+
+  <div class="field">
+    ip
+    <%= f.text_field :ip %>
+  </div>
+
+  <div class="field">
+    script
+    <%= f.text_area :script %>
+  </div>
+
+  <div class="field">
+    描述
+    <%= f.text_field :miaoshu %>
+  </div>
+
+  <div class="field">
+    ttl
+    <%= f.number_field :ttl %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

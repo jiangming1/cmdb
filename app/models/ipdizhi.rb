@@ -1,0 +1,2 @@
+class Ipdizhi < ApplicationRecord
+end

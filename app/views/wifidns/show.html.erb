@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @wifidn.name %>
+</p>
+
+<p>
+  <strong>Script:</strong>
+  <%= @wifidn.script %>
+</p>
+
+<p>
+  <strong>Miaoshu:</strong>
+  <%= @wifidn.miaoshu %>
+</p>
+
+<%= link_to 'Edit', edit_wifidn_path(@wifidn) %> |
+<%= link_to 'Back', wifidns_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>快速脚本执行</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>脚本名臣</th>
+      <th>执行账户</th>
+      <th>目标机器</th>
+      <th>脚本来源</th>
+      <th>脚本内容</th>
+      <th>脚本参数</th>
+      <th>超时时间</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kuaisujiaobenzhixings.each do |kuaisujiaobenzhixing| %>
+      <tr>
+        <td><%= kuaisujiaobenzhixing.jiaobenmingchen %></td>
+        <td><%= kuaisujiaobenzhixing.zhixingzhanghu %></td>
+        <td><%= kuaisujiaobenzhixing.mubiaojiqi %></td>
+        <td><%= kuaisujiaobenzhixing.jiaobenlaiyuan %></td>
+        <td><%= kuaisujiaobenzhixing.jiaobenneirong %></td>
+        <td><%= kuaisujiaobenzhixing.jiaobencanshu %></td>
+        <td><%= kuaisujiaobenzhixing.chaoshishijian %></td>
+        <td><%= link_to 'Show', kuaisujiaobenzhixing %></td>
+        <td><%= link_to 'Edit', edit_kuaisujiaobenzhixing_path(kuaisujiaobenzhixing) %></td>
+        <td><%= link_to 'Destroy', kuaisujiaobenzhixing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建快速脚本执行', new_kuaisujiaobenzhixing_path %>

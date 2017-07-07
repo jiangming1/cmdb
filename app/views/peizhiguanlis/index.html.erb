@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>配置管理</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>mingzi</th>
+      <th>主机记录</th>
+      <th>ip</th>
+      <th>script</th>
+      <th>描述</th>
+      <th>ttl</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @peizhiguanlis.each do |peizhiguanli| %>
+      <tr>
+        <td><%= peizhiguanli.mingzi %></td>
+        <td><%= peizhiguanli.zhujijilu %></td>
+        <td><%= peizhiguanli.ip %></td>
+        <td><%= peizhiguanli.script %></td>
+        <td><%= peizhiguanli.miaoshu %></td>
+        <td><%= peizhiguanli.ttl %></td>
+        <td><%= link_to 'Show', peizhiguanli %></td>
+        <td><%= link_to 'Edit', edit_peizhiguanli_path(peizhiguanli) %></td>
+        <td><%= link_to 'Destroy', peizhiguanli, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建配置管理', new_peizhiguanli_path %>

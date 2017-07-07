@@ -1,0 +1,2 @@
+class Sslzhengshu < ApplicationRecord
+end

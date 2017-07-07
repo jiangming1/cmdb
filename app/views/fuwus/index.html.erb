@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fuwus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mingzi</th>
+      <th>Svn</th>
+      <th>Port</th>
+      <th>Miaoshu</th>
+      <th>Diannao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fuwus.each do |fuwu| %>
+      <tr>
+        <td><%= fuwu.mingzi %></td>
+        <td><%= fuwu.svn %></td>
+        <td><%= fuwu.port %></td>
+        <td><%= fuwu.miaoshu %></td>
+        <td><%= fuwu.diannao_id %></td>
+        <td><%= link_to 'Show', fuwu %></td>
+        <td><%= link_to 'Edit', edit_fuwu_path(fuwu) %></td>
+        <td><%= link_to 'Destroy', fuwu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fuwu', new_fuwu_path %>

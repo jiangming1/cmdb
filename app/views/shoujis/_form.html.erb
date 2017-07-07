@@ -1,0 +1,32 @@
+<%= form_for(shouji) do |f| %>
+  <% if shouji.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shouji.errors.count, "error") %> prohibited this shouji from being saved:</h2>
+
+      <ul>
+      <% shouji.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ip %>
+    <%= f.text_field :ip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :myid %>
+    <%= f.text_field :myid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :beizhu %>
+    <%= f.text_field :beizhu %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

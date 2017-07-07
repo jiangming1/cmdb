@@ -1,0 +1,2 @@
+class Dingshirenwu < ApplicationRecord
+end

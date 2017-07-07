@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>快速执行sql脚本</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>脚本名臣</th>
+      <th>dbzhanghaobieming</th>
+      <th>目标机器</th>
+      <th>脚本内容</th>
+      <th>超时时间</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kuaisuzhixingsqljiaobens.each do |kuaisuzhixingsqljiaoben| %>
+      <tr>
+        <td><%= kuaisuzhixingsqljiaoben.jiaobenmingchen %></td>
+        <td><%= kuaisuzhixingsqljiaoben.dbzhanghaobieming %></td>
+        <td><%= kuaisuzhixingsqljiaoben.mubiaojiqi %></td>
+        <td><%= kuaisuzhixingsqljiaoben.jiaobenneirong %></td>
+        <td><%= kuaisuzhixingsqljiaoben.chaoshishijian %></td>
+        <td><%= link_to 'Show', kuaisuzhixingsqljiaoben %></td>
+        <td><%= link_to 'Edit', edit_kuaisuzhixingsqljiaoben_path(kuaisuzhixingsqljiaoben) %></td>
+        <td><%= link_to 'Destroy', kuaisuzhixingsqljiaoben, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建快速执行sql脚本', new_kuaisuzhixingsqljiaoben_path %>

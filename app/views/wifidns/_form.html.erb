@@ -1,0 +1,32 @@
+<%= form_for(wifidn) do |f| %>
+  <% if wifidn.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wifidn.errors.count, "error") %> prohibited this wifidn from being saved:</h2>
+
+      <ul>
+      <% wifidn.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :script %>
+    <%= f.text_area :script %>
+  </div>
+
+  <div class="field">
+    <%= f.label :miaoshu %>
+    <%= f.text_field :miaoshu %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

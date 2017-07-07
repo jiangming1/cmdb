@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Yumings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mingzi</th>
+      <th>Ip</th>
+      <th>Miaoshu</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @yumings.each do |yuming| %>
+      <tr>
+        <td><%= yuming.mingzi %></td>
+        <td><%= yuming.ip %></td>
+        <td><%= yuming.miaoshu %></td>
+        <td><%= link_to 'Show', yuming %></td>
+        <td><%= link_to 'Edit', edit_yuming_path(yuming) %></td>
+        <td><%= link_to 'Destroy', yuming, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Yuming', new_yuming_path %>

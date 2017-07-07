@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shoujis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ip</th>
+      <th>Myid</th>
+      <th>Beizhu</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shoujis.each do |shouji| %>
+      <tr>
+        <td><%= shouji.ip %></td>
+        <td><%= shouji.myid %></td>
+        <td><%= shouji.beizhu %></td>
+        <td><%= link_to 'Show', shouji %></td>
+        <td><%= link_to 'Edit', edit_shouji_path(shouji) %></td>
+        <td><%= link_to 'Destroy', shouji, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shouji', new_shouji_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wifidns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Script</th>
+      <th>Miaoshu</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wifidns.each do |wifidn| %>
+      <tr>
+        <td><%= wifidn.name %></td>
+        <td><%= wifidn.script %></td>
+        <td><%= wifidn.miaoshu %></td>
+        <td><%= link_to 'Edit', edit_wifidn_path(wifidn) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wifidn', new_wifidn_path %>

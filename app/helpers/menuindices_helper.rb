@@ -1,0 +1,2 @@
+module MenuindicesHelper
+end

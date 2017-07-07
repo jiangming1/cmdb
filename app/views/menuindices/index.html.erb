@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Menuindices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mingzi</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @menuindices.each do |menuindex| %>
+      <tr>
+        <td><%= menuindex.mingzi %></td>
+        <td><%= menuindex.url %></td>
+        <td><%= link_to 'Show', menuindex %></td>
+        <td><%= link_to 'Edit', edit_menuindex_path(menuindex) %></td>
+        <td><%= link_to 'Destroy', menuindex, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Menuindex', new_menuindex_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>定时任务</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>定时任务</th>
+      <th>昨夜星辰</th>
+      <th>定时规则</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dingshirenwus.each do |dingshirenwu| %>
+      <tr>
+        <td><%= dingshirenwu.dingshirenwu %></td>
+        <td><%= dingshirenwu.zuoyemingchen %></td>
+        <td><%= dingshirenwu.dingshiguize %></td>
+        <td><%= link_to 'Show', dingshirenwu %></td>
+        <td><%= link_to 'Edit', edit_dingshirenwu_path(dingshirenwu) %></td>
+        <td><%= link_to 'Destroy', dingshirenwu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建定时任务', new_dingshirenwu_path %>

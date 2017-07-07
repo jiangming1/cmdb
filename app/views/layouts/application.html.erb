@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A</title>
+    <%= csrf_meta_tags %>
+<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/js/jquery-1.10.2.min.js"></script>
+<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/echarts-2.0/echarts-all.js"></script>
+<link href="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css/bk.css" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+  <script>
+  $("table").attr("class","table table-out-bordered table-header-bg table-hover f12")
+  $("input").attr("class","classform-control")
+  $('input[type="submit"]').attr("class","king-btn king-primary")
+  $('a').attr("class","king-btn king-primary")
+  $('tr > td:last-child').remove()
+ $('tr > td:nth-last-child(2)').remove()
+
+  $('tr > td:last-child > a').attr("class","glyphicon glyphicon-pencil").html("")
+
+
+  </script>
+</html>

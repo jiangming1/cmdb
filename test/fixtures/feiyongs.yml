@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mingzi: MyString
+  jine: 9.99
+  miaoshu: MyString
+
+two:
+  mingzi: MyString
+  jine: 9.99
+  miaoshu: MyString

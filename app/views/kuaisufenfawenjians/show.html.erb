@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>昨夜星辰:</strong>
+  <%= @kuaisufenfawenjian.zuoyemingchen %>
+</p>
+
+<p>
+  <strong>源文件:</strong>
+  <%= @kuaisufenfawenjian.yuanwenjian %>
+</p>
+
+<p>
+  <strong>目标文件:</strong>
+  <%= @kuaisufenfawenjian.mubiaowenjian %>
+</p>
+
+<p>
+  <strong>执行账户:</strong>
+  <%= @kuaisufenfawenjian.zhixingzhanghu %>
+</p>
+
+<p>
+  <strong>目标机器:</strong>
+  <%= @kuaisufenfawenjian.mubiaojiqi %>
+</p>
+
+<%= link_to 'Edit', edit_kuaisufenfawenjian_path(@kuaisufenfawenjian) %> |
+<%= link_to 'Back', kuaisufenfawenjians_path %>

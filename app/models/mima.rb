@@ -1,0 +1,2 @@
+class Mima < ApplicationRecord
+end

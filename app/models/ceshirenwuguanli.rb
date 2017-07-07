@@ -1,0 +1,2 @@
+class Ceshirenwuguanli < ApplicationRecord
+end

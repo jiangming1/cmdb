@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mingzi</th>
+      <th>Zhujijilu</th>
+      <th>Ip</th>
+      <th>Miaoshu</th>
+      <th>Ttl</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dns.each do |dn| %>
+      <tr>
+        <td><%= dn.mingzi %></td>
+        <td><%= dn.zhujijilu %></td>
+        <td><%= dn.ip %></td>
+        <td><%= dn.miaoshu %></td>
+        <td><%= dn.ttl %></td>
+        <td><%= link_to 'Show', dn %></td>
+        <td><%= link_to 'Edit', edit_dn_path(dn) %></td>
+        <td><%= link_to 'Destroy', dn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dn', new_dn_path %>

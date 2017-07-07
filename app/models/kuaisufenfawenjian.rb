@@ -1,0 +1,2 @@
+class Kuaisufenfawenjian < ApplicationRecord
+end

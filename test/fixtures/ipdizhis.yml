@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wangduan: MyString
+  vlan: MyString
+  ip: MyString
+  yanma: MyString
+  xitongmingcheng: MyString
+  yingyongduankou: MyString
+  yuming: MyString
+  beizhu: MyString
+  quyu: MyString
+
+two:
+  wangduan: MyString
+  vlan: MyString
+  ip: MyString
+  yanma: MyString
+  xitongmingcheng: MyString
+  yingyongduankou: MyString
+  yuming: MyString
+  beizhu: MyString
+  quyu: MyString

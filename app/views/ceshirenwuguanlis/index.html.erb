@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>测试任务管理</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>测试类型</th>
+      <th>测试项</th>
+      <th>脚本名称</th>
+      <th>创建时间</th>
+      <th>状态</th>
+      <th>测试结果</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ceshirenwuguanlis.each do |ceshirenwuguanli| %>
+      <tr>
+        <td><%= ceshirenwuguanli.ceshileixing %></td>
+        <td><%= ceshirenwuguanli.ceshixiang %></td>
+        <td><%= ceshirenwuguanli.jiaobenmingcheng %></td>
+        <td><%= ceshirenwuguanli.chuangjianshijian %></td>
+        <td><%= ceshirenwuguanli.zhuangtai %></td>
+        <td><%= ceshirenwuguanli.ceshijieguo %></td>
+        <td><%= link_to 'Show', ceshirenwuguanli %></td>
+        <td><%= link_to 'Edit', edit_ceshirenwuguanli_path(ceshirenwuguanli) %></td>
+        <td><%= link_to 'Destroy', ceshirenwuguanli, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建测试任务管理', new_ceshirenwuguanli_path %>

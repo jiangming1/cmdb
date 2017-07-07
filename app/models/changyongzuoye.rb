@@ -1,0 +1,2 @@
+class Changyongzuoye < ApplicationRecord
+end

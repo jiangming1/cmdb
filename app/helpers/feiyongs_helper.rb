@@ -1,0 +1,2 @@
+module FeiyongsHelper
+end

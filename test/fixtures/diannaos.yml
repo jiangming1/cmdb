@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mingzi: MyString
+  ip: MyString
+  neiip: MyString
+  yonghu: MyString
+  mima: MyString
+  pubkey: MyString
+  miaoshu: MyString
+
+two:
+  mingzi: MyString
+  ip: MyString
+  neiip: MyString
+  yonghu: MyString
+  mima: MyString
+  pubkey: MyString
+  miaoshu: MyString

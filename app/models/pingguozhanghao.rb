@@ -1,0 +1,2 @@
+class Pingguozhanghao < ApplicationRecord
+end

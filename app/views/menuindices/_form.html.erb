@@ -1,0 +1,27 @@
+<%= form_for(menuindex) do |f| %>
+  <% if menuindex.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(menuindex.errors.count, "error") %> prohibited this menuindex from being saved:</h2>
+
+      <ul>
+      <% menuindex.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mingzi %>
+    <%= f.text_field :mingzi %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

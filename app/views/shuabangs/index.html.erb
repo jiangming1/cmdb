@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>刷榜</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>app名字</th>
+      <th>关键词</th>
+      <th>laopaiming</th>
+      <th>排名</th>
+      <th>apple数量</th>
+      <th>刷榜时间</th>
+      <th>上升时间</th>
+      <th>备注</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shuabangs.each do |shuabang| %>
+      <tr>
+        <td><%= shuabang.appmingzi %></td>
+        <td><%= shuabang.guanjianci %></td>
+        <td><%= shuabang.laopaiming %></td>
+        <td><%= shuabang.paiming %></td>
+        <td><%= shuabang.appleshuliang %></td>
+        <td><%= shuabang.shuabangshijian %></td>
+        <td><%= shuabang.shangshengshijian %></td>
+        <td><%= shuabang.beizhu %></td>
+        <td><%= link_to 'Show', shuabang %></td>
+        <td><%= link_to 'Edit', edit_shuabang_path(shuabang) %></td>
+        <td><%= link_to 'Destroy', shuabang, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建刷榜', new_shuabang_path %>

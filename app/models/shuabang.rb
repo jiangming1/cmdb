@@ -1,0 +1,2 @@
+class Shuabang < ApplicationRecord
+end

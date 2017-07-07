@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>快速分发文件</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>昨夜星辰</th>
+      <th>源文件</th>
+      <th>目标文件</th>
+      <th>执行账户</th>
+      <th>目标机器</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kuaisufenfawenjians.each do |kuaisufenfawenjian| %>
+      <tr>
+        <td><%= kuaisufenfawenjian.zuoyemingchen %></td>
+        <td><%= kuaisufenfawenjian.yuanwenjian %></td>
+        <td><%= kuaisufenfawenjian.mubiaowenjian %></td>
+        <td><%= kuaisufenfawenjian.zhixingzhanghu %></td>
+        <td><%= kuaisufenfawenjian.mubiaojiqi %></td>
+        <td><%= link_to 'Show', kuaisufenfawenjian %></td>
+        <td><%= link_to 'Edit', edit_kuaisufenfawenjian_path(kuaisufenfawenjian) %></td>
+        <td><%= link_to 'Destroy', kuaisufenfawenjian, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建快速分发文件', new_kuaisufenfawenjian_path %>

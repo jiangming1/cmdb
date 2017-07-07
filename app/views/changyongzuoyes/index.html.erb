@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>常用作业</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>昨夜星辰</th>
+      <th>分类标签</th>
+      <th>全局变量设置</th>
+      <th>部周明臣</th>
+      <th>脚本名臣</th>
+      <th>执行账户</th>
+      <th>服务器书</th>
+      <th>脚本参数</th>
+      <th>完成后展厅</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @changyongzuoyes.each do |changyongzuoye| %>
+      <tr>
+        <td><%= changyongzuoye.zuoyemingchen %></td>
+        <td><%= changyongzuoye.fenleibiaoqian %></td>
+        <td><%= changyongzuoye.quanjubianliangshezhi %></td>
+        <td><%= changyongzuoye.buzhoumingchen %></td>
+        <td><%= changyongzuoye.jiaobenmingchen %></td>
+        <td><%= changyongzuoye.zhixingzhanghu %></td>
+        <td><%= changyongzuoye.fuwuqishu %></td>
+        <td><%= changyongzuoye.jiaobencanshu %></td>
+        <td><%= changyongzuoye.wanchenghouzhanting %></td>
+        <td><%= link_to 'Show', changyongzuoye %></td>
+        <td><%= link_to 'Edit', edit_changyongzuoye_path(changyongzuoye) %></td>
+        <td><%= link_to 'Destroy', changyongzuoye, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建常用作业', new_changyongzuoye_path %>

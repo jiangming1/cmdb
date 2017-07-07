@@ -1,0 +1,37 @@
+<%= form_for(sslzhengshu) do |f| %>
+  <% if sslzhengshu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sslzhengshu.errors.count, "error") %> prohibited this sslzhengshu from being saved:</h2>
+
+      <ul>
+      <% sslzhengshu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :script %>
+    <%= f.text_field :script %>
+  </div>
+
+  <div class="field">
+    <%= f.label :guoqiriqi %>
+    <%= f.text_field :guoqiriqi %>
+  </div>
+
+  <div class="field">
+    <%= f.label :miaoshu %>
+    <%= f.text_field :miaoshu %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

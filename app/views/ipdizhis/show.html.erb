@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>网段:</strong>
+  <%= @ipdizhi.wangduan %>
+</p>
+
+<p>
+  <strong>vlan:</strong>
+  <%= @ipdizhi.vlan %>
+</p>
+
+<p>
+  <strong>ip:</strong>
+  <%= @ipdizhi.ip %>
+</p>
+
+<p>
+  <strong>掩码:</strong>
+  <%= @ipdizhi.yanma %>
+</p>
+
+<p>
+  <strong>系统名称:</strong>
+  <%= @ipdizhi.xitongmingcheng %>
+</p>
+
+<p>
+  <strong>应用端口:</strong>
+  <%= @ipdizhi.yingyongduankou %>
+</p>
+
+<p>
+  <strong>域名:</strong>
+  <%= @ipdizhi.yuming %>
+</p>
+
+<p>
+  <strong>备注:</strong>
+  <%= @ipdizhi.beizhu %>
+</p>
+
+<p>
+  <strong>quyu:</strong>
+  <%= @ipdizhi.quyu %>
+</p>
+
+<%= link_to 'Edit', edit_ipdizhi_path(@ipdizhi) %> |
+<%= link_to 'Back', ipdizhis_path %>

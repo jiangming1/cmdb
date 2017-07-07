@@ -1,0 +1,2 @@
+module PingguozhanghaosHelper
+end

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Umengs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>应用名</th>
+      <th>今日新增</th>
+      <th>活跃用户</th>
+      <th>昨日启动次数</th>
+      <th>昨日累计</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @umengs.each do |umeng| %>
+      <tr>
+        <td><%= umeng.yingyongming %></td>
+        <td><%= umeng.jinrixinzeng %></td>
+        <td><%= umeng.huoyueyonghu %></td>
+        <td><%= umeng.zuoriqidongcishu %></td>
+        <td><%= umeng.zuorileiji %></td>
+        <td><%= link_to 'Show', umeng %></td>
+        <td><%= link_to 'Edit', edit_umeng_path(umeng) %></td>
+        <td><%= link_to 'Destroy', umeng, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Umeng', new_umeng_path %>

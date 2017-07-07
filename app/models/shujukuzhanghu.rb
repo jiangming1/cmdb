@@ -1,0 +1,2 @@
+class Shujukuzhanghu < ApplicationRecord
+end

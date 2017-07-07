@@ -1,0 +1,2 @@
+module UmengsHelper
+end

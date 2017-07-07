@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sslzhengshus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Script</th>
+      <th>Guoqiriqi</th>
+      <th>Miaoshu</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sslzhengshus.each do |sslzhengshu| %>
+      <tr>
+        <td><%= sslzhengshu.name %></td>
+        <td><%= sslzhengshu.script %></td>
+        <td><%= sslzhengshu.guoqiriqi %></td>
+        <td><%= sslzhengshu.miaoshu %></td>
+        <td><%= link_to 'Show', sslzhengshu %></td>
+        <td><%= link_to 'Edit', edit_sslzhengshu_path(sslzhengshu) %></td>
+        <td><%= link_to 'Destroy', sslzhengshu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sslzhengshu', new_sslzhengshu_path %>

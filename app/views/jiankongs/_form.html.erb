@@ -1,0 +1,37 @@
+<%= form_for(jiankong) do |f| %>
+  <% if jiankong.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(jiankong.errors.count, "error") %> prohibited this jiankong from being saved:</h2>
+
+      <ul>
+      <% jiankong.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    mingzi
+    <%= f.text_field :mingzi %>
+  </div>
+
+  <div class="field">
+    script
+    <%= f.text_field :script %>
+  </div>
+
+  <div class="field">
+    描述
+    <%= f.text_field :miaoshu %>
+  </div>
+
+  <div class="field">
+    fuwu_id
+    <%= f.text_field :fuwu_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

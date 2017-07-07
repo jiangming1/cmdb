@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mingzi: MyString
+  zhujijilu: MyString
+  ip: MyString
+  script: MyString
+  miaoshu: MyString
+  ttl: 1
+
+two:
+  mingzi: MyString
+  zhujijilu: MyString
+  ip: MyString
+  script: MyString
+  miaoshu: MyString
+  ttl: 1

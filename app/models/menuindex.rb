@@ -1,0 +1,2 @@
+class Menuindex < ApplicationRecord
+end

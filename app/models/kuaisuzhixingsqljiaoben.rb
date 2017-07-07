@@ -1,0 +1,2 @@
+class Kuaisuzhixingsqljiaoben < ApplicationRecord
+end

@@ -1,0 +1,32 @@
+<%= form_for(mima) do |f| %>
+  <% if mima.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mima.errors.count, "error") %> prohibited this mima from being saved:</h2>
+
+      <ul>
+      <% mima.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mingzi %>
+    <%= f.text_field :mingzi %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mima %>
+    <%= f.text_field :mima %>
+  </div>
+
+  <div class="field">
+    <%= f.label :miaoshu %>
+    <%= f.text_field :miaoshu %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+class Diannao < ApplicationRecord
+end

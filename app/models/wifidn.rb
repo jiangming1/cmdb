@@ -1,0 +1,2 @@
+class Wifidn < ApplicationRecord
+end

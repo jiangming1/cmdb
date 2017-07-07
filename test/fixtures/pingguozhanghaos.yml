@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  zhanghao: MyString
+  zhanghaomima: MyString
+  beizhu: MyString
+  zhuangtai: MyString
+
+two:
+  zhanghao: MyString
+  zhanghaomima: MyString
+  beizhu: MyString
+  zhuangtai: MyString

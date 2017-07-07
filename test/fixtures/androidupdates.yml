@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shichang: MyString
+  fabushijian: MyString
+  apkurl: MyString
+  versioncode: MyString
+  versionname: MyString
+  summary: MyString
+
+two:
+  shichang: MyString
+  fabushijian: MyString
+  apkurl: MyString
+  versioncode: MyString
+  versionname: MyString
+  summary: MyString

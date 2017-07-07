@@ -1,0 +1,2 @@
+class Yuming < ApplicationRecord
+end

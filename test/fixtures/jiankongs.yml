@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mingzi: MyString
+  script: MyString
+  miaoshu: MyString
+  fuwu_id: MyString
+
+two:
+  mingzi: MyString
+  script: MyString
+  miaoshu: MyString
+  fuwu_id: MyString

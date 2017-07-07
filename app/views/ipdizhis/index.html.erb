@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ipdizhis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>网段</th>
+      <th>vlan</th>
+      <th>ip</th>
+      <th>掩码</th>
+      <th>系统名称</th>
+      <th>应用端口</th>
+      <th>域名</th>
+      <th>备注</th>
+      <th>quyu</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ipdizhis.each do |ipdizhi| %>
+      <tr>
+        <td><%= ipdizhi.wangduan %></td>
+        <td><%= ipdizhi.vlan %></td>
+        <td><%= ipdizhi.ip %></td>
+        <td><%= ipdizhi.yanma %></td>
+        <td><%= ipdizhi.xitongmingcheng %></td>
+        <td><%= ipdizhi.yingyongduankou %></td>
+        <td><%= ipdizhi.yuming %></td>
+        <td><%= ipdizhi.beizhu %></td>
+        <td><%= ipdizhi.quyu %></td>
+        <td><%= link_to 'Show', ipdizhi %></td>
+        <td><%= link_to 'Edit', edit_ipdizhi_path(ipdizhi) %></td>
+        <td><%= link_to 'Destroy', ipdizhi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ipdizhi', new_ipdizhi_path %>

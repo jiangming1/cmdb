@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>苹果账号</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>账号</th>
+      <th>账号mima</th>
+      <th>备注</th>
+      <th>状态</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pingguozhanghaos.each do |pingguozhanghao| %>
+      <tr>
+        <td><%= pingguozhanghao.zhanghao %></td>
+        <td><%= pingguozhanghao.zhanghaomima %></td>
+        <td><%= pingguozhanghao.beizhu %></td>
+        <td><%= pingguozhanghao.zhuangtai %></td>
+        <td><%= link_to 'Show', pingguozhanghao %></td>
+        <td><%= link_to 'Edit', edit_pingguozhanghao_path(pingguozhanghao) %></td>
+        <td><%= link_to 'Destroy', pingguozhanghao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建苹果账号', new_pingguozhanghao_path %>

@@ -1,0 +1,37 @@
+<%= form_for(pingguozhanghao) do |f| %>
+  <% if pingguozhanghao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pingguozhanghao.errors.count, "error") %> prohibited this pingguozhanghao from being saved:</h2>
+
+      <ul>
+      <% pingguozhanghao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    账号
+    <%= f.text_field :zhanghao %>
+  </div>
+
+  <div class="field">
+    账号密码
+    <%= f.text_field :zhanghaomima %>
+  </div>
+
+  <div class="field">
+    备注
+    <%= f.text_field :beizhu %>
+  </div>
+
+  <div class="field">
+    状态
+    <%= f.text_field :zhuangtai %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

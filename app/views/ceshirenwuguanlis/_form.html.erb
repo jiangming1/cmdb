@@ -1,0 +1,47 @@
+<%= form_for(ceshirenwuguanli) do |f| %>
+  <% if ceshirenwuguanli.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ceshirenwuguanli.errors.count, "error") %> prohibited this ceshirenwuguanli from being saved:</h2>
+
+      <ul>
+      <% ceshirenwuguanli.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    测试类型
+    <%= f.text_field :ceshileixing %>
+  </div>
+
+  <div class="field">
+    测试项
+    <%= f.text_field :ceshixiang %>
+  </div>
+
+  <div class="field">
+    脚本名称
+    <%= f.text_field :jiaobenmingcheng %>
+  </div>
+
+  <div class="field">
+    创建时间
+    <%= f.text_field :chuangjianshijian %>
+  </div>
+
+  <div class="field">
+    状态
+    <%= f.text_field :zhuangtai %>
+  </div>
+
+  <div class="field">
+    测试结果
+    <%= f.text_field :ceshijieguo %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

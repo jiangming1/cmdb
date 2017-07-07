@@ -1,0 +1,37 @@
+<%= form_for(pingguodingshirenwu) do |f| %>
+  <% if pingguodingshirenwu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pingguodingshirenwu.errors.count, "error") %> prohibited this pingguodingshirenwu from being saved:</h2>
+
+      <ul>
+      <% pingguodingshirenwu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    程序名称
+    <%= f.text_field :chengxumingcheng %>
+  </div>
+
+  <div class="field">
+    关键词
+    <%= f.text_field :guanjianci %>
+  </div>
+
+  <div class="field">
+    第几名
+    <%= f.text_field :dijiming %>
+  </div>
+
+  <div class="field">
+    备注
+    <%= f.text_field :beizhu %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

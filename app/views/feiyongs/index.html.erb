@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Feiyongs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mingzi</th>
+      <th>Jine</th>
+      <th>Miaoshu</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feiyongs.each do |feiyong| %>
+      <tr>
+        <td><%= feiyong.mingzi %></td>
+        <td><%= feiyong.jine %></td>
+        <td><%= feiyong.miaoshu %></td>
+        <td><%= link_to 'Show', feiyong %></td>
+        <td><%= link_to 'Edit', edit_feiyong_path(feiyong) %></td>
+        <td><%= link_to 'Destroy', feiyong, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Feiyong', new_feiyong_path %>

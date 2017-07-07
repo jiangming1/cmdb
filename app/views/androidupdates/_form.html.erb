@@ -1,0 +1,47 @@
+<%= form_for(androidupdate) do |f| %>
+  <% if androidupdate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(androidupdate.errors.count, "error") %> prohibited this androidupdate from being saved:</h2>
+
+      <ul>
+      <% androidupdate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :shichang %>
+    <%= f.text_field :shichang %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fabushijian %>
+    <%= f.text_field :fabushijian %>
+  </div>
+
+  <div class="field">
+    <%= f.label :apkurl %>
+    <%= f.text_field :apkurl %>
+  </div>
+
+  <div class="field">
+    <%= f.label :versioncode %>
+    <%= f.text_field :versioncode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :versionname %>
+    <%= f.text_field :versionname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :summary %>
+    <%= f.text_field :summary %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

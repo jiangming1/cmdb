@@ -1,0 +1,2 @@
+class Jiankong < ApplicationRecord
+end

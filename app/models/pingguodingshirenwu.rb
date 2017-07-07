@@ -1,0 +1,2 @@
+class Pingguodingshirenwu < ApplicationRecord
+end
