@@ -112,3 +112,7 @@ echo '{
     org.xbib.tools.JDBCImporter
 
 临时表导入到es数据库.最后在kibana上通过鼠标点击的方式生成图表
+
+
+
+

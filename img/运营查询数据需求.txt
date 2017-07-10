@@ -1,0 +1,1108 @@
+
+
+多少号多少用户通过什么渠道注册！
+
+
+
+	//用户注册的渠道，时间以及手机号
+	select channel,gmt_create,mobile from lcb_user
+
+	
+	//规定日期内多少用户注册
+	select count(id) from lcb_user where gmt_create between '2016-03-18 00:00:00' and '2016-03-18 23:59:59';
+
+
+	//查询规定日期内多少用户通过什么渠道注册
+	select count(id),,COALESCE(lcb_user.channel,'H5_store') as channel from lcb_user where gmt_create between '2016-03-18 00:00:00' and '2016-03-18 23:59:59' group by channel;
+
+
+
+	//查询用户每天不同的渠道注册量
+	select 
+	count(*),COALESCE(lcb_user.channel,'H5_store') as channel,to_char(gmt_create,'YYYY-MM-DD') as registry_date 
+	from lcb_user 
+	group by to_char(gmt_create,'YYYY-MM-DD'),channel
+	ORDER BY to_char(gmt_create,'YYYY-MM-DD') asc;
+
+
+	//指定日期通过什么渠道绑卡用户数
+	select  COALESCE(lcb_user.channel,'H5_store') as channel,count(lcb_user_bank.id)
+	from lcb_user
+	LEFT JOIN lcb_user_bank ON 
+	lcb_user_bank.user_id =  lcb_user.id
+	where lcb_user_bank.gmt_create 
+	between '2016-02-10 00:00:00' and '2016-03-18 23:59:59'
+	GROUP BY channel; 
+
+
+
+	//指定日期绑卡的用户一共购买了多少次标的
+	select count(lcb_user_bank.id)
+	from lcb_financing_target_bid
+	LEFT JOIN lcb_user_bank ON 
+	lcb_user_bank.user_id =  lcb_financing_target_bid.bid_user_id
+	where lcb_user_bank.gmt_create 
+	between '2016-02-10 00:00:00' and '2016-03-18 23:59:59';
+	
+	
+	//指定日期不同的渠道的下单次数和金额（不包含体验金到期自动购买的）
+	select  COALESCE(lcb_user.channel,'H5_store') as channel,count(DISTINCT lcb_user.id),sum(lcb_financing_target_bid.buy_amount)
+	from lcb_user
+	LEFT JOIN lcb_financing_target_bid ON 
+	lcb_financing_target_bid.bid_user_id =  lcb_user.id
+	where lcb_financing_target_bid.gmt_create 
+	between '2016-02-10 00:00:00' and '2016-03-18 23:59:59'
+	and lcb_financing_target_bid.bank_card_no is not null
+	GROUP BY lcb_user.channel; 
+
+
+	//指定日期不同的渠道同一个用户下单2次的用户
+	select * from (
+	select
+		lcb_financing_target_bid.bid_user_id,
+		lcb_financing_target_bid.gmt_create,
+  	row_number() 
+		over(partition by lcb_financing_target_bid.bid_user_id) as row
+	from
+		lcb_financing_target_bid
+	where
+		lcb_financing_target_bid.pay
+		and lcb_financing_target_bid.bank_card_no is not null
+		and between '2016-02-10 00:00:00' and '2016-03-18 23:59:59'
+	order by
+		gmt_create asc) as t where t.row = 2
+		
+		
+	//指定日期不同的渠道同一用户下单失败成功的次数
+	SELECT  
+	COALESCE(lcb_user.channel,'app_store') as channel,
+		  lcb_financing_target_bid.pay,
+		  to_char(lcb_financing_target_bid.gmt_create,'YYYY-MM-DD') as pay_date,
+			count(DISTINCT lcb_user.id) as countuser,
+		  sum(
+				case 
+					when lcb_user.id is null then 0
+					else 1
+				end
+		  ) as amount
+		FROM
+		lcb_financing_target_bid 
+		LEFT JOIN lcb_user ON lcb_financing_target_bid.bid_user_id = lcb_user. ID
+		where lcb_financing_target_bid.bank_card_no is not null
+		AND lcb_financing_target_bid.gmt_create 
+		BETWEEN '2016-01-17 00:00:00' and '2016-01-17 23:59:59'
+		GROUP BY to_char(lcb_financing_target_bid.gmt_create,'YYYY-MM-DD')
+		,lcb_user.channel
+		,lcb_financing_target_bid.pay
+	
+
+
+
+		 //指定日期的不同渠道的下单用户数（记录的用户在指定时间内只有一次购买的行为）
+			SELECT
+				pay_date,
+				COUNT (pay_date),
+				channel
+			FROM
+				(
+					SELECT
+						foo.bid_user_id,
+						foo.pay_date,
+						foo.channel
+					FROM
+						(
+							SELECT
+								to_char(
+									lcb_financing_target_bid.gmt_create,
+									'YYYY-MM-DD'
+								) AS pay_date,
+								lcb_financing_target_bid.bid_user_id,
+								COALESCE (
+									lcb_financing_target_bid.channel,
+									'H5_store'
+								) AS channel,
+								ROW_NUMBER () OVER (
+									PARTITION BY lcb_financing_target_bid.bid_user_id
+								) AS ROW
+							FROM
+								lcb_financing_target_bid
+							WHERE
+								lcb_financing_target_bid.gmt_create BETWEEN '2016-01-17 00:00:00'
+							AND '2016-03-25 23:59:59'
+							AND lcb_financing_target_bid.bank_card_no IS NOT NULL
+							GROUP BY
+								lcb_financing_target_bid.gmt_create,
+								lcb_financing_target_bid.bid_user_id,
+								lcb_financing_target_bid.channel
+						) AS foo
+					WHERE
+						foo. ROW = 1
+					GROUP BY
+						foo.pay_date,
+						foo.bid_user_id,
+						foo.channel
+				) AS T
+			GROUP BY
+				pay_date,
+				channel
+			ORDER BY
+				pay_date ASC
+				
+				
+				
+				//通过流量宝注册的用户数量
+					select  mobile,to_char(lcb_user.gmt_create,'YYYY-MM-DD') as registry_date from lcb_user 
+					where gmt_create between '2016-04-06 00:00:00' and '2016-04-06 23:59:59' and channel = 'liuliangbao_activity'  
+					order by gmt_create asc limit 200 offset 0
+				
+				
+				
+				//通过指定渠道购买成功的的不同的标的手机号码
+				select 
+				lcb_user.id as userId,lcb_user.mobile,COALESCE(lcb_financing_target_bid .channel,'H5_store') as channel,to_char(lcb_user.gmt_create,'YYYY-MM-DD') as registry_date, 
+					lcb_financing_target.name,lcb_financing_target.id
+				from lcb_financing_target_bid 
+					LEFT JOIN lcb_user ON 
+				lcb_financing_target_bid.bid_user_id =  lcb_user.id
+					LEFT JOIN lcb_financing_target ON 
+					lcb_financing_target_bid.financing_target_id = lcb_financing_target.id
+					where lcb_financing_target_bid.gmt_create between '2016-03-25 18:00:00' and '2016-03-27 23:59:59' and
+					lcb_financing_target_bid.channel='liuliangbao_activity'  and lcb_financing_target_bid.pay='t'
+				group by to_char(lcb_user.gmt_create,'YYYY-MM-DD'),lcb_financing_target_bid.channel,lcb_user.mobile,lcb_user.id,lcb_financing_target.name,lcb_financing_target.id
+				ORDER BY to_char(lcb_user.gmt_create,'YYYY-MM-DD') asc;
+			
+			
+			//最近两百条交易的详情
+			SELECT lcb_financing_target_bid.bank_card_no,
+			 lcb_financing_target_bid.buy_amount,
+			 lcb_user.mobile,
+			 lcb_user.true_name,
+			 lcb_financing_target_bid.bank_name,
+			 lcb_financing_target_bid.gmt_create
+			FROM
+			 lcb_financing_target_bid
+			LEFT JOIN lcb_user ON lcb_financing_target_bid.bid_user_id = lcb_user. ID
+			WHERE
+			 lcb_financing_target_bid.pay
+			AND lcb_financing_target_bid.bank_card_no IS NOT NULL
+			ORDER BY lcb_financing_target_bid.gmt_create  desc limit 200
+			
+			//指定日期新增的购买用户
+			select count(distinct bid_user_id),COALESCE(channel,'H5_store') as channel from lcb_financing_target_bid 
+			where bid_user_id not in(select bid_user_id from lcb_financing_target_bid where gmt_create between '2016-01-01 00:00:00' and '2016-03-26 23:59:59' ) 
+			and gmt_create between '2016-03-27 00:00:00' and '2016-03-27 23:59:59' and pay='t'and lcb_financing_target_bid.bank_card_no is not null group by channel;
+			
+			
+			//流量宝注册用户的交易行为
+			SELECT lcb_user.mobile,
+				to_char(
+					lcb_user.gmt_create,
+					'YYYY-MM-DD'
+				) AS registry_date,
+				to_char(
+					lcb_financing_target_bid.gmt_create,
+					'YYYY-MM-DD'
+				) AS buy_date,
+				lcb_financing_target_bid.buy_amount,
+				lcb_financing_target_bid.channel,
+				lcb_financing_target. NAME,
+				ROW_NUMBER () OVER (PARTITION BY lcb_user.mobile) AS ROW
+			FROM
+				lcb_user
+			LEFT JOIN lcb_financing_target_bid ON lcb_financing_target_bid.bid_user_id = lcb_user. ID
+			LEFT JOIN lcb_financing_target ON lcb_financing_target_bid.financing_target_id = lcb_financing_target. ID
+			WHERE
+				lcb_user.gmt_create BETWEEN '2016-03-25 00:00:00'
+			AND '2016-04-04 23:59:59'
+			AND lcb_user.channel = 'liuliangbao_activity'
+			AND lcb_financing_target_bid.bank_card_no IS NOT NULL
+			AND lcb_financing_target_bid.pay = 't'
+			GROUP BY
+				lcb_user.mobile,
+				lcb_user.gmt_create,
+				lcb_financing_target_bid.buy_amount,
+				lcb_financing_target_bid.channel,
+				lcb_financing_target. NAME,
+				to_char(
+					lcb_financing_target_bid.gmt_create,
+					'YYYY-MM-DD'
+				)
+			ORDER BY
+				lcb_user.gmt_create ASC
+			LIMIT 200 OFFSET 0
+
+			
+			//流量宝注册的邀请用户的交易详情
+			SELECT user2.mobile as from_mobile,user2.channel as from_channel,lcb_user.mobile,to_char(lcb_user.gmt_create,
+					'YYYY-MM-DD'
+				) AS registry_date,
+				to_char(
+					lcb_financing_target_bid.gmt_create,
+					'YYYY-MM-DD'
+				) AS buy_date,
+				lcb_financing_target_bid.buy_amount,
+				lcb_financing_target_bid.channel,
+				lcb_financing_target. NAME,
+				ROW_NUMBER () OVER (PARTITION BY lcb_user.mobile) AS ROW
+			FROM
+				lcb_user
+			LEFT JOIN lcb_user as user2 ON lcb_user.invite_from = user2.invite_code
+			LEFT JOIN lcb_financing_target_bid ON lcb_financing_target_bid.bid_user_id = lcb_user. ID
+			LEFT JOIN lcb_financing_target ON lcb_financing_target_bid.financing_target_id = lcb_financing_target. ID
+			WHERE
+				lcb_user.gmt_create > '2016-09-09'
+			AND user2.channel = 'liuliangbao_activity'
+			AND lcb_financing_target_bid.bank_card_no IS NOT NULL
+			AND lcb_financing_target_bid.pay = 't'
+			GROUP BY
+user2.mobile,user2.channel,
+				lcb_user.mobile,
+				lcb_user.gmt_create,
+				lcb_financing_target_bid.buy_amount,
+				lcb_financing_target_bid.channel,
+				lcb_financing_target. NAME,
+				to_char(
+					lcb_financing_target_bid.gmt_create,
+					'YYYY-MM-DD'
+				)
+			ORDER BY
+				lcb_user.gmt_create ASC
+			
+			//邀请好友用户行为
+			SELECT
+				to_char(
+					lcb_user.gmt_create,
+					'YYYY-MM-DD'
+				) AS registry_date,
+				COUNT (DISTINCT lcb_user. ID) as registy,
+				COUNT (
+					DISTINCT lcb_financing_target_bid. ID
+				) as buy
+			FROM
+				lcb_financing_target_bid
+			LEFT JOIN lcb_user ON lcb_financing_target_bid.bid_user_id = lcb_user. ID
+			WHERE
+				lcb_user.invite_from IS NOT NULL
+			AND lcb_financing_target_bid.bank_card_no IS NOT NULL
+			AND lcb_financing_target_bid.gmt_create between '2016-03-25 18:00:00' and '2016-03-28 23:59:59' 
+			GROUP BY
+				to_char(
+					lcb_user.gmt_create,
+					'YYYY-MM-DD'
+				)
+			ORDER BY
+					to_char(
+					lcb_user.gmt_create,
+					'YYYY-MM-DD'
+			) ASC
+			
+			//通过邀请注册的用户量
+			SELECT count(DISTINCT lcb_user.id),to_char(lcb_user.gmt_create,'YYYY-MM-DD') as registy_date
+			FROM lcb_user
+			WHERE lcb_user.gmt_create BETWEEN '2016-03-01 00:00:00' and '2016-03-29 00:00:00'
+			AND lcb_user.invite_from IS NOT NULL
+			GROUP BY to_char(lcb_user.gmt_create,'YYYY-MM-DD')
+			ORDER BY to_char(lcb_user.gmt_create,'YYYY-MM-DD') ASC
+			
+			
+			//通过邀请注册的用户首次下单用户
+			SELECT
+			COUNT (
+					DISTINCT lcb_financing_target_bid.bid_user_id
+				)
+			FROM
+				lcb_financing_target_bid
+			LEFT JOIN lcb_user ON lcb_financing_target_bid.bid_user_id = lcb_user. ID
+			WHERE
+				lcb_financing_target_bid.bank_card_no IS NOT NULL
+			AND lcb_financing_target_bid.pay
+			AND lcb_financing_target_bid.gmt_create BETWEEN '2016-01-01 00:00:00'
+			AND '2016-03-27 00:00:00'
+			AND lcb_user.invite_from IS NOT NULL
+			
+			//3月份购买新手宝的用户
+			SELECT
+			lcb_user.mobile,
+			to_char(
+				lcb_financing_target_bid.gmt_create,
+				'YYYY-MM-DD'
+			) AS buy_date,
+			lcb_financing_target. NAME
+			FROM
+				lcb_financing_target_bid
+			LEFT JOIN lcb_user ON lcb_financing_target_bid.bid_user_id = lcb_user. ID
+			LEFT JOIN lcb_financing_target ON lcb_financing_target_bid.financing_target_id = lcb_financing_target. ID
+			WHERE
+				lcb_financing_target_bid.gmt_create BETWEEN '2016-03-01 00:00:00'
+			AND '2016-03-29 23:59:59'
+			AND lcb_financing_target_bid.pay
+			AND lcb_financing_target_bid.bank_card_no IS NOT NULL
+			AND lcb_financing_target.new_investor = 't'
+			GROUP BY
+				lcb_user.mobile,
+				to_char(
+					lcb_financing_target_bid.gmt_create,
+					'YYYY-MM-DD'
+				),lcb_financing_target. NAME
+			ORDER BY
+				to_char(
+					lcb_financing_target_bid.gmt_create,
+					'YYYY-MM-DD'
+				) ASC
+			
+			
+			//邀请注册量
+						SELECT
+				lcb_user.mobile,
+				invitenum,
+				registry_date
+			FROM
+				(
+					SELECT
+						invite_from,
+						COUNT (*) AS invitenum,
+						to_char(
+							lcb_user.gmt_create,
+							'YYYY-MM-DD'
+						) AS registry_date
+					FROM
+						lcb_user
+					WHERE
+						lcb_user.gmt_create BETWEEN '2016-03-25 00:00:00'
+					AND '2016-03-28 23:59:59'
+					AND lcb_user.invite_from IS NOT NULL
+					AND lcb_user.invite_from <> ''
+					GROUP BY
+						lcb_user.invite_from,
+						to_char(
+							lcb_user.gmt_create,
+							'YYYY-MM-DD'
+						)
+					ORDER BY
+						to_char(
+							lcb_user.gmt_create,
+							'YYYY-MM-DD'
+						) ASC
+				) AS T
+			LEFT JOIN lcb_user ON T .invite_from = lcb_user.invite_code
+			WHERE
+				T .invitenum > 5
+			GROUP BY
+				lcb_user.mobile,
+				invitenum,
+				registry_date
+	
+	
+	
+	//指定日期的用户交易行为
+			SELECT to_char(
+				lcb_financing_target_bid.gmt_create,
+				'YYYY-MM-DD'
+			) AS buy_date,
+			lcb_financing_target_bid.channel AS buy_channel,
+			lcb_user.mobile,
+			lcb_financing_target_bid.buy_amount,
+			lcb_financing_target. NAME,
+			ROW_NUMBER () OVER (PARTITION BY lcb_user.mobile) AS ROW
+		FROM
+			lcb_financing_target_bid
+		LEFT JOIN lcb_user ON lcb_financing_target_bid.bid_user_id = lcb_user. ID
+		LEFT JOIN lcb_financing_target ON lcb_financing_target. ID = lcb_financing_target_bid.financing_target_id
+		WHERE
+			to_char(
+				lcb_financing_target_bid.gmt_create,
+				'YYYY-MM-DD HH:mm:ss'
+			) BETWEEN '2016-04-07 00:00:00'
+			AND '2016-04-07 23:59:59'
+			AND lcb_financing_target_bid.bank_card_no IS NOT NULL
+			AND lcb_financing_target_bid.pay = 't'
+			GROUP BY
+				to_char(
+					lcb_financing_target_bid.gmt_create,
+					'YYYY-MM-DD'
+				),
+				lcb_financing_target_bid.channel,
+				lcb_user.mobile,
+				lcb_financing_target_bid.buy_amount,
+				lcb_financing_target. NAME
+			ORDER BY
+				to_char(
+					lcb_financing_target_bid.gmt_create,
+					'YYYY-MM-DD'
+				)
+				LIMIT 200 OFFSET 0
+	
+	
+	//每日新增用户
+		select 
+		 to_char(t2.gmt_create,'yyyy-mm-dd') as gmt_create,
+		 count(to_char(t2.gmt_create,'yyyy-mm-dd')) as new_buyer
+		from (
+		SELECT
+			*,
+		  ROW_NUMBER() over(partition by bid_user_id) as row
+		FROM
+			(
+				SELECT
+					lcb_financing_target_bid.bid_user_id,
+					lcb_financing_target_bid.gmt_create
+				FROM
+					lcb_financing_target_bid
+				WHERE
+					lcb_financing_target_bid.pay 
+			and lcb_financing_target_bid.bank_card_no is not null
+				ORDER BY
+					lcb_financing_target_bid.bid_user_id ASC,
+					lcb_financing_target_bid.gmt_create ASC
+			) AS T ) as t2 where t2.row = 1
+		GROUP BY to_char(t2.gmt_create,'yyyy-mm-dd')
+		ORDER BY to_char(t2.gmt_create,'yyyy-mm-dd')
+		
+		//指定日期每日新增交易用户的手机号
+		SELECT * FROM(
+	select 
+		 to_char(t2.gmt_create,'yyyy-mm-dd') as gmt_create,
+		t2.mobile
+		from (
+		SELECT
+			*,
+		  ROW_NUMBER() over(partition by mobile) as row
+		FROM
+			(
+				SELECT
+					
+					lcb_financing_target_bid.gmt_create,
+					lcb_user.mobile
+				FROM
+					lcb_financing_target_bid
+				LEFT JOIN lcb_user ON lcb_financing_target_bid.bid_user_id = lcb_user.id
+				WHERE
+					lcb_financing_target_bid.pay 
+			and lcb_financing_target_bid.bank_card_no is not null
+				ORDER BY
+
+					lcb_financing_target_bid.gmt_create ASC
+			) AS T ) as t2 where t2.row = 1
+		GROUP BY to_char(t2.gmt_create,'yyyy-mm-dd'),t2.mobile
+		ORDER BY to_char(t2.gmt_create,'yyyy-mm-dd')
+        ) as foo WHERE foo.gmt_create BETWEEN '2016-04-02'  and '2016-07-26'
+		
+		
+		//指定日期每日新增交易用户的详情
+		select foo.gmt_create,foo.buy_amount,lcb_user.mobile,lcb_user.channel from(
+		select  to_char(t2.gmt_create,'yyyy-mm-dd') as gmt_create,
+		t2.bid_user_id,t2.buy_amount
+		from (
+		SELECT *,
+		  ROW_NUMBER() over(partition by bid_user_id) as row
+		FROM(SELECT lcb_financing_target_bid.bid_user_id,
+					lcb_financing_target_bid.gmt_create,lcb_financing_target_bid.buy_amount
+				FROM
+					lcb_financing_target_bid
+				WHERE
+					lcb_financing_target_bid.pay 
+			and lcb_financing_target_bid.bank_card_no is not null
+				ORDER BY
+					lcb_financing_target_bid.bid_user_id ASC,
+					lcb_financing_target_bid.gmt_create ASC
+			) AS T ) as t2 where t2.row = 1 and gmt_create BETWEEN '2016-05-10'  and '2016-08-01'
+		GROUP BY to_char(t2.gmt_create,'yyyy-mm-dd'),bid_user_id,t2.buy_amount
+		ORDER BY to_char(t2.gmt_create,'yyyy-mm-dd')
+) as foo LEFT JOIN lcb_user on lcb_user.id = foo.bid_user_id
+where lcb_user.channel = 'laicunba_30'
+
+     //同上 限制了下注册时间
+	 		select foo.gmt_create as 购买时间,foo.buy_amount as 购买金额,lcb_user.mobile as 手机号,lcb_user.channel as 注册渠道,to_char(lcb_user.gmt_create,'yyyy-mm-dd') as 注册时间 from(
+		select  to_char(t2.gmt_create,'yyyy-mm-dd') as gmt_create,
+		t2.bid_user_id,t2.buy_amount
+		from (
+		SELECT *,
+		  ROW_NUMBER() over(partition by bid_user_id) as row
+		FROM(SELECT lcb_financing_target_bid.bid_user_id,
+					lcb_financing_target_bid.gmt_create,lcb_financing_target_bid.buy_amount
+				FROM
+					lcb_financing_target_bid
+				WHERE
+					lcb_financing_target_bid.pay 
+			and lcb_financing_target_bid.bank_card_no is not null
+				ORDER BY
+					lcb_financing_target_bid.bid_user_id ASC,
+					lcb_financing_target_bid.gmt_create ASC
+			) AS T ) as t2 where t2.row = 1 and t2.gmt_create BETWEEN '2016-05-13'  and '2016-08-01'
+		GROUP BY to_char(t2.gmt_create,'yyyy-mm-dd'),bid_user_id,t2.buy_amount
+		ORDER BY to_char(t2.gmt_create,'yyyy-mm-dd')
+) as foo LEFT JOIN lcb_user on lcb_user.id = foo.bid_user_id
+where lcb_user.channel = 'laicunba_xiaomi' and lcb_user.gmt_create BETWEEN '2016-05-13'  and '2016-08-01'
+
+	
+	
+		//活期收益计算公式
+			SELECT
+			annualized_rates / 36500 
+			  * (buy_amount-COALESCE(withdraw_principal,0))
+			  * date_part('day', now()-COALESCE(re_begin_profit,begin_profit)  ) 
+				FROM
+					lcb_financing_target_bid
+				where type = 'SCB' and pay  and buy_amount > withdraw_principal
+				
+
+		//	定期标的收益计算
+		--  annualized_rates / 365 * buy_amount * 天数
+			SELECT
+				annualized_rates / 36500 * buy_amount * date_part(
+					'day',
+					end_profit - begin_profit
+				) 
+			FROM
+				lcb_financing_target_bid
+				
+				
+		//活期在总投资金和总收益
+			SELECT sum(annualized_rates / 36500 
+			  * (buy_amount-COALESCE(withdraw_principal,0))
+			  * date_part('day', now()-COALESCE(re_begin_profit,begin_profit))) as currentprofit,
+			sum(buy_amount-COALESCE(withdraw_principal,0)) as currentprincipal
+				FROM
+					(SELECT * FROM lcb_financing_target_bid
+							WHERE lcb_financing_target_bid.pay='t'
+							AND lcb_financing_target_bid.bank_card_no is not NULL
+							and lcb_financing_target_bid.bid_user_id ='GZY1378'
+							and lcb_financing_target_bid.type='SCB'
+							and lcb_financing_target_bid.buy_amount > lcb_financing_target_bid.withdraw_principal
+						) as t
+		
+		
+		//定期在投总资金和总收益
+			SELECT
+				sum(annualized_rates / 36500 * buy_amount * date_part('day',now() - begin_profit)) as currentprofit,
+				sum(buy_amount) as currentPrincipal
+			FROM ( SELECT * FROM lcb_financing_target_bid
+							WHERE lcb_financing_target_bid.pay='t'
+							AND lcb_financing_target_bid.bank_card_no is not NULL
+							and lcb_financing_target_bid.bid_user_id ='GZY1378'
+							and lcb_financing_target_bid.type='CPB'
+							and lcb_financing_target_bid.end_profit>now()) as t
+							
+		//昨日流量宝注册用户
+			SELECT mobile,
+			to_char(
+				lcb_user.gmt_create,
+				'YYYY-MM-DD'
+			) AS 注册时间
+			FROM
+				lcb_user
+			WHERE
+				to_char(
+					lcb_user.gmt_create,
+					'YYYY-MM-DD'
+				) = to_char(
+					now()-INTERVAL '1 day',
+					'YYYY-MM-DD'
+				) 
+			AND channel = 'liuliangbao_activity'
+			ORDER BY
+				gmt_create ASC
+			LIMIT 200 OFFSET 0
+			
+			
+			//现金券使用详情
+			select lcb_user.mobile,lcb_financing_target.name,lcb_cash_coupon.name as cashname,lcb_financing_target_bid.buy_amount,
+			to_char(lcb_financing_target_bid.gmt_create,'YYYY-MM-DD') as buyTime
+			from lcb_cash_coupon
+			LEFT JOIN lcb_financing_target_bid on lcb_cash_coupon.financing_target_bid_id = lcb_financing_target_bid.id
+			LEFT JOIN lcb_financing_target on lcb_financing_target.id = lcb_financing_target_bid.financing_target_id
+			LEFT JOIN lcb_user on lcb_user.id = lcb_financing_target_bid.bid_user_id
+			WHERE lcb_cash_coupon.financing_target_bid_id is not null and lcb_cash_coupon.amount > 0
+			GROUP BY lcb_user.mobile,lcb_financing_target.name,lcb_cash_coupon.name,lcb_financing_target_bid.buy_amount,
+			to_char(lcb_financing_target_bid.gmt_create,'YYYY-MM-DD')
+			ORDER BY to_char(lcb_financing_target_bid.gmt_create,'YYYY-MM-DD')
+			
+			
+			//day_income
+			SELECT SUM (
+			lcb_financing_target_bid.buy_amount
+			) AS money,
+			to_char(
+				lcb_financing_target_bid.gmt_create,
+				'YYYY-MM-DD'
+			) AS date_str,
+			'day' AS TYPE
+			FROM
+				lcb_financing_target_bid
+			WHERE
+				lcb_financing_target_bid.pay
+			AND
+				CASE
+				WHEN lcb_financing_target_bid.pay_mark != 'DEMAND_2_FIX' THEN
+					lcb_financing_target_bid.bank_card_no IS NOT NULL  end
+				AND case WHEN lcb_financing_target_bid.pay_mark != 'FIX_BID_2_DEMAND' THEN
+					lcb_financing_target_bid.bank_card_no IS NOT NULL 
+			END
+			GROUP BY 
+				to_char(
+					lcb_financing_target_bid.gmt_create,
+					'YYYY-MM-DD'
+				)
+			ORDER BY
+				to_char(
+					lcb_financing_target_bid.gmt_create,
+					'YYYY-MM-DD'
+				) ASC
+			
+			//购买定期的详情
+			SELECT 
+				to_char(lcb_financing_target_bid.gmt_create, 'YYYY/MM/dd HH24:mi') as gmt_create,
+				lcb_financing_target_bid.pay_name,
+				lcb_financing_target_bid.bank_card_no,
+				lcb_financing_target_bid.bank_name,
+				lcb_financing_target_bid.bid_user_id,
+				lcb_user.mobile,
+				lcb_financing_target_bid.pay_pid,
+				lcb_financing_target.name,
+				lcb_financing_target_bid.annualized_rates,
+				lcb_financing_target_bid.buy_amount,
+				lcb_financing_target_bid.pay_mark,
+				to_char(lcb_financing_target_bid.end_profit, 'YYYY/MM/dd HH24:mi:ss') as end_profit,
+				lcb_financing_target_bid.annualized_rates / 36500 * lcb_financing_target_bid.buy_amount * date_part('day',lcb_financing_target_bid.end_profit - lcb_financing_target_bid.begin_profit) as withdraw_profit,
+				3 as handling_charge,
+				(lcb_financing_target_bid.withdraw_principal + COALESCE(lcb_financing_target_bid.withdraw_profit, 0) + 3) as total_amount
+				FROM lcb_financing_target_bid 
+				LEFT JOIN lcb_user on lcb_user.id = lcb_financing_target_bid.bid_user_id
+				LEFT JOIN lcb_financing_target ON lcb_financing_target.id = lcb_financing_target_bid.financing_target_id
+				WHERE (lcb_financing_target_bid.bank_card_no is not NULL  or lcb_financing_target_bid.pay_mark = 'DEMAND_2_FIX')
+				and lcb_financing_target_bid.pay='t'
+				and lcb_financing_target_bid.type='CPB'
+			   and to_char(lcb_financing_target_bid.end_profit,'YYYY-MM-DD') = to_char(now()-INTERVAL '1 day','YYYY-MM-DD')
+				ORDER BY lcb_financing_target_bid.end_profit asc
+				
+				
+				//每日新增的首次下单用户
+				select 
+				 to_char(t2.gmt_create,'yyyy-mm-dd') as gmt_create,
+				 count(to_char(t2.gmt_create,'yyyy-mm-dd')) as new_buyer
+				from (
+				SELECT
+					*,
+				  ROW_NUMBER() over(partition by bid_user_id) as row
+				FROM
+					(
+						SELECT
+							lcb_financing_target_bid.bid_user_id,
+							lcb_financing_target_bid.gmt_create
+						FROM
+							lcb_financing_target_bid
+						WHERE
+							lcb_financing_target_bid.pay 
+					and lcb_financing_target_bid.bank_card_no is not null
+						ORDER BY
+							lcb_financing_target_bid.bid_user_id ASC,
+							lcb_financing_target_bid.gmt_create ASC
+					) AS T ) as t2 where t2.row = 1
+				GROUP BY to_char(t2.gmt_create,'yyyy-mm-dd')
+				ORDER BY to_char(t2.gmt_create,'yyyy-mm-dd')
+				
+				
+				//5.1-6.15，每日订单数量，如6.1,98笔
+				SELECT COUNT (ID),
+					to_char(
+						lcb_financing_target_bid.gmt_create,
+						'YYYY-MM-DD'
+					) AS 购买时间
+				FROM
+					lcb_financing_target_bid
+				WHERE
+					pay
+				AND lcb_financing_target_bid.gmt_create BETWEEN '2016-05-01 00:00:00'
+				AND '2016-06-15 23:59:59'
+				AND (bank_card_no IS NOT NULL
+				OR pay_mark = 'DEMAND_2_FIX')
+				GROUP BY
+					to_char(
+						lcb_financing_target_bid.gmt_create,
+						'YYYY-MM-DD'
+					)
+				order BY
+					to_char(
+						lcb_financing_target_bid.gmt_create,
+						'YYYY-MM-DD'
+					)
+					
+					
+					//5.1-6.15，独立交易总人数，即多少人下单，去重
+					SELECT COUNT (DISTINCT lcb_financing_target_bid.bid_user_id)
+
+					FROM
+						lcb_financing_target_bid
+					WHERE
+						pay
+					AND lcb_financing_target_bid.gmt_create BETWEEN '2016-05-01 00:00:00'
+					AND '2016-06-15 23:59:59'
+					AND (bank_card_no IS NOT NULL
+					OR pay_mark = 'DEMAND_2_FIX')
+					
+					
+					//暑期大突击
+					select foo.mobile,sum(foo.shareval) as 分享页面, sum(foo.inviteval) as 邀请好友, sum(foo.bidval) as 购买标的, sum(foo.shareval+foo.inviteval+foo.bidval) as 总计 from 
+					(select substr(registry."id", 3 ,(length(registry."id") -26)) as user_id,"user".mobile, (CASE WHEN to_number(substr(registry.val, 16 ,1), '9')=1 THEN 10 ELSE to_number(substr(registry.val, 16 ,1), '9') END) as shareval ,0 as inviteval,0 as bidval from lcb_registry registry
+					 LEFT JOIN lcb_user "user" ON "user"."id"=substr(registry."id", 3 ,(length(registry."id") -26))
+					 where registry."id" like '%.summer-assault.activity%'
+					UNION ALL
+					select user1."id",user1.mobile,0 as shareval, CASE WHEN count(user1."id")>2 THEN 10 ELSE count(user1."id")*5 END as inviteval,0 as bidval from lcb_user user1
+					 LEFT JOIN lcb_user user2 ON user2.invite_from=user1.invite_code
+					 where user2.channel = 'summerAssault_activity' and user2.gmt_create>'2016-07-01 00:00:00' and user2.gmt_create<'2016-07-16'
+					 GROUP BY user1."id",user1.mobile
+					UNION ALL
+					select "user"."id","user".mobile, 0 as shareval,0 as inviteval, floor(CASE WHEN target.period>=80 THEN bid.buy_amount/50 WHEN target.period>=60 THEN bid.buy_amount/100 WHEN target.period>=30 THEN bid.buy_amount/200 END) as bidval from lcb_user "user"
+					 LEFT JOIN lcb_financing_target_bid bid ON bid.bid_user_id="user"."id"
+					 LEFT JOIN lcb_financing_target target ON target."id"=bid.financing_target_id
+					 where bid.type='CPB' and bid.pay='t' and (bid.bank_card_no is not null or bid.pay_mark='DEMAND_2_FIX') and bid.gmt_create>'2016-07-01 00:00:00' and bid.gmt_create<'2016-07-16'
+					 and target.period >= 30) as foo
+					GROUP BY foo.mobile
+					order by 总计 desc
+
+
+				//暑期大突击
+				select count(t.mobile) from (
+				select  distinct foo.mobile,sum(foo.shareval+foo.inviteval+foo.bidval) as sumall from 
+				(select substr(registry."id", 3 ,(length(registry."id") -26)) as user_id,"user".mobile, (CASE WHEN to_number(substr(registry.val, 16 ,1), '9')=1 THEN 10 ELSE to_number(substr(registry.val, 16 ,1), '9') END) as shareval ,0 as inviteval,0 as bidval from lcb_registry registry
+				 LEFT JOIN lcb_user "user" ON "user"."id"=substr(registry."id", 3 ,(length(registry."id") -26))
+				 where registry."id" like '%.summer-assault.activity%'
+				UNION ALL
+				select user1."id",user1.mobile,0 as shareval, CASE WHEN count(user1."id")>2 THEN 10 ELSE count(user1."id")*5 END as inviteval,0 as bidval from lcb_user user1
+				 LEFT JOIN lcb_user user2 ON user2.invite_from=user1.invite_code
+				 where user2.channel = 'summerAssault_activity' and user2.gmt_create>'2016-07-01 00:00:00' and user2.gmt_create<'2016-07-16'
+				 GROUP BY user1."id",user1.mobile
+				UNION ALL
+				select "user"."id","user".mobile, 0 as shareval,0 as inviteval, floor(CASE WHEN target.period>=80 THEN bid.buy_amount/50 WHEN target.period>=60 THEN bid.buy_amount/100 WHEN target.period>=30 THEN bid.buy_amount/200 END) as bidval from lcb_user "user"
+				 LEFT JOIN lcb_financing_target_bid bid ON bid.bid_user_id="user"."id"
+				 LEFT JOIN lcb_financing_target target ON target."id"=bid.financing_target_id
+				 where bid.type='CPB' and bid.pay='t' and (bid.bank_card_no is not null or bid.pay_mark='DEMAND_2_FIX') and bid.gmt_create>'2016-07-01 00:00:00'
+				 and bid.gmt_create<'2016-07-16' and target.period >= 30) as foo
+				group by foo.mobile) as t where t.sumall >= 100
+				
+				
+				//暑期大突击购买详情
+				SELECT
+					lcb_financing_target. NAME,
+					lcb_financing_target_bid.buy_amount,
+					to_char(
+						lcb_financing_target_bid.gmt_create,
+						'YYYY-MM-DD HH:mm:ss'
+					) as buytime,lcb_user.mobile
+				FROM lcb_financing_target_bid
+				LEFT JOIN lcb_user ON lcb_financing_target_bid.bid_user_id = lcb_user.id
+				LEFT JOIN lcb_financing_target ON lcb_financing_target.id=lcb_financing_target_bid.financing_target_id
+				where lcb_user.id  in(select foo.user_id from 
+					(select substr(registry."id", 3 ,(length(registry."id") -26)) as user_id,"user".mobile, (CASE WHEN to_number(substr(registry.val, 16 ,1), '9')=1 THEN 10 ELSE to_number(substr(registry.val, 16 ,1), '9') END) as shareval ,0 as inviteval,0 as bidval from lcb_registry registry
+					 LEFT JOIN lcb_user "user" ON "user"."id"=substr(registry."id", 3 ,(length(registry."id") -26))
+					 where registry."id" like '%.summer-assault.activity%'
+					UNION ALL
+					select user1."id",user1.mobile,0 as shareval, CASE WHEN count(user1."id")>2 THEN 10 ELSE count(user1."id")*5 END as inviteval,0 as bidval from lcb_user user1
+					 LEFT JOIN lcb_user user2 ON user2.invite_from=user1.invite_code
+					 where user2.channel = 'summerAssault_activity' and user2.gmt_create>'2016-07-01 00:00:00' and user2.gmt_create<'2016-07-16'
+					 GROUP BY user1."id",user1.mobile
+					UNION ALL
+					select "user"."id","user".mobile, 0 as shareval,0 as inviteval, floor(CASE WHEN target.period>=80 THEN bid.buy_amount/50 WHEN target.period>=60 THEN bid.buy_amount/100 WHEN target.period>=30 THEN bid.buy_amount/200 END) as bidval from lcb_user "user"
+					 LEFT JOIN lcb_financing_target_bid bid ON bid.bid_user_id="user"."id"
+					 LEFT JOIN lcb_financing_target target ON target."id"=bid.financing_target_id
+					 where bid.type='CPB' and bid.pay='t' and (bid.bank_card_no is not null or bid.pay_mark='DEMAND_2_FIX') and bid.gmt_create>'2016-07-01 00:00:00' and bid.gmt_create<'2016-07-16'
+					 and target.period >= 30) as foo)
+					and lcb_financing_target_bid."type" = 'CPB' and lcb_financing_target_bid.pay='t' and (lcb_financing_target_bid.bank_card_no is not null or lcb_financing_target_bid.pay_mark='DEMAND_2_FIX') and lcb_financing_target_bid.gmt_create>'2016-07-01 00:00:00' and lcb_financing_target_bid.gmt_create<'2016-07-16'
+
+					
+					《林超男》//6月7号8点到6月22号5点，所有邀请好友注册且投资新手宝或者银票宝的邀请人手机号姓名，被邀请人手机号姓名，被邀请人投资金额，被邀请人投资产品，好友被邀请时间
+					SELECT lcb_user.true_name as 被邀请人姓名, lcb_user.mobile as 被邀请人电话,
+					lcb_financing_target_bid.buy_amount as 购买金额,
+					to_char(lcb_financing_target_bid.gmt_create,'YYYY-MM-DD') as 购买时间,
+					to_char(lcb_user.gmt_create, 'YYYY-MM-DD') as 注册时间,
+					floor(lcb_financing_target_bid.annualized_rates / 36500 * lcb_financing_target_bid.buy_amount * date_part('day',lcb_financing_target_bid.end_profit - lcb_financing_target_bid.begin_profit)*100)/100 as 收益,
+					lcb_financing_target.name as 标的名称,user2.mobile as 邀请人手机号,user2.true_name as 邀请人姓名
+					FROM lcb_financing_target_bid
+					LEFT JOIN lcb_user on lcb_user.id = lcb_financing_target_bid.bid_user_id
+					LEFT JOIN lcb_financing_target ON lcb_financing_target_bid.financing_target_id = lcb_financing_target.id 
+					LEFT JOIN lcb_user as user2 ON lcb_user.invite_from = user2.invite_code
+					where lcb_financing_target_bid.pay
+					and (lcb_financing_target_bid.bank_card_no is not NULL  or lcb_financing_target_bid.pay_mark = 'DEMAND_2_FIX' 
+					or lcb_financing_target_bid.pay_mark = 'FIX_BID_2_DEMAND')
+					and lcb_user.gmt_create BETWEEN '2016-06-07 08:00:00' and '2016-06-22 17:00:00'
+					and lcb_financing_target_bid.gmt_create BETWEEN '2016-06-07 08:00:00' and '2016-06-22 17:00:00'
+					and lcb_user.invite_from is not NULL
+					and user2.invite_code !='' and user2.invite_code is not null
+					order by lcb_user.gmt_create
+					
+					
+					
+					// 网贷之家总计
+					SELECT SUM (lcb_financing_target.collect_amount) AS totalAmount,
+					COUNT (lcb_financing_target_position.ID) AS totalCount,'5' AS currentPage,
+					CEIL(COUNT(lcb_financing_target_position.ID)/5.00) AS totalPage
+										FROM lcb_financing_target_position 
+										LEFT JOIN lcb_financing_target ON lcb_financing_target.id = lcb_financing_target_position.financing_target_id
+					WHERE lcb_financing_target_position.position = 'WX_ZONE_CPB' and lcb_financing_target.finish_amount < lcb_financing_target.collect_amount
+					
+					
+					
+					//	网贷之家标的列表			
+					SELECT lcb_financing_target.id as projectId,lcb_financing_target.name as title,lcb_financing_target.collect_amount as amount,
+					ceiling(lcb_financing_target.finish_amount/lcb_financing_target.collect_amount*100 )as schedule,
+					lcb_financing_target.annualized_Rates as interestRate,lcb_financing_target.period as deadline,
+					'天' as deadlineUnit,0 as reward,'质押标' as type,
+					'1' as repaymentType,'admin' as userName,
+					'http://8.laicunba.com/h5/financial_detail.htm?id='||lcb_financing_target.id||'&_channel=weixin' as loanUrl,
+					to_char(end_date,'YYYY-MM-DD HH:mm:ss') as successTime
+					from lcb_financing_target
+					LEFT JOIN lcb_financing_target_position ON lcb_financing_target.id = lcb_financing_target_position.financing_target_id
+					WHERE lcb_financing_target_position.position = 'WX_ZONE_CPB' 
+					and lcb_financing_target.finish_amount < lcb_financing_target.collect_amount
+					
+					
+					//网贷之家投资列表
+					SELECT substr(lcb_user.id,0,2)||substr(lcb_user.id,3,5) as subscribeUserName,
+						lcb_financing_target_bid.buy_amount as amount,lcb_financing_target_bid.buy_amount as validAmount,
+						to_char(lcb_financing_target_bid.gmt_create,'YYYY-MM-DD HH:mm:ss') as addDate,
+						'1' as status,'0' as type 
+						FROM lcb_financing_target_bid
+						LEFT JOIN lcb_user ON lcb_user.id = lcb_financing_target_bid.bid_user_id
+						WHERE lcb_financing_target_bid.pay and lcb_financing_target_bid.financing_target_id = ''
+									
+									
+				<!-- 作者:zh-->//网贷之家数据接口
+				<select id="findWdzjAll" parameterType="map" resultMap="wdzjAllMap">
+					SELECT SUM (lcb_financing_target.collect_amount*4) AS totalAmount,
+					COUNT (lcb_financing_target.ID) AS totalCount,#{page} AS currentPage,
+					CEIL(COUNT(lcb_financing_target.ID)/#{size}) AS totalPage
+					FROM lcb_financing_target
+					WHERE lcb_financing_target.id in(
+					SELECT DISTINCT lcb_financing_target_bid.financing_target_id from lcb_financing_target_bid 
+					LEFT JOIN lcb_financing_target on lcb_financing_target.id=lcb_financing_target_bid.financing_target_id
+					where to_char(lcb_financing_target_bid.gmt_create ,'YYYY-MM-DD')= #{date}
+					and lcb_financing_target.type = 'CPB' and lcb_financing_target.finish_amount >= lcb_financing_target.collect_amount
+					and to_char(lcb_financing_target.gmt_write,'YYYY-MM-DD') > '2016-03-16'
+					and lcb_financing_target_bid.financing_target_id not in (
+					SELECT DISTINCT lcb_financing_target_bid.financing_target_id from lcb_financing_target_bid 
+					LEFT JOIN lcb_financing_target on lcb_financing_target.id=lcb_financing_target_bid.financing_target_id
+					where to_char(lcb_financing_target_bid.gmt_create ,'YYYY-MM-DD')>#{date}
+					))
+					
+				 </select>
+				
+				<select id="findWdzjBorrowList" parameterType="map" resultMap="wdzjBorrowListMap">
+					SELECT distinct lcb_financing_target.id as projectId,lcb_financing_target.name as title,lcb_financing_target.collect_amount*4 as amount,
+					ceiling(lcb_financing_target.finish_amount/lcb_financing_target.collect_amount*100 )as schedule,
+					lcb_financing_target.annualized_Rates||'%' as interestRate,lcb_financing_target.period as deadline,
+					'天' as deadlineUnit,0 as reward,'质押标' as type,
+					1 as repaymentType,'admin' as userName,
+					'http://8.laicunba.com/h5/financial_detail.htm?id='||lcb_financing_target.id as loanUrl
+					from lcb_financing_target
+					LEFT JOIN lcb_financing_target_bid on lcb_financing_target.id=lcb_financing_target_bid.financing_target_id
+					WHERE lcb_financing_target.id in(
+					SELECT DISTINCT lcb_financing_target_bid.financing_target_id from lcb_financing_target_bid 
+					LEFT JOIN lcb_financing_target on lcb_financing_target.id=lcb_financing_target_bid.financing_target_id
+					where to_char(lcb_financing_target_bid.gmt_create ,'YYYY-MM-DD')= #{date}
+					and lcb_financing_target.type = 'CPB' and lcb_financing_target.finish_amount >= lcb_financing_target.collect_amount
+					and to_char(lcb_financing_target.gmt_write,'YYYY-MM-DD') > '2016-03-16'
+					and lcb_financing_target_bid.financing_target_id not in (
+					SELECT DISTINCT lcb_financing_target_bid.financing_target_id from lcb_financing_target_bid 
+					LEFT JOIN lcb_financing_target on lcb_financing_target.id=lcb_financing_target_bid.financing_target_id
+					where to_char(lcb_financing_target_bid.gmt_create ,'YYYY-MM-DD')>#{date}
+					))
+					limit #{pageSize} offset #{pageBegin}
+				</select>
+				
+				<select id="findWdzjBorrowUserList" parameterType="map" resultMap="wdzjBorrowUserListMap">
+					SELECT substr(lcb_user.id,0,2)||substr(lcb_user.id,3,5) as subscribeUserName,
+					lcb_financing_target_bid.buy_amount*4 as amount,lcb_financing_target_bid.buy_amount*4 as validAmount,
+					to_char(lcb_financing_target_bid.gmt_create,'YYYY-MM-DD HH:mm:ss') as addDate,
+					1 as status,0 as type 
+					FROM lcb_financing_target_bid
+					LEFT JOIN lcb_user ON lcb_user.id = lcb_financing_target_bid.bid_user_id
+					WHERE lcb_financing_target_bid.pay and lcb_financing_target_bid.financing_target_id = #{projectId}
+					order by to_char(lcb_financing_target_bid.gmt_create,'YYYY-MM-DD HH:mm:ss') desc
+				 </select>
+				 
+				 
+				 //新建红包数据
+				 INSERT INTO lcb_cash_coupon_def("id",amount,used_quantity,total_quantity,conditions,valid_day,"name",write_uid,gmt_create,gmt_write)
+				 VALUES('act-anniversary-red-package-50',50,0,300,'[{"buy_amount":10000,"period":60,"target_type":"CPB"}]',15,
+				 '来存吧生日券-60天10000元以上使用','root',now(),now());
+				 
+				 
+				 //夏日旅游趴活动统计
+				 select lcb_registry.val,floor(sum(bid.buy_amount)) as totalAmount,lcb_user.mobile from lcb_financing_target_bid as bid
+					LEFT JOIN lcb_user ON bid.bid_user_id = lcb_user.id
+					LEFT JOIN lcb_registry on 'u.'||bid_user_id||'summner_travel.activity' = lcb_registry.id
+					WHERE bid.pay and (bid.bank_card_no is not NULL  or bid.pay_mark = 'DEMAND_2_FIX')
+					and bid.type='CPB'
+					and date_part('day',bid.end_profit - bid.begin_profit) >= 60
+					and bid.gmt_create >='2016-08-19' and bid.gmt_create <= '2016-08-30'
+					and lcb_user.id in(
+					SELECT substr(registry."id", 3 ,(length(registry."id") -25))as id
+						from lcb_registry as registry where id like '%travel%'
+					)
+					GROUP BY lcb_user.mobile,lcb_registry.val
+				 
+
+				 
+				 //邀请好友获得奖励
+					SELECT (substr(mobile,0,4)||'****'||substr(mobile,8,11)) as mobile,sum(reward) as allCashCoupon from (
+					SELECT mobile,10 as reward,lcb_user.gmt_create from lcb_user 
+					where lcb_user.invite_from = '000000' and lcb_user.gmt_create >='2016-05-21' 
+					GROUP BY mobile,lcb_user.gmt_create
+					UNION all
+					SELECT DISTINCT mobile,20 as reward,lcb_user.gmt_create from lcb_user 
+					LEFT JOIN lcb_financing_target_bid as bid on lcb_user.id = bid.bid_user_id
+					where lcb_user.invite_from = '000000' and lcb_user.gmt_create >='2016-05-21'
+					and pay and (bid.bank_card_no is not null or bid.pay_mark = 'DEMAND_2_FIX' or bid.pay_mark = 'FIX_BID_2_DEMAND')
+					GROUP BY mobile,lcb_user.gmt_create
+					) as foo
+					GROUP BY mobile,foo.gmt_create
+					ORDER BY foo.gmt_create
+
+					
+				//累计收益排行
+				SELECT sum(foo.profit) as total_profit, (substr(foo.mobile,0,4)||'****'||substr(foo.mobile,8,11)) as sub_mobile FROM (
+						SELECT ( COALESCE(bid.withdraw_profit,0) ) as profit,mobile
+						FROM lcb_financing_target_bid as bid LEFT JOIN lcb_user ON lcb_user.id = bid.bid_user_id
+						WHERE bid.pay AND bid. TYPE = 'CPB' AND bid.buy_amount = bid.withdraw_principal
+						and bid.withdraw_profit >0
+
+						UNION ALL
+
+						SELECT (annualized_rates / 36500 * buy_amount) * ((date_part('day',now() - begin_profit))+1)as profit, mobile
+							FROM lcb_financing_target_bid as bid LEFT JOIN lcb_user ON lcb_user.id = bid.bid_user_id
+											WHERE bid.pay='t' AND bid.type='CPB' AND bid.end_profit > now()
+						
+						UNION ALL
+
+						SELECT (COALESCE(bid.withdraw_profit,0)) as profit, mobile
+						FROM lcb_financing_target_bid as bid LEFT JOIN lcb_user ON lcb_user.id = bid.bid_user_id
+						WHERE bid.pay AND bid.TYPE = 'SCB' 
+
+						UNION ALL
+						
+						SELECT (annualized_rates / 36500 * (buy_amount-COALESCE(withdraw_principal,0))
+							  * (date_part('day', now()-COALESCE(re_begin_profit,begin_profit))+1) ) as profit, mobile
+						FROM lcb_financing_target_bid as bid LEFT JOIN lcb_user ON lcb_user.id = bid.bid_user_id
+						WHERE bid.pay='t'and bid.type='SCB' and bid.buy_amount > bid.withdraw_principal 
+				)as foo  GROUP BY foo.mobile ORDER BY sum(foo.profit) DESC limit 10
+				
+				
+				//累计投资排行  
+				SELECT sum(buy_amount) total_invest,(substr(mobile,0,4)||'****'||substr(mobile,8,11)) as sub_mobile
+				FROM lcb_financing_target_bid as bid LEFT JOIN lcb_user on bid_user_id = lcb_user.id 
+				WHERE pay AND (bid.pay_mark IN ( 'DEMAND_2_FIX','FIX_BID_2_DEMAND','自动购买') OR bid.bank_card_no IS NOT NULL)
+				GROUP BY mobile ORDER BY sum(buy_amount) desc LIMIT 10
+				
+				
+
+				// 累计月投资排行
+				SELECT sum(buy_amount) month_total_invest,(substr(mobile,0,4)||'****'||substr(mobile,8,11)) as sub_mobile
+				FROM lcb_financing_target_bid as bid LEFT JOIN lcb_user on bid_user_id = lcb_user.id 
+				WHERE pay AND (bid.pay_mark IN ( 'DEMAND_2_FIX','FIX_BID_2_DEMAND','自动购买') OR bid.bank_card_no IS NOT NULL)
+				AND to_char(now(),'yyyy-mm') = to_char(bid.gmt_create,'yyyy-mm')
+				GROUP BY mobile ORDER BY sum(buy_amount) desc LIMIT 10
+				
+				
+				//1. 7/8月每日订单交易额，活期、定期7天、15天、30天、60天、90天
+				
+				SELECT sum(buy_amount),bid.type,period,to_char(bid.gmt_create,'yyyy-mm-dd') as buy_time 
+				from lcb_financing_target_bid as bid LEFT JOIN lcb_financing_target  
+				on lcb_financing_target."id" = bid.financing_target_id
+				where pay and (bid.pay_mark IN ( 'DEMAND_2_FIX','FIX_BID_2_DEMAND','自动购买') OR bid.bank_card_no IS NOT NULL)
+				and bid.gmt_create BETWEEN '2016-07-01 00:00:00' and '2016-08-31 23:59:59'
+				GROUP BY bid.type,period,to_char(bid.gmt_create,'yyyy-mm-dd')
+				order by to_char(bid.gmt_create,'yyyy-mm-dd')
+				
+				
+				//1. 7/8月每日订单交易额，活期、定期7天、15天、30天、60天、90天 （定转活分开版）
+				SELECT sum(foo.buy_bybank) as 购买金额,sum(foo.buy_f2d) as 定转活,foo.type,foo.period,foo.buy_time FROM (
+				SELECT buy_amount as buy_bybank,0 as buy_f2d,bid.type,period,to_char(bid.gmt_create,'yyyy-mm-dd') as buy_time 
+				from lcb_financing_target_bid as bid LEFT JOIN lcb_financing_target  
+				on lcb_financing_target."id" = bid.financing_target_id
+				where pay and (bid.pay_mark IN ('DEMAND_2_FIX','自动购买') OR bid.bank_card_no IS NOT NULL)
+				and bid.gmt_create BETWEEN '2016-07-01 00:00:00' and '2016-08-31 23:59:59'
+			UNION ALL 
+				SELECT 0 as buy_bybank, buy_amount as buy_f2d,bid.type,period,to_char(bid.gmt_create,'yyyy-mm-dd') as buy_time 
+				from lcb_financing_target_bid as bid LEFT JOIN lcb_financing_target  
+				on lcb_financing_target."id" = bid.financing_target_id
+				where pay and bid.pay_mark IN ('FIX_BID_2_DEMAND')
+				and bid.gmt_create BETWEEN '2016-07-01 00:00:00' and '2016-08-31 23:59:59') as foo
+				GROUP BY foo.type,foo.period,foo.buy_time
+				order by foo.buy_time
+
+
+				
+				//2. 7/8月每日流出数据，提现+兑付
+				SELECT sum(lcb_withdraw.withdraw_principal+COALESCE(withdraw_profit,0)),to_char(gmt_create,'yyyy-mm-dd') as withdraw_time 
+				FROM lcb_withdraw WHERE status in( 'apply','transfered') and gmt_create  BETWEEN '2016-07-01 00:00:00' and '2016-08-31 23:59:59'
+				GROUP BY to_char(gmt_create,'yyyy-mm-dd')
+				
+				
+				
+				
+				SELECT *  from (
+					SELECT mobile,sum(COALESCE(buy_amount,0)) as sum_buy
+				from lcb_user LEFT JOIN lcb_financing_target_bid as bid on bid.bid_user_id = lcb_user.id 
+				WHERE  pay_mark != 'ACTIVITY' GROUP BY mobile 
+				) as foo where foo.sum_buy < 50
+
+
+				SELECT count(id),to_char(gmt_create,'yyyy-mm-dd') as buy_time from lcb_financing_target_bid as bid 
+				where ( bid.pay_mark IN ( 'DEMAND_2_FIX','FIX_BID_2_DEMAND') OR bid.bank_card_no IS NOT NULL)
+				AND gmt_create < '2016-09-13'
+				GROUP BY buy_time ORDER BY to_char(gmt_create,'yyyy-mm-dd')
+
+
+				SELECT * from (
+					SELECT true_name,mobile,ROW_NUMBER () OVER ( partition by lcb_user.mobile) AS ROW from lcb_financing_target_bid as bid 
+				LEFT JOIN lcb_user  on bid.bid_user_id = lcb_user.id 
+				where bid.bank_card_no IS NOT NULL and pay
+				AND bid.gmt_create < '2016-09-13'
+				) as foo GROUP BY foo.mobile,foo.row,foo.true_name ORDER BY foo.row
+
+				SELECT *  from (
+				SELECT true_name,mobile,sum(COALESCE(buy_amount-withdraw_principal,0)) as sum_buy
+				from lcb_user LEFT JOIN lcb_financing_target_bid as bid on bid.bid_user_id = lcb_user.id 
+				WHERE (bid.pay_mark IN ( 'DEMAND_2_FIX','FIX_BID_2_DEMAND') OR bid.bank_card_no IS NOT NULL) and pay
+				GROUP BY mobile,true_name
+				) as foo where foo.sum_buy < 50
+
+
+				SELECT *  from (
+				SELECT true_name,to_char(lcb_user_bank.gmt_create,'yyyy-mm-dd') as first_buy_time,lcb_user.mobile,
+				sum(COALESCE(buy_amount-withdraw_principal,0)) as sum_buy
+				from lcb_user LEFT JOIN lcb_financing_target_bid as bid on bid.bid_user_id = lcb_user.id 
+				LEFT JOIN lcb_user_bank ON lcb_user_bank.user_id = bid.bid_user_id
+				WHERE (bid.pay_mark IN ('DEMAND_2_FIX','FIX_BID_2_DEMAND') OR bid.bank_card_no IS NOT NULL) and pay
+				GROUP BY lcb_user.mobile,true_name,to_char(lcb_user_bank.gmt_create,'yyyy-mm-dd')
+			) as foo where foo.sum_buy < 50
+			
+			
+			SELECT * from ( SELECT true_name,mobile,count( bid.bid_user_id) AS count 
+				from lcb_financing_target_bid as bid 
+				LEFT JOIN lcb_user  on bid.bid_user_id = lcb_user.id 
+				where bid.bank_card_no IS NOT NULL and pay
+				AND bid.gmt_create < '2016-09-13' GROUP BY mobile,true_name,bid_user_id
+				) as foo GROUP BY foo.mobile,foo.true_name,foo.count ORDER BY foo.count desc
+				
+
+					
+			//诈骗详情
+			SELECT t.*,bank2.holder as bank_name from
+			(SELECT foo.regist_time,foo.user_mobile,foo.count,foo.user_name,bid.id,bid.buy_amount,bid.bank_card_no,withdraw_item.status,bid.type as type,
+			to_char(bid.gmt_create,'yyyy-mm-dd MM:hh:ss') as buy_time
+			from(
+			SELECT * from( 
+			select to_char(lcb_user.gmt_create,'yyyy-mm-dd MM:hh:ss') as regist_time,lcb_user.id,lcb_user.true_name as user_name,
+			COALESCE(lcb_user.mobile,lcb_user.login_name) as user_mobile,count(lcb_user_bank.user_id) as count
+			from lcb_user  left join lcb_user_bank on lcb_user.id = lcb_user_bank.user_id
+			where lcb_user.gmt_create > '2016-09-18 00:00:00'
+			GROUP BY lcb_user.id,lcb_user.mobile,lcb_user.login_name,lcb_user.true_name,to_char(lcb_user.gmt_create,'yyyy-mm-dd MM:hh:ss'))
+			 as user_bank WHERE user_bank.count > 1) as foo 
+			LEFT JOIN lcb_financing_target_bid as bid ON foo.id = bid.bid_user_id
+			LEFT JOIN lcb_withdraw_financing_target_bid_item as withdraw_item ON withdraw_item.financing_target_bid_id = bid."id"
+			 where pay and (bid.pay_mark IN ( 'DEMAND_2_FIX','FIX_BID_2_DEMAND','自动购买') OR bid.bank_card_no IS NOT NULL)
+			GROUP BY foo.user_mobile,foo.count,foo.user_name,bid.buy_amount,bid.type,foo.regist_time,bid.id,
+			bid.bank_card_no,withdraw_item.status,to_char(bid.gmt_create,'yyyy-mm-dd MM:hh:ss'))as t 
+			LEFT JOIN lcb_user_bank as bank2 on t.bank_card_no = bank2.bank_card_no
+			order by t.buy_time
