@@ -1,0 +1,27 @@
+<%= form_for(shujufenxi) do |f| %>
+  <% if shujufenxi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shujufenxi.errors.count, "error") %> prohibited this shujufenxi from being saved:</h2>
+
+      <ul>
+      <% shujufenxi.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    程序名称
+    <%= f.text_field :chengxumingcheng %>
+  </div>
+
+  <div class="field">
+    网址
+    <%= f.text_area :wangzhi %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

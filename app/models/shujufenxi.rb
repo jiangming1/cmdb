@@ -1,0 +1,2 @@
+class Shujufenxi < ApplicationRecord
+end

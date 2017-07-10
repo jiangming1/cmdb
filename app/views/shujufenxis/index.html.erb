@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>数据分析</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>程序名称</th>
+      <th>网址</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shujufenxis.each do |shujufenxi| %>
+      <tr>
+        <td><a target=_blank href="<%= shujufenxi.wangzhi %>"><%= shujufenxi.chengxumingcheng %></a></td>
+        <td><%= shujufenxi.wangzhi %></td>
+        <td><%= link_to 'Show', shujufenxi %></td>
+        <td><%= link_to 'Edit', edit_shujufenxi_path(shujufenxi) %></td>
+        <td><%= link_to 'Destroy', shujufenxi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建数据分析', new_shujufenxi_path %>

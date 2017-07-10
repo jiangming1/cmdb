@@ -1,0 +1,43 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+bin=${DIR}/../bin
+lib=${DIR}/../lib
+
+echo '{
+    "type" : "jdbc",
+        "jdbc" : {
+                "url" : "jdbc:postgresql://120.27.145.175:12345/laicunba_test?loglevel=0",
+                "user" : "postgres",
+                "password" : "D8TBaUZhDG7xaXw3Ov7LPW1HUcmO31",
+                "sql" : "select * from lcb_user",
+                "elasticsearch" : {
+                         "cluster" : "elasticsearch",
+                         "host" : "10.47.66.53",
+                         "port" : 9300
+                },
+                "index" : "myjdbc",
+                "type" : "mytype",
+                "index_settings" : {
+                        "index" : {
+                                "number_of_shards" : 1
+                        }
+                },
+                "type_mapping": {
+                        "mytype" : {
+                                "properties" : {
+                                        "polygon" : {
+                                                "type" : "geo_shape",
+                                                "tree" : "quadtree"
+                                        }
+                                }
+                        }
+                }
+        }
+
+}
+' | java \
+    -cp "${lib}/*" \
+    -Dlog4j.configurationFile=${bin}/log4j2.xml \
+    org.xbib.tools.Runner \
+    org.xbib.tools.JDBCImporter

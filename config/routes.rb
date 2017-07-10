@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :shujufenxis
   resources :ceshirenwuguanlis
   resources :pingguodingshirenwus
   resources :shujukuzhanghus
