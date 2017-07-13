@@ -1,0 +1,2 @@
+class Shujukujiaoben < ApplicationRecord
+end

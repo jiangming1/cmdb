@@ -69,6 +69,6 @@ class DiannaosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def diannao_params
-      params.require(:diannao).permit(:mingzi, :ip, :neiip, :yonghu, :mima, :pubkey, :miaoshu)
+      params.require(:diannao).permit(:mingzi, :ip, :neiip, :yonghu, :mima, :pubkey, :miaoshu, jiaobenzhixings_attributes: [:id, :name])
     end
 end

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>脚本执行</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>脚本名称</th>
+      <th>执行账户</th>
+      <th>目标机器</th>
+      <th>脚本内容</th>
+      <th>脚本参数</th>
+      <th>超时时间</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jiaobenzhixings.each do |jiaobenzhixing| %>
+      <tr>
+        <td><%= jiaobenzhixing.jiaobenmingcheng %></td>
+        <td><%= jiaobenzhixing.zhixingzhanghu %></td>
+        <td><%= jiaobenzhixing.mubiaojiqi %></td>
+        <td><%= jiaobenzhixing.jiaobenneirong %></td>
+        <td><%= jiaobenzhixing.jiaobencanshu %></td>
+        <td><%= jiaobenzhixing.chaoshishijian %></td>
+        <td><%= link_to 'Show', jiaobenzhixing %></td>
+        <td><%= link_to 'Edit', edit_jiaobenzhixing_path(jiaobenzhixing) %></td>
+        <td><%= link_to 'Destroy', jiaobenzhixing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建脚本执行', new_jiaobenzhixing_path %>

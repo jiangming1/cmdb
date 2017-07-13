@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>脚本名称:</strong>
+  <%= @shujukusqlguanli.jiaobenmingcheng %>
+</p>
+
+<p>
+  <strong>脚本内容:</strong>
+  <%= @shujukusqlguanli.jiaobenneirong %>
+</p>
+<pre>
+<%=@exe%>
+<%=@cmd%>
+</pre>
+<%= link_to 'Edit', edit_shujukusqlguanli_path(@shujukusqlguanli) %> |
+<%= link_to 'Back', shujukusqlguanlis_path %>

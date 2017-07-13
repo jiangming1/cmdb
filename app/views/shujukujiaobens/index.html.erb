@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>数据库脚本</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>脚本名称</th>
+      <th>数据库账号</th>
+      <th>目标机器</th>
+      <th>部首名称</th>
+      <th>脚本来源</th>
+      <th>脚本内容</th>
+      <th>考试时间</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shujukujiaobens.each do |shujukujiaoben| %>
+      <tr>
+        <td><%= shujukujiaoben.jiaobenmingcheng %></td>
+        <td><%= shujukujiaoben.shujuquzhanghao %></td>
+        <td><%= shujukujiaoben.mubiaojiqi %></td>
+        <td><%= shujukujiaoben.buzhoumingcheng %></td>
+        <td><%= shujukujiaoben.jiaobenlaiyuan %></td>
+        <td><%= shujukujiaoben.jiaobenneirong %></td>
+        <td><%= shujukujiaoben.caoshishijian %></td>
+        <td><%= link_to 'Show', shujukujiaoben %></td>
+        <td><%= link_to 'Edit', edit_shujukujiaoben_path(shujukujiaoben) %></td>
+        <td><%= link_to 'Destroy', shujukujiaoben, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建数据库脚本', new_shujukujiaoben_path %>

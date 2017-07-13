@@ -4,7 +4,7 @@ class MenusController < ApplicationController
   # GET /menus
   # GET /menus.json
   def index
-    @menus = Menu.all
+    @menus = Menu.where("menu_id is null")
   end
 
   # GET /menus/1
@@ -69,6 +69,6 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:mingzi, :url)
+      params.require(:menu).permit(:mingzi, :url,:menu_id)
     end
 end

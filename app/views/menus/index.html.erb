@@ -1,15 +1,29 @@
-<table>
-
-
-  <tbody>
+<ul class="nav navbar-nav navbar-left">
     <% @menus.each do |menu| %>
-      <tr>
-        <a target=test href=/<%= menu.url %>><%= menu.mingzi %></td></a>
-      </tr>
+                     <li>
+                        <a target=test href=/<%= menu.url %> class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-cog">
+                            </i>
+                            <span class="ml10">
+                                <%= menu.mingzi %>
+                            </span>
+                            <span class="caret-down">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu" style=" left:0;right:auto;">
+                        <%
+                        Menu.where("menu_id = "+menu.id.to_s+"").each do |submenu| %>
+                            <li>
+                                <a target=test  href=/<%= submenu.url %>>
+                                   <%= submenu.mingzi %>
+                                </a>
+                            </li>
+                                <% end %>
+                           </ul>
+                    </li>
     <% end %>
-  </tbody>
-</table>
-<iframe src="backtop.html" frameborder="0" width=100% name=test scrolling="no" id="test" onload="this.height=100"></iframe>
+</ul>
+<iframe src="/dns" frameborder="0" width=100% name=test scrolling="no" id="test" onload="this.height=100"></iframe>
 <script type="text/javascript">
 function reinitIframe(){
 var iframe = document.getElementById("test");

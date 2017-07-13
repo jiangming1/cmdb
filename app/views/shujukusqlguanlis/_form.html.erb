@@ -1,0 +1,27 @@
+<%= form_for(shujukusqlguanli, :html => {:class=>'form-horizontal'}) do |f| %>
+  <% if shujukusqlguanli.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shujukusqlguanli.errors.count, "error") %> prohibited this shujukusqlguanli from being saved:</h2>
+
+      <ul>
+      <% shujukusqlguanli.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group" >
+    <label class=col-sm-2 control-label>脚本名称</label>
+    <%= f.text_field :jiaobenmingcheng ,style: 'width: 600px;',class:'form-control'   %>
+  </div>
+  <div class="form-group" >
+    <label class=col-sm-2 control-label>脚本内容</label>
+    <%= f.text_area :jiaobenneirong ,style: 'width: 600px;',class:'form-control'   %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

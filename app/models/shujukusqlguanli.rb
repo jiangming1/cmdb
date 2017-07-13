@@ -1,0 +1,2 @@
+class Shujukusqlguanli < ApplicationRecord
+end

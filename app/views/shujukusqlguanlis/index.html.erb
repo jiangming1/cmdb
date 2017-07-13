@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>数据库sql管理</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>脚本名称</th>
+      <th>脚本内容</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shujukusqlguanlis.each do |shujukusqlguanli| %>
+      <tr>
+        <td><%= link_to 'Show', shujukusqlguanli %><%= shujukusqlguanli.jiaobenmingcheng %></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to 'Edit', edit_shujukusqlguanli_path(shujukusqlguanli) %></td>
+        <td><%= link_to 'Destroy', shujukusqlguanli, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建数据库sql管理', new_shujukusqlguanli_path %>

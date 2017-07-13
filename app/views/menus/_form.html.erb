@@ -21,6 +21,13 @@
     <%= f.text_field :url %>
   </div>
 
+  <div class="field">
+    <%= f.label :menu_id %>
+    <%= f.text_field :menu_id %>
+  </div>注意这里
+      <% f.fields_for :submenus do |pf| %> #
+      <%= pf.text_field :url %>
+    <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

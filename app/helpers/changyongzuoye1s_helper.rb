@@ -1,0 +1,2 @@
+module Changyongzuoye1sHelper
+end

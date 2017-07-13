@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>esjiaoben</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>脚本名称</th>
+      <th>脚本内容</th>
+      <th>备注</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @esjiaobens.each do |esjiaoben| %>
+      <tr>
+        <td><%= esjiaoben.jiaobenmingcheng %></td>
+        <td><%= esjiaoben.jiaobenneirong %></td>
+        <td><%= esjiaoben.beizhu %></td>
+        <td><%= link_to 'Show', esjiaoben %></td>
+        <td><%= link_to 'Edit', edit_esjiaoben_path(esjiaoben) %></td>
+        <td><%= link_to 'Destroy', esjiaoben, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建esjiaoben', new_esjiaoben_path %>

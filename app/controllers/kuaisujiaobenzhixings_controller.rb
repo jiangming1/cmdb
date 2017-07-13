@@ -10,6 +10,7 @@ class KuaisujiaobenzhixingsController < ApplicationController
   # GET /kuaisujiaobenzhixings/1
   # GET /kuaisujiaobenzhixings/1.json
   def show
+  
   end
 
   # GET /kuaisujiaobenzhixings/new

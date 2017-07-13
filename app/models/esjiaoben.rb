@@ -1,0 +1,2 @@
+class Esjiaoben < ApplicationRecord
+end

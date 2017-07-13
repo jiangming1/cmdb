@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>脚本名称:</strong>
+  <%= @shujukujiaoben.jiaobenmingcheng %>
+</p>
+
+<p>
+  <strong>数据库账号:</strong>
+  <%= @shujukujiaoben.shujuquzhanghao %>
+</p>
+
+<p>
+  <strong>目标机器:</strong>
+  <%= @shujukujiaoben.mubiaojiqi %>
+</p>
+
+<p>
+  <strong>部首名称:</strong>
+  <%= @shujukujiaoben.buzhoumingcheng %>
+</p>
+
+<p>
+  <strong>脚本来源:</strong>
+  <%= @shujukujiaoben.jiaobenlaiyuan %>
+</p>
+
+<p>
+  <strong>脚本内容:</strong>
+  <%= @shujukujiaoben.jiaobenneirong %>
+</p>
+
+<p>
+  <strong>考试时间:</strong>
+  <%= @shujukujiaoben.caoshishijian %>
+</p>
+
+<%= link_to 'Edit', edit_shujukujiaoben_path(@shujukujiaoben) %> |
+<%= link_to 'Back', shujukujiaobens_path %>

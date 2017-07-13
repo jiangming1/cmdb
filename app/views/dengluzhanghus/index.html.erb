@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>登录帐户</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>账号名称</th>
+      <th>账号密码</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dengluzhanghus.each do |dengluzhanghu| %>
+      <tr>
+        <td><%= dengluzhanghu.zhanghaomingcheng %></td>
+        <td><%= dengluzhanghu.zhanghaomima %></td>
+        <td><%= link_to 'Show', dengluzhanghu %></td>
+        <td><%= link_to 'Edit', edit_dengluzhanghu_path(dengluzhanghu) %></td>
+        <td><%= link_to 'Destroy', dengluzhanghu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建登录帐户', new_dengluzhanghu_path %>

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>脚本名称:</strong>
+  <%= @jiaobenzhixing.jiaobenmingcheng %>
+</p>
+<pre>
+<%=@exe%>
+</pre>
+<p>
+  <strong>执行账户:</strong>
+  <%= @jiaobenzhixing.zhixingzhanghu %>
+</p>
+
+<p>
+  <strong>目标机器:</strong>
+  <%= @jiaobenzhixing.mubiaojiqi %>
+</p>
+
+<p>
+  <strong>脚本内容:</strong>
+  <%= @jiaobenzhixing.jiaobenneirong %>
+</p>
+
+<p>
+  <strong>脚本参数:</strong>
+  <%= @jiaobenzhixing.jiaobencanshu %>
+</p>
+
+<p>
+  <strong>超时时间:</strong>
+  <%= @jiaobenzhixing.chaoshishijian %>
+</p>
+
+<%= link_to 'Edit', edit_jiaobenzhixing_path(@jiaobenzhixing) %> |
+<%= link_to 'Back', jiaobenzhixings_path %>

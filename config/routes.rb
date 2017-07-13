@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :jiaobenzhixings
+  resources :esjiaobens
+  resources :xitongzhanghuguanlis
+  resources :shujukusqlguanlis
+  resources :shujukujiaobens
+  resources :changyongzuoye1s
+  resources :dengluzhanghus
   resources :shujufenxis
   resources :ceshirenwuguanlis
   resources :pingguodingshirenwus
@@ -29,5 +36,9 @@ Rails.application.routes.draw do
   resources :apps
   resources :diannaos
   get "/" => redirect("/menus")
+  post 'login', :to => 'dengluzhanghus#login'
+  get 'upload', :to => 'upload#index'
+  post 'upload', :to => 'upload#upload'
+  #get '/login' => 'dengluzhanghus#login1', :as => "menus"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

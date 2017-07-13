@@ -1,0 +1,4 @@
+<%= form_tag({action: :upload}, multipart: true)  do %>
+   <%= file_field_tag "image" %>
+  <%= submit_tag("登录") %>
+<% end %>

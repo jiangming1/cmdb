@@ -1,0 +1,2 @@
+class Dengluzhanghu < ApplicationRecord
+end

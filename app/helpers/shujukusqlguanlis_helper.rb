@@ -1,0 +1,2 @@
+module ShujukusqlguanlisHelper
+end

@@ -1,0 +1,52 @@
+<%= form_for(shujukujiaoben) do |f| %>
+  <% if shujukujiaoben.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shujukujiaoben.errors.count, "error") %> prohibited this shujukujiaoben from being saved:</h2>
+
+      <ul>
+      <% shujukujiaoben.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    脚本名称
+    <%= f.text_field :jiaobenmingcheng %>
+  </div>
+
+  <div class="field">
+    数据库账号
+    <%= f.text_field :shujuquzhanghao %>
+  </div>
+
+  <div class="field">
+    目标机器
+    <%= f.text_field :mubiaojiqi %>
+  </div>
+
+  <div class="field">
+    部首名称
+    <%= f.text_field :buzhoumingcheng %>
+  </div>
+
+  <div class="field">
+    脚本来源
+    <%= f.text_field :jiaobenlaiyuan %>
+  </div>
+
+  <div class="field">
+    脚本内容
+    <%= f.text_field :jiaobenneirong %>
+  </div>
+
+  <div class="field">
+    考试时间
+    <%= f.text_field :caoshishijian %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

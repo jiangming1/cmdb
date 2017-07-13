@@ -1,0 +1,32 @@
+<%= form_for(esjiaoben) do |f| %>
+  <% if esjiaoben.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(esjiaoben.errors.count, "error") %> prohibited this esjiaoben from being saved:</h2>
+
+      <ul>
+      <% esjiaoben.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    脚本名称
+    <%= f.text_field :jiaobenmingcheng %>
+  </div>
+
+  <div class="field">
+    脚本内容
+    <%= f.text_area :jiaobenneirong %>
+  </div>
+
+  <div class="field">
+    备注
+    <%= f.text_field :beizhu %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

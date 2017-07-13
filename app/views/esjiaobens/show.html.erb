@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>脚本名称:</strong>
+  <%= @esjiaoben.jiaobenmingcheng %>
+</p>
+
+<p>
+  <strong>脚本内容:</strong>
+  <%= @esjiaoben.jiaobenneirong %>
+</p>
+
+<p>
+  <strong>备注:</strong>
+  <%= @esjiaoben.beizhu %>
+</p>
+
+<%= link_to 'Edit', edit_esjiaoben_path(@esjiaoben) %> |
+<%= link_to 'Back', esjiaobens_path %>

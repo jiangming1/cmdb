@@ -1,0 +1,27 @@
+<%= form_for(dengluzhanghu, url: {action: "login"}) do |f| %>
+  <% if dengluzhanghu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dengluzhanghu.errors.count, "error") %> prohibited this dengluzhanghu from being saved:</h2>
+
+      <ul>
+      <% dengluzhanghu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    账号名称
+    <%= f.text_field :zhanghaomingcheng %>
+  </div>
+
+  <div class="field">
+    账号密码
+    <%= f.text_field :zhanghaomima %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

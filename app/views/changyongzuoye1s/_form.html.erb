@@ -1,0 +1,62 @@
+<%= form_for(changyongzuoye1) do |f| %>
+  <% if changyongzuoye1.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(changyongzuoye1.errors.count, "error") %> prohibited this changyongzuoye1 from being saved:</h2>
+
+      <ul>
+      <% changyongzuoye1.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    作业名称
+    <%= f.text_field :zuoyemingcheng %>
+  </div>
+
+  <div class="field">
+    分类标签
+    <%= f.text_field :fenleibiaoqian %>
+  </div>
+
+  <div class="field">
+    全局变量设置
+    <%= f.text_field :quanjubianliangshezhi %>
+  </div>
+
+  <div class="field">
+    部首名称
+    <%= f.text_field :buzhoumingcheng %>
+  </div>
+
+  <div class="field">
+    脚本名称
+    <%= f.text_field :jiaobenmingcheng %>
+  </div>
+
+  <div class="field">
+    执行账户
+    <%= f.text_field :zhixingzhanghu %>
+  </div>
+
+  <div class="field">
+    服务器数量
+    <%= f.text_field :fuwuqishuliang %>
+  </div>
+
+  <div class="field">
+    脚本参数
+    <%= f.text_field :jiaobencanshu %>
+  </div>
+
+  <div class="field">
+    完成后暂停
+    <%= f.text_field :wanchenghouzanting %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

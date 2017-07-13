@@ -1,0 +1,1614 @@
+<h1>新建常用作业1</h1>
+
+<%= render 'form', changyongzuoye1: @changyongzuoye1 %>
+
+<%= link_to 'Back', changyongzuoye1s_path %>
+<section class="king-content" id="king-content1">
+
+
+
+
+
+
+<script>
+    lang = "zh_CN";
+</script>
+<!-- 全局变量 -->
+	
+<div class="panel-global panel-global-default ijobs-innerbox-global">
+	<div class="panel-title clearfix">
+		<i class="bk-icon icon-edit"></i>
+		<span class="panel-title-head">作业属性</span>
+	</div>
+	<div class="returnWrap">
+    	<button id="returnBtn" class="pull-right btn btn-warning" style="margin-top:-36px;margin-right:0px;padding:7px 15px;border-top-right-radius:3px;-webkit-border-top-right-radius:3px;">返回</button>
+	</div>
+	<div class="panel-body-global">
+		<div class="panel-body-top">
+			<div class="panel-body-name clearfix">
+				<label style="width:85px;">
+					<!-- <i class="fa fa-map-marker"></i> -->
+					<span>作业名称</span>
+				</label>
+				<input class="panel-body-input" id="task-name" name="task-name" maxlength="50" dt-value="" data-container="body" data-toggle="popover" data-placement="top" data-content="必填项">
+			</div>
+			<div class="panel-body-tag" id="tag_list">
+				<!-- <span class="classific-tag"><i class="fa fa-tag"></i>请选择分类标签</span>
+
+				<select class="tag-select" v-model="selected">
+					<option v-for="option in taskTagList" v-bind:value="option.id">{{option.tag}}</option>
+				</select> -->
+				<span class="tag-selected">未分类 <b class="select-arrow"></b></span>
+				<div id="tag-select-list" class="tag-select" style="display: none;">
+					<ul>
+						<li>测试专用</li><li>产品自助</li><li>常用工具</li><li>故障处理</li><li>运营发布</li><li>未分类</li>
+					</ul>
+				</div>
+			</div>
+			<span for="" class="global-set">全局变量设置<i class="bk-icon icon-arrows-up-circle"></i></span>
+		</div>
+		<ul class="global-node-ul" id="global_variable_ul">
+			<li class="global-node-li global-node-header">
+				<div class="global-node-top clearfix">
+					<i class="bk-icon icon-calendar"></i>
+					<span>全局变量参数</span>
+					<span class="globa-tips">
+						<i class="bk-icon icon-question-circle"></i>
+						<div class="tips-text">
+							<i></i>
+							<p>
+								<span>字符变量：</span><br>字符串类型，可在节点内的“脚本参数”和“目标路径”通过$｛变量名｝获取变量值；例如变量取名为string，就可以通过$｛string｝来获取到对应的变量默认值。
+							</p>
+							<p>
+								<span>IP变量：</span><br>可用于替换用户选择的步骤节点内的执行主机；假设你所有的作业步骤都在同一批主机执行，那就只需设置一个IP的全局变量并选择节点进行替换即可。
+							</p>
+						</div>
+						
+					</span>
+					<!-- 全局变量的全部展开按钮 -->
+					<!-- <a href="javascript:void(0);" class="btn pt5 pb5 mt5 global-all-select open">
+						<i class="glyphicon glyphicon-menu-down"></i>
+					</a> -->
+				</div>
+				<table class="global-node-table table table-out-bordered">
+					<thead>
+						<tr>
+							<th class="text-center w10-per">变量类型<span class="red">&nbsp;*</span></th>
+							<th class="text-center w20-per">变量名<span class="red">&nbsp;*</span></th>
+							<th class="text-center w25-per">变量默认值<span class="red">&nbsp;*</span></th>
+							<th class="text-center w30-per">变量描述<span class="red">&nbsp;</span></th>
+							<th class="text-center w15-per">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+				<div class="no-variable none">当前没有设置全局变量</div>
+			</li>
+			<li class="global-node-li">
+				<form onsubmit="return false">
+					<table class="w100-per" id="global_table">
+						<tbody class="border-tb">
+							<tr class="global-variable-tr" data-id="131">
+										<td class="text-center w10-per"><a href="javascript:;" class="btn-grey-global fa fa-file-text-o" data-type="1"></a></td>
+										<td class="text-center w20-per"><input class="form-control mlra w90-per global-name" data-toggle="popover" data-placement="right">
+										</td>
+										<td class="text-center w25-per"><input class="form-control mlra w90-per global-default" data-toggle="popover" data-placement="right" data-content="必填项"></td>
+										<td class="text-center w30-per"><input class="form-control mlra w90-per global-desc"></td>
+										<!-- <td class="text-center w15-per"><a class="btn btn-danger-global glyphicon glyphicon-trash" v-on:click="delTextTr($index)">删除</a></td> -->
+										<td class="text-center w15-per icon-right"><a class="btn btn-danger-global glyphicon glyphicon-trash">
+											<span>删除</span>
+											<i></i>
+										</a></td>
+
+									</tr>
+								<tr class="global-variable-tr" data-id="132">
+										<td class="text-center w10-per"><a href="javascript:;" class="btn-grey-global fa fa-file-text-o" data-type="1"></a></td>
+										<td class="text-center w20-per"><input class="form-control mlra w90-per global-name" data-toggle="popover" data-placement="right">
+										</td>
+										<td class="text-center w25-per"><input class="form-control mlra w90-per global-default" data-toggle="popover" data-placement="right" data-content="必填项"></td>
+										<td class="text-center w30-per"><input class="form-control mlra w90-per global-desc"></td>
+										<!-- <td class="text-center w15-per"><a class="btn btn-danger-global glyphicon glyphicon-trash" v-on:click="delTextTr($index)">删除</a></td> -->
+										<td class="text-center w15-per icon-right"><a class="btn btn-danger-global glyphicon glyphicon-trash">
+											<span>删除</span>
+											<i></i>
+										</a></td>
+
+									</tr>
+								
+						</tbody>
+					</table>
+				</form>
+			</li>
+			<li class="group-node-li global-node-footer">
+				<div class="add-global">
+					<a href="javascript:void(0);"><i class="bk-icon icon-plus"></i>&nbsp;&nbsp;新增变量</a>
+					<ul>
+						<li>
+							<i class="fa fa-server"></i>
+							<a>IP变量</a>
+						</li>
+						<li>
+							<i class="fa fa-file-text-o"></i>
+							<a>字符变量</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="panel panel-default ijobs-innerbox" id="panel-0">
+	<!-- <div class="returnWrap">
+    	<button id="returnBtn" class="pull-right btn btn-warning none" style="margin-top:1px;margin-right:2px;">返回</button>
+	</div> -->
+	<div class="panel-heading none">
+		<h3 class="panel-title">新建作业</h3>
+	</div>
+	<div class="panel-body">
+		<input type="hidden" id="global-ip-string">
+		<div class="container-fluid">
+			<div class="form-horizontal">
+				<input type="hidden" id="taskId" value="1432">
+				<!--
+				<div class="form-group">
+					<label class="control-label ijobs-label-w105">作业名称<span class="red">&nbsp;*</span>：</label>
+					<div class="ijobs-input">
+						<input type="text" class="form-control w400" id="task-name"  name="task-name" maxlength="50" dt-value="" data-container="body" data-toggle="popover" data-placement="right" data-content="必填项">
+					</div>
+				</div>
+				 -->
+				<!-- 步骤分组外层box start  -->
+				<div class="form-group" id="group-box">
+					<ul class="group-ul ui-sortable" id="group-ul" style="min-height:182px;">
+					<li class="group-li">
+	<ul class="group-node-ul">
+		<li class="group-node-li group-node-header">
+			<div class="group-node-top group-node-top1">
+				<img src="img/j.png" style="width:46px;height:46px;margin-top:-1px;">
+				<label class="control-label mt5 ml5 white">步骤名称<span class="red">&nbsp;*</span>：</label>
+				<input type="text" class="form-control group-name-input mt5" maxlength="50" data-toggle="popover" data-placement="right" data-content="必填项">
+				<input type="hidden" class="form-control group-type-input mt5" value="1">
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-cut">
+                    <i class="fa fa-scissors"></i></a>
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-up" style="padding: 6px 7px;">
+					<i class="bk-icon icon-angle-up"></i></a>
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-down" style="padding: 6px 7px;">
+					<i class="bk-icon icon-angle-down"></i></a> 
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-close" id="closeStep">
+					<i class="bk-icon icon-close1"></i></a> 
+			</div>
+			<table class="group-node-table table table-out-bordered">
+				<tbody><tr class="name-tr">
+					<th class="text-center">脚本名称<span class="red">&nbsp;*</span></th>
+					<th class="text-center">执行账户<span class="red">&nbsp;*</span></th>
+					<th class="text-center">服务器数<span class="red">&nbsp;*</span></th>
+					<th class="text-center">脚本参数</th>
+					<th class="text-center">操作</th>
+				</tr>
+			</tbody></table>
+		</li>
+		<!--  <li class="group-node-li group-node-item"></li> -->
+		<li class="group-node-li group-node-item">
+	<a href="#" class="item-cut" title="裁剪"><!-- <i class="fa fa-scissors"></i> --><img src="img/scissors.gif" width="20" height="20"></a>
+	<form onsubmit="return false">
+		<table class="group-node-table table table-out-bordered table-condensed">
+			<tbody><tr class="name-tr">
+				<td class="td_step_name">
+					<input type="text" class="form-control step_name_input" maxlength="50" dt-value="" data-toggle="popover" data-placement="right" data-content="必填项" data-index="1" data-steps="3535">
+				</td>
+				<td class="td_step_accout">
+					<select class="form-control step_accout_sel  add-accout-user" dt-value="" data-toggle="popover" data-placement="right" data-content="必填项" style="display: none;"><option value="Administrator">Administrator</option><option value="root" selected="">root</option></select><div class="chosen-container chosen-container-single" style="width: 121px;" title=""><a class="chosen-single" tabindex="-1"><span>root</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul><div class="chosen-operate newTask" href="./app/newTask.jsp" style="display:none;">+新建作业</div></div></div>
+					<!-- 新增用户 start -->
+					<a href="javascript:;" class="btn ijobs-btn ijobs-radius ijobs-default add-user" data-type="1" title="新增执行用户">
+						<i class="bk-icon icon-plus"></i>
+					</a>
+					<!-- end -->					
+				</td>					
+				<td class="td_step_service" style="position: relative;">
+					<input type="text" class="form-control step_service_input" disabled="">
+					<a class="king-btn king-default king-btn-mini none serverip-copy-btn" style="position: absolute;right: 70px;top: 10px;">复制</a>
+					<a class="king-btn king-default king-btn-mini none serverip-paste-btn" style="position: absolute;right: 10px;top: 10px;">粘贴</a>
+					<!-- 禁止复制 start -->
+					<span class="ip-replace none">ip已经被全局变量替代</span>
+					<!-- end -->
+				</td>
+				<td class="td_step_param" style="position: relative;">
+<!-- 					<input type="checkbox" title="CC脚本传参" style="position: absolute;top:10px;" class="step_paramType"/> -->
+					<input type="text" class="form-control step_param_input" maxlength="1024">
+					<!-- 添加加密处理 start -->
+					<span class="isEntrytion " style="margin-left:5px;">
+						<input type="checkbox" class="scre-input">
+						<label for="entrytion" class="onEntertion">*敏感参数</label>
+					</span>
+					<!-- end -->
+				</td>
+				<td class="td_step_oper">
+				<div class="step_oper_div">
+				<div class="checkbox-inline step_oper_div_check">
+					<label>
+						<input type="checkbox" name="stop-after-step">&nbsp;<span>完成后暂停</span>&nbsp;&nbsp;&nbsp;
+					</label>
+				</div>
+				<a href="javascript:void(0)" title="编辑" class="node-edit"><i class="bk-icon icon-edit"></i></a>
+				<a href="javascript:void(0)" title="上移" class="node-up"><i class="bk-icon icon-arrows-up"></i></a>
+				<a href="javascript:void(0)" title="下移" class="node-down"><i class="bk-icon icon-arrows-down"></i></a>
+				<a href="javascript:void(0)" title="拖放" class="node-drag ui-draggable ui-draggable-handle" style="position: relative;"><i class="bk-icon icon-move"></i></a>
+				<a href="javascript:void(0)" title="删除" class="node-del"><i class="bk-icon icon-close1"></i></a>
+				<input type="hidden" class="step_id" value="3535">
+				</div>
+				</td>
+			</tr>
+			<tr class="tag-tr none">
+				<td colspan="5" class="tag_td">
+					<div class="form-group pt10">
+						<label class="control-label ijobs-label-min">脚本来源<span class="red">&nbsp;*</span>：</label>
+						<div class="ijobs-input-min">
+							<label class="radio-inline"> <input type="radio" value="1" name="scriptFrom" checked="checked"> 手工录入
+							</label>
+							<label class="radio-inline"> <input type="radio" data="no" value="5" name="scriptFrom"> 脚本引用
+							</label>
+							<label class="radio-inline"> <input type="radio" value="2" name="scriptFrom"> 脚本克隆
+							</label> 
+							<label class="radio-inline"> <input type="radio" value="3" name="scriptFrom"> 本地脚本
+							</label>
+							<label class="radio-inline"> <input type="radio" value="4" name="scriptFrom"> 公共脚本
+							</label>
+						</div>
+					</div>
+
+					<div class="form-group script-appoint" style="display:none;">
+						<label class="control-label ijobs-label-min"></label>
+						<div class="ijobs-input" style="background-color: #f3f3f4;">
+							<div class="col-sm-6">
+								<div class="form-group" style="margin: 10px 0px 10px 0px;">
+									<label for="" class="control-label" style="width:80px;">脚本名称: </label>
+									<div class="ijobs-oppoint">
+										<select name="" class="select-oppint appoint-srcipt-name" data-placeholder="请选择脚本" style="width: 230px; display: none;"><option></option><option data-id="3730" value="测试服务器发包">测试服务器发包</option><option data-id="3738" value="runuserregios">runuserregios</option><option data-id="3739" value="runuserreg_android_copy">runuserreg_android_copy</option><option data-id="3737" value="runuserreg_android">runuserreg_android</option><option data-id="3698" value="runuserreg">runuserreg</option><option data-id="3736" value="测试服务器发包_copy">测试服务器发包_copy</option><option data-id="3731" value="ceshi1">ceshi1</option><option data-id="3732" value="cheshi2">cheshi2</option><option data-id="3705" value="loginumeng_copy">loginumeng_copy</option><option data-id="3704" value="loginumeng">loginumeng</option><option data-id="3703" value="aso100">aso100</option><option data-id="3697" value="check">check</option><option data-id="3690" value="安卓渠道发布">安卓渠道发布</option><option data-id="3689" value="svncreate.sh">svncreate.sh</option><option data-id="3611" value="test">test</option></select><div class="chosen-container chosen-container-single" style="width: 220px;" title=""><a class="chosen-single chosen-default" tabindex="-1"><span>请选择脚本</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul><div class="chosen-operate newTask" href="./app/newTask.jsp" style="display:none;">+新建作业</div></div></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group" style="margin: 10px 0px 10px 0px;">
+									<label for="" class="control-label" style="width:53px;text-align:left;">版本号：</label>
+									<div class="ijobs-oppoint">
+										<select name="" id="" class="select-oppint appoint-script-version" data-placeholder="请选择脚本" style="display: none;"></select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: 220px;" title=""><a class="chosen-single chosen-default" tabindex="-1"><span>请选择脚本</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul><div class="chosen-operate newTask" href="./app/newTask.jsp" style="display:none;">+新建作业</div></div></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+		
+					<div class="form-group commonScript" style="display: none;">
+						<label class="control-label ijobs-label-min"></label>
+						<div class="ijobs-input" style="background-color: #f3f3f4;">
+							<div class="col-sm-6">
+								<div class="row" style="margin: 10px 0px 10px 0px;">
+									<label class="control-label">脚本名称<span class="red">&nbsp;*</span>：</label> 
+									<select class="CcScript" data-placeholder="请选择脚本" style="display: none;"><option></option><option data-id="3" value="将传入的ssh公钥部署从指定服务器解绑">将传入的ssh公钥部署从指定服务器解绑</option><option data-id="4" value="Windows下重置指定用户的密码">Windows下重置指定用户的密码</option><option data-id="1" value="重置root密码">重置root密码</option><option data-id="2" value="将传入的ssh公钥部署到指定服务器">将传入的ssh公钥部署到指定服务器</option></select><div class="chosen-container chosen-container-single" style="width: 220px;" title=""><a class="chosen-single chosen-default" tabindex="-1"><span>请选择脚本</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul><div class="chosen-operate newTask" href="./app/newTask.jsp" style="display:none;">+新建作业</div></div></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group" style="margin: 10px 0px 10px 0px;">
+									<label for="" class="control-label" style="width:53px;text-align:left;">版本号：</label>
+									<div class="ijobs-oppoint">
+										<select name="" id="" class="select-oppint common-script-version" data-placeholder="请选择脚本" style="display: none;"></select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: 220px;" title=""><a class="chosen-single chosen-default" tabindex="-1"><span>请选择脚本</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul><div class="chosen-operate newTask" href="./app/newTask.jsp" style="display:none;">+新建作业</div></div></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			
+					<div class="form-group scriptCopy" style="display: none;">
+						<label class="control-label ijobs-label-min"></label>
+						<div class="ijobs-input" style="background-color: #f3f3f4;">
+							<div class="col-sm-6">
+								<div class="row" style="margin: 10px 0px 10px 0px;">
+									<label class="control-label">脚本名称<span class="red">&nbsp;*</span>：</label> 
+									<select class="cmbScript" data-placeholder="请选择脚本" style="display: none;"><option></option><option data-id="3730" value="测试服务器发包">测试服务器发包</option><option data-id="3738" value="runuserregios">runuserregios</option><option data-id="3739" value="runuserreg_android_copy">runuserreg_android_copy</option><option data-id="3737" value="runuserreg_android">runuserreg_android</option><option data-id="3698" value="runuserreg">runuserreg</option><option data-id="3736" value="测试服务器发包_copy">测试服务器发包_copy</option><option data-id="3731" value="ceshi1">ceshi1</option><option data-id="3732" value="cheshi2">cheshi2</option><option data-id="3705" value="loginumeng_copy">loginumeng_copy</option><option data-id="3704" value="loginumeng">loginumeng</option><option data-id="3703" value="aso100">aso100</option><option data-id="3697" value="check">check</option><option data-id="3690" value="安卓渠道发布">安卓渠道发布</option><option data-id="3689" value="svncreate.sh">svncreate.sh</option><option data-id="3611" value="test">test</option></select><div class="chosen-container chosen-container-single" style="width: 220px;" title=""><a class="chosen-single chosen-default" tabindex="-1"><span>请选择脚本</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul><div class="chosen-operate newTask" href="./app/newTask.jsp" style="display:none;">+新建作业</div></div></div> 
+									<!-- <a class=" king-btn king-info cmbScriptCopy" data-loading-text="Loading..." href="javascript:void(0)">拷贝</a> -->
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group" style="margin: 10px 0px 10px 0px;">
+									<label for="" class="control-label" style="width:53px;text-align:left;">版本号：</label>
+									<div class="ijobs-oppoint">
+										<select name="" id="" class="select-oppint cmb-script-version" data-placeholder="请选择脚本" style="display: none;"></select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: 220px;" title=""><a class="chosen-single chosen-default" tabindex="-1"><span>请选择脚本</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul><div class="chosen-operate newTask" href="./app/newTask.jsp" style="display:none;">+新建作业</div></div></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group scriptUpdate" style="display: none;">
+						<label class="control-label ijobs-label-min"></label>
+						<div class="ijobs-input" style="background-color: #f3f3f4;">
+							<a class="bk-button bk-primary mt15 mb15 ml15 localFile king-file-btn" type="button">
+								<i class="bk-icon icon-upload"></i> <span class="bold">上传脚本</span>
+								<input class="fileUpload" name="upload" type="file">
+							</a>
+							&nbsp;&nbsp;<span class="red">扩展名为：.sh、.ksh、.bat、.prl、.pl、.py、.pyc、.ps1</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label ijobs-label-min">脚本内容<span class="red">&nbsp;*</span>：</label>
+						<div class="ijobs-input w800">
+							<div class="code" style="height:335px;"><input class="hidden-scriptCodeType" type="hidden" value="1"><input class="hidden-scriptCode-content" type="hidden" value="IyEvYmluL2Jhc2gKY2QgL3Jvb3QKc3NocGFzcyAtcCBqbWRqc2o5MDMyOTFBIHNzaCAtcCAyMiAtdHQgQWRtaW5pc3RyYXRvckAxMTkuMjkuMjQyLjE3MyAiY21kIC9jIHB5dGhvbjMgYzovYW5kcm9pZHRlc3RhcGt1cGxvYWQudHh0IC1pICQxIC1zIOS/ruWkjeiLpeW5smJ1ZyIKZWNobyAiY21kIC9jIHB5dGhvbjMgYzovYW5kcm9pZHRlc3RhcGt1cGxvYWQudHh0IC1pICQxbCAtcyDkv67lpI3oi6XlubJidWci"><div class="code-title" style="width:700px;"><div class="code-type"><label class="radio-inline"><input type="radio" value="1" name="codeType" checked="checked">shell</label><label class="radio-inline"><input type="radio" value="2" name="codeType">bat</label><label class="radio-inline"><input type="radio" value="3" name="codeType">perl</label><label class="radio-inline"><input type="radio" value="4" name="codeType">python</label><label class="radio-inline"><input type="radio" value="5" name="codeType">powershell</label><span class="code-fullscreen" title="全屏"><i class="bk-icon icon-full-screen" style="color: #707375;"></i></span></div></div><div style="width:700px;height:300px;" class="code-cont"><textarea class="code-cont-text" name="codeCont" style="display: none;"></textarea><div class="CodeMirror cm-s-erlang-dark"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none; font-size: 4px;"></textarea></div><div class="CodeMirror-hscrollbar"><div style="height: 1px;"></div></div><div class="CodeMirror-vscrollbar"><div style="width: 1px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="min-width: 33px;"><div style="position: relative;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>sshpass <span class="cm-attribute">-p</span> jmdjsj903291A <span class="cm-builtin">ssh</span> <span class="cm-attribute">-p</span> <span class="cm-number">22</span> <span class="cm-attribute">-tt</span> Administrator@119.29.242.173 <span class="cm-string">"cmd /c python3 c:/androidtestapkupload.txt -i </span><span class="cm-def">$1</span> <span class="cm-string">-s 修复若干bug"</span><span style="display: inline-block; width: 1px; margin-right: -1px;">&nbsp;</span></pre></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code"></div><div class="CodeMirror-cursor">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px;"></div><div class="CodeMirror-gutters"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 1px;"></div></div></div></div></div><span class="priview-span ps1" data-toggle="tooltip" data-placement="top" title="" style="position: absolute; left: 707px; top: 0px;" data-original-title="请确保脚本为非交互式脚本，并且在本地调测通过。"><i class="bk-icon icon-question-circle"></i></span></div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label ijobs-label-min">超时时间&nbsp;：</label>
+						<div class="ijobs-input">
+							<input type="number" min="60" max="72000" value="1000" title="请输入脚本执行超时时间，单位为秒，范围60-72000，默认1000" placeholder="请输入脚本执行超时时间，单位为秒，范围60-72000，默认1000" class="form-control w700 scriptTimeout">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label ijobs-label-min">目标机器<span class="red">&nbsp;*</span>：</label>
+						<div class="ijobs-input h34 ijob-mask-wrap">
+							<div class="iplist"><div class="serverIp-Model-IsExist">
+	<div class="row ml0 buttonGroup serverIpMode-1" style="width: 700px;">
+		<input type="hidden" class="hidden-serverSetId" value="">
+		<input type="hidden" class="hidden-serverip-string hidden-serverip-strings" group-id="" value="3:10.46.79.106" all-ip="[object Object]">
+		<div class="col-sm-3 p0 i18scriptLeft">
+			<button type="button" class="bk-button bk-primary showModel" style="min-width: 115px"><i class="bk-icon icon-pc"></i>&nbsp;选择服务器</button>
+		</div>		
+		<div class="btnGroup col-sm-9 pr0 i18scriptRight" style="text-align: right;">
+			<a class="king-noborder bk-button bk-default copy-serverip-btn min-w0">复制IP</a>
+			<a class="king-noborder bk-button bk-default copy-not-installed-agent-serverip-btn min-w0">复制Agent未安装IP</a>
+			<a class="bk-button bk-danger clearBtn min-w0">清空IP</a>
+			<a class="bk-button bk-danger clear-not-installed-Btn min-w0">清空Agent未安装</a>
+		</div>
+		<div class="col-sm-12 pl0 mt10 text-left server-text">共1 台：1 个静态IP，0 个分组，<span class="ip-normal">正常<span class="f-weight">：1</span></span>，<span class="text-danger">未安装<span class="f-weight">：0</span></span></div>
+		
+	</div>	
+	
+	<div class="fieldset mt10 mb0 ccResultBox none tl">
+		<div class="legend">CC脚本导入</div>
+		<div class="container-fluid">
+			<input type="hidden" class="cc-scriptId">
+			<p>CC脚本名称：<span class="cc-name-hidden"></span></p>
+			<p>=	CC脚本参数：<span class="cc-param-hidden"></span><span class="cc-no-param-hidden"></span></p>
+			<button type="button" class="king-btn king-default king-btn-mini cc-showTest" style="position:absolute;left:10px;">测试</button>
+			<button type="button" class="king-btn king-default king-btn-mini cc-showModel" style="position:absolute;right:10px;">更改</button>
+		</div>
+	</div>
+	
+		
+		 
+	<div class="serverIp-result-table serverIpMode-1" style="width: 700px;">
+		<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label><input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_0"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table table-header-bg mt40 mb0 serverIpResultTable table-bordered table-hover dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+			<thead>
+				<tr role="row"><th style="width:180px;" class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="平台名称: activate to sort column descending">平台名称</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="IP/分组: activate to sort column ascending" style="width: 0px;">IP/分组</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="状态: activate to sort column ascending" style="width: 0px;">状态</th><th class="table-header-option-th sorting_disabled" rowspan="1" colspan="1" aria-label="操作" style="width: 0px;">操作</th></tr>
+			</thead>
+			
+		<tbody><tr role="row" class="odd"><td class="sorting_1">私有云_专区1</td><td><div class="ip-overflow" title="10.46.79.106">10.46.79.106</div></td><td><span class="ip-normal">Agent正常</span></td><td><button type="button" class="bk-text-button bk-primary delBtn " title="删除">删除</button></td></tr></tbody></table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">分页 1 / 1</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0">&lt;&lt;</a></li><li class="paginate_button active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0">&gt;&gt;</a></li></ul></div></div></div></div>
+	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade serverIpModal h1000" data-backdrop="false" data-keyboard="false" role="dialog">
+		<div class="modal-dialog w800" role="document">
+			<div class="modal-content">
+				<div class="modal-loading-wrap none" style="z-index: 9999;position: absolute;left:0;top:0;width:100%;height:100%;text-align:center;vertial-align:middle;">
+						<img src="./img/loading_2_36x36.gif" style="margin-left:-18px;position:absolute;top:50%;margin-top:-36px;">
+				</div>
+				<div class="modal-body" style="min-height:450px;">
+						<div class="nav nav-tabs serverIpListtabs w h40 pl20 text-left">
+							<label class="pr5 radio-inline changeIp" style="cursor: pointer;"><input type="radio" name="serverSelect" value="1" checked=""> 通过IP选择服务器</label>
+							<label class="pr5 radio-inline changeIp" style="cursor: pointer;"><input type="radio" name="serverSelect" value="2"> 配置平台</label>
+							<label class="pr5 radio-inline changeIp" style="cursor: pointer;"><input type="radio" name="serverSelect" value="3"> 手动添加</label>
+							
+							<label id="dynamicGroup" class="pr5 radio-inline changeIp" style="cursor: pointer;"><input type="radio" name="serverSelect" value="4"> 动态分组</label>
+                            
+                            <label id="collectDBType" class="fr checbox-inline" style="cursor: pointer;"><input type="checkbox"> 仅展示模块类型为“数据库”的主机</label>
+                            
+						</div>
+						
+						<div class="tab-content" style="min-height:380px;position: relative;">
+							<!-- start 通过IP选择服务器 -->
+							<div class="ipList-tab-pane ipChoose-tab-pane none w p10">								 
+									<input type="search" class="form-control w filterText" placeholder="主机名按Enter进行过滤...">
+									<span class="glyphicon glyphicon-search form-control-feedback search-feedback" style="color: #3596e0;font-size: 16px;top: 10px;right: 10px;cursor:pointer;pointer-events:auto !important;"></span>
+									<table class="table table-header-bg mt10 w serverIp-result-table-thead table-hover serverIpTable" style="margin-bottom: -1px;">
+										<thead>
+											<tr>
+												<th><input type="checkbox" class="selectedAllChecks" title="当前页"></th>
+												<th>平台名称</th>
+												<th>操作系统</th>
+												<th>IP</th>
+												<th>状态</th>
+												<th>主机名</th>
+											</tr>
+										</thead>
+									</table>								 
+							</div>
+							<!-- end 通过IP选择服务器 -->
+							
+							<!-- start 配置平台 -->
+							<div class="ipList-tab-pane configCenter-tab-pane none w p10">
+								<div style="height: 384px; overflow: auto;text-align: left;" class="treeviewDiv">
+									<div class="treeviewByAjax"></div>
+								</div> 
+							</div>
+							<!-- end 配置平台 -->
+							
+							<!-- start 手动添加 -->
+							<div class="ipList-tab-pane manually-tab-pane none w p10">
+								<!-- <textarea class="form-control server-ip-textarea" rows="3" placeholder="请输入IP，以“空格”或者“回车”或者“;”分隔"  style="height: 375px"></textarea> -->
+								<div>
+									<label class="control-label">平台来源 ：</label>
+									<div class="ijobs-input plat-name-box" style="width:550px;">
+										
+									</div>
+									<div class="plat-area-box">
+										
+									</div>
+								</div>
+								
+														
+							</div>
+							<!-- end 手动添加 -->
+
+							<!-- start 服务器集 -->
+							<div class="ipList-tab-pane group-tab-pane none w p10">
+								<input type="text" class="form-control w groupfilterText" placeholder="通过名称描述进行过滤...">
+								<table class="table table-header-bg mt10 w serverIp-result-table-thead table-hover groupTable" style="margin-bottom: -1px;">
+									<thead>
+										<tr>
+											<th style="width: 5%">&nbsp;</th>
+											<th style="width: 60%">业务名称</th>
+											<th style="width: 35%">分组名称</th>
+										</tr>
+									</thead>
+								</table>									
+							</div>
+							<!-- end 服务器集 -->
+							
+							<!-- start cc脚本 -->
+							<div class="ipList-tab-pane cc-tab-pane none w p10 tl">
+								<div class="row mb10">
+									<label class="col-sm-2 control-label">CC脚本导入<span class="red">&nbsp;*</span>：</label>
+									<div class="col-sm-10">
+										<select class="form-control w cc-name"></select>
+									</div>
+								</div>
+								
+								<div class="row mb10">
+									<label class="col-sm-2 control-label">入口参数：</label>
+									<div class="col-sm-10">
+										<input class="form-control cc-param" style="float:left;max-width:531px;margin-right:5px;" maxlength="25" placeholder="请输入测试用的脚本参数，无则不填">
+										<a href="javascript:void(0)" class="btn btn-success cc-test-btn">获取结果</a>
+									</div>
+								</div>
+								
+								<div class="row mb10">
+	                                <label class="col-sm-2 control-label">测试结果：</label>
+	                                <div class="col-sm-10">
+	                                      <textarea class="form-control w cc-test-rs" placeholder="请点击'测试结果：'按钮进行测试" style="resize: none;height:300px;"></textarea> 
+	                                      <span style="color:red">请确保CC脚本获取结果中第一行一定要包含InnerIP或OuterIP字段，如果没有，则在作业中使用此CC脚本时会导致导入IP列表为空</span>     
+	                                      <span class="cc-ip-count"></span>                     
+	                                </div>
+	                            </div>
+							</div>
+							<!-- end cc脚本 -->
+						</div>
+				</div>
+				<div class="modal-footer">
+					<label class="pr10 radio-inline fl"><input type="checkbox" class="selectAll"> 全选</label>
+					<button type="button" class="bk-button bk-default fl copyIPByPage">复制已选IP</button>
+					<button type="button" class="bk-button bk-default fl copyAllPageIP" style="margin-left:5px;">复制全部IP</button>
+					<button type="button" class="bk-button btn-primary savebtn" style="min-width:60px;">添加</button>
+					<button type="button" class="bk-button bk-default cancelbtn" style="min-width:60px;">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+	
+	
+	<!-- Modal -->
+	<div class="modal fade ccResultModal  h1000" data-backdrop="false" data-keyboard="false" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content text-left">
+				<div class="modal-body">
+					<table class="table table-header-bg mt40 mb0 ccModeTable table-bordered table-hover">
+						<thead>
+							<tr>
+								<th>IP</th>
+								<th>状态</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default ccHideMode">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div></div>
+							<div class="ijob-mask none">
+								<span>已被全局变量替代，点击查看！</span>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="text-tr none">
+				<td class="text-right"><label class="control-label ijobs-label-min">暂停描述：</label></td>
+				<td colspan="3">
+					<div class="row ml0 mr0">
+						<input type="text" class="form-control step_text_input">
+					</div>
+				</td>
+				<td>&nbsp;</td>
+			</tr>
+		</tbody></table>
+	</form>
+</li><li class="group-node-li group-node-footer">
+			<a href="javascript:void(0);" class="add-node"><i class="bk-icon icon-plus" style="font-size:14px;"></i>&nbsp;&nbsp;新增节点</a>
+		</li>
+	</ul>
+</li></ul>
+				</div>
+				<!-- 步骤分组外层div end  -->
+				<div class="row add-step">
+				<button class="bk-button bk-success1">&nbsp;添加步骤</button>
+				<ul>
+					<li><a href="javascript:void(0);" id="addScriptBtn" class="btn btn-default">添加脚本</a></li>
+					<li><a href="javascript:void(0);" id="addFileBtn" class="btn btn-default">添加传输文件</a></li>
+					<li class="sqllist"><a href="javascript:void(0);" id="addSqlBtn" class="btn btn-default">添加SQL文件</a></li>
+
+				</ul>
+				</div>
+				<hr>
+				<div class="form-group save-fixed-jian active" style="left: 62px;">
+					<div class="text-center">
+						<button class="bk-button bk-success m10" id="saveTask">
+							保存
+						</button>
+						<button class="bk-button bk-warning m10" id="runTask">
+							去执行
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 脚本模版 start -->
+<div id="script-template" class="none">
+	<ul class="group-node-ul">
+		<li class="group-node-li group-node-header">
+			<div class="group-node-top group-node-top1">
+				<img src="img/j.png" style="width:46px;height:46px;margin-top:-1px;">
+				<label class="control-label mt5 ml5 white">步骤名称<span class="red">&nbsp;*</span>：</label>
+				<input type="text" class="form-control group-name-input mt5" maxlength="50" data-toggle="popover" data-placement="right" data-content="必填项">
+				<input type="hidden" class="form-control group-type-input mt5" value="1">
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-cut">
+                    <i class="fa fa-scissors"></i></a>
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-up" style="padding: 6px 7px;">
+					<i class="bk-icon icon-angle-up"></i></a>
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-down" style="padding: 6px 7px;">
+					<i class="bk-icon icon-angle-down"></i></a> 
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-close" id="closeStep">
+					<i class="bk-icon icon-close1"></i></a> 
+			</div>
+			<table class="group-node-table table table-out-bordered">
+				<tbody><tr class="name-tr">
+					<th class="text-center">脚本名称<span class="red">&nbsp;*</span></th>
+					<th class="text-center">执行账户<span class="red">&nbsp;*</span></th>
+					<th class="text-center">服务器数<span class="red">&nbsp;*</span></th>
+					<th class="text-center">脚本参数</th>
+					<th class="text-center">操作</th>
+				</tr>
+			</tbody></table>
+		</li>
+		<!--  <li class="group-node-li group-node-item"></li> -->
+		<li class="group-node-li group-node-footer">
+			<a href="javascript:void(0);" class="add-node"><i class="bk-icon icon-plus" style="font-size:14px;"></i>&nbsp;&nbsp;新增节点</a>
+		</li>
+	</ul>
+</div>
+<!-- 脚本模版 end -->
+<!-- sql脚本模版 start -->
+<div id="sql-template" class="none">
+	<ul class="group-node-ul">
+		<li class="group-node-li group-node-header">
+			<div class="group-node-top group-node-top1" style="background:#57a3f1;">
+				<img src="img/sql.png" style="width:46px;height:46px;margin-top:-1px;">
+				<label class="control-label mt5 ml5 white">步骤名称<span class="red">&nbsp;*</span>：</label>
+				<input type="text" class="form-control group-name-input mt5" maxlength="50" data-toggle="popover" data-placement="right" data-content="必填项">
+				<input type="hidden" class="form-control group-type-input mt5" value="4">
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-cut">
+                    			<i class="fa fa-scissors"></i></a>
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-up" style="padding: 6px 7px;">
+					<i class="bk-icon icon-angle-up"></i></a>
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-down" style="padding: 6px 7px;">
+					<i class="bk-icon icon-angle-down"></i></a> 
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-close" id="closeStep">
+					<i class="bk-icon icon-close1"></i></a> 
+			</div>
+			<table class="group-node-table table table-out-bordered">
+				<tbody><tr class="name-tr">
+					<th class="text-center">脚本名称<span class="red">&nbsp;*</span></th>
+					<th class="text-center">DB账号别名<span class="red">&nbsp;*</span></th>
+					<th class="text-center">服务器数<span class="red">&nbsp;*</span></th>
+					<th class="text-center">DB信息</th>
+					<th class="text-center">操作</th>
+				</tr>
+			</tbody></table>
+		</li>
+		<!--  <li class="group-node-li group-node-item"></li> -->
+		<li class="group-node-li group-node-footer">
+			<a href="javascript:void(0);" class="add-node"><i class="bk-icon icon-plus" style="font-size:14px;"></i>&nbsp;&nbsp;新增节点</a>
+		</li>
+	</ul>
+</div>
+<!-- sql脚本模版 end -->
+<!-- sql节点模版 start  -->
+<div id="sql-n-template" class="none">
+	<a href="#" class="item-cut" title="裁剪"><!-- <i class="fa fa-scissors"></i> --><img src="img/scissors.gif" width="20" height="20"></a>
+	<form onsubmit="return false">
+		<table class="group-node-table table table-out-bordered table-condensed">
+			<tbody><tr class="name-tr" id="db_accound">
+				<td class="td_step_name">
+					<input type="text" class="form-control step_name_input" maxlength="50" dt-value="" data-toggle="popover" data-placement="right" data-content="必填项" data-index="" data-steps="">
+				</td>
+				<td class="td_step_accout">
+					<select class="form-control step_accout_sel add-accout-user" style="width: calc(100% - 48px) !important;" dt-value="" data-toggle="popover" data-placement="right" data-content="必填项"></select>
+					<!-- 新增用户 start -->
+					<!-- <a href="javascript:;" class="btn btn-success add-user" title="新增执行用户">
+						<i class="bk-icon icon-plus"></i>
+					</a> -->
+					<a href="javascript:;" class="btn ijobs-btn ijobs-radius ijobs-default add-user" data-type="4" title="新增执行用户">
+						<i class="bk-icon icon-plus"></i>
+					</a>
+					<!-- end -->					
+				</td>					
+				<td class="td_step_service" style="position: relative;">
+					<input type="text" class="form-control step_service_input" disabled="">
+					<a class="king-btn king-default king-btn-mini none serverip-copy-btn" style="position: absolute;right: 70px;top: 10px;">copys</a>
+					<a class="king-btn king-default king-btn-mini none serverip-paste-btn" style="position: absolute;right: 10px;top: 10px;">粘贴</a>
+					<!-- 禁止复制 start -->
+					<span class="ip-replace none">ip已经被全局变量替代</span>
+					<!-- end -->
+				</td>
+				<td class="td_step_param" style="position: relative;">
+					<div class="dbContact">
+								DB类型: <span class="dbColor dbtype"> </span>
+							</div>
+							<div class="dbContact">
+								DB帐号: <span class="dbColor dbCount"> </span>
+							</div>
+					<!-- <input type="text" class="form-control step_param_input" maxlength="1024"/> -->
+					<!-- 添加加密处理 start -->
+					<!-- <span class="isEntrytion ">
+						<input type="checkbox" class="scre-input">
+						<label for="entrytion" class="onEntertion">*敏感参数</label>
+					</span> -->
+					<!-- end -->
+				</td>
+				<td class="td_step_oper">
+				<div class="step_oper_div">
+				<div class="checkbox-inline step_oper_div_check">
+					<label>
+						<input type="checkbox" name="stop-after-step">&nbsp;<span>完成后暂停</span>&nbsp;&nbsp;&nbsp;
+					</label>
+				</div>
+				<a href="javascript:void(0)" title="编辑" class="node-edit"><i class="bk-icon icon-edit"></i></a>
+				<a href="javascript:void(0)" title="上移" class="node-up"><i class="bk-icon icon-arrows-up"></i></a>
+				<a href="javascript:void(0)" title="下移" class="node-down"><i class="bk-icon icon-arrows-down"></i></a>
+				<a href="javascript:void(0)" title="拖放" class="node-drag"><i class="bk-icon icon-move"></i></a>
+				<a href="javascript:void(0)" title="删除" class="node-del"><i class="bk-icon icon-close1"></i></a>
+				<input type="hidden" class="step_id">
+				</div>
+				</td>
+			</tr>
+			<tr class="tag-tr">
+				<td colspan="5" class="tag_td">
+					<div class="form-group pt10">
+						<label class="control-label ijobs-label-min">脚本来源<span class="red">&nbsp;*</span>：</label>
+						<div class="ijobs-input-min">
+							<label class="radio-inline"> <input type="radio" value="1" name="scriptFrom" checked="checked"> 手工录入
+							</label> <label class="radio-inline"> <input type="radio" value="2" name="scriptFrom"> 脚本克隆
+							</label> 
+							<label class="radio-inline"> <input type="radio" value="3" name="scriptFrom">  本地脚本
+							</label>
+							<!-- <label class="radio-inline"> <input type="radio" value="4"
+								name="scriptFrom"> 公共脚本
+							</label> -->
+						</div>
+					</div>
+
+					<div class="form-group commonScript" style="display: none;">
+						<label class="control-label ijobs-label-min"></label>
+						<div class="ijobs-input" style="background-color: #f3f3f4;">
+							<div class="col-sm-10">
+								<div class="row" style="margin: 10px 0px 10px 0px;">
+									<label class="control-label">脚本名称<span class="red">&nbsp;*</span>：</label> 
+									<select class="CcScript" data-placeholder=" 请选择脚本"></select>
+								</div>
+							</div>
+						</div>
+					</div>
+			
+					<div class="form-group scriptCopy" style="display: none;">
+						<label class="control-label ijobs-label-min"></label>
+						<div class="ijobs-input" style="background-color: #f3f3f4;">
+							<div class="col-sm-10">
+								<div class="row" style="margin: 10px 0px 10px 0px;">
+									<label class="control-label">脚本名称<span class="red">&nbsp;*</span>：</label> 
+									<select class="cmbScript" data-placeholder="请选择脚本"></select>
+									<!-- <a class=" king-btn king-info cmbScriptCopy" data-loading-text="Loading..." href="javascript:void(0)">拷贝</a> -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group scriptUpdate" style="display: none;">
+						<label class="control-label ijobs-label-min"></label>
+						<div class="ijobs-input" style="background-color: #f3f3f4;">
+							<a class="bk-button bk-primary king-file-btn mt15 mb15 ml15 localFile king-file-btn" type="button">
+								<i class="bk-icon icon-upload"></i> <span class="bold">上传脚本</span>
+								<input class="fileUpload" name="upload" type="file">
+							</a>
+							&nbsp;&nbsp;<span class="red" style="color:#888;">扩展名为：.sql</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label ijobs-label-min">脚本内容<span class="red">&nbsp;*</span>：</label>
+						<div class="ijobs-input w800">
+							<div class="code" style="height:335px;"></div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label ijobs-label-min">超时时间&nbsp;：</label>
+						<div class="ijobs-input">
+							<input type="number" class="form-control w700 scriptTimeout" title="请输入脚本执行超时时间，单位为秒，范围60-72000，默认1000" name="scriptTimeout" min="60" max="72000" value="1000" placeholder="请输入脚本执行超时时间，单位为秒，范围60-72000，默认1000">
+						</div>
+					</div>
+					<div class="form-group">
+
+						<label class="control-label ijobs-label-min">目标机器<span class="red">&nbsp;*</span>：</label>
+						<div class="ijobs-input h34 ijob-mask-wrap">
+							<div class="iplist"></div>
+							<div class="ijob-mask none">
+								<span>已被全局变量替代，点击查看！</span>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="text-tr none">
+				<td class="text-right"><label class="control-label ijobs-label-min">pause.description </label></td>
+				<td colspan="3">
+					<div class="row ml0 mr0">
+						<input type="text" class="form-control step_text_input">
+					</div>
+				</td>
+				<td>&nbsp;</td>
+			</tr>
+		</tbody></table>
+	</form>
+</div>
+<!-- sql节点模版 end  -->
+<!-- 脚本节点模版 start  -->
+<div id="script-n-template" class="none">
+	<a href="#" class="item-cut" title="裁剪"><!-- <i class="fa fa-scissors"></i> --><img src="img/scissors.gif" width="20" height="20"></a>
+	<form onsubmit="return false">
+		<table class="group-node-table table table-out-bordered table-condensed">
+			<tbody><tr class="name-tr">
+				<td class="td_step_name">
+					<input type="text" class="form-control step_name_input" maxlength="50" dt-value="" data-toggle="popover" data-placement="right" data-content="必填项" data-index="" data-steps="">
+				</td>
+				<td class="td_step_accout">
+					<select class="form-control step_accout_sel  add-accout-user" dt-value="" data-toggle="popover" data-placement="right" data-content="必填项"></select>
+					<!-- 新增用户 start -->
+					<a href="javascript:;" class="btn ijobs-btn ijobs-radius ijobs-default add-user" data-type="1" title="新增执行用户">
+						<i class="bk-icon icon-plus"></i>
+					</a>
+					<!-- end -->					
+				</td>					
+				<td class="td_step_service" style="position: relative;">
+					<input type="text" class="form-control step_service_input" disabled="">
+					<a class="king-btn king-default king-btn-mini none serverip-copy-btn" style="position: absolute;right: 70px;top: 10px;">复制</a>
+					<a class="king-btn king-default king-btn-mini none serverip-paste-btn" style="position: absolute;right: 10px;top: 10px;">粘贴</a>
+					<!-- 禁止复制 start -->
+					<span class="ip-replace none">ip已经被全局变量替代</span>
+					<!-- end -->
+				</td>
+				<td class="td_step_param" style="position: relative;">
+<!-- 					<input type="checkbox" title="CC脚本传参" style="position: absolute;top:10px;" class="step_paramType"/> -->
+					<input type="text" class="form-control step_param_input" maxlength="1024">
+					<!-- 添加加密处理 start -->
+					<span class="isEntrytion " style="margin-left:5px;">
+						<input type="checkbox" class="scre-input">
+						<label for="entrytion" class="onEntertion">*敏感参数</label>
+					</span>
+					<!-- end -->
+				</td>
+				<td class="td_step_oper">
+				<div class="step_oper_div">
+				<div class="checkbox-inline step_oper_div_check">
+					<label>
+						<input type="checkbox" name="stop-after-step">&nbsp;<span>完成后暂停</span>&nbsp;&nbsp;&nbsp;
+					</label>
+				</div>
+				<a href="javascript:void(0)" title="编辑" class="node-edit"><i class="bk-icon icon-edit"></i></a>
+				<a href="javascript:void(0)" title="上移" class="node-up"><i class="bk-icon icon-arrows-up"></i></a>
+				<a href="javascript:void(0)" title="下移" class="node-down"><i class="bk-icon icon-arrows-down"></i></a>
+				<a href="javascript:void(0)" title="拖放" class="node-drag"><i class="bk-icon icon-move"></i></a>
+				<a href="javascript:void(0)" title="删除" class="node-del"><i class="bk-icon icon-close1"></i></a>
+				<input type="hidden" class="step_id">
+				</div>
+				</td>
+			</tr>
+			<tr class="tag-tr">
+				<td colspan="5" class="tag_td">
+					<div class="form-group pt10">
+						<label class="control-label ijobs-label-min">脚本来源<span class="red">&nbsp;*</span>：</label>
+						<div class="ijobs-input-min">
+							<label class="radio-inline"> <input type="radio" value="1" name="scriptFrom" checked="checked"> 手工录入
+							</label>
+							<label class="radio-inline"> <input type="radio" data="no" value="5" name="scriptFrom"> 脚本引用
+							</label>
+							<label class="radio-inline"> <input type="radio" value="2" name="scriptFrom"> 脚本克隆
+							</label> 
+							<label class="radio-inline"> <input type="radio" value="3" name="scriptFrom"> 本地脚本
+							</label>
+							<label class="radio-inline"> <input type="radio" value="4" name="scriptFrom"> 公共脚本
+							</label>
+						</div>
+					</div>
+
+					<div class="form-group script-appoint" style="display:none;">
+						<label class="control-label ijobs-label-min"></label>
+						<div class="ijobs-input" style="background-color: #f3f3f4;">
+							<div class="col-sm-6">
+								<div class="form-group" style="margin: 10px 0px 10px 0px;">
+									<label for="" class="control-label" style="width:80px;">脚本名称: </label>
+									<div class="ijobs-oppoint">
+										<select name="" class="select-oppint appoint-srcipt-name" data-placeholder="请选择脚本" style="width:230px;"></select>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group" style="margin: 10px 0px 10px 0px;">
+									<label for="" class="control-label" style="width:53px;text-align:left;">版本号：</label>
+									<div class="ijobs-oppoint">
+										<select name="" id="" class="select-oppint appoint-script-version" data-placeholder="请选择脚本"></select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+		
+					<div class="form-group commonScript" style="display: none;">
+						<label class="control-label ijobs-label-min"></label>
+						<div class="ijobs-input" style="background-color: #f3f3f4;">
+							<div class="col-sm-6">
+								<div class="row" style="margin: 10px 0px 10px 0px;">
+									<label class="control-label">脚本名称<span class="red">&nbsp;*</span>：</label> 
+									<select class="CcScript" data-placeholder="请选择脚本"></select>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group" style="margin: 10px 0px 10px 0px;">
+									<label for="" class="control-label" style="width:53px;text-align:left;">版本号：</label>
+									<div class="ijobs-oppoint">
+										<select name="" id="" class="select-oppint common-script-version" data-placeholder="请选择脚本"></select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			
+					<div class="form-group scriptCopy" style="display: none;">
+						<label class="control-label ijobs-label-min"></label>
+						<div class="ijobs-input" style="background-color: #f3f3f4;">
+							<div class="col-sm-6">
+								<div class="row" style="margin: 10px 0px 10px 0px;">
+									<label class="control-label">脚本名称<span class="red">&nbsp;*</span>：</label> 
+									<select class="cmbScript" data-placeholder="请选择脚本"></select> 
+									<!-- <a class=" king-btn king-info cmbScriptCopy" data-loading-text="Loading..." href="javascript:void(0)">拷贝</a> -->
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group" style="margin: 10px 0px 10px 0px;">
+									<label for="" class="control-label" style="width:53px;text-align:left;">版本号：</label>
+									<div class="ijobs-oppoint">
+										<select name="" id="" class="select-oppint cmb-script-version" data-placeholder="请选择脚本"></select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group scriptUpdate" style="display: none;">
+						<label class="control-label ijobs-label-min"></label>
+						<div class="ijobs-input" style="background-color: #f3f3f4;">
+							<a class="bk-button bk-primary mt15 mb15 ml15 localFile king-file-btn" type="button">
+								<i class="bk-icon icon-upload"></i> <span class="bold">上传脚本</span>
+								<input class="fileUpload" name="upload" type="file">
+							</a>
+							&nbsp;&nbsp;<span class="red">扩展名为：.sh、.ksh、.bat、.prl、.pl、.py、.pyc、.ps1</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label ijobs-label-min">脚本内容<span class="red">&nbsp;*</span>：</label>
+						<div class="ijobs-input w800">
+							<div class="code" style="height:335px;"></div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label ijobs-label-min">超时时间&nbsp;：</label>
+						<div class="ijobs-input">
+							<input type="number" min="60" max="72000" value="1000" title="请输入脚本执行超时时间，单位为秒，范围60-72000，默认1000" placeholder="请输入脚本执行超时时间，单位为秒，范围60-72000，默认1000" class="form-control w700 scriptTimeout">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label ijobs-label-min">目标机器<span class="red">&nbsp;*</span>：</label>
+						<div class="ijobs-input h34 ijob-mask-wrap">
+							<div class="iplist"></div>
+							<div class="ijob-mask none">
+								<span>已被全局变量替代，点击查看！</span>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="text-tr none">
+				<td class="text-right"><label class="control-label ijobs-label-min">暂停描述：</label></td>
+				<td colspan="3">
+					<div class="row ml0 mr0">
+						<input type="text" class="form-control step_text_input">
+					</div>
+				</td>
+				<td>&nbsp;</td>
+			</tr>
+		</tbody></table>
+	</form>
+</div>
+<!-- 脚本节点模版 end  -->
+
+<!-- 文件模版 start -->
+<div id="file-template" class="none">
+	<ul class="group-node-ul">
+		<li class="group-node-li group-node-header">
+			<div class="group-node-top group-node-top2">
+				<img src="img/w.png" style="width:46px;height:46px;margin-top:-1px;">
+				<label class="control-label mt5 ml5 white">步骤名称<span class="red">&nbsp;*</span>：</label>
+				<input type="text" class="form-control group-name-input mt5" maxlength="50" data-toggle="popover" data-placement="right" data-content="必填项">
+				<input type="hidden" class="form-control group-type-input mt5" value="2">
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-cut">
+                    <i class="fa fa-scissors"></i></a>
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-up" style="padding: 6px 7px;">
+					<i class="bk-icon icon-angle-up"></i></a>
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-down" style="padding: 6px 7px;">
+					<i class="bk-icon icon-angle-down"></i></a> 
+				<a href="javascript:void(0);" class="btn btn-default pt5 pb5 mt5 step-close" id="closeStep">
+					<i class="bk-icon icon-close1"></i></a> 
+			</div>
+			<table class="group-node-table table table-out-bordered">
+				<tbody><tr class="name-tr">
+					<th class="text-center">任务名称<span class="red">&nbsp;*</span></th>
+					<th class="text-center">执行账户<span class="red">&nbsp;*</span></th>
+					<th class="text-center">服务器数<span class="red">&nbsp;*</span></th>
+					<th class="text-center">目标路径<span class="red">&nbsp;*</span></th>
+					<th class="text-center">操作</th>
+				</tr>
+			</tbody></table>
+		</li>
+		<!--  <li class="group-node-li group-node-item"></li> -->
+		<li class="group-node-li group-node-footer">
+			<a href="javascript:void(0);" class="add-node"><i class="bk-icon icon-plus" style="font-size:14px;"></i>&nbsp;&nbsp;新增节点</a>
+		</li>
+	</ul>
+</div>
+<!-- 文件模版 end -->
+
+<!-- 文件节点模版 start  -->
+<div id="file-n-template" class="none">
+	<a href="#" class="item-cut" title="裁剪"><!-- <i class="fa fa-scissors"></i> --><img src="img/scissors.gif" width="20" height="20"></a>
+	<form onsubmit="return false">
+		<table class="group-node-table table table-out-bordered table-condensed">
+			<tbody><tr class="name-tr">
+				<td class="td_step_name"><input type="text" class="form-control step_name_input" maxlength="50" dt-value="" data-toggle="popover" data-placement="right" data-content="必填项" data-index=""></td>
+				<td class="td_step_accout">
+					<select class="form-control step_accout_sel add-accout-user"></select>
+					<!-- 新增用户 start -->
+					<a href="javascript:;" class="btn ijobs-btn ijobs-radius ijobs-default add-user" data-type="2" title="新增执行用户">
+						<i class="bk-icon icon-plus"></i>
+					</a>
+					<!-- end -->
+				</td>				
+				<td class="td_step_service" style="position: relative;">
+					<input type="text" class="form-control step_service_input" disabled="">
+					<a class="king-btn king-default king-btn-mini none serverip-copy-btn" style="position: absolute;right: 70px;top: 10px;">复制</a>
+					<a class="king-btn king-default king-btn-mini none serverip-paste-btn" style="position: absolute;right: 10px;top: 10px;">粘贴</a>
+					<!-- 禁止复制 start -->
+					<span class="ip-replace none">ip已经被全局变量替代</span>
+					<!-- end -->
+				</td>
+				
+				<td class="step_path_input">
+					<input type="text" class="form-control step_param_input" maxlength="255" data-toggle="popover" data-placement="right" data-content="必填项">
+					<!-- 添加加密处理 -->
+					<!-- <span class="isEntrytion">
+						<label for="entrytion" class="onEntertion"><input type="checkbox" class="scre-input">*敏感参数</label>
+					</span> -->
+					<!-- end -->
+					</td>
+				<td class="td_step_oper">
+					<div class="step_oper_div">
+						<div class="checkbox-inline step_oper_div_check">
+							<label>
+								<input type="checkbox" name="stop-after-step">&nbsp;<span>完成后暂停</span>&nbsp;&nbsp;&nbsp;
+							</label>
+						</div>
+						<a href="javascript:void(0)" title="编辑" class="node-edit"><i class="bk-icon icon-edit"></i></a>
+						<a href="javascript:void(0)" title="上移" class="node-up"><i class="bk-icon icon-arrows-up"></i></a>
+						<a href="javascript:void(0)" title="下移" class="node-down"><i class="bk-icon icon-arrows-down"></i></a>
+						<a href="javascript:void(0)" title="拖放" class="node-drag"><i class="bk-icon icon-move"></i></a>
+						<a href="javascript:void(0)" title="删除" class="node-del"><i class="bk-icon icon-close1"></i></a>
+						<input type="hidden" class="step_id">
+					</div>
+				</td>
+			</tr>
+			<tr class="tag-tr">
+				<td colspan="5" class="tag_td">
+					<div class="form-group pt10">
+						<label class="control-label ijobs-label-min">选择文件<span class="red">&nbsp;*</span>：</label>
+						<div class="ijobs-input">
+							<a class="bk-button bk-default localFile king-file-btn" style="margin-right: 10px;" type="button">
+								<i class="bk-icon icon-upload"></i> <span class="bold">使用本地文件</span>
+								<input class="fileTUpload" name="upload" type="file" multiple="multiple">
+							</a>
+							<button class="bk-button bk-default remoteFile" type="button">
+								<i class="fa fa-cloud"></i> <span class="bold">使用服务器文件</span>
+							</button>
+						</div>
+					</div>
+	
+					<div class="form-group">
+						<label class="control-label ijobs-label-min">文件列表<span class="red">&nbsp;*</span>：</label>
+						<div class="ijobs-input w800"><div class="file-table" style="width:700px;"></div></div>
+					</div>
+					<div class="form-group">
+						<label class="control-label ijobs-label-min">目标机器<span class="red">&nbsp;*</span>：</label>
+						<div class="ijobs-input h34 ijob-mask-wrap">
+							<div class="iplist"></div>
+							<div class="ijob-mask none">
+								<span>已被全局变量替代，点击查看！</span>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="text-tr none">
+				<td class="text-right"><label class="control-label ijobs-label-min">暂停描述：</label></td>
+				<td colspan="3">
+					<div class="row ml0 mr0">
+						<input type="text" class="form-control step_text_input">
+					</div>
+				</td>
+				<td>&nbsp;</td>
+			</tr>
+		</tbody></table>
+	</form>
+</div>
+<!-- 文件节点模版 end  -->
+
+<!-- 文本变量模板start -->
+<div class="none">
+	
+		<a class="btn btn-grey-global">文本</a>
+		<input value="" class="form-control mlra w90-per">
+		<input value="" class="form-control mlra w90-per">
+		<input value="" class="form-control mlra w90-per">
+		<a class="btn btn-danger-global">删除</a>
+	
+</div>
+<!-- 文本变量模板end -->
+
+<!-- IP变量模板start -->
+<div class="none">
+	
+		<a class="btn btn-grey-global">IP</a>
+		<input value="" class="form-control mlra w90-per" disabled="">
+		
+			<a type="button" class="btn btn-success showModel">
+				<i class="fa fa-desktop"></i>&nbsp;选择服务器
+			</a>
+			<a class="btn btn-info">
+				<i class="fa fa-files-o mr10"></i>替换节点
+			</a>
+		
+		<input value="" class="form-control mlra w90-per">
+		<a class="btn btn-info-global">收起</a><a class="btn btn-danger-global">删除</a>
+	
+	
+		
+			<div class="global-replace-node">
+				<div class="replace-node-title">
+					<span>替换节点</span>：
+				</div>
+				<div class="replace-node-body">
+					<div class="replace-node-explain">
+						<span>共<span class="node-num">1</span>个节点</span>
+						<button class="btn btn-danger">清空</button>
+						<button class="btn btn-warning">剔除</button>
+					</div>
+					<div class="replace-node-content">
+						<select multiple="multiple">
+							<option value="1-1.停止Nginx">1-1.停止Nginx</option>
+							<option value="1-2.停止Nginx">1-2.停止Nginx</option>
+							<option value="1-3.停止Nginx">1-3.停止Nginx</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="global-server-list">
+				<div class="replace-node-title">
+					<span>服务器列表</span>：
+				</div>
+				<div class="server-list-explain">
+					<span class="explain-l">
+						共<span class="server-total-num">27</span>台：
+						<span class="static-ip">2</span>个静态IP，
+						<span class="group-ip">2</span>分组
+						（<span class="f-green">正常：<span class="normal-num">26</span></span>,
+						<span class="f-red">异常：<span class="except-num">8</span></span>）
+					</span>
+					<a class="btn btn-info">copy </a>
+					<a class="btn btn-danger">empty </a>
+				</div>
+				<div class="server-list-content"></div>
+			</div>
+		
+	
+</div>
+<!-- IP变量模板end -->
+<!-- 拖动节点 -->
+<div class="block-container" id="block_list_warpper" style="display:none;">
+    <div class="ijobs-block-list" id="block_list"><div class="ijobs-block ijobs-block-j ui-droppable" block-type="1">测试账号</div></div>
+</div>
+<!-- 添加脚本执行用户 -->
+<div id="add-user" class="modal fade" data-backdrop="false" data-keyboard="false" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="ip-list-conten modal-content">
+			<div class="ip-list-body modal-body" style="padding: 30px;">
+				<div class="ijobs-input">
+					<div class="row well" style="margin-left: 0; max-width: 570px; margin-bottom:0px;padding:23px 13px 13px 13px;">
+						<label class="col-sm-3 control-label" style="width: 75px; line-height: 35px;padding:0;">账户名称<span class="red">&nbsp;*</span>：</label>
+						<div class="col-sm-6">
+							<input id="userName_input" type="text" class="form-control" maxlength="50" placeholder="此账户必须在目标服务器上存在">
+							<div id="resultMsg" class="mt10" style="color: red"></div>
+						</div>
+						<div class="col-sm-3" style="width:auto;">
+							<button type="button" id="regUser" class="btn btn-primary" style="margin-bottom: 3px;">登记账户</button>
+							<span class="bk-icon icon-question-circle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="此账户必须在目标服务器上存在"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ip-list-fooder">
+				<span class="ip-list-btn addUser-close"><i class="bk-icon icon-close1" style="font-size:14px;"></i></span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end -->
+<!-- 添加sql执行用户 start -->
+<div id="sql-user" class="modal fade" data-backdrop="false" data-keyboard="false" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="ip-list-conten modal-content">
+			<div class="addUserName">
+				<h3 style="    display: inline-block;margin: 0;padding: 0;font-size: 16px;font-weight: bold;" id="isShow">新增账户</h3><span style="font-size: 14px;margin-left: 10px;color: #a3a2a2; font-weight:400;">注：仅支持部署在Linux环境下的DB</span>
+			</div>
+			<div class="user-body modal-body">
+				
+				<div class="form-group">
+					<label class="control-label ijobs-label" style="line-height:34px;position:relative;">DB账号别名<span class="red">&nbsp;*</span>：
+						<span class="priview-span ps1" style="position: absolute;right: 0;top: -8px;" data-toggle="tooltip" data-placement="right" title="" data-original-title="别名用来关联对应DB帐号、密码和DB类型等，在执行SQL时会使用">
+							<i class="bk-icon icon-question-circle"></i>
+						</span>
+					</label> 
+					<input data-content="必填项" type="text" class="form-control ijobs-input" style="width:400px;" name="aliasName" placeholder="请输入DB账户别名" maxlength="50">
+				</div>
+				<div class="form-group">
+					<label class="control-label ijobs-label" style="line-height:34px;position:relative;">DB帐号<span class="red">&nbsp;*</span>：
+						<span class="priview-span ps1" style="position: absolute;right: 0;top: -8px;" data-toggle="tooltip" data-placement="right" title="" data-original-title="真实DB用户名">
+							<i class="bk-icon icon-question-circle"></i>
+						</span>
+					</label> 
+					<input data-content="必填项" type="text" class="form-control ijobs-input" style="width:400px;" name="sqlName" placeholder="请输入DB账号" maxlength="50">
+				</div>
+				<div class="form-group">
+					<label class="control-label ijobs-label" style="line-height:34px;position:relative;">DB密码<span id="star-db-pass" class="red">&nbsp;*</span>：</label>
+					<input data-content="必填项" type="password" class="form-control ijobs-input" style="width:400px;" name="dbPass" placeholder="请输入DB密码" maxlength="50">
+				</div>
+				<div class="form-group">
+					<label class="control-label ijobs-label" style="line-height:34px;position:relative;">确认DB密码<span id="star-db-pass-confirm" class="red">&nbsp;*</span>：</label>
+					<input data-content="必填项" type="password" class="form-control ijobs-input" style="width:400px;" name="secdbPass" placeholder="确认DB密码" maxlength="50">
+					<div class="" id="secpass" style="color:red;display:none;padding:5px 0 0 185px;">*密码不一致！</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label ijobs-label" style="line-height:34px;position:relative;">DB端口<span class="red">&nbsp;*</span>：</label> 
+					<input data-content="必填项" type="text" class="form-control ijobs-input" style="width:400px;" name="dbPort" placeholder="请输入DB端口" maxlength="50">
+					<div class="none" id="dbPorts" style="color:red;padding:5px 0 0 185px;">*端口范围1024~65535</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label ijobs-label" style="line-height:34px;">DB类型<span class="red">&nbsp;*</span>：</label>
+					<select name="dbType" id="dbType" class="form-control ijobs-input" style="width:400px;padding:5px;">
+						<!-- <option value="0" style="display:none;"></option> -->
+						<option value="1">MySQL</option>
+						<option value="2">Oracle</option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label ijobs-label" style="line-height:34px;position:relative;">SQL执行系统账户<span class="red">&nbsp;*</span>：
+						<span class="priview-span ps1" style="position: absolute;right: 0;top: -8px;" data-toggle="tooltip" data-placement="right" title="" data-original-title="以该操作系统账户执行SQL，仅支持部署在Linux环境下的DB">
+							<i class="bk-icon icon-question-circle"></i>
+						</span>
+					</label>
+					<div class="ijobs-input" style="width:484px;">
+						<select id="sysAccount" class="ijobs-user-account" style="width: 400px; display: none;" data-placeholder="请选择SQL执行系统账户"><option></option><option value="Administrator">Administrator</option><option value="root" selected="">root</option></select><div class="chosen-container chosen-container-single" style="width: 400px;" title="" id="sysAccount_chosen"><a class="chosen-single" tabindex="-1"><span>root</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul><div class="chosen-operate newTask" href="./app/newTask.jsp" style="display:none;">+新建作业</div></div></div>
+						<button id="addUserBut" class="btn ijobs-btn ijobs-radius ijobs-default" "="" type="button" title="登记新账户"><i class="bk-icon icon-plus"></i></button>
+					</div>
+				</div>
+				<div class="form-group" id="regUserDiv" style="display:none;">
+					<label class="control-label ijobs-label"> </label>
+					<div class="ijobs-input" style="width:425px;">
+						<div class="row well" style="margin-left: 0;padding:19px 0;">
+							<label class="col-sm-3 control-label" style="line-height:34px;padding: 0 0 0 8px;width: 90px;">账户名称<span class="red">&nbsp;*</span>：</label>
+							<div class="col-sm-6" style="padding:0;">
+								<input id="userName_inputs" type="text" class="form-control" maxlength="50" placeholder="此账户必须在目标服务器上存在" style="padding: 6px;">
+								<div id="resultMsg" class="mt10" style="color: red"></div>
+							</div>
+							<div class="col-sm-3">
+								<button type="button" id="regUsers" class="btn btn-primary" style="margin-bottom: 3px;">登记账户</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">*此账户必须在目标服务器上存在</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="user-fooder">
+				<span class="user-btn user-save bk-button bk-primary" id="userSave" style="min-width:54px;">保存</span>
+				<span class="user-btn user-close bk-button bk-default" id="userClose" style="min-width:54px;">关闭</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<script>
+    lang = "zh_CN";
+</script>
+<!-- 服务器集合组建 -->
+<div id="serverIpModel" class="none serverIp-Model-IsExist">
+	<div class="row ml0 buttonGroup serverIpMode-1">
+		<input type="hidden" class="hidden-serverSetId">
+		<input type="hidden" class="hidden-serverip-string hidden-serverip-strings" group-id="">
+		<div class="col-sm-3 p0 i18scriptLeft">
+			<button type="button" class="bk-button bk-primary showModel" style="min-width: 115px"><i class="bk-icon icon-pc"></i>&nbsp;选择服务器</button>
+		</div>		
+		<div class="btnGroup col-sm-9 none pr0 i18scriptRight" style="text-align: right;">
+			<a class="king-noborder bk-button bk-default copy-serverip-btn min-w0">复制IP</a>
+			<a class="king-noborder bk-button bk-default copy-not-installed-agent-serverip-btn min-w0">复制Agent未安装IP</a>
+			<a class="bk-button bk-danger clearBtn min-w0">清空IP</a>
+			<a class="bk-button bk-danger clear-not-installed-Btn min-w0">清空Agent未安装</a>
+		</div>
+		<div class="col-sm-12 pl0 mt10 text-left server-text none"></div>
+		
+	</div>	
+	
+	<div class="fieldset mt10 mb0 ccResultBox none tl">
+		<div class="legend">CC脚本导入</div>
+		<div class="container-fluid">
+			<input type="hidden" class="cc-scriptId">
+			<p>CC脚本名称：<span class="cc-name-hidden"></span></p>
+			<p>=	CC脚本参数：<span class="cc-param-hidden"></span><span class="cc-no-param-hidden"></span></p>
+			<button type="button" class="king-btn king-default king-btn-mini cc-showTest" style="position:absolute;left:10px;">测试</button>
+			<button type="button" class="king-btn king-default king-btn-mini cc-showModel" style="position:absolute;right:10px;">更改</button>
+		</div>
+	</div>
+	
+	<div class="serverIpMode-2 buttonGroup-2">
+		<input type="hidden" class="hidden-serverSetId-mode2">
+		<input type="hidden" class="hidden-serverip-mode2 hidden-serverip-strings">
+		<!-- <ul class="show-short-ip none text-left pl10"></ul> -->
+		<table class="table show-short-ip none text-left pl10" style="width:150px;">
+			<thead>
+				<tr>
+					<th>IP</th>
+					<th class="table-header-option-th">操作</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		<div class="buttonArea-2">
+			<!-- <a href="javascript:;" class="serverip-count-link text-no-number">共0台</a> -->
+			<button type="button" class="king-btn king-default king-btn-mini showModel">添加</button>
+		</div>
+	</div>	
+		 
+	<div class="serverIp-result-table serverIpMode-1">
+		<table class="table table-header-bg mt40 mb0 serverIpResultTable table-bordered table-hover none">
+			<thead>
+				<tr>
+					<th style="width:180px;">平台名称</th>
+					<th>IP/分组</th>
+					<th>状态</th>
+					<th class="table-header-option-th">操作</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade serverIpModal h1000" data-backdrop="false" data-keyboard="false" role="dialog">
+		<div class="modal-dialog w800" role="document">
+			<div class="modal-content">
+				<div class="modal-loading-wrap none" style="z-index: 9999;position: absolute;left:0;top:0;width:100%;height:100%;text-align:center;vertial-align:middle;">
+						<img src="./img/loading_2_36x36.gif" style="margin-left:-18px;position:absolute;top:50%;margin-top:-36px;">
+				</div>
+				<div class="modal-body" style="min-height:450px;">
+						<div class="nav nav-tabs serverIpListtabs w h40 pl20 text-left">
+							<label class="pr5 radio-inline changeIp" style="cursor: pointer;"><input type="radio" name="serverSelect" value="1" checked=""> 通过IP选择服务器</label>
+							<label class="pr5 radio-inline changeIp" style="cursor: pointer;"><input type="radio" name="serverSelect" value="2"> 配置平台</label>
+							<label class="pr5 radio-inline changeIp" style="cursor: pointer;"><input type="radio" name="serverSelect" value="3"> 手动添加</label>
+							
+							<label id="dynamicGroup" class="pr5 radio-inline changeIp" style="cursor: pointer;"><input type="radio" name="serverSelect" value="4"> 动态分组</label>
+                            
+                            <label id="collectDBType" class="fr checbox-inline" style="cursor: pointer;"><input type="checkbox"> 仅展示模块类型为“数据库”的主机</label>
+                            
+						</div>
+						
+						<div class="tab-content" style="min-height:380px;position: relative;">
+							<!-- start 通过IP选择服务器 -->
+							<div class="ipList-tab-pane ipChoose-tab-pane none w p10">								 
+									<input type="search" class="form-control w filterText" placeholder="主机名按Enter进行过滤...">
+									<span class="glyphicon glyphicon-search form-control-feedback search-feedback" style="color: #3596e0;font-size: 16px;top: 10px;right: 10px;cursor:pointer;pointer-events:auto !important;"></span>
+									<table class="table table-header-bg mt10 w serverIp-result-table-thead table-hover serverIpTable" style="margin-bottom: -1px;">
+										<thead>
+											<tr>
+												<th><input type="checkbox" class="selectedAllChecks" title="当前页"></th>
+												<th>平台名称</th>
+												<th>操作系统</th>
+												<th>IP</th>
+												<th>状态</th>
+												<th>主机名</th>
+											</tr>
+										</thead>
+									</table>								 
+							</div>
+							<!-- end 通过IP选择服务器 -->
+							
+							<!-- start 配置平台 -->
+							<div class="ipList-tab-pane configCenter-tab-pane none w p10">
+								<div style="height: 384px; overflow: auto;text-align: left;" class="treeviewDiv">
+									<div class="treeviewByAjax"></div>
+								</div> 
+							</div>
+							<!-- end 配置平台 -->
+							
+							<!-- start 手动添加 -->
+							<div class="ipList-tab-pane manually-tab-pane none w p10">
+								<!-- <textarea class="form-control server-ip-textarea" rows="3" placeholder="请输入IP，以“空格”或者“回车”或者“;”分隔"  style="height: 375px"></textarea> -->
+								<div>
+									<label class="control-label">平台来源 ：</label>
+									<div class="ijobs-input plat-name-box" style="width:550px;">
+										
+									</div>
+									<div class="plat-area-box">
+										
+									</div>
+								</div>
+								
+														
+							</div>
+							<!-- end 手动添加 -->
+
+							<!-- start 服务器集 -->
+							<div class="ipList-tab-pane group-tab-pane none w p10">
+								<input type="text" class="form-control w groupfilterText" placeholder="通过名称描述进行过滤...">
+								<table class="table table-header-bg mt10 w serverIp-result-table-thead table-hover groupTable" style="margin-bottom: -1px;">
+									<thead>
+										<tr>
+											<th style="width: 5%">&nbsp;</th>
+											<th style="width: 60%">业务名称</th>
+											<th style="width: 35%">分组名称</th>
+										</tr>
+									</thead>
+								</table>									
+							</div>
+							<!-- end 服务器集 -->
+							
+							<!-- start cc脚本 -->
+							<div class="ipList-tab-pane cc-tab-pane none w p10 tl">
+								<div class="row mb10">
+									<label class="col-sm-2 control-label">CC脚本导入<span class="red">&nbsp;*</span>：</label>
+									<div class="col-sm-10">
+										<select class="form-control w cc-name"></select>
+									</div>
+								</div>
+								
+								<div class="row mb10">
+									<label class="col-sm-2 control-label">入口参数：</label>
+									<div class="col-sm-10">
+										<input class="form-control cc-param" style="float:left;max-width:531px;margin-right:5px;" maxlength="25" placeholder="请输入测试用的脚本参数，无则不填">
+										<a href="javascript:void(0)" class="btn btn-success cc-test-btn">获取结果</a>
+									</div>
+								</div>
+								
+								<div class="row mb10">
+	                                <label class="col-sm-2 control-label">测试结果：</label>
+	                                <div class="col-sm-10">
+	                                      <textarea class="form-control w cc-test-rs" placeholder="请点击'测试结果：'按钮进行测试" style="resize: none;height:300px;"></textarea> 
+	                                      <span style="color:red">请确保CC脚本获取结果中第一行一定要包含InnerIP或OuterIP字段，如果没有，则在作业中使用此CC脚本时会导致导入IP列表为空</span>     
+	                                      <span class="cc-ip-count"></span>                     
+	                                </div>
+	                            </div>
+							</div>
+							<!-- end cc脚本 -->
+						</div>
+				</div>
+				<div class="modal-footer">
+					<label class="pr10 radio-inline fl"><input type="checkbox" class="selectAll"> 全选</label>
+					<button type="button" class="bk-button bk-default fl copyIPByPage">复制已选IP</button>
+					<button type="button" class="bk-button bk-default fl copyAllPageIP" style="margin-left:5px;">复制全部IP</button>
+					<button type="button" class="bk-button btn-primary savebtn" style="min-width:60px;">添加</button>
+					<button type="button" class="bk-button bk-default cancelbtn" style="min-width:60px;">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade resultModal serverIpMode-2 h1000" data-backdrop="false" data-keyboard="false" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content text-left">
+				<div class="modal-body">
+					<table class="table table-header-bg mt40 mb0 serverIpMode2Table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th>IP</th>
+								<th>状态</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default hideMode2">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade ccResultModal  h1000" data-backdrop="false" data-keyboard="false" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content text-left">
+				<div class="modal-body">
+					<table class="table table-header-bg mt40 mb0 ccModeTable table-bordered table-hover">
+						<thead>
+							<tr>
+								<th>IP</th>
+								<th>状态</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default ccHideMode">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 服务器集合组建 -->
+
+<!-- 分组服务器列表预览 start -->
+<div id="ip-list-show" class="modal fade" data-backdrop="false" data-keyboard="false" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="ip-list-conten modal-content">
+			<div class="ip-list-body modal-body">
+				<table class="table table-header-bg mt40 mb0 preTable table-bordered table-hover">
+					<thead>
+						<tr>
+							<th style="width:150px;">平台名称</th>
+							<th style="width:400px;">IP/分组</th>
+							<th style="width:auto;">状态</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<div class="ip-list-fooder">
+				<span class="ip-list-btn ip-copy-btn" style="display:none;">复制的内容</span>
+				<span class="ip-list-btn ip-copy">复制IP</span>
+				<span class="ip-list-btn ip-close">关闭</span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end -->
+<!-- 文件服务器列表预览 start -->
+<div id="file-list-show" class="modal fade" data-backdrop="false" data-keyboard="false" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="ip-list-conten modal-content">
+			<div class="ip-list-body modal-body">
+				<table class="table table-header-bg mt40 mb0 groupTables table-bordered table-hover">
+					<thead>
+						<tr>
+							<th style="width:150px;">平台名称</th>
+							<th style="width:250px;">IP/分组</th>
+							<th style="width:200px;">Agent状态</th>
+							<th style="width:100px;">操作</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<div class="ip-list-fooder">
+				<span class="ip-list-btn ip-close">关闭</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="group-list-show" class="modal fade" data-backdrop="false" data-keyboard="false" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="ip-list-conten modal-content">
+			<div class="ip-list-body modal-body">
+				<table class="table table-header-bg mt40 mb0 groupTable-file table-bordered table-hover">
+					<thead>
+						<tr>
+							<th style="width:150px;">平台名称</th>
+							<th style="width:380px;">IP/分组</th>
+							<th style="width:auto;">Agent状态</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<div class="ip-list-fooder">
+				<span class="ip-list-btn ip-close">关闭</span>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end -->
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="https://js.aq.qq.com/js/aq_common.js"></script>
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=52253453"></script>
+<script type="text/javascript" src="https://o.qcloud.com/static_api/analysis_qcloud.js"></script>
+<script type="text/javascript" src="https://job.o.qcloud.com:443/js/common/serverIpList/serverIpList.js?ver=1499344881115"></script>
+<script type="text/javascript" src="https://job.o.qcloud.com:443/js/common/fileTransferModule/fileTransferModule.js?ver=1499344881115"></script>
+<script type="text/javascript" src="https://job.o.qcloud.com:443/js/app/newTask.js?ver=1499344881115"></script>
+
+
+</section>

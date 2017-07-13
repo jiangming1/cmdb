@@ -1,0 +1,27 @@
+<%= form_for(xitongzhanghuguanli) do |f| %>
+  <% if xitongzhanghuguanli.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(xitongzhanghuguanli.errors.count, "error") %> prohibited this xitongzhanghuguanli from being saved:</h2>
+
+      <ul>
+      <% xitongzhanghuguanli.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    系统账号
+    <%= f.text_field :xitongzhanghao %>
+  </div>
+
+  <div class="field">
+    系统密码
+    <%= f.text_field :xitongmima %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
