@@ -1,24 +1,12 @@
-<%= form_for(dingshirenwu) do |f| %>
-  <% if dingshirenwu.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(dingshirenwu.errors.count, "error") %> prohibited this dingshirenwu from being saved:</h2>
-
-      <ul>
-      <% dingshirenwu.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= simple_form_for dingshirenwu do |f| %>
   <div class="field">
     定时任务
     <%= f.text_field :dingshirenwu %>
   </div>
 
   <div class="field">
-    昨夜星辰
-    <%= f.text_field :zuoyemingchen %>
+    作业脚本
+  <%= f.association :jiaobenzhixings %>
   </div>
 
   <div class="field">
@@ -29,4 +17,6 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  
+
 <% end %>

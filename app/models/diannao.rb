@@ -1,5 +1,6 @@
 class Diannao < ApplicationRecord
 has_and_belongs_to_many :Jiaobenzhixings
+has_and_belongs_to_many :kuaisufenfawenjians
 
 accepts_nested_attributes_for :Jiaobenzhixings, allow_destroy: true
 def to_s
