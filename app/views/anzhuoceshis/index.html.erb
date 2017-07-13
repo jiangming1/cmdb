@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>安卓测试</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>脚本</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @anzhuoceshis.each do |anzhuoceshi| %>
+      <tr>
+        <td><%= anzhuoceshi.mingcheng %></td>
+        <td><%= anzhuoceshi.jiaoben %></td>
+        <td><%= link_to 'Show', anzhuoceshi %></td>
+        <td><%= link_to 'Edit', edit_anzhuoceshi_path(anzhuoceshi) %></td>
+        <td><%= link_to 'Destroy', anzhuoceshi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建安卓测试', new_anzhuoceshi_path %>

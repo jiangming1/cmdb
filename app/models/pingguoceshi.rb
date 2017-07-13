@@ -1,0 +1,2 @@
+class Pingguoceshi < ApplicationRecord
+end

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>苹果测试</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>脚本</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pingguoceshis.each do |pingguoceshi| %>
+      <tr>
+        <td><%= pingguoceshi.mingcheng %></td>
+        <td><%= pingguoceshi.jiaoben %></td>
+        <td><%= link_to 'Show', pingguoceshi %></td>
+        <td><%= link_to 'Edit', edit_pingguoceshi_path(pingguoceshi) %></td>
+        <td><%= link_to 'Destroy', pingguoceshi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建苹果测试', new_pingguoceshi_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713161957) do
+ActiveRecord::Schema.define(version: 20170713233930) do
 
   create_table "androidupdates", force: :cascade do |t|
     t.string   "shichang"
@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(version: 20170713161957) do
     t.string   "summary"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "anzhuoceshis", force: :cascade do |t|
+    t.string   "mingcheng"
+    t.string   "jiaoben"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "anzhuozidonghuaceshis", force: :cascade do |t|
+    t.string   "mingcheng"
+    t.string   "jiaoben"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ceshirenwuguanlis", force: :cascade do |t|
@@ -241,6 +255,13 @@ ActiveRecord::Schema.define(version: 20170713161957) do
     t.string   "script"
     t.string   "miaoshu"
     t.integer  "ttl"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pingguoceshis", force: :cascade do |t|
+    t.string   "mingcheng"
+    t.text     "jiaoben"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

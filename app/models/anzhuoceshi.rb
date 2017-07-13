@@ -1,0 +1,2 @@
+class Anzhuoceshi < ApplicationRecord
+end
