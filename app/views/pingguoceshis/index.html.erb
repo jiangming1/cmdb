@@ -15,7 +15,6 @@
     <% @pingguoceshis.each do |pingguoceshi| %>
       <tr>
         <td><%= pingguoceshi.mingcheng %></td>
-        <td><%= pingguoceshi.jiaoben %></td>
         <td><%= link_to 'Show', pingguoceshi %></td>
         <td><%= link_to 'Edit', edit_pingguoceshi_path(pingguoceshi) %></td>
         <td><%= link_to 'Destroy', pingguoceshi, method: :delete, data: { confirm: 'Are you sure?' } %></td>

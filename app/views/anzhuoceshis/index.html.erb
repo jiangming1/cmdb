@@ -15,7 +15,6 @@
     <% @anzhuoceshis.each do |anzhuoceshi| %>
       <tr>
         <td><%= anzhuoceshi.mingcheng %></td>
-        <td><%= anzhuoceshi.jiaoben %></td>
         <td><%= link_to 'Show', anzhuoceshi %></td>
         <td><%= link_to 'Edit', edit_anzhuoceshi_path(anzhuoceshi) %></td>
         <td><%= link_to 'Destroy', anzhuoceshi, method: :delete, data: { confirm: 'Are you sure?' } %></td>

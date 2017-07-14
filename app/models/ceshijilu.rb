@@ -1,0 +1,2 @@
+class Ceshijilu < ApplicationRecord
+end
