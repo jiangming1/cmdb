@@ -10,6 +10,14 @@ class AnzhuoceshisController < ApplicationController
   # GET /anzhuoceshis/1
   # GET /anzhuoceshis/1.json
   def show
+  File.open("temp","w") do |file|
+    file.puts @anzhuoceshi.jiaoben
+  end
+  @cmd = "scp temp.py Administrator@119.29.242.173:/cygdrive/c;ssh -p 22 -tt Administrator@119.29.242.173 'cmd /c python3 c:/temp.py'"
+  @cmd.gsub!(/\0/, '')
+  IO.popen(@cmd, :external_encoding=>"utf-8") {|nkf_io|
+  @exe = nkf_io.read
+  }
   end
 
   # GET /anzhuoceshis/new

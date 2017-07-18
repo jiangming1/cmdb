@@ -81,6 +81,6 @@ IO.popen(cmd, :external_encoding=>"utf-8") {|nkf_io|
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jiaobenzhixing_params
-      params.require(:jiaobenzhixing).permit(:diannaos,:jiaobenmingcheng, :zhixingzhanghu, :mubiaojiqi, :jiaobenneirong, :jiaobencanshu, :chaoshishijian,diannaos_attributes: [:id, :mingzi,:mubiaojiqi_id,:_destroy])
+      params.require(:jiaobenzhixing).permit(:diannaos,:jiaobenmingcheng, :zhixingzhanghu, :mubiaojiqi, :jiaobenneirong, :jiaobencanshu, :chaoshishijian, diannao_ids: [],diannaos_attributes: [:id, :mingzi,:mubiaojiqi_id,:_destroy])
     end
 end
