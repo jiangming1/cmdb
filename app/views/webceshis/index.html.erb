@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>web测试</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>脚本</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @webceshis.each do |webceshi| %>
+      <tr>
+        <td><%= webceshi.mingcheng %></td>
+        <td><%= webceshi.jiaoben %></td>
+        <td><%= link_to 'Show', webceshi %></td>
+        <td><%= link_to 'Edit', edit_webceshi_path(webceshi) %></td>
+        <td><%= link_to 'Destroy', webceshi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建web测试', new_webceshi_path %>

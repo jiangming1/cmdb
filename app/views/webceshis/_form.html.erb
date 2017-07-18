@@ -1,0 +1,12 @@
+<%= simple_form_for(@webceshi) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :mingcheng %>
+    <%= f.text_area :jiaoben %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

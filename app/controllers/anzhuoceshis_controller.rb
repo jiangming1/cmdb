@@ -13,7 +13,8 @@ class AnzhuoceshisController < ApplicationController
   File.open("temp","w") do |file|
     file.puts @anzhuoceshi.jiaoben
   end
-  @cmd = "scp scp /root/cmdb/temp Administrator@119.29.242.173:/cygdrive/c;ssh -p 22 -tt Administrator@119.29.242.173 'cmd /c python3 c:/temp'"
+  
+  @cmd = "zip -r /root/cmdb/temp.zip /root/cmdb/temp;scp /root/cmdb/temp Administrator@119.29.242.173:/cygdrive/c;ssh -p 22 -tt Administrator@119.29.242.173 'cmd /c python3 c:/temp'"
   @cmd.gsub!(/\0/, '')
   IO.popen(@cmd, :external_encoding=>"utf-8") {|nkf_io|
   @exe = nkf_io.read
