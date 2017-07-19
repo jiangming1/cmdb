@@ -15,8 +15,7 @@
     <% @webceshis.each do |webceshi| %>
       <tr>
         <td><%= webceshi.mingcheng %></td>
-        <td><%= webceshi.jiaoben %></td>
-        <td><%= link_to 'Show', webceshi %></td>
+        <td><%= link_to '执行', webceshi %></td>
         <td><%= link_to 'Edit', edit_webceshi_path(webceshi) %></td>
         <td><%= link_to 'Destroy', webceshi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -1,0 +1,120 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from appium import webdriver
+
+# 引入刚刚创建的同目录下的desired_capabilities.py
+import desired_capabilities
+
+# 我们使用python的unittest作为单元测试工具
+from unittest import TestCase
+
+# 我们使用python的unittest作为单元测试工具
+import unittest
+
+# 使用time.sleep(xx)函数进行等待
+import time
+
+class MqcTest(TestCase):
+
+    def setUp(self):
+        # 获取我们设定的capabilities，通知Appium Server创建相应的会话。
+        desired_caps = desired_capabilities.get_desired_capabilities()
+        # 获取server的地址
+        uri = desired_capabilities.get_uri()
+        # 创建会话，得到driver对象，driver对象封装了所有的设备操作。
+        self.driver = webdriver.Remote(uri, desired_caps)
+        # 等待app完全加载
+        time.sleep(3)
+
+    # 第1个用例，如果检测到弹框，就点掉
+    def test_case_a_lcb_dismiss_alert(self):
+         while True:
+             time.sleep(3)
+             alertEle = self.driver.find_elements_by_class_name("XCUIElementTypeAlert")
+             if alertEle:
+#                 print 'find an alert'
+#                 notAllowBtn = self.driver.find_element_by_xpath("//XCUIElementTypeButton[@label='允许']")
+                 notAllowBtn = self.driver.find_element_by_name("允许")
+                 notAllowBtn.click()
+                 time.sleep(2)
+             else:
+                 break
+
+#	# 第2个用例，滑动引导页
+#    def test_case_b_lcb_swipe_guide(self):
+#        while True:
+#            guide = self.driver.find_elements_by_class_name('XCUIElementTypeScrollView')
+#            print (guide)
+#            if guide:
+#                self.driver.swipe(300,200,-200,0,500)
+#                time.sleep(1)
+#            else:
+#                break
+#        try:
+#            skip_ad_btn = self.driver.find_element_by_name('activity close btn')
+#        except Exception as e:
+#            print (e)
+#            print ('没有广告弹出')
+#        else:
+#            print ('跳过广告')
+#            skip_ad_btn.click()
+
+    def test_case_b_lcb_skip_ad(self):
+            try:
+                skip_ad_btn = self.driver.find_element_by_name('activity close btn')
+            except Exception as e:
+#                print '没有广告弹出'
+                 pass
+            else:
+                skip_ad_btn.click()
+
+
+
+    def test_case_c_lcb_login(self):
+ 		#获取登录按钮
+        enterLoginPageBtn = self.driver.find_element_by_name('注册/登录')
+        enterLoginPageBtn.click()
+        time.sleep(2)
+        phoneTF = self.driver.find_element_by_class_name('XCUIElementTypeTextField')
+        phoneTF.set_value('18955776395')
+        #关闭键盘
+        self.driver.find_element_by_name('Done').click()
+        time.sleep(1)
+        passwordTF = self.driver.find_element_by_class_name('XCUIElementTypeSecureTextField')
+        passwordTF.set_value("xingshuai")
+        #关闭键盘
+        self.driver.find_element_by_name('Done').click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//XCUIElementTypeButton[@label='登录']").click()
+        time.sleep(5) #等待登录成功
+
+ 
+
+
+    def tearDown(self):
+        # 测试结束，退出会话
+        self.driver.quit()
+
+    def getElementByXpath(self,xpath):
+    	el = self.driver.find_element_by_xpath(xpath)
+    	return el
+
+if __name__ == '__main__':
+    try: unittest.main()
+    except SystemExit: pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,7 +11,7 @@ class WebceshisController < ApplicationController
   # GET /webceshis/1.json
   def show
   File.open("temp","w") do |file|
-    file.puts @anzhuoceshi.jiaoben
+    file.puts @webceshi.jiaoben
   end
   
   @cmd = "scp /root/cmdb/temp Administrator@119.29.242.173:/cygdrive/c;ssh -p 22 -tt Administrator@119.29.242.173 'cmd /c python3 c:/temp'"
