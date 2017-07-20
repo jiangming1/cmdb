@@ -13,7 +13,6 @@ class KuaisufenfawenjiansController < ApplicationController
   File.open("temp","w") do |file|
     file.puts @kuaisufenfawenjian.jiaobenneirong
   end
-
   @cmd=""
   @exe=""
   @kuaisufenfawenjian.diannaos.each { |diannao|

@@ -10,7 +10,8 @@ class ShujukusqlguanlisController < ApplicationController
   # GET /shujukusqlguanlis/1
   # GET /shujukusqlguanlis/1.json
   def show
-cmd = "ssh root@114.55.36.146 \" echo \\\" "+@shujukusqlguanli.jiaobenneirong+" \\\"|su postgres -c \\\"psql -U postgres -p 5433 laicunba_test\\\" \" "
+  
+cmd = "ssh -o ConnectTimeout=1 root@114.55.36.146 \" echo \\\" "+@shujukusqlguanli.jiaobenneirong+" \\\"|su postgres -c \\\"psql -U postgres -p 5433 laicunba_test\\\" \" "
 #cmd.gsub!(/\0/, '')
 IO.popen(cmd, :external_encoding=>"utf-8") {|nkf_io|
   @exe = nkf_io.read

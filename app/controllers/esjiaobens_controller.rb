@@ -14,22 +14,15 @@ class EsjiaobensController < ApplicationController
     regex.match(@esjiaoben.jiaobenneirong) 
     biaoming= $1
     puts @esjiaoben.jiaobenneirong
-      cmd = "ssh root@114.55.36.146 \" echo \\\" "+@esjiaoben.jiaobenneirong+" \\\"|su postgres -c \\\"psql -U postgres -p 5433 laicunba_test\\\" \" "
-    IO.popen(cmd, :external_encoding=>"utf-8") {|nkf_io|
+      @cmd = "ssh root@114.55.36.146 \" echo \\\" "+@esjiaoben.jiaobenneirong+" \\\"|su postgres -c \\\"psql -U postgres -p 5433 laicunba_test\\\" \" "
+    IO.popen(@cmd, :external_encoding=>"utf-8") {|nkf_io|
       @exe = nkf_io.read
     }
     
-        puts cmd
-    puts @exe
-
-    @cmd=cmd
-    cmd = "ssh root@114.55.36.146 \" /opt/elasticsearch-jdbc-2.3.4.0/bin/postgresql-1.sh \\\" "+biaoming+" \\\" \" "
-    IO.popen(cmd, :external_encoding=>"utf-8") {|nkf_io|
+    @cmd = "ssh root@114.55.36.146 \" /opt/elasticsearch-jdbc-2.3.4.0/bin/postgresql-1.sh \\\" "+biaoming+" \\\" \" "
+    IO.popen(@cmd, :external_encoding=>"utf-8") {|nkf_io|
       @exe = nkf_io.read
     }
-    puts cmd
-    puts @exe
-    @cmd=cmd
   end
 
   # GET /esjiaobens/new
