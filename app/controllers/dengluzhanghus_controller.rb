@@ -1,6 +1,6 @@
 class DengluzhanghusController < ApplicationController
   before_action :set_dengluzhanghu, only: [:show, :edit, :update, :destroy]
-
+  before_action :log
   # GET /dengluzhanghus
   # GET /dengluzhanghus.json
   def index

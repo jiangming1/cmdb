@@ -1,6 +1,6 @@
 class DingshirenwusController < ApplicationController
   before_action :set_dingshirenwu, only: [:show, :edit, :update, :destroy]
-
+  before_action :log
   # GET /dingshirenwus
   # GET /dingshirenwus.json
   def index
@@ -64,6 +64,10 @@ class DingshirenwusController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dingshirenwu
+    if cookies[:id] =nil
+      then
+       redirect_to dengluzhanghaos_url(message: 'test'), notice: 'Succeed.'
+      end
       @dingshirenwu = Dingshirenwu.find(params[:id])
     end
 

@@ -10,11 +10,13 @@ class PingguoceshisController < ApplicationController
   # GET /pingguoceshis/1
   # GET /pingguoceshis/1.json
   def show
-  File.open("temp","w") do |file|
+  File.open("tmp/temp","w") do |file|
     file.puts @pingguoceshi.jiaoben
   end
   
-  @cmd = "zip -r /root/cmdb/temp.zip /root/cmdb/temp;scp /root/cmdb/temp Administrator@119.29.242.173:/cygdrive/c;ssh -p 22 -tt Administrator@119.29.242.173 'cmd /c python3 c:/taoandroid.py'"
+  #@cmd = "zip -r /root/cmdb/temp.zip /root/cmdb/temp;scp /root/cmdb/temp Administrator@119.29.242.173:/cygdrive/c;ssh -p 22 -tt Administrator@119.29.242.173 'cmd /c python3 c:/taoandroid.py'"
+  @cmd = "makecab tmp/temp tmp/ls.zip&&scp tmp/ls.zip Administrator@119.29.242.173:/cygdrive/c/temp.zip&&ssh -p 22 -tt Administrator@119.29.242.173 'cmd /c python3 c:/taoandroid.py'"
+  
   @cmd.gsub!(/\0/, '')
   IO.popen(@cmd, :external_encoding=>"utf-8") {|nkf_io|
   @exe = nkf_io.read

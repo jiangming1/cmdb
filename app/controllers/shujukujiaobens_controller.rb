@@ -1,5 +1,5 @@
 class ShujukujiaobensController < ApplicationController
-  before_action :set_shujukujiaoben, only: [:show, :edit, :update, :destroy]
+  before_action :set_shujukujiaoben, only: [:index,:show, :edit, :update, :destroy]
 
   # GET /shujukujiaobens
   # GET /shujukujiaobens.json
@@ -63,7 +63,7 @@ class ShujukujiaobensController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_shujukujiaoben
+
       @shujukujiaoben = Shujukujiaoben.find(params[:id])
     end
 

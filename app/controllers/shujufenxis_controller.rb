@@ -1,6 +1,6 @@
 class ShujufenxisController < ApplicationController
   before_action :set_shujufenxi, only: [:show, :edit, :update, :destroy]
-
+  before_action :log
   # GET /shujufenxis
   # GET /shujufenxis.json
   def index
@@ -64,6 +64,7 @@ class ShujufenxisController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shujufenxi
+
       @shujufenxi = Shujufenxi.find(params[:id])
     end
 

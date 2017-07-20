@@ -1,6 +1,6 @@
 class JiaobenzhixingsController < ApplicationController
   before_action :set_jiaobenzhixing, only: [:show, :edit, :update, :destroy]
-
+  before_action :log
   # GET /jiaobenzhixings
   # GET /jiaobenzhixings.json
   def index
@@ -10,14 +10,14 @@ class JiaobenzhixingsController < ApplicationController
   # GET /jiaobenzhixings/1
   # GET /jiaobenzhixings/1.json
   def show
-  File.open("temp","w") do |file|
+  File.open("tmp/jbzxtemp","w") do |file|
     file.puts @jiaobenzhixing.jiaobenneirong
   end
   @cmd=""
   @exe=""
   @jiaobenzhixing.diannaos.each { |diannao|
   puts diannao.ip
-    @cmd1="scp temp root@"+diannao.ip+":/root;ssh  -o ConnectTimeout=1 root@"+diannao.ip+" 'bash /root/temp' "
+    @cmd1="scp tmp/jbzxtemp root@"+diannao.ip+":/tmp/jbzxtemp&&ssh  -o ConnectTimeout=1 root@"+diannao.ip+" 'bash /tmp/jbzxtemp' "
     #cmd.gsub!(/\0/, '')
     IO.popen(@cmd1, :external_encoding=>"utf-8") {|nkf_io|
       @exe1 = nkf_io.read
