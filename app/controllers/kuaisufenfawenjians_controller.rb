@@ -10,6 +10,22 @@ class KuaisufenfawenjiansController < ApplicationController
   # GET /kuaisufenfawenjians/1
   # GET /kuaisufenfawenjians/1.json
   def show
+  File.open("temp","w") do |file|
+    file.puts @kuaisufenfawenjian.jiaobenneirong
+  end
+
+  @cmd=""
+  @exe=""
+  @kuaisufenfawenjian.diannaos.each { |diannao|
+    @cmd1="scp -o ConnectTimeout=1 temp root@"+diannao.ip+":"+@kuaisufenfawenjian.mubiaowenjian
+    #cmd.gsub!(/\0/, '')
+    IO.popen(@cmd1, :external_encoding=>"utf-8") {|nkf_io|
+      @exe1 = nkf_io.read
+    }
+    @cmd=@cmd+"\r\n"+@cmd1
+    @exe=@exe+"\r\n"+@exe1
+  }
+  
   end
 
   # GET /kuaisufenfawenjians/new
@@ -69,6 +85,6 @@ class KuaisufenfawenjiansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def kuaisufenfawenjian_params
-      params.require(:kuaisufenfawenjian).permit(:zuoyemingchen, :yuanwenjian, :mubiaowenjian, :zhixingzhanghu, :mubiaojiqi)
+      params.require(:kuaisufenfawenjian).permit(:jiaobenneirong,:zuoyemingchen, :yuanwenjian, :mubiaowenjian, :zhixingzhanghu, :mubiaojiqi,diannao_ids: [],)
     end
 end

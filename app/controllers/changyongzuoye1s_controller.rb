@@ -10,15 +10,6 @@ class Changyongzuoye1sController < ApplicationController
   # GET /changyongzuoye1s/1
   # GET /changyongzuoye1s/1.json
   def show
-       cmd = "sshpass -p \"7JZS5aEF1N1SnmlV4uyk\" ssh 114.55.36.146  'su postgres -c \"psql -U postgres -p 5433 laicunba_test\"'<<!
-▸ tmp/                         |"+@zuoye.jiaobenneirong+"
-▸ vendor/                      |!"
-  a.sh                         |cmd.gsub!(/\0/, '')
-  config.ru                    |IO.popen(cmd, :external_encoding=>"utf-8") {|nkf_io|
-  Gemfile                      |          @exe = nkf_io.read
-  Gemfile.lock                 |}
-  nohup.out                    |     @fanhui=cmd
-
   end
 
   # GET /changyongzuoye1s/new

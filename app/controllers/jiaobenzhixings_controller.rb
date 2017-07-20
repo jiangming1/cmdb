@@ -10,12 +10,21 @@ class JiaobenzhixingsController < ApplicationController
   # GET /jiaobenzhixings/1
   # GET /jiaobenzhixings/1.json
   def show
-cmd = "ssh root@114.55.36.146 \" echo \\\" "+@jiaobenzhixing.jiaobenneirong+" \\\"|su postgres -c \\\"psql -U postgres -p 5433 laicunba_test\\\" \" "
-#cmd.gsub!(/\0/, '')
-IO.popen(cmd, :external_encoding=>"utf-8") {|nkf_io|
-  @exe = nkf_io.read
-}
-@cmd=cmd
+  File.open("temp","w") do |file|
+    file.puts @jiaobenzhixing.jiaobenneirong
+  end
+  @cmd=""
+  @exe=""
+  @jiaobenzhixing.diannaos.each { |diannao|
+  puts diannao.ip
+    @cmd1="scp temp root@"+diannao.ip+":/root;ssh  -o ConnectTimeout=1 root@"+diannao.ip+" 'bash /root/temp' "
+    #cmd.gsub!(/\0/, '')
+    IO.popen(@cmd1, :external_encoding=>"utf-8") {|nkf_io|
+      @exe1 = nkf_io.read
+    }
+    @cmd=@cmd+"\r\n"+@cmd1
+    @exe=@exe+"\r\n"+@exe1
+  }
   end
 
   # GET /jiaobenzhixings/new
