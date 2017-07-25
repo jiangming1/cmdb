@@ -31,7 +31,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+<style type="text/css">
 
+</style>
   <body>
   <!--HTML-->
 
@@ -50,6 +52,9 @@
   $('tr > td:last-child > a').attr("class","glyphicon glyphicon-pencil").html("")
   $("a").addClass("king-btn king-primary");
   $("input").addClass("classform-control")
-
-  </script>
+  $("textarea").css({ "height": "810px","width": "600px"}); 
+ $("input").css({ "width": "600px"}); 
+ $("select").css({ "height": "600px"}); 
+  
+ </script>
 </html>
