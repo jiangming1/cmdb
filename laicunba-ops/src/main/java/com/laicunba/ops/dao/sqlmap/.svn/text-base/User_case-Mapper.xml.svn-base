@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="USER_CASE">
+
+	<resultMap type="com.laicunba.ops.pojo.UserCaseDO" id="map" extends="BASE.map">
+		<result column="product_Version_Id" property="productVersionId" /> 
+		<result column="case_Name" property="caseName" /> 
+		<result column="description" property="description" /> 
+	</resultMap>
+
+	<select id="findByProductId" resultMap="map" parameterType="map">
+		SELECT
+			ops_user_case.*  
+		FROM
+			ops_user_case
+		LEFT JOIN ops_product_version on ops_product_version.id = ops_user_case.product_version_id
+		LEFT JOIN ops_product on ops_product_version.product_id = ops_product.id
+		where ops_product.id = #{productId}
+	</select>
+
+</mapper> 

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="SCORE">
+
+ 	
+ 	
+ 	<insert id="scorePayLog" parameterType="map">
+	INSERT INTO "public"."score_score" (
+		"id",
+		"gmt_create",
+		"gmt_write",
+		"status",
+		"amount",
+		"summary",
+		"mark",
+		"money",
+		"account_id"
+	)
+	VALUES
+		(
+			#{id},
+			now(),
+			now(),
+			'1',
+			#{balance},
+			'',
+			'ci',
+			#{money},
+			#{accountId}
+		)
+ 	</insert>
+ 	
+ 	<update id="clearScore" parameterType="string">
+ 	 update score_account set balance=0 where id=#{id}
+ 	</update>
+ 	
+ 	<select id="getBalance" resultType="float" parameterType="string">
+ 		select balance from score_account where id=#{id}
+ 	</select>
+ 	
+	<select id="accountList" resultType="map" parameterType="map">
+		select * from score_account
+	</select>
+	<select id="scoreGroupList" resultType="map" parameterType="map">
+		select * from(
+		SELECT
+			sum(amount) as amt,
+		  count(1) as rows,
+			account_Id,
+			'1today' as type
+		FROM
+			score_score
+		WHERE
+			gmt_create > to_date(to_char(now(), 'yyyy-mm-dd'), 'yyyy-mm-dd')  and  amount>0
+		GROUP BY account_Id
+		union 
+		SELECT
+			sum(amount) as amt,
+		  count(1) as rows,
+			account_Id,
+			'3month' as type
+		FROM
+			score_score
+		WHERE
+			gmt_create > to_date(to_char(now(), 'yyyy-mm'), 'yyyy-mm')  and  amount>0
+		GROUP BY account_Id
+		union  
+		SELECT
+			sum(amount) as amt,
+		  count(1) as rows,
+			account_Id,
+			'2week' as type
+		FROM
+			score_score
+		WHERE
+			gmt_create > to_date(to_char(now()::timestamp + ('-'||to_char(now(), 'D')||' d')::interval + '1 d', 'yyyy-mm-dd'), 'yyyy-mm-dd')  and  amount>0
+		GROUP BY account_Id)
+		as t order by t.type asc,t.amt desc
+	</select>
+
+</mapper> 

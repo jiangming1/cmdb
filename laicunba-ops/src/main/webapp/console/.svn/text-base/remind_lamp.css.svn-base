@@ -1,0 +1,148 @@
+@charset "utf-8";
+.sitemakers {
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+}
+
+.wrap {
+
+}
+
+.wrap .bulb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.wrap #s-bulb {
+  fill: green;
+  stroke: green;
+  stroke-width: 0;
+  transition: 300ms;
+}
+
+/* .wrap:active #s-bulb {
+  fill: #f00;
+  stroke: #f00;
+  stroke-width: 2;
+  transition: 1500ms;
+} */
+
+.wrap #www-filament {
+  stroke-width: 0;
+  stroke-width: 0;
+  transition: 300ms;
+}
+
+.wrap #www-filament {
+  fill: #00ef00;
+  stroke: #00ef00;
+  transition: 300ms;
+}
+
+/* .wrap:active #www-filament {
+  stroke: #f00; 
+  stroke-width: 3;
+  fill: #f00;
+  transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+} */
+
+
+.wrap .light {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.wrap .light .glow {
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  opacity: 0;
+  background: -webkit-radial-gradient(rgba(255,0,0,1), rgba(255,0,0,0) 30%);
+  position: absolute;
+  display: block;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* .wrap:active .light .glow {
+  width: 60px;
+  height: 60px;
+  opacity: 0.2;
+  background: -webkit-radial-gradient(rgba(255,0,0,1), rgba(255,0,0,0) 140%);
+  transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+} */
+
+.wrap .light .flare {
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  opacity: 0;
+  background: rgba(255,0,0,0);
+  position: absolute;
+  display: block;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* .wrap:active .light .flare {
+  width: 30px;
+  height: 30px;
+  opacity: 0.5;
+  background: rgba(255,0,0,1);
+  transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+} */
+
+.error_info{
+	/* display:none; */
+	position:fixed;
+	background:#ccc;	
+	top:25%;
+	left:18%;
+	height:0px;
+	width:0px;
+	font-size:16px;
+}
+
+@keyframes myfirst
+{
+from {opacity: 0.3;width:8px;height:8px;}
+to {opacity: 0.8;width:18px;height:18px;}
+}
+@keyframes mytwo
+{
+from {opacity: 0.1;width:30px;height:30px;}
+to {opacity: 0.4;width:40px;height:40px;}
+}
+
+@keyframes null
+{
+	
+}
+
+@keyframes error_info_show
+{
+from {opacity: 0;width:10%;height:250px;}
+to {opacity: 1;width:60%;height:250px;}
+
+}
+
+@keyframes error_info_close
+{
+from {opacity: 1;width:60%;height:250px;}
+to {opacity: 0;width:0;height:0;}
+}

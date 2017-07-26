@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BALANCE_COLLECTION">
+ 
+	 <select id="collectionFromLcbProduct">
+		select 
+		t.*,
+		round(t.profit/t.amount * 36500,4) as rate
+		from (
+		SELECT 
+		 'd' as type,
+		 sum(buy_amount - withdraw_principal)  as amount,
+		 round(sum(annualized_rates / 36500 * (
+				buy_amount - withdraw_principal
+			)),2) as profit   
+		FROM
+			lcb_financing_target_bid
+		WHERE
+			pay
+		AND pay_mark != 'ACTIVITY'
+		AND pay_mark != '洽谈购买,线下付款'
+		AND lcb_financing_target_bid.buy_amount > lcb_financing_target_bid.withdraw_principal
+		UNION
+		select 
+		'h' as type,
+		(select sum(balance) from lcb_current_account),
+		round((7.0/36500 *(select sum(balance) from lcb_current_account)),2)
+		) as t
+	 </select>
+	 
+	 <select id="list" resultType="map">
+		select * from ops_balance ORDER BY gmt_create asc limit 60
+	 </select>
+</mapper> 

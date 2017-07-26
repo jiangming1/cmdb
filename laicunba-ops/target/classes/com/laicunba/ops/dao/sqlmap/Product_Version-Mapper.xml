@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PRODUCT_VERSION">
+
+	<resultMap type="com.laicunba.ops.pojo.ProductVersionDO" id="map" extends="BASE.map">
+		<result column="product_Id" property="productId" /> 
+		<result column="version_Code" property="versionCode" /> 
+		<result column="version_Name" property="versionName" /> 
+		<result column="plan_Publish_Date" property="planPublishDate" /> 
+		<result column="acture_Publish_Date" property="acturePublishDate" /> 
+		<result column="status" property="status" />  
+		<result column="product_Name" property="productName" /> 
+		
+	</resultMap>
+
+	<select id="list" resultMap="map">
+		SELECT
+		  ops_product_version.id,
+		  ops_product_version.version_code,
+		  ops_product_version.version_name,
+		  ops_product.product_name,
+		  ops_product_version.product_Id
+		FROM
+			ops_product_version
+		LEFT JOIN ops_product ON ops_product_version.product_id = ops_product. ID
+	</select>
+
+</mapper> 

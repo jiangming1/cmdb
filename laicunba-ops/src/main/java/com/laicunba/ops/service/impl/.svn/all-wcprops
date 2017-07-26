@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/laicunba/!svn/ver/4995/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/impl
+END
+LaicunbaTestDataQueryServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/laicunba/!svn/ver/4995/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/impl/LaicunbaTestDataQueryServiceImpl.java
+END
+UpdateSqlServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/laicunba/!svn/ver/3581/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/impl/UpdateSqlServiceImpl.java
+END
+OpenErpDataQueryServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/laicunba/!svn/ver/4768/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/impl/OpenErpDataQueryServiceImpl.java
+END
+FeatureServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/laicunba/!svn/ver/4888/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/impl/FeatureServiceImpl.java
+END
+LaicunbaDataQueryServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/laicunba/!svn/ver/4526/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/impl/LaicunbaDataQueryServiceImpl.java
+END
+QueryServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/laicunba/!svn/ver/4526/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/impl/QueryServiceImpl.java
+END
+TableAutoCreateServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/laicunba/!svn/ver/1202/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/impl/TableAutoCreateServiceImpl.java
+END
+UserCaseServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/laicunba/!svn/ver/1209/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/impl/UserCaseServiceImpl.java
+END
+BalanceServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/laicunba/!svn/ver/4526/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/impl/BalanceServiceImpl.java
+END
+BaseServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/laicunba/!svn/ver/1202/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/impl/BaseServiceImpl.java
+END
+KeepalivedPointServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/laicunba/!svn/ver/2860/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/impl/KeepalivedPointServiceImpl.java
+END

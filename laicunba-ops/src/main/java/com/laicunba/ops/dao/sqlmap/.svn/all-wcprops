@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/laicunba/!svn/ver/4888/laicunba-ops/trunk/src/main/java/com/laicunba/ops/dao/sqlmap
+END
+Feature-Mapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/laicunba/!svn/ver/1215/laicunba-ops/trunk/src/main/java/com/laicunba/ops/dao/sqlmap/Feature-Mapper.xml
+END
+User_case-Mapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/laicunba/!svn/ver/1206/laicunba-ops/trunk/src/main/java/com/laicunba/ops/dao/sqlmap/User_case-Mapper.xml
+END
+score-Mapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/laicunba/!svn/ver/4888/laicunba-ops/trunk/src/main/java/com/laicunba/ops/dao/sqlmap/score-Mapper.xml
+END
+Balance_collection-Mapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/laicunba/!svn/ver/4546/laicunba-ops/trunk/src/main/java/com/laicunba/ops/dao/sqlmap/Balance_collection-Mapper.xml
+END
+Product-Mapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/laicunba/!svn/ver/1206/laicunba-ops/trunk/src/main/java/com/laicunba/ops/dao/sqlmap/Product-Mapper.xml
+END
+keepalived-point-Mapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/laicunba/!svn/ver/4143/laicunba-ops/trunk/src/main/java/com/laicunba/ops/dao/sqlmap/keepalived-point-Mapper.xml
+END
+BaseMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/laicunba/!svn/ver/1206/laicunba-ops/trunk/src/main/java/com/laicunba/ops/dao/sqlmap/BaseMapper.xml
+END
+openerp-Mapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/laicunba/!svn/ver/4767/laicunba-ops/trunk/src/main/java/com/laicunba/ops/dao/sqlmap/openerp-Mapper.xml
+END
+Update_sql-Mapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/laicunba/!svn/ver/3152/laicunba-ops/trunk/src/main/java/com/laicunba/ops/dao/sqlmap/Update_sql-Mapper.xml
+END
+Product_Version-Mapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/laicunba/!svn/ver/1209/laicunba-ops/trunk/src/main/java/com/laicunba/ops/dao/sqlmap/Product_Version-Mapper.xml
+END

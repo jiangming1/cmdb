@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UPDATE_SQL">
+
+	<resultMap type="com.laicunba.ops.pojo.UpdateSqlDO" id="map" extends="BASE.map">
+		<result column="summary" property="summary" /> 
+		<result column="sql" property="sql" /> 
+		<result column="status" property="status" /> 
+		<result column="effect_Rows" property="effectRows" />  
+	</resultMap>
+	 
+	<select id="listLast" resultMap="map" parameterType="map">
+		 select * from ops_update_sql order by gmt_write desc limit 10
+	</select>
+
+</mapper> 

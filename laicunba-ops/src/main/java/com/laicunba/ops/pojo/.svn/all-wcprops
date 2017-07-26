@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/laicunba/!svn/ver/4526/laicunba-ops/trunk/src/main/java/com/laicunba/ops/pojo
+END
+UpdateSqlDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/laicunba/!svn/ver/3152/laicunba-ops/trunk/src/main/java/com/laicunba/ops/pojo/UpdateSqlDO.java
+END
+KeepalivedPointDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/laicunba/!svn/ver/2869/laicunba-ops/trunk/src/main/java/com/laicunba/ops/pojo/KeepalivedPointDO.java
+END
+TestDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/laicunba/!svn/ver/1202/laicunba-ops/trunk/src/main/java/com/laicunba/ops/pojo/TestDO.java
+END
+BaseDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/laicunba/!svn/ver/1202/laicunba-ops/trunk/src/main/java/com/laicunba/ops/pojo/BaseDO.java
+END
+ProductDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/laicunba/!svn/ver/1203/laicunba-ops/trunk/src/main/java/com/laicunba/ops/pojo/ProductDO.java
+END
+BalanceDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/laicunba/!svn/ver/4526/laicunba-ops/trunk/src/main/java/com/laicunba/ops/pojo/BalanceDO.java
+END
+UserCaseDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/laicunba/!svn/ver/1203/laicunba-ops/trunk/src/main/java/com/laicunba/ops/pojo/UserCaseDO.java
+END
+ProductVersionDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/laicunba/!svn/ver/1209/laicunba-ops/trunk/src/main/java/com/laicunba/ops/pojo/ProductVersionDO.java
+END
+TeamMemberDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/laicunba/!svn/ver/3152/laicunba-ops/trunk/src/main/java/com/laicunba/ops/pojo/TeamMemberDO.java
+END
+FeatureDO.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/laicunba/!svn/ver/1212/laicunba-ops/trunk/src/main/java/com/laicunba/ops/pojo/FeatureDO.java
+END

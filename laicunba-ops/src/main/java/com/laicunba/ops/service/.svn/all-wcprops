@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/laicunba/!svn/ver/4995/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service
+END
+OpenErpDataQueryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/laicunba/!svn/ver/4767/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/OpenErpDataQueryService.java
+END
+LaicunbaTestDataQueryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/laicunba/!svn/ver/4995/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/LaicunbaTestDataQueryService.java
+END
+UpdateSqlService.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/laicunba/!svn/ver/3152/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/UpdateSqlService.java
+END
+FeatureService.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/laicunba/!svn/ver/4888/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/FeatureService.java
+END
+LaicunbaDataQueryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/laicunba/!svn/ver/4526/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/LaicunbaDataQueryService.java
+END
+QueryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/laicunba/!svn/ver/4526/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/QueryService.java
+END
+TableAutoCreateService.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/laicunba/!svn/ver/1202/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/TableAutoCreateService.java
+END
+UserCaseService.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/laicunba/!svn/ver/1209/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/UserCaseService.java
+END
+BalanceService.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/laicunba/!svn/ver/4526/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/BalanceService.java
+END
+BaseService.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/laicunba/!svn/ver/1202/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/BaseService.java
+END
+spring-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/laicunba/!svn/ver/1202/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/spring-service.xml
+END
+KeepalivedPointService.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/laicunba/!svn/ver/2860/laicunba-ops/trunk/src/main/java/com/laicunba/ops/service/KeepalivedPointService.java
+END

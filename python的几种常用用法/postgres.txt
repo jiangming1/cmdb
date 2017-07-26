@@ -1,0 +1,6 @@
+import psycopg2
+conn = psycopg2.connect(database="laicunba_test", user="postgres", password="D8TBaUZhDG7xaXw3Ov7LPW1HUcmO31", host="120.27.145.175", port="12345")
+cur = conn.cursor()#该程序创建一个光标将用于整个数据库使用Python编程。
+cur.execute("update lcb_user set pid='' where pid='320301198502169142';update lcb_user_bank set bank_card_no='' WHERE bank_card_no='6222020111122220000';")  
+conn.commit()
+conn.close() 
