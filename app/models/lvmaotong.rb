@@ -1,0 +1,2 @@
+class Lvmaotong < ApplicationRecord
+end

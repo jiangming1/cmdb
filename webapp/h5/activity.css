@@ -1,0 +1,118 @@
+#activityLayout {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	top: 0px;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+#activityLayout .activity-body {
+	width: 80%;
+	height: 400px;
+	/*background-color: #CC0000;*/
+	margin: 0px auto;
+	margin-top: 50px;
+	border-radius: 6px;
+	background-image: url("img/package_open.jpg");/*background-image: url("img/package_closed.png");*/
+	background-position: 50% 25% !important;
+}
+
+.act-opend {
+	background-image: url("img/2account1.jpg") !important; 
+	background-position: center !important;
+}
+
+.activity-close {
+	color: white;
+	text-align: right;
+	padding: 10px;
+}
+
+.activity-close a {
+	color: white;
+	font-weight: bold;
+}
+
+.activity-name {
+	line-height: 30px;
+	text-align: center;
+	color: white;
+}
+.activity-block{
+	
+	height: 140px;
+}
+.activity-open {
+	text-align: center; 
+	margin-top: 30px;
+}
+.activity-amount{
+	text-align: center;
+	line-height: 50px;
+	font-size: 30px;
+	color: white;
+	
+}
+.activity-a{
+	text-align: center;
+	
+}
+.activity-open a { 
+	color: white;
+	display: inline-block;
+	line-height: 35px;
+	text-align: center;
+	width: 70%;
+	/*
+	background-color: #CC9900;
+	border-radius:3px;
+	*/ 
+}
+
+.activity-open a img { 
+	height:35px; 
+}
+
+.act-line {
+	text-align: center;
+}
+
+.act-amount {
+	line-height: 50px; 
+	font-size: 30px;
+	color: #FF3300 ;
+}
+
+.act-top-block {
+	height: 110px;
+}
+
+.act-congratulation {
+	color: white;
+	font-size: 20px;
+}
+
+.act-summary {
+	padding: 10px;
+	text-align: center;
+}
+.act-summary .ok{
+	font-size: 20px;
+	
+}
+.act-2account a{
+	
+	color: white;
+	display: inline-block;
+	line-height: 35px;
+	text-align: center;
+	width: 70%; 
+	border-radius:3px;
+	margin: 0px auto;
+	
+}
+.act-2account img{ 
+	height: 40px;
+	
+}

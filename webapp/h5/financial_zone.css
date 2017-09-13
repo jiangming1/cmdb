@@ -1,0 +1,165 @@
+@charset "utf-8";
+#topLayout {
+	width: 100%;
+	height: 50px;
+	background-color:#FFF;
+    margin-bottom: 10px;
+}
+
+#topLayout div {
+	float: left;
+	width: 50%;
+	text-align: center;
+	line-height: 50px;
+	color: white;
+}
+
+#topLayout a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+    font-weight: bold;
+    color: #999;
+}
+
+#topLayout .selected {
+	color: #fe6d46;
+    border-bottom: 2px solid #fe5e31;
+    font-weight: bold;
+}
+
+.head {
+	height: 120px;
+	margin: 0px auto;
+}
+
+.advisor {
+	border: 1px solid #ccc;
+	width: 90%;
+	margin: 0px auto;
+	background-color:#FFF;;
+	padding: 10px 0px 10px 0px;
+	border-radius: 6px;
+	margin-top: 10px;
+}
+
+.advisor td {
+	padding-left: 10px;
+}
+
+.xl {
+	line-height: 24px;
+/* 	border-top: 1px solid #ccc; */
+	padding-left: 10px;
+}
+
+.table1 {
+	width: 100%;
+	background-color: #fff;
+	margin-bottom: 8px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid #ccc;
+}
+
+.tag-hot {
+	border-top: 1px solid #ff5b2c;
+}
+
+.tag-huodong {
+	border-top: 1px solid #ff9f2c;
+}
+
+.table1 td div {
+	padding: 0px;
+    padding-bottom: 5px;
+}
+
+.tr1 td {
+	font-size: 15px;
+	padding: 5px;
+	padding-left: 20px;
+}
+
+.tr2 td {
+	width: 33%;
+}
+
+.ratesTr {
+	color: #ff5a2c;
+	font-size: 16px;
+}
+
+.rates {
+	font-size: 25px;
+}
+
+.periodTr {
+	font-size: 12px;
+}
+
+.period {
+	font-size: 20px;
+	color: #ff5a2c;
+}
+
+.progressTr {
+	text-align: right;
+	padding-right: 10px;
+/* 	border-bottom: 1px solid #ccc; */
+	position: relative;
+	padding: 10px 5px 0 10px;
+}
+
+.progress {
+	width: 80px;
+	margin: 10px 15px -10px 0px;
+}
+
+.td1 {
+	padding-left: 20px;
+}
+
+.td2 {
+	padding-left: 20px;
+	text-align:center;
+}
+
+.table1:HOVER {
+	background-color: #efefef;
+}
+
+.words {
+	color: #555;
+}
+
+.a2Detail {
+	color: #000;
+}
+.saleout td,.saleout .ratesTr,.saleout .words{
+	color: #ccc !important; 
+}
+.ico-scb {
+	text-align: center;
+	margin-bottom: -20px;
+}
+.ico-scb img{
+	width: 80%;
+}
+.incr-rates {
+	border: 1px solid #fc906a;
+    border-radius: 11px;
+    font-size: 12px;
+    height: 12px;
+    padding: 1px 3px;
+	vertical-align: middle;
+	display: inline-block;
+	margin-top: -5px;
+}
+.btn-more {
+	border: 1px solid #aaa!important;
+    border-radius: 16px;
+    display: inline-block;
+    padding: 5px 10px;
+    color: #aaa!important;
+}

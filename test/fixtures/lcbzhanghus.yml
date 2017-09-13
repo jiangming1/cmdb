@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  denglumima: MyString
+  dengluxingming: MyString
+  shouji: MyString
+  xingming: MyString
+  zhifumima: MyString
+  yaoqingma: MyString
+  yaoqingren: MyString
+  zhuangtai: MyString
+
+two:
+  denglumima: MyString
+  dengluxingming: MyString
+  shouji: MyString
+  xingming: MyString
+  zhifumima: MyString
+  yaoqingma: MyString
+  yaoqingren: MyString
+  zhuangtai: MyString

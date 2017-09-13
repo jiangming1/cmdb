@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>转盘抽奖</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta itemprop="name" content="立即领取" /><!-- 分享的标题 -->
+    <meta name="description" itemprop="description" content="输入手机号立即领取红包" /><!-- 分享描述的内容 -->
+    <meta itemprop="image" content="https://h5.laicunba.com/h5/activity/img/share-logo.png" /><!-- 分享链接的图片 -->
+	<link rel="stylesheet" type="text/css" href="css/zpmain.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body style=" background: #85def5;">
+<!--QQ/微信分享标题图-->
+<div style="width:0px;height:0px;overflow:hidden;"><img src="https://h5.laicunba.com/h5/activity/img/share-logo.png" /></div>
+<div style="width: 100%;">
+     <div><img src="zpimages/zpact05111420.png"></div>
+     <div style="  position: relative; margin-top: 110px;">
+          <img src="zpimages/zpbg0512.png">
+          <div class="zpcon" style=" position: absolute;left: 50%;top: 50%; margin-left: -150px; margin-top: -260px; width: 300px; height: 300px;">
+               <img src="zpimages/zpcon05121001.png" >
+          </div>
+          <div class="btn_chou" style=" position: absolute;left: 50%;top: 50%; margin-left: -50px; margin-top: -160px; width: 100px; height: 100px;">
+               <img src="zpimages/btn_chou.png" >
+          </div>
+          <button class="btn_run" type="button" style=" position: absolute;left: 50%;top: 50%; margin-left: -35px; margin-top: -145px; width: 70px; height: 70px; border-radius: 100%; cursor: pointer; border: none;background: transparent;outline: none;z-index: 40;">
+              
+          </button>
+          <div style=" position: absolute;left: 17%;bottom: 18%; width: 80px;"><img src="zpimages/tree_tip.png"></div>
+          <div style=" position: absolute;left: 19%;bottom: 27%; font-size: 10px; transform: rotate(-10deg) ">剩余次数:<span class="residue"></span></div>
+     </div>
+</div>
+<!-- 活动规则  -------------------------- -->
+<div class="rule"> 活动规则</div>
+<div class="mask"></div>
+<div class="detail_con">
+    <div class="detail_header">活动规则</div>
+    <table class="detail_header_list">
+        <tr>
+           <td class="td-1">1.</td>
+           <td>活动时间：5.16-5.30；</td>
+        </tr>
+        <tr>
+           <td class="td-1">2.</td>
+           <td>所有用户都可分享获得抽奖机会，且每位用户仅可通过分享获得一次摇转盘机会；(ios用户请到微信端分享获得机会)</td>
+        </tr>
+        <tr>
+           <td class="td-1">3.</td>
+           <td>所有用户投资定期理财项目均可获得摇转盘机会，活动期间每投资1笔即可获得1次摇转盘的机会，上不封顶，多投多得；</td>
+        </tr>
+        <tr>
+           <td class="td-1">4.</td>
+           <td>如您摇到实物奖品，客服将会在3个工作日与您联系；现金将会在客服核实之后发放到您的随存宝账户中；红包会由系统自动发放到您的红包账户，请注意查看；</td>
+        </tr>
+        <tr>
+           <td class="td-1">5.</td>
+           <td class="td-a">如有疑问，请拨打客服电话：<br/><a href="tel: 400-6191520">400-6191-520</a>
+           或加入qq群：<br/><a href="http://jq.qq.com/?_wv=1027&amp;k=28umF5P">473119359</a>咨询</td>
+        </tr>
+    </table>
+    <div class="btn_sure">确定</div>
+</div>
+<!-- 中奖弹出层 ----------------------- -->
+<div class="prize_mask">
+      <div class="close">&times;</div>
+      <div class="prize_con"></div>
+      <div class="btn_look" ><a href="red_package_list.jsp" style=" color: #FFF;">点击查看</a></div>
+</div>
+<div class="prize_mask1">
+      <div class="prize_con"></div>
+      <div class="btn_close" ><a href="javascript:void(0);" style=" color: #FFF;">点击关闭</a></div>
+</div>
+<!-- 第一次还未抽奖时的提示信息 -->
+<div class="warm_tips">
+     <div class="close">&times;</div>
+     <div><img src="zpimages/tips.png"></div>
+     <div style="text-align: center;">分享可增加摇转盘机会哦！</div>
+     <div class="btn_share">点击分享</div>
+</div>
+<!-- 抽过奖后抽奖次数为零的提示信息 -->
+<div class="warm_tips1">
+     <div class="close">&times;</div>
+     <div><img src="zpimages/tips.png"></div>
+     <div style="text-align: center;">您的摇奖次数为0，<br/>来存吧，投一次转一次，转了财会来！</div>
+     <div class="target_financial" rel="laicunbafinancial://financial">来存吧</div>
+</div>
+<!-- 登录超时的提示信息 -->
+<div class="warm_tips2">
+     <div class="close">&times;</div>
+     <div><img src="zpimages/tips.png"></div>
+     <div style="text-align: center;">登录超时，请重新登录</div>
+     <div class="target_financial" rel="laicunbalogin://login">重新登录</div>
+</div>
+<div style=" background: #fdeccb; width: 100%; padding: 10px 0; margin-top: -5px;">
+     <div style="border-bottom: 1px solid #e5920b; color: #e5920b; width: 40%;font-size: 18px; margin: 0 auto; text-align: center;">幸运中奖用户</div>
+     <div class="Winning_info"> 
+         <ul class="roll_list">
+             <li>用户189****7422摇到了10元话费</li>
+             <li>用户189****7422摇到了20元话费</li>
+             <li>用户189****7422摇到了30元话费</li>
+             <li>用户189****7422摇到了40元话费</li>
+             <li>用户189****7422摇到了50元话费</li>
+             <li>用户189****7422摇到了60元话费</li>
+             <li>用户189****7422摇到了70元话费</li>
+             <li>用户189****7422摇到了80元话费</li>
+             <li>用户189****7422摇到了90元话费</li>
+             <li>用户189****7422摇到了100元话费</li>
+             <li>用户189****7422摇到了110元话费</li>
+         </ul>
+     </div>
+</div>
+<script>
+$(document).ready(function(){
+	//旋转角度
+	var angles;
+	//可抽奖次数
+	var clickNum = 10;
+	//$(".residue").html(clickNum);
+	//旋转次数
+	var rotNum = 1;
+	//中奖公告
+	var notice = null;
+	//var info = ["88元现金","  18元现金"," 10话费","5元红包","iPhone6s","8.8元发财红包"," 10元红包","5.2爱情红包"];
+	//var info1 = ['再接再厉','      元','     元','  淘金币','     元','  淘金币','     元','  淘金币']
+	 $('.btn_run').bind('click',function(){
+		if (clickNum >= 1) {
+			//可抽奖次数减一
+			clickNum = clickNum-1;
+			$(".residue").html(clickNum);
+			//转盘旋转
+			runCup();
+			//转盘旋转过程“开始抽奖”按钮无法点击
+			$('.btn_run').attr("disabled", true);
+			//旋转次数加一
+			rotNum = rotNum + 1;
+			//“开始抽奖”按钮无法点击恢复点击
+			/*setTimeout(function(){
+				//alert(notice);
+				$('.btn_run').removeAttr("disabled", true);
+			},6000);  */
+		}
+		else{
+			//alert("亲，抽奖次数已用光！");
+			$(".warm_tips").show();
+		}
+	});
+	//   抽奖 次数为0时 点击跳转到app理财专区  
+	$(".target_financial").click(function(){
+		window.location.href=$(this).attr("rel");
+	});
+	
+	 //转盘旋转
+	 function runCup(){
+		probability();
+		var degValue = 'rotate('+angles+'deg'+')';
+		$('.zpcon').css('-o-transform',degValue);           //Opera
+		$('.zpcon').css('-ms-transform',degValue);          //IE浏览器
+		$('.zpcon').css('-moz-transform',degValue);         //Firefox
+		$('.zpcon').css('-webkit-transform',degValue);      //Chrome和Safari
+		$('.zpcon').css('transform',degValue);
+	}
+		//各奖项对应的旋转角度及中奖公告内容
+	function probability(){
+		//获取随机数
+		var num = parseInt(Math.random()*(7 - 0 + 0) + 0);
+		//概率
+		if ( num == 0 ) {
+			angles = 2160 * rotNum + 1800;
+			//notice = info[0];
+			setTimeout(function(){
+				//alert(notice);
+				$(".prize_con").html("<img src='zpimages/88cash.png'>");
+				$(".mask,.prize_mask1").show();
+				$('.btn_run').removeAttr("disabled", true);
+			},6000);
+		}
+		//概率
+		else if ( num == 1 ) {
+			angles = 2160 * rotNum + 1845;
+			//notice = info[7];
+			setTimeout(function(){
+				//alert(notice);
+				$(".prize_con").html("<img src='zpimages/5d2love.png'>");
+				$(".mask,.prize_mask").show();
+				$(".prize_mask1").hide();
+				$('.btn_run').removeAttr("disabled", true);
+			},6000);
+		}
+		//概率
+		else if ( num == 2 ) {
+			angles = 2160 * rotNum + 1890;
+			//notice = info[6];
+			setTimeout(function(){
+				//alert(notice);
+				$(".prize_con").html("<img src='zpimages/10packet.png'>");
+				$(".mask,.prize_mask").show();
+				$(".prize_mask1").hide();
+				$('.btn_run').removeAttr("disabled", true);
+			},6000);
+		}
+		//概率
+		else if ( num == 3 ) {
+			angles = 2160 * rotNum + 1935;
+			//notice = info[5];
+			setTimeout(function(){
+				//alert(notice);
+				$(".prize_con").html("<img src='zpimages/8d8packet.png'>");
+				$(".mask,.prize_mask").show();
+				$(".prize_mask1").hide();
+				$('.btn_run').removeAttr("disabled", true);
+			},6000);
+		}
+		//概率
+		else if ( num == 4 ) {
+			angles = 2160 * rotNum + 1980;
+			//notice = info[4];
+			setTimeout(function(){
+				//alert(notice);
+				$(".prize_con").html("<img src='zpimages/iPhone6s.png'>");
+				$(".mask,.prize_mask1").show();
+				$(".prize_mask").hide();
+				$('.btn_run').removeAttr("disabled", true);
+			},6000);
+		}
+		//概率
+		else if ( num == 5 ) {
+			angles = 2160 * rotNum + 2025;
+			//notice = info[3];	
+			setTimeout(function(){
+				//alert(notice);
+				$(".prize_con").html("<img src='zpimages/5packet.png'>");
+				$(".mask,.prize_mask").show();
+				$(".prize_mask1").hide();
+				$('.btn_run').removeAttr("disabled", true);
+			},6000);
+		}
+		//概率
+		else if ( num == 6 ) {
+			angles = 2160 * rotNum + 2070;
+			//notice = info[2];
+			setTimeout(function(){
+				//alert(notice);
+				$(".prize_con").html("<img src='zpimages/10fare.png'>");
+				$(".mask,.prize_mask1").show();
+				$(".prize_mask").hide();
+				$('.btn_run').removeAttr("disabled", true);
+			},6000);
+		}
+		//概率
+		else if ( num == 7 ) {
+			angles = 2160 * rotNum + 2115;
+			//notice = info[1];
+			setTimeout(function(){
+				//alert(notice);
+				$(".prize_con").html("<img src='zpimages/18cash.png'>");
+				$(".mask,.prize_mask1").show();
+				$(".prize_mask").hide();
+				$('.btn_run').removeAttr("disabled", true);
+			},6000);
+		}
+	}
+	$(".close,.btn_close").click(function(){
+	   $(".mask,.prize_mask,.prize_mask1,.warm_tips,warm_tips1,.warm_tips2").hide();	
+	});
+	$(".rule").click(function(){
+		$(".mask,.detail_con").fadeIn();		
+	});
+	$(".btn_sure").click(function(){
+		$(".mask,.detail_con").fadeOut();
+	});
+})
+/* 滚动列表js */
+$(function(){
+   var $win=$(".Winning_info");
+   var scrollTimer;
+   $win.hover(function() {
+	   clearInterval(scrollTimer);
+	   }, function() {
+	   scrollTimer = setInterval(function() {
+	   scrollList($win);
+	   }, 2000);
+	   }).trigger("mouseleave"); 
+	
+   function scrollList(obj){
+		var $rollList=obj.find("ul.roll_list");
+		var lineHeight=$rollList.find("li:first").height();
+		//alert(lineHeight);
+		$rollList.animate({"marginTop": -lineHeight + "px" },600,function() {
+			$rollList.css({
+				marginTop: 0
+				}).find("li:first").appendTo($rollList); })
+	}	
+})
+</script>
+</body>
+</html>

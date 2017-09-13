@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>姓名:</strong>
+  <%= @kaiguan.xingming %>
+</p>
+
+<p>
+  <strong>凯奇:</strong>
+  <%= @kaiguan.kaiqi %>
+</p>
+
+<%= link_to 'Edit', edit_kaiguan_path(@kaiguan) %> |
+<%= link_to 'Back', kaiguans_path %>

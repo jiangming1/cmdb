@@ -1,0 +1,2 @@
+class Lcbzhanghu < ApplicationRecord
+end

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>查看活期账户接口(新) - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent">
+				<div id="title">查看活期账户接口(新)</div>
+				<div id="docContent">
+
+					<ul>
+						<li><div class="title">接口地址</div>
+							<blockquote>
+								<p>/api/get_current_account.htm</p>
+							</blockquote></li>
+						<li>
+							<div class="title">请求参数</div>
+							<div>
+								<table class="table table-bordered paramtab">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>是否必须</th>
+											<th>默认值</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>token</td>
+											<td>string</td>
+											<td>是</td>
+											<td></td>
+											<td>身份识别信息,参考 "获得用户Token接口"</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">响应结果</div>
+							<div>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>一定存在</th>
+											<th>示例</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>status</td>
+											<td>string</td>
+											<td>是</td>
+											<td>ENABLE</td>
+											<td>ENABLE : 正常使用  <br /> DISABLE : 未激活,弹出激活页面
+											</td>
+										</tr>
+										<tr>
+											<td>balance</td>
+											<td>money</td>
+											<td></td>
+											<td>1000.00</td>
+											<td>持有金额</td>
+										</tr>
+										<tr>
+											<td>annualizedRates</td>
+											<td>float</td>
+											<td></td>
+											<td>7.0</td>
+											<td>年化利率</td>
+										</tr>
+										<tr>
+											<td>tenThousandDayProfit</td>
+											<td>money</td>
+											<td></td>
+											<td>1.92</td>
+											<td>万元收益/日</td>
+										</tr>
+										<tr>
+											<td>yesterdayProfit</td>
+											<td>money</td>
+											<td></td>
+											<td>0</td>
+											<td>昨日收益</td>
+										</tr>
+										<tr>
+											<td>totalProfit</td>
+											<td>money</td>
+											<td></td>
+											<td>0</td>
+											<td>累计收益</td>
+										</tr>
+										<tr>
+											<td>financingTargetId</td>
+											<td>string</td>
+											<td></td>
+											<td>249d21f0-ae24-431f-813c-96c6676f97f6</td>
+											<td>标的ID,判断为空或不存在的情况</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">示例</div>
+							<div>
+
+
+								<pre class="prettyprint linenums">
+{
+    "balance": 0,
+    "totalProfit": 0,
+    "annualizedRates": 7,
+    "tenThousandDayProfit": 1.92,
+    "yesterdayProfit": 0,
+    "status": "DISABLE"
+}
+</pre>
+							</div>
+						</li>
+					</ul>
+
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>

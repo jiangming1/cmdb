@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170720015607) do
+ActiveRecord::Schema.define(version: 20170911090127) do
 
   create_table "androidupdates", force: :cascade do |t|
     t.string   "shichang"
@@ -201,6 +201,13 @@ ActiveRecord::Schema.define(version: 20170720015607) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "kaiguans", force: :cascade do |t|
+    t.string   "xingming"
+    t.boolean  "kaiqi"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "kuaisufenfawenjians", force: :cascade do |t|
     t.string   "zuoyemingchen"
     t.text     "yuanwenjian"
@@ -232,6 +239,38 @@ ActiveRecord::Schema.define(version: 20170720015607) do
     t.string   "chaoshishijian"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "lcbzhanghus", force: :cascade do |t|
+    t.string   "denglumima"
+    t.string   "dengluxingming"
+    t.string   "shouji"
+    t.string   "xingming"
+    t.string   "zhifumima"
+    t.string   "yaoqingma"
+    t.string   "yaoqingren"
+    t.string   "zhuangtai"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "lcbzhiyawus", force: :cascade do |t|
+    t.string   "zhuangtai"
+    t.decimal  "mubiaojine"
+    t.decimal  "mujijine"
+    t.decimal  "lilv"
+    t.integer  "cunkuanqixian"
+    t.string   "mingcheng"
+    t.string   "zuixiaoine"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "lvmaotongs", force: :cascade do |t|
+    t.string   "xingming"
+    t.string   "dianhua"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "menuindices", force: :cascade do |t|

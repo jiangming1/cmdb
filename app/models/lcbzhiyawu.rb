@@ -1,0 +1,2 @@
+class Lcbzhiyawu < ApplicationRecord
+end

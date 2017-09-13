@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>发送手机短信验证码接口 - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent">
+				<div id="title">发送手机短信验证码接口</div>
+				<div id="docContent">
+
+					<ul>
+						<li><div class="title">接口说明</div>
+							<p>该接口用于各种短信验证码发送的地方,由于发送短信可能比较慢,所以建议在发送短信的地方提示用户,进行倒计时或是超时可重发提示. 如果发送后很久都没收到,有可能是短信服务商不稳定(请及时联系我们以便跟踪原因)</p></li>
+
+						<li>
+						<li><div class="title">接口地址</div>
+							<blockquote>
+								<p>/api/send_mobile_verifycode.htm</p>
+							</blockquote></li>
+						<li>
+							<div class="title">请求参数</div>
+							<div>
+								<table class="table table-bordered paramtab">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>是否必须</th>
+											<th>默认值</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>mobile</td>
+											<td>string</td>
+											<td>是</td>
+											<td></td>
+											<td>接收验证码的手机号码</td>
+										</tr>
+										<tr>
+											<td>verifyType</td>
+											<td>string</td>
+											<td>是</td>
+											<td></td>
+											<td>验证码类型<br /> REGIST:注册验证码<br />RESET_LOGINPWD:重置登录密码
+											<br /> RESET_PAYPWD: 重置支付密码
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">响应结果</div>
+							<div>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>一定存在</th>
+											<th>示例</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>code</td>
+											<td>string</td>
+											<td>是</td>
+											<td>SUCCESS</td>
+											<td>SUCCESS:发送成功(<span style="color: red">但不保证是否送达</span>)<br /> MOBILE_ERROR : 手机号不正确(一般是指格式不正确)<br />PARAM_ERROR:参数错误 <br />USER_EXIST:用户已存在<br />VERIFY_TYPE_ERROR:不支持的验证码类型<br/>USER_NOT_EXIST_OR_DISABLE:用户不存在或被禁用
+												<br>
+												MSG_AMOUNT_LIMITED: 超出发送次数限制<span style="color: red">1小时内同一ip可以发100条短信,12小时内同一手机可以发5条短信</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">示例</div>
+							<div>
+
+
+								<pre class="prettyprint linenums">
+{							
+	code:"SUCCESS" 
+}
+</pre>
+							</div>
+						</li>
+					</ul>
+
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>

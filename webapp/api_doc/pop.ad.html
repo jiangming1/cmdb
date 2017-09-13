@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>获得弹出广告接口 - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent">
+				<div id="title">获得弹出广告接口</div>
+				<div id="docContent">
+
+					<ul>
+						<li><div class="title">接口地址</div>
+							<blockquote>
+								<p>/api/get_pop_ad.htm</p>
+							</blockquote></li>
+						<li>
+							<div class="title">请求参数</div>
+							<div>
+								<table class="table table-bordered paramtab">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>是否必须</th>
+											<th>默认值</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>new_user</td>
+											<td>boolean</td>
+											<td></td>
+											<td>true</td>
+											<td>是否新用户</td>
+										</tr> 
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">响应结果</div>
+							<div>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>一定存在</th>
+											<th>示例</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>id</td>
+											<td>string</td>
+											<td></td>
+											<td>XXXXX</td>
+											<td> 
+											</td>
+										</tr> 
+										<tr>
+											<td>pic</td>
+											<td>string</td>
+											<td></td>
+											<td>http://xxxx</td>
+											<td> 图片全路径
+											</td>
+										</tr> 
+										<tr>
+											<td>href</td>
+											<td>string</td>
+											<td></td>
+											<td>http://xxx?app_view=xxx</td>
+											<td> h5页面,有可能会有 app_view=XXX
+											</td>
+										</tr> 
+										<tr>
+											<td>target</td>
+											<td>string</td>
+											<td></td>
+											<td>_blank|self</td>
+											<td> target:_blank为新窗口的Webview
+											</td>
+										</tr> 
+
+									</tbody>
+								</table>
+							</div>
+						<div style="color: red;font-size: 20px;">注意,有可能只返回{}符号</div>
+						</li>
+						<li>
+							<div class="title">示例</div>
+							<div>
+
+
+								<pre class="prettyprint linenums">
+{							
+ 
+}
+</pre>
+							</div>
+						</li>
+					</ul>
+
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>

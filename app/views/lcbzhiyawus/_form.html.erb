@@ -1,0 +1,17 @@
+<%= simple_form_for(@lcbzhiyawu) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :zhuangtai %>
+    <%= f.input :mubiaojine %>
+    <%= f.input :mujijine %>
+    <%= f.input :lilv %>
+    <%= f.input :cunkuanqixian %>
+    <%= f.input :mingcheng %>
+    <%= f.input :zuixiaoine %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

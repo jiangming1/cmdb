@@ -12,7 +12,6 @@
 
 
 from datetime import *  
-from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 #import win32gui
@@ -24,19 +23,11 @@ import time,platform,sys, getopt,paramiko,random,re
 #import socks  
 #import socket 
 #import requests
-import win32gui
 import os
-import win32con
 import re,time,platform,sys, getopt
 import codecs
 
 import subprocess
-import hashlib
-import http.client
-import urllib.request
-import urllib
-import json
-import base64
 
 def md5str(str): #md5加密字符串
 		m=hashlib.md5(str.encode(encoding = "utf-8"))
@@ -142,16 +133,16 @@ class DamatuApi():
     
 
 		
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='gb18030') #改变标准输出的默认编码
-res=urllib.request.urlopen('http://www.baidu.com')
-htmlBytes=res.read()
 
 
 
 
 
 
-
+import sys  
+  
+reload(sys)  
+sys.setdefaultencoding('utf8')  
 
 
 #back=socket.socket
@@ -202,13 +193,13 @@ def findstr(str,biaodashi):
   matchObj = re.search( biaodashi,str, re.M|re.I)
   return (matchObj.group(1))
 def zhaodaodanci(danci):
-  lines=fileopen("C://Sites//a//app//controllers//"+danci+"s_controller.rb")
+  lines=fileopen("/Users/jim/cmdb/app/controllers/"+danci+"s_controller.rb")
   danci=findstr(lines,r'\.permit\((.+?)\)')
   danci=danci.replace(":","")
   return danci.split(", ");
 def fanyi(danci,filename):
-  lines=fileopen("C://Sites//a//app//views//"+danci+"s//"+filename)
-  #lines=fileopen("C://Sites//a//app//views//sousuos//index.html.erb")
+  lines=fileopen("/Users/jim/cmdb/app/views/"+danci+"s/"+filename)
+  #lines=fileopen("/Users/jim/cmdb/app//views//sousuos//index.html.erb")
   caidanzhongwen=fy(danci)
   lines=re.sub(r'(?i)<h1>'+danci+"s","<h1>"+caidanzhongwen, lines)
   lines=re.sub(r'(?i)New '+danci,"新建"+caidanzhongwen, lines)
@@ -221,7 +212,7 @@ def fanyi(danci,filename):
     lines=re.sub(r'(?i)<strong>'+key,"<strong>"+dictionary[key], lines)
     lines=re.sub(r'(?i)<%= f.label :'+key+" %>",""+dictionary[key], lines)
     #lines=lines.replace(key,dictionary[key])
-  lines=filewrite("C://Sites//a//app//views//"+danci+"s//"+filename,lines)
+  lines=filewrite("/Users/jim/cmdb/app/views/"+danci+"s/"+filename,lines)
   return lines;
 def fanyis(danci):
   print (fanyi(danci,"show.html.erb"))

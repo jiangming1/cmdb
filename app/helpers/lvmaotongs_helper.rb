@@ -1,0 +1,2 @@
+module LvmaotongsHelper
+end

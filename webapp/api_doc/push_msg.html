@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>消息推送接口 - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent">
+				<div id="title">获得用户Token接口</div>
+				<div id="docContent">
+
+					<ul>
+						<li><div class="title">接口地址</div>
+							<div>集成极光SDK</div></li>
+						<li>
+							<div class="title">消息格式</div>
+							<div>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>一定存在</th>
+											<th>示例</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>title</td>
+											<td>string</td>
+											<td>是</td>
+											<td>标题</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>subTitle</td>
+											<td>string</td>
+											<td>是</td>
+											<td>子标题</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>href</td>
+											<td>string</td>
+											<td></td>
+											<td>http://xxxx/xxx.htm?<span style='color:red'>app_token=XXXX</span></td>
+											<td>一个H5地址,如果有登录就加app_token,没有就不加,在这里判断一下,域名是否为 app配置的h5域名,如果不是就不传app_token</td>
+										</tr>
+										<tr>
+											<td>app_view</td>
+											<td>string</td>
+											<td></td>
+											<td>home</td>
+											<td>一个app的界面<br /> 
+											<span class="badge badge-warning">home</span>首页<br />
+											<span class="badge badge-warning">d</span>定期理财<br />
+											<span class="badge badge-warning">h</span>活期理财<br />
+											<span class="badge badge-warning">account</span>我的<br />
+											<span class="badge badge-warning">invite</span>邀请好友<br />
+											<span class="badge badge-warning">coupon</span>红包<br />
+											<span class="badge badge-warning">feedback</span>意见返馈<br />
+											<span class="badge badge-warning">detail  ,  标的ID</span>标的详情<br /> 
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">示例</div>
+							<div>
+
+
+								<pre class="prettyprint linenums">
+{							
+ 
+}
+</pre>
+							</div>
+						</li>
+					</ul>
+
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>

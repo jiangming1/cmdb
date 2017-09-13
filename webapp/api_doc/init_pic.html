@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>启动图图片接口 - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+<style type="text/css">
+.stepUL li{
+	list-style: decimal;
+	margin-left: 20px;
+}
+
+</style>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent">
+				<div id="title">启动图图片接口</div>
+				<div id="docContent">
+
+					<ul>
+						<li><div class="title">接口地址</div>
+							<blockquote>
+								<p>无</p>
+							</blockquote></li> 
+						<li>
+							<div class="title">启动默认图约定</div>
+							<blockquote>
+								<p>http://static.laicunba.com/YYYYMMDD.png</p>
+								<p>http://teststatic.laicunba.com/YYYYMMDD.png</p>
+							</blockquote>
+						</li>
+						<li>
+							<div class="title">显示启动图的逻辑</div>
+							<ul class="stepUL">
+								<li>根据本地时间计算出 YYYYMMDD</li>
+								<li>如果本地存在 YYYYMMDD.png,则直接显示</li>
+								<li>如果本地不存在 YYYYMMDD.png,则去请求相应的地方,如果404或则显示本地默认图,否则下载显示</li>
+							</ul>
+						</li>
+					</ul>
+
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>

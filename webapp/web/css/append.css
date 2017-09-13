@@ -1,0 +1,487 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*  导航栏 样式 */
+.header{
+	width: 100%;
+	box-shadow: 0 3px 5px #999;
+}
+.header_con{
+	height: 80px;
+	margin: 0 auto;;
+	padding:10px 79px;
+}
+/* 导航栏左边的样式 */
+.logo_head{
+	height: 80px;
+	padding-left: 30px;
+}
+.logo{
+	line-height: 80px;
+	display: inline-block;
+	padding-right: 20px;
+	border-right: 1px solid #CCC;
+}
+.wx_app_download{
+	color: #FF5A2C;
+	height: 40px;
+	line-height: 40px;
+	margin-left: 20px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+.head_wx_app{
+	display: none;
+	position: absolute;
+	top: 70px;
+	left: 300px;
+	z-index: 5;
+}
+/* 导航栏右边的样式 */
+ul.nav li{
+	float: left;
+	margin-right: 25px;
+	line-height: 80px;
+	text-align: center;
+	font-size: 26px;
+}
+ul.nav li:hover a{
+	color: #FF5A2C;
+}
+.active{
+	color: #FF5A2C;
+}
+/* 新手指引 样式开始 */
+.word_explan{
+	width:800px;
+	color:#3E3A39;
+	margin:40px auto;
+}
+.word_explan h3{
+    font-size: 32px;
+	color: #FF5A2C;	
+	padding: 20px 0;	
+}
+.word_explan p{
+    text-indent: 40px;
+	font-size: 20px;	
+	margin: 0 0 25px
+}
+.virtue{
+	margin-left: 58px;
+	font-size: 20px;
+}
+.word_explan .virtue i{
+    color: #FF5A2C;	
+}
+.img_explan{
+	width: 100%;
+	margin: 50px auto;
+	background: #EFEFEF;
+}
+ul.show_list{
+	width: 900px;
+	margin: 50px auto;
+}
+ul.show_list li{
+    float: left;	
+	list-style: none;
+	cursor: pointer;
+}
+ul.show_list li.odd{
+	background: url(../images/pike_a.png) no-repeat;
+	background-size: 100%;
+	width: 60px;
+	height: 15px;
+	margin-top: 55px;
+	margin-right: 5px;
+}
+/* 新手指引 样式结束 */
+/* 图片动画部分 样式开始 */
+.download_h{
+	background: url(../images/download_h.png) no-repeat;
+	background-size: cover;
+	width:115px;
+	height:115px;
+}
+.reg{
+	background:url(../images/reg_a.png) no-repeat;
+	background-size:cover;
+	width:115px;
+	height:115px;
+}
+.select{
+	background:url(../images/select_a.png) no-repeat;
+	background-size:cover;
+	width:115px;
+	height:115px;
+}	
+.bind_bank{
+	background:url(../images/bind_bank_a.png) no-repeat;
+	background-size:cover;
+	width:115px;
+	height:115px;
+}
+.finish_pay{
+	background:url(../images/finish_pay_a.png) no-repeat;
+	background-size:cover;
+	width:115px;
+	height:115px;
+}
+.animatediv{
+	 display:none;
+	 height:460px;
+	 width:1070px;
+	 margin:50px auto;
+	 text-align:center;
+}
+.animatediv img{
+	width:275px;
+}
+.dragleft{
+ -webkit-animation:dragLeft .9s ease-in-out both;
+    -moz-animation:dragLeft .9s ease-in-out both;
+    -ms-animation:dragLeft .9s ease-in-out both;
+    animation:dragLeft .9s ease-in-out both;
+	height:460px;
+	width:1070px;
+	margin:50px auto;
+	text-align:center;
+}
+/* 图片动画部分 样式结束 */
+/* 保障的内容 样式开始 */
+.safety_main{
+	width:100%; 
+	background:#F5F5F5;
+}
+.safety_main_con{
+	text-align:center;
+	margin:40px 15%;
+	border-bottom: 1px dashed #FF5A2C;
+	padding-bottom:0px;
+	height:550px;
+}
+.safety_main_con h2{
+	color:#FF5A2C;
+	font-size:44px;
+}
+.safety_main_con p{
+	color: #727171;
+	font-size: 22px;
+	margin: 40px auto;
+}
+/* 保障的内容 样式结束*/
+/*  关于我们的内容 样式开始  */
+.about_main{
+	width:1000px;
+	margin:40px auto;
+}
+.about_main p{
+	text-indent:40px;
+	font-size:20px;
+	color:#3E3A39;
+	margin:25px 0;
+}
+.show1{
+     position:fixed;
+	 top:50%;
+	 left:50%;
+	 margin-left:-486px;
+	 margin-top:-350px;
+	 width:971px;
+	 height:700px;
+	 z-index:999;	
+	 text-align:center;
+	 background:#FFF;
+	 display:none;
+}
+.icon_right{
+	 position:fixed;
+	 top:50%;
+	 left:50%;
+	 width:100px;
+	 height:100px;
+	 margin-left:570px;
+	 margin-top:-70px;
+	 z-index:1000;
+	 display:none;
+}
+.show2{
+     position:fixed;
+	 top:50%;
+	 left:50%;
+	 margin-left:-254px;
+	 margin-top:-350px;
+	 width:508px;
+	 height:700px;
+	 z-index:999;	
+	 text-align:center;
+	 background:#FFF;
+	 display:none;
+}
+.icon_left{
+	 position:fixed;
+	 top:50%;
+	 left:50%;
+	 width:100px;
+	 height:100px;
+	 margin-left:-570px;
+	 margin-top:-70px;
+	 z-index:1000;
+	 display:none;
+}
+.theme-popover-mask {
+
+	z-index: 998;
+
+	position:fixed;
+
+	top:0;
+
+	left:0;
+
+	width:100%;
+
+	height:100%;
+
+	background:#000;
+	
+	opacity:0.7;
+
+	display:none;
+
+}
+/* 区域的小标题 样式 */
+.block_title{
+	background:url(../images/contact_bg.png) no-repeat;
+	text-align:center;
+	font-size:35px;
+	color:#FF5A2C;
+	width:358px;
+	height:106px;
+	margin:0 auto;
+	line-height:106px;
+}
+/* 地图 样式  */
+.map {
+	margin-top:50px;
+    border-top: 1px #ddd solid;
+    padding-top: 1px;
+    position: relative;
+	padding-bottom:40px;
+	box-shadow:0 5px 15px #3F3E3E;
+}
+.map #map_canvas {
+    height: 650px;
+} 
+.about_adress{
+	position:absolute;
+	right:150px;
+	bottom:40px;
+	height:350px;
+	z-index:555;
+	background:#DFDFDF;
+	opacity:0.9;
+	border-radius:8px;
+	padding:25px 15px;
+	color:#595757;
+}
+/*  关于我们的内容 样式结束  */
+/* 底部区域 样式开始 */
+
+.footer{
+	width: 100%;
+	height: 220px;
+	background: #595757;
+	color: #B5B5B6;
+	padding: 15px 0;
+}
+.footer_con{
+    width:1000px;
+	margin:0 auto;
+	padding:25px 70px;	
+}
+.kf_phone{
+	width: 330px;
+	background: url(../images/foot_kfdh.png) no-repeat left bottom;
+	padding-top: 10px;
+}
+.kf_qq_con{
+	margin-left: 80px;
+	margin-top: 20px;
+	border-left: 1px solid #CCC;
+	padding-left: 20px;
+	color:#B5B5B6;
+}
+.foot_right a{
+    display:inline-block;
+	width: 100px;	
+	height: 80px;
+	padding-left: 20px;
+}
+.foot_wx{
+    background: url(../images/foot_wx_a.png) no-repeat;	
+	background-size: 75%;
+	position: relative;
+	display: inline-block;
+}
+.wxgzh{
+    display:none;
+	position:absolute;
+	left:-60px;
+	bottom:80px;
+	z-index:1000;
+}
+.foot_wx:hover{
+	background:url(../images/foot_wx_h.png) no-repeat;	
+	background-size:75%;
+}
+.foot_wx:hover .wxgzh{
+	display:block;
+}
+.foot_sina{
+	background:url(../images/foot_sina_a.png) no-repeat;
+	background-size:75%;
+}
+.foot_sina:hover{
+	background:url(../images/foot_sina_h.png) no-repeat;
+	background-size:75%;
+}
+.foot_qq{
+	display:block;
+	width: 330px; 
+	background: url(../images/foot_gfq.png) no-repeat left bottom;
+	padding-top:10px;
+}
+.wx_wb span{
+	color: #B5B5B6 !important;
+	font-size: 20px;
+	padding-right: 25px;
+}
+.foot_bottom{
+	text-align:center;
+	padding: 10px 0;
+}
+/* 底部区域 样式结束 */
+
+@-webkit-keyframes fadeInLeft {
+    0 % {
+        opacity: 0; - webkit - transform: translate3d( - 100 % , 0, 0);
+        transform: translate3d( - 100 % , 0, 0)
+    }
+    100 % {
+        opacity: 1; - webkit - transform: none;
+        transform: none
+    }
+}
+@keyframes fadeInLeft {
+    0 % {
+        opacity: 0; - webkit - transform: translate3d( - 100 % , 0, 0); - ms - transform: translate3d( - 100 % , 0, 0);
+        transform: translate3d( - 100 % , 0, 0);
+    }
+    100 % {
+        opacity: 1; - webkit - transform: none; - ms - transform: none;
+        transform: none
+    }
+}
+.fadeInLeft { - webkit - animation - name: fadeInLeft;
+    animation - name: fadeInLeft
+}@ - webkit - keyframes fadeInLeftBig {
+    0 % {
+        opacity: 0; - webkit - transform: translate3d( - 2000px, 0, 0);
+        transform: translate3d( - 2000px, 0, 0);
+    }
+    100 % {
+        opacity: 1; - webkit - transform: none;
+        transform: none
+    }
+}
+
+
+@keyframes dragLeft {
+    0% {
+        opacity:0;
+        transform:translateX(-70px)
+    }
+    60% {
+        opacity:0.5;
+        transform:translateX(20px)
+    }
+    90% {
+		opacity:1;
+        transform:translateX(-5px)
+    }
+    97% {
+        transform:translateX(-1px)
+    }
+    100% {
+        transform:translateX(0px)
+    }
+}
+@-webkit-keyframes dragLeft {
+    0% {
+        opacity:0;
+        -webkit-transform:translateX(-70px)
+    }
+    60% {
+        opacity:1;
+        -webkit-transform:translateX(20px)
+    }
+    90% {
+        -webkit-transform:translateX(-5px)
+    }
+    97% {
+        -webkit-transform:translateX(-1px)
+    }
+    100% {
+        -webkit-transform:translateX(0px)
+    }
+}
+@-moz-keyframes dragLeft {
+    0% {
+        opacity:0;
+        -moz-transform:translateX(-70px)
+    }
+    60% {
+        opacity:1;
+        -moz-transform:translateX(20px)
+    }
+    90% {
+        -moz-transform:translateX(-5px)
+    }
+    97% {
+        -moz-transform:translateX(-1px)
+    }
+    100% {
+        -moz-transform:translateX(0px)
+    }
+}
+@-ms-keyframes dragLeft {
+    0% {
+        opacity:0;
+        -ms-transform:translateX(-70px)
+    }
+    60% {
+        opacity:1;
+        -ms-transform:translateX(20px)
+    }
+    90% {
+        -ms-transform:translateX(-5px)
+    }
+    97% {
+        -ms-transform:translateX(-1px)
+    }
+    100% {
+        -ms-transform:translateX(0px)
+    }
+}
+
+
+
+
+
+
+
+
+

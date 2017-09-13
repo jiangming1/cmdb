@@ -1,0 +1,12 @@
+<%= simple_form_for(@kaiguan) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :xingming %>
+    <%= f.input :kaiqi %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

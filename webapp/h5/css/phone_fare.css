@@ -1,0 +1,286 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin:0px;
+	padding: 0px;
+	background-color: #f9f1cd;
+}
+table{
+	border-collaspe:collaspe;
+	border-spacing:0;
+}
+
+* {
+	font-family: "微软雅黑";
+	padding:0;
+	margin:0;
+}
+img{
+	box-sizing: border-box;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}
+a{
+	text-decoration: none;
+	color: #555;
+}
+ul li{
+	list-style:none;
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.clearfix:after{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+} 
+.redcolor{
+	color: #ff5c47;
+}
+.btn_rule{
+	padding: 0.5rem; 
+	background: #2acbe0; 
+	border: 1px solid #2acbe0;
+	color: #FFF; 
+	border-radius: 0.5rem 0 0 0.5rem;
+}
+.btn_continue{
+	width: 45%;
+	background: #2acbe0; 
+	color: #FFF; 
+	padding: 0.5rem 0; 
+	border-radius: 0.5rem; 
+	box-shadow: 0 3px 0px #21a3b4; 
+	text-align: center;
+	display: block;
+}
+#btn_end{
+	margin-left: 4%; 
+}
+#btn_group{
+	margin-left: 4%; 
+}
+#btn_continue{
+	margin-right: 4%;
+}
+/* 活动规则内容样式   */
+.mask,.mask1{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
+	z-index: 9;
+	display: none;
+}
+.group_rule{
+	width: 84%; 
+	height: 80%;
+	padding: 0 5%;
+	background: #FFF;
+	position: fixed;
+	left: 3%;
+	top: 10%;
+	z-index: 10;
+	overflow: auto;
+	display: none;
+}
+.rule_title{
+	text-align: center; 
+	color: #706d6f; 
+	margin-top: 1.2rem; 
+	padding-bottom: 0.5rem;
+	font-size: 1.4rem;
+	color: #FF5E4A;
+	border-bottom: 1px solid #FF5E4A;
+}
+.rule_con{
+	margin-top: 1.4rem;
+}
+.td-1{
+	vertical-align: top;
+}
+.btn_sure{
+	text-align: center; 
+	background: #EF491C; 
+	color: #FFF; 
+	border: 1px solid #EF491C; 
+	border-radius: 0.5rem;
+	padding: 0.5rem; 
+	margin: 1rem auto;
+}
+.btn_invite{
+	width: 50%; 
+	padding: 0.5rem 0; 
+	background: #e0af55; 
+	color: #FFF; 
+	border: 1px solid #e0af55; 
+	border-radius: 0.5rem; 
+	position: absolute; 
+	left: 25%; 
+	top: 12.5rem; 
+	text-align: center; 
+	box-shadow: 0 0.2rem 0.2rem #e0af55;
+}
+@media screen and (max-width: 320px){
+	.btn_invite{
+	   top: 10rem;    
+	}
+}
+/* 分享引导内容样式  */
+.maskimg{
+	position:fixed;
+	left:0;
+	top:0;
+	z-index:100;
+	display:none;
+}
+.maskimg img{
+	width:93%;
+}
+/* 结束弹出框样式   */
+.end_alert,.end_alert1,.end_alert2{
+	width: 86%; 
+	position: fixed; 
+	left: 7%; 
+	top: 30%; 
+	background: #FFF;
+	z-index: 10;
+	border: 1px solid #999; 
+	border-radius: 0.5rem;
+	display: none;
+}
+.btn_end_alert{
+	display: inline-block;
+	width: 24%;
+	border: 1px solid #FF7433; 
+	border-radius: 0.3rem;
+	padding: 3% 0;
+	color: #FF7433;
+	text-align: center;
+}
+.btn_receive{
+	text-align: center;
+	width: 50%; 
+	border: 1px solid #FF7433; 
+	border-radius: 0.5rem; 
+	margin: 10% auto 15%;
+	padding: 3%;
+	color: #FF7433;
+	display: block;
+}
+.btn_close{
+	position: absolute; 
+	right: 1rem; 
+	top: 3%; 
+	font-size: 1.5rem; 
+	color: #FF7433;
+}
+/* 注册成功内容样式  */
+.btn_link{
+	margin: 2rem auto; 
+	text-align: center; 
+	color: #FFF;
+	padding: 0.5rem;
+	background: #ef491c; 
+	border: 1px solid #ef491c; 
+	border-radius: 0.5rem; 
+	display: block;
+}
+/*  父亲节活动内容样式   */
+.father-main{
+	background: #dadada;
+	width: 100%;
+}
+.father-main-con{
+	width: 90%;
+	margin: 1rem auto; 
+	background: #fbfbfb;
+	padding-bottom: 0.3rem;
+}
+.father-back-con{
+	width: 75%;
+	margin: 0.5rem auto; 
+	background: #599ed5;
+	padding: 3%;
+}
+.father-back-con table{
+	width: 100%;
+}
+.father-back-con table tr td{
+	line-height: 2.2rem;
+	width: 50%;
+}
+.father-back-tips{
+	position: absolute;
+	right: -0.5rem;
+	top: 0.2rem;
+	z-index: 10;
+	font-size: 0.9rem;
+	background: #ff7932;
+	padding: 0.3rem;
+	border-radius: 0.4rem 0 0 0.4rem;
+}
+.father-btn{
+	width: 80%; 
+	margin: 2rem auto; 
+	font-size: 1.4rem;
+	background: #FF7932; 
+	border: 1px solid #FF7932; 
+	border-radius: 0.5rem; 
+	box-shadow: 1px 2px 2px #BD4E13; 
+	color: #FFF;
+	text-align: center;
+	display: block;
+	padding: 0.5rem;
+}
+.father-rule{
+	width: 100%; 
+	background: #80d0f5;
+	position: relative;
+}
+.father-rule-word{
+	padding: 0 0.4rem;
+	background: #FFF; 
+	color: #80d0f5;
+	float: left;
+	height: 1.8rem; 
+	line-height: 1.8rem;
+}
+.triangle-right{
+	float: left; 
+	border-left: 1rem solid #FFF;
+	border-top: 0.9rem solid  transparent; 
+	border-bottom: 0.9rem solid transparent;
+}
+.father-rule-list{
+	list-style: decimal;
+}
+.father-rule-list tr td{
+	color: #FFF;
+	font-size: 1rem;
+	line-height: 1.5rem;	
+}
+.td-a a{
+	color: #FFF !important;
+}
+.td-1{
+	vertical-align: top;
+}
+
+
+
+
+
+
+

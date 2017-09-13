@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  zhuangtai: MyString
+  mubiaojine: 9.99
+  mujijine: 9.99
+  lilv: 9.99
+  cunkuanqixian: 1
+  mingcheng: MyString
+  zuixiaoine: MyString
+
+two:
+  zhuangtai: MyString
+  mubiaojine: 9.99
+  mujijine: 9.99
+  lilv: 9.99
+  cunkuanqixian: 1
+  mingcheng: MyString
+  zuixiaoine: MyString

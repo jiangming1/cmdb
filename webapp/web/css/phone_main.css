@@ -1,0 +1,164 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background:#FFF;
+}
+*{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style: none;
+}
+img{
+	box-sizing: border-box;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}
+a{
+	text-decoration:none;
+	color:#FF5A2C;	
+}
+.clear{
+	clear:both;
+}
+.header{
+	width:92%;
+	height:60px;
+	line-height:60px;
+	box-shadow:0 1px 1px #999;
+	padding:0 4%;
+}
+.header_left{
+	float:left;
+	
+}
+.header_right{
+	float:right;
+	color:#FF5A2C;
+}
+.header_word{
+	font-size:12px;
+}
+.head_active{
+    width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+.sleed{
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+}
+.Imglist{
+	width: 100%;
+}
+.swiper-pagination-bullet-active{
+	background: #CCC;
+}
+ul.on_list{
+	height: 20px;
+	position: absolute;
+	Z-index: 3;
+	display: inline-block;
+	left: 50%;
+	margin-left: -23px;
+	bottom: 10px;
+}
+ul.on_list li{
+	float: left;
+	width: 10px;
+	height: 10px;
+	border: 1px solid #CCC;
+	border-radius: 8px;
+	margin: 0 5px;
+	cursor: pointer;
+	
+}
+.info_on{
+	background: #CCC;
+}
+.picture_explan{
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+.write_bg{
+	background: #FFF;
+	width: 100%;
+}
+.main{
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 25px 0 0 !important;
+}
+.main h3{
+	font-size: 25px;
+	color: #FF5A2C;
+	margin-bottom: 50px !important;
+}
+.main h4{
+    font-size: 25px;
+	color: #FF5A2C;
+}
+.main p{
+	font-size: 14px;
+	color: #727171;
+	margin: 15px 0;
+}
+.main p span{
+	font-style: italic;
+	color: #FF5A2C;
+	font-size: 17px;
+}
+.compare_ypb{
+	float: left;
+	width:44%;
+	font-size: 13px;
+	padding: 3%;
+	color: #727171;
+}
+.compare_scb{
+	float: right;
+	width: 44%;
+	font-size: 13px;
+	padding: 3%;
+	color: #727171;
+}
+.three_safe{
+	width: 100%;
+	margin: 10px auto;
+	text-align:center; 
+}
+.three_safe li{
+	color: #727171;
+	font-size: 14px;
+	line-height: 24px;
+}
+.partner a{
+	display: inline-block;
+	width: 30%;
+}
+.fixed{
+	position:fixed;
+	left:0;
+	top:0;
+	z-index:99;
+}
+.header_fixed{
+	width:92%;
+	height:60px;
+	line-height:60px;
+	background:#EEE;
+	box-shadow:0 1px 1px #B5B5B5;
+	padding:0 4%;
+	position:fixed;
+	left:0;
+	top:0;
+	z-index:99;
+	display:none;
+}

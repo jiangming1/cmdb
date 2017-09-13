@@ -1,0 +1,133 @@
+body {
+	height: 100%;
+}
+
+#topHeader {
+	width: 100%;
+	height: 70px;
+	border: 0px;
+	border-bottom: 1px solid #d3d3d3;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15), 0 -1px 0 0 #fcfcfc inset;
+}
+
+#bottom {
+	width: 100%;
+	height: 70px;
+	border: 0px;
+	border-top: 1px solid #d3d3d3;
+}
+
+#inner {
+	width: 1000px;
+	margin: 0 auto;
+	border: 1px solid #d3d3d3;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border-radius: 3px;
+}
+
+#inner #left {
+	width: 200px;
+	background-color: #f3f3f3;
+	border-right: 1px solid #d3d3d3;
+	vertical-align: top;
+}
+
+#mainContent {
+	width: 798px;
+	vertical-align: top;
+}
+
+#docContent {
+	padding: 20px;
+	min-height: 700px;
+}
+
+#docContent ul {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+#docContent .title {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 50px;
+}
+
+#mainContent #title {
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	padding: 0px 0px 0px 20px;
+	background-image: linear-gradient(to bottom, #f3f3f3 0px, #e3e3e3 100%);
+	border-bottom: 1px solid #d3d3d3;
+}
+
+#inner #left ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+#inner #left ul li {
+	padding: 6px 0px 6px 10px;
+	cursor: pointer;
+}
+
+#inner #left ul li a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+#inner #left ul li:HOVER {
+	background-color: #ddecf4;
+	color: #0089cd;
+}
+
+p {
+	text-indent: 2em;
+	line-height: 25px;
+}
+
+.takecare {
+	color: red;
+}
+
+.testBtn {
+	margin-left: 2em;
+}
+
+#testForm {
+	width: 100%;
+	height: 100px;
+	position: fixed;
+	bottom: 0px;
+	display: none;
+	padding: 10px;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+#testForm span {
+	margin-left: 10px;
+}
+
+#testResult {
+	margin: 10px;
+	display: inline-block;
+	padding: 5px;
+	background-color: white;
+	display: none;
+}
+.h5url{
+	line-height: 30px;
+	font-size: 20px;
+	margin-left: 20px;
+}
+.current-page{
+	background-color: #337ab7;
+}
+.current-page a{ 
+	color: white !important;
+}

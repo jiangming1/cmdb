@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>获得用户Token接口 2.0 - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+<style type="text/css">
+.table1{
+	margin-top: 10px;
+}
+.table1 td,.table1 th{
+	padding: 10px !important;
+}
+</style>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent">
+				<div id="title">获得用户Token接口(2.0)</div>
+				<div id="docContent">
+
+					<ul> 
+						<li><div class="title">接口地址</div>
+							<blockquote>
+								<p>/api/get_user_token_20.htm</p>
+							</blockquote></li>
+						<li>
+							<div class="title">请求参数</div>
+							<div>
+								<table class="table table-bordered paramtab">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>是否必须</th>
+											<th>默认值</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>mobile</td>
+											<td>string</td>
+											<td>是</td>
+											<td></td>
+											<td>手机号码/也是登录名</td>
+										</tr>
+										<tr>
+											<td>loginPwd</td>
+											<td>string</td>
+											<td>是</td>
+											<td></td>
+											<td>公钥加密(密码明文+"|"+时间戳)  <br> 注意,密文只有1分钟有效期</td>
+										</tr> 
+										<tr>
+											<td>forceRefresh</td>
+											<td>boolean</td>
+											<td></td>
+											<td>false</td>
+											<td>true:强制刷新,不管原有的token失不失效,都生成新的token<br/>
+												<a href="#name1">app上如何管理token的有效性?</a>
+											</td>
+										</tr>
+										<tr>
+											<td>push_id</td>
+											<td>string</td>
+											<td></td>
+											<td></td>
+											<td>极光推送ID</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">响应结果</div>
+							<div>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>一定存在</th>
+											<th>示例</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>code</td>
+											<td>string</td>
+											<td>是</td>
+											<td>SUCCESS</td>
+											<td>SUCCESS : 获取token成功
+											<br />USER_NOT_EXIST : 用户不存在
+											<br />PWD_ERROR : 密码不正确  
+											<br />PARAM_ERROR:参数错误
+											<br />PWD_EXPIRE : 密码密文过期 
+											<br />ERROR : 错误,请显示返回的错误原因
+											</td>
+										</tr>
+										<tr>
+											<td>token</td>
+											<td>string</td>
+											<td></td>
+											<td>5169323295831165131<br/>6812503050626708d<br/>0b4907878caac7ef6<br/>37e3677474b0b5</td>
+											<td>当code为SUCCESS 时返回.  有效期为 : 24小时<br/>
+											<span class="takecare">注意:请保存好该内容,它非常重要,不能外泄</span>
+											</td>
+										</tr>
+										<tr>
+											<td>expire_time</td>
+											<td>long</td>
+											<td></td>
+											<td>3600000</td>
+											<td>单位:毫秒 <br/>
+												token即将在(expire_time)毫秒后失效 <span class="badge">伪失效</span>
+												但客户端应该判断为失效
+											</td>
+										</tr>
+										<tr>
+											<td>error_reason</td>
+											<td>string</td>
+											<td></td>
+											<td>账户被锁定,2小时后重试</td>
+											<td> 失效原因,当 code=ERROR时,返回
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">示例</div>
+							<div>
+
+
+								<pre class="prettyprint linenums">
+{							
+	code:"SUCCESS",
+	token:"51693232958311651316812503050626708d0b4907878caac7ef637e3677474b0b5",
+	expire_time:3600000
+}
+</pre>
+							</div>
+						</li>
+						
+						<li>
+							<div class="title"><a name="name1" >app如何管理token的有效性?</a></div>
+							<div>
+								1、用户登录的时候,带上参数:forceRefresh=true<br>
+								2、将token保存到本地(全局变量,或本地存储)<br>
+								3、根据 expire_time 计算出token失效时间 ,公式  : 当前时间毫秒数+expire_time<br>
+								4、在需要用到token的地方,判断是否过有效期,如果没有则直接使用本地token,如果已经失效,则强制刷新token<br>
+							</div>
+						</li>
+						
+						<li>
+							<div class="title">哪些情况Token失效不算?</div>
+							<div>
+								<div><span class="badge">伪失效</span> expire_time的时间为伪失效,即App应当在这个时间点判断Token为失效,但后台仍然未失效,还可以存活一定时间</div>
+								<div><span class="badge">真失效</span> 服务器端Token真实失效</div>
+								<table border="1" class="table1">
+									<thead>
+										<tr>
+											<th>环境</th>
+											<th>expire_time</th>
+											<th>伪失效~真失效(毫秒)</th>
+										</tr> 
+									</thead>
+									<tbody>
+										<tr>
+											<td>测试环境</td>
+											<td>60000</td>
+											<td>60000</td>
+										</tr> 
+										<tr>
+											<td>正式环境</td>
+											<td> >2小时 </td>
+											<td> >1小时</td>
+										</tr> 
+									</tbody>
+								</table>
+								<div style="font-size: 20px;color: red;">
+									测试,如果进入到交易记录,购买页面等需要Token的H5页面,在里面待的时间小于(伪失效~真失效)即判定为BUG,反之则视为正常
+								</div>
+ 							</div>
+						</li>
+					</ul>
+
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>

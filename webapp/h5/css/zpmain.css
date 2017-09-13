@@ -1,0 +1,176 @@
+@charset "utf-8";
+*{
+	padding: 0px;
+	margin: 0px;
+	font-size: 16px;
+	font-family: "Microsoft YaHei";
+}
+img{
+	max-width: 100%;
+}
+a{
+	text-decoration: none;
+	color: #555;
+}
+button{
+	outline: none;
+}
+li {
+	list-style: none;
+}
+.zpcon{
+    -o-transform:  transform 6s;
+	-ms-transform:  transform 6s;
+	-moz-transform:  transform 6s;		
+	-webkit-transform:  transform 6s;
+	transition: transform 6s;
+	-o-transform-origin:  50% 50%;
+	-ms-transform-origin:  50% 50%;
+	-moz-transform-origin:  50% 50%;		
+	-webkit-transform-origin:  50% 50%;
+	transform-origin: 50% 50%;
+}
+/*-- 活动规则  -------------------------- --*/
+.mask{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
+	z-index: 9;
+	display: none;
+}
+.detail_con{
+	width: 80%;
+	height: 60%;
+	overflow:auto; 
+	position: fixed; 
+	left: 6%;
+	top: 20%; 
+	z-index: 51; 
+	background: #EFEFEF;
+	padding: 4%;
+	border-radius: 8px;
+	display: none;
+}
+.detail_header{
+	 border-bottom: 1px solid #CCC; 
+	 text-align: center; 
+	 font-size: 22px; 
+	 padding: 5px; 
+	 margin-bottom: 10px; 
+	 color: #C5A556;
+}
+.detail_header_list{
+	list-style: decimal;
+}
+.detail_header_list tr td{
+	color: #595757;
+	font-size: 14px;
+	line-height: 18px;	
+}
+.td-a a{
+	color: #FF7433 !important;
+}
+.td-1{
+	vertical-align: top;
+}
+.btn_sure{
+	 text-align: center; 
+	 color: #C5A556; 
+	 margin-top: 20px; 
+	 font-size: 22px;
+}
+.rule{
+     position: fixed;
+	 right: 0; 
+	 bottom: 10%; 
+	 height: 30px; 
+	 line-height: 30px; 
+	 background: #f7f0ba; 
+	 border-radius: 8px 0 0 8px; 
+	 padding: 0 10px;	
+}
+/*-- 中奖弹出层样式 ----------------------- */
+.prize_mask,.prize_mask1{
+	 width: 300px; 
+	 height: 274px; 
+	 position: fixed; 
+	 left: 50%; 
+	 top: 50%; 
+	 margin-left: -150px; 
+	 margin-top: -137px; 
+	 background: url(../zpimages/alert_bg.png) no-repeat;
+	 background-size: cover; 
+	 z-index: 50; 
+	 display: none ;
+}
+.close{ 
+     position: absolute;
+	 right: 1%; 
+	 top: 3%; 
+	 font-size: 20px; 
+	 cursor: pointer;
+	 color: #FF7433;
+}
+.prize_con{
+     width: 30%;
+	 position: absolute;
+	 left: 35%; 
+	 bottom: 33%;
+	 color: rgba(51,195,204);
+}
+.btn_look,.btn_close{
+	 background: #fe9b00; 
+	 position: absolute;
+	 width: 50%; 
+	 padding: 3% 0; 
+	 border-radius: 10px;
+	 text-align: center; 
+	 left: 25%; 
+	 bottom: 10%;
+}
+.warm_tips,.warm_tips1,.warm_tips2{
+	width: 86%;
+	padding: 5%;
+	position: fixed;
+    left: 2%;
+    top: 30%;
+    background: #fff;
+    z-index: 50;
+    display: none;
+	border-radius: 8px;
+}
+.target_financial,.btn_share{
+	width: 50%;
+	margin:10% auto; 
+	text-align: center; 
+	padding: 8px 0; 
+	font-size: 16px; 
+	background: #fe9b00; 
+	color: #FFF; 
+	border-radius: 8px;
+}
+/* 滚动列表 */
+.Winning_info{
+	height: 150px; 
+	overflow: hidden;
+	padding-left: 20%;
+}
+.roll_list{
+	text-align: center; 
+	margin-top: 20px;
+}
+.roll_list li{
+	height: 25px;
+	line-height: 25px;
+	text-align: left;
+	font-size: 14px !important;
+}
+
+
+
+
+
+

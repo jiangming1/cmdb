@@ -1,0 +1,414 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin:0px;
+	padding: 0px;
+	background-color: #eee;
+}
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+* {
+	font-family: "微软雅黑";
+	padding:0;
+	margin:0;
+}
+img{
+	box-sizing: border-box;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}
+a{
+	text-decoration: none;
+	color: #555;
+}
+ul li{
+	list-style:none;
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.clearfix:before,.clearfix:after {
+    display: table;
+	content: " ";
+	line-height: 0;
+	width: 100%;
+	visibility: hidden;
+}
+.clearfix:after { 
+  clear: both; 
+} 
+.backBar {
+	width:100%;
+}
+
+.backBar table {
+	width: 100%;
+	height: 50px;
+	background-color: #FFF;
+	font-size: 20px;
+	color: #000;
+}
+
+.backBar table td {
+	text-align: center;
+	border-bottom: 1px solid #E6E6E6;
+}
+
+.backBar a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	line-height: 50px;
+}
+.logo{
+	text-align:center;
+	margin-top:10px;
+}
+.logo title{
+	font-weight:bold;
+	margin-top:10px;
+}
+/* 列表的样式开始  */
+#itemDiv table {
+	width: 100%;
+	background-color: white;
+	border-bottom: 1px solid #ccc;
+}
+.border_none{
+	border-bottom:none !important;
+}
+#itemDiv a{
+	text-decoration:none;
+	color:#000;
+}
+#itemDiv table td {
+	padding: 6px 0px 6px 0px;
+}
+
+#itemDiv table .td1 {
+	width: 50px;
+	text-align: center;
+}
+#itemDiv table .td2 {
+	padding-left:10px;
+	font-size:18px;
+}
+#itemDiv table .td2_1 {
+	padding-left:10px;
+	font-size:18px;
+	width:95px;
+}
+
+#itemDiv table .td3 {
+	width: 30px;
+	text-align: center;
+}
+
+.icon {
+	height: 30px;
+}
+/* 客户服务样式开始 */
+
+#itemDiv table .td4{
+	padding-left: 20px;
+	text-align: center;
+}
+/* 客户服务样式结束 */
+/*  帮助中心最新样式  */
+.help_con{
+	padding:10px;
+	background: #FFF;
+}
+.help-title{
+	border-bottom: 1px solid #E6E6E6;
+}
+.help_con .tab-question{
+	color:#4D4D4D;
+	width: 100%;
+}
+.tab-question tr td{
+ 	height: 48px; 
+}
+.ver-top{
+	vertical-align: top;
+}
+.td-left{
+	width: 30px;
+	text-align: center;
+}
+.add-tips{
+	padding-left: 10px;
+	width: 26px;
+}
+.help_con .tab-answer{
+	font-size:14px;
+	color:#888;
+	margin:4px;
+	display: none;	
+}
+.tab-answer tr td{
+	line-height: 24px;
+}
+.help_con .tab-answer a{
+	text-decoration:none;
+	color:#FF7433 !important;
+}
+/* 帮助中心的样式结束 */
+
+/* 列表的样式结束  */
+
+.credentials{
+	  width:100%;
+	  padding-bottom:20px;
+}
+.credentials tr{
+	 margin-top:5px;
+	 
+} 
+.credentials tr td{
+	width:50%;
+	border-bottom: 1px solid #CCC;
+	padding: 10px 0;
+	
+}
+.credentials tr td:first-child{
+	padding-left: 10px;
+}
+.credentials tr td:last-child{
+	text-align:right;
+	padding-right:10px;
+}
+.border_top td{
+	border-top:1px solid #CCC;
+}
+.am-form-group{
+    margin-top:1.5rem;	background:#FFF;
+	padding:10px;
+}
+label{
+	display:inline-block;
+	font-weight:bold;
+}
+.am-form-field{
+	padding:5px;
+    line-height:12px;
+	font-size:16px;	
+	border:none;
+}
+/* 页面中所有的提交按钮样式开始 */
+.newbtn{
+	margin-top:50px;
+	width:100%;
+}
+.newbtn button{
+	padding:8px;
+	margin-left:20%;
+	width:60%;
+	background:#FF7433;
+	border:1px solid #FF7433;
+	border-radius:8px;
+	color:#FFF;
+	font-size:18px;
+}
+
+/* 页面中所有的提交按钮样式结束 */
+/* 购买成功页面的样式开始  */
+
+.order_con li{
+	padding:5px;
+}
+
+
+/* 购买成功页面的样式结束  */
+/*累计收益页面的样式  */
+.assets_header{
+	height: 240px;
+	background:url(../img/gif1.gif) no-repeat center;
+	background-size: 100%;
+}
+.assets_header_con{
+	text-align: center; 
+	padding-top: 80px;
+}
+.assets_title{
+	color: #646464;
+	font-size: 18px;
+}
+.assets_number{
+    display: inline-block;
+    color: #FF7433;
+    font-size: 30px; 
+    display: inline-block; 
+    padding-top: 20px;
+    width: 140px;
+    word-wrap: break-word
+}
+.assents_main{
+	width: 100%;
+	margin: 10px 0;
+}
+.assents_list{
+	margin:0 15px;
+    padding: 5px 15px;
+	height: 20px;
+	color: #595757;
+	font-size: 16px;
+
+}
+.assents_list_first{
+	color: #333; 
+	padding: 10px;
+	font-size: 18px;
+}
+.assents_list_first .scb_list{
+	display: inline-block;  
+	width: 8px; 
+	height: 8px; 
+	border: 1px solid red; 
+	border-radius: 5px; 
+	background: red; 
+	margin-right: 5px;
+}
+.assents_list_first .ypb_list{
+	display: inline-block;  
+	width: 8px; 
+	height: 8px; 
+	border: 1px solid #82BAEB; 
+	border-radius: 5px; 
+	background: #82BAEB; 
+	margin-right: 5px;
+}
+.assents_list a{
+	color: #FF7433;
+}
+/* 当理财遇上爱情活动页面内容样式--------------------- */
+.financial_love_title{
+	text-align: center; 
+	color: #e64798; 
+	font-size: 2rem;
+	margin: 1rem 0;
+}
+.financial_love_con{
+	width: 90%; 
+	margin: 0 auto; 
+	background: #f2c5dc;
+	min-height: 200px; 
+	border-radius: 0.6rem; 
+	padding-bottom: 1rem; 
+}
+.con_header{
+	border-bottom: 1px solid #FFF;
+	padding: 10px 0 5px 10px;
+	color: #e64798; 
+	font-size: 1.5rem; 
+}
+.con_photo{
+	text-align: center; 
+	margin-top: 1.2rem;
+}
+.con_word{
+	text-align: center; 
+	font-size: 1rem; 
+	color: #706d6f; 
+	margin-top: 0.5rem;
+}
+.con_btn{
+	width:80%;
+	margin: 1rem auto; 
+	background: #f375b5; 
+	color: #FFF; 
+	text-align: center; 
+	padding: 0.5rem 0; 
+	font-size: 1rem;
+	border-radius: 0.6rem;
+	box-shadow: 3px 3px 3px #f375b5;
+	display: block;
+}
+.con_btn a{
+	color: #FFF;
+}
+.financial_love_rule{
+	width: 90%; 
+	margin: 0 auto; 
+	padding: 1.2rem 0;  
+}
+.detail_header_list tr td{
+	color: #595757;
+	font-size: 14px;
+	line-height: 18px;	
+}
+.rule_con{
+	color: #f48dc1;
+	margin-top: 1.4rem;
+}
+.td-a a{
+	color: #f48dc1 !important;
+}
+.td-1{
+	vertical-align: top;
+}
+/* 分享引导内容样式  */
+.maskimg{
+	position:fixed;
+	left:0;
+	top:0;
+	z-index:100;
+	display:none;
+}
+.maskimg img{
+	width:93%;
+}
+/* 弹出框样式--*/
+.mask{
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.6;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 999;
+	display: none;
+}
+.concern{
+	width: 90%;
+	background: #fbe4f1;
+	position: fixed;
+	left: 5%;
+	top: 10%;
+	z-index: 1100; 
+	text-align: center;
+	display: none; 
+}
+.close{
+	font-size: 20px;
+	float: right;
+	padding-right: 10px;
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	color: #666;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+

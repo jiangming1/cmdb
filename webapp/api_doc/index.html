@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>接口文档使用说明 - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent">
+				<div id="title">接口文档使用说明</div>
+				<div id="docContent">
+
+					<ul>
+						<li><div class="title">什么人需要阅读该文档?</div>
+							<p>本接口文档是为了帮助app开发人员与后台服务器交互而开发,因此android、ios需要阅读本文档.</p></li>
+						<li>
+						<li><div class="title">接口的形式</div>
+							<p>采用 http请求的方式向客户端或外部应用提供服务,默认请况下所有的请求即可以支持GET也可以支持POST(特殊情况下会在接口描述中特别标注.).大多数接口都会有一个 token的参数,该参数是为了适别请求人的身份票证,因些我们在调用这些业务接口之前需要调用一个token获取接口,并保持票证的有效性.另外在接口地址描述的时候都只是用了相对地址,而前面的主机地址部分即可以是测试环境,也可以是正式环境.但测试的时候请都在测试环境下完成.</p>
+							<p>所有接口都采用POST提交</p>
+							</li>
+							
+						<li>
+						<li><div class="title">支持的环境</div>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>环境名称</th>
+										<th>类别</th>
+										<th>地址</th>
+										<th style="width: 300px;">说明</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>测试环境</td>
+										<td>接口</td>
+										<td style="font-size: 18px;"><span style="color: red;">https://test.laicunba.com/</span>{接口相对地址}</td>
+										<td>用于app开发与测试阶段的调试工作<br> <span style="color: red;">温馨提示:由于会不定时的发布,有可能会出现中断服务的情况,一般30秒钟后正常</span>
+											双向认证
+										</td>
+									</tr>
+									<tr>
+										<td>测试环境</td>
+										<td>H5</td>
+										<td style="font-size: 18px;"><span style="color: red;">http://test.laicunba.com/</span>{h5相对地址}</td>
+										<td> 无认证
+										</td>
+									</tr>
+									<tr>
+										<td>正式环境</td>
+										<td>接口</td>
+										<td style="font-size: 18px;"><span style="color: green;">https://api.laicunba.com/</span>{接口相对地址}</td>
+										<td>双向认证</td>
+									</tr>
+									<tr>
+										<td>正式环境</td>
+										<td>H5</td>
+										<td style="font-size: 18px;"><span style="color: green;">https://h5.laicunba.com/</span>{H5相对地址}</td>
+										<td>ca机构单向认证</td>
+									</tr>
+								</tbody>
+							</table></li>
+						<li>
+						<li><div class="title">如果接口中存在BUG怎么办?</div>
+							<p>
+								请及时联系<span style="font-weight: bold;">王鸿雁</span>(QQ:258156979)修复
+							</p></li>
+						<li style="margin-top: 50px;"><div class="title">所有请求公共参数<a name="comm_param" ></a></div>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>名称</th>
+										<th>类型</th>
+										<th style="width: 300px;">说明</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>_channel</td>
+										<td>string</td>
+										<td>用户后台分析这些请求来自哪个渠道,根据运营人员的要求相应版本编入对应值 <span class="badge badge-warning">支持运营用</span>
+										</td>
+									</tr> 
+									<tr>
+										<td>_app_version</td>
+										<td>string</td>
+										<td> 
+											android版本请使用数值版本号
+										</td>
+									</tr>
+									<tr>
+										<td>_app_type</td>
+										<td>string</td>
+										<td> 
+											android/ios
+										</td>
+									</tr>
+									<tr>
+										<td>_device</td>
+										<td>string</td>
+										<td> 
+											设备型号
+										</td>
+									</tr>
+									<tr>
+										<td>_device_os</td>
+										<td>string</td>
+										<td> 
+											手机操作系统
+										</td>
+									</tr>
+									<tr>
+										<td>app_token</td>
+										<td>string</td>
+										<td> 
+											有则传,没有则不传,不考虑token的有效性
+											<span class="badge badge-warning">仅限H5页面</span>
+										</td>
+									</tr>
+								</tbody>
+							</table></li>
+							
+							<li><div class="title">H5页面如何跳转到APP界面?</div>
+							<p>
+								如果碰到在h5中需要点某个按钮或是链接,请在参数列表加上以下参数. webView控件会拦截请求地址,然后根据相应的参数跳对应的原生界面!
+							</p>
+							<div>例: http://xxx.laicunba.com/xxx.htm?<span style="color: red;">app_view=home</span></div>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>app界面</th>
+											<th>参数</th> 
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>首页</td>
+											<td>app_view=home</td>
+										</tr>
+										<tr>
+											<td>理财专区</td>
+											<td>app_view=zone</td>
+										</tr>
+										<tr>
+											<td>我的账户</td>
+											<td>app_view=acc</td>
+										</tr>
+										<tr>
+											<td>随存宝</td>
+											<td>app_view=scb</td>
+										</tr>
+										<tr>
+											<td>随存宝提现完成</td>
+											<td>app_view=scb_withdraw_finish</td>
+										</tr>
+										<tr>
+											<td>标的详情</td>
+											<td>app_view=detail&id=XXXXXXXXX</td>
+										</tr>
+										<tr>
+											<td>未登录则登录/如果已登录则不管/登录后跳回该页面,并且传回<span class="badge badge-important">app_token=XXXXX</span>参数</td>
+											<td>app_view=login</td>
+										</tr>
+										<tr>
+											<td>弹出分享框</td>
+											<td>app_view=share&title=分享的标题&url=分享的地址&summary=分享的摘要</td>
+										</tr>
+										<tr>
+											<td>该页面需要分享,如果发现地址中有这些参数,则表示该页面需要有右上角的分享按钮.</td>
+											<td>app_view=has_share_btn&title=分享的标题&url=分享的地址&summary=分享的摘要</td>
+										</tr>
+										<tr>
+											<td>注册页面</td>
+											<td>app_view=regist</td>
+										</tr>
+										<tr>
+											<td>发现页面</td>
+											<td>app_view=discovery</td>
+										</tr>
+									</tbody>
+								</table>
+								<div style="color: red; font-size: 20px;">注意:这些请求的地址域名需要为我们的来存吧域名</div>
+							</li>
+					</ul>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>

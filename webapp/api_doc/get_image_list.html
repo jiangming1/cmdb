@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>注册用户接口 - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent">
+				<div id="title">获取图片接口</div>
+				<div id="docContent">
+
+					<ul>
+						<li><div class="title">接口地址</div>
+							<blockquote>
+								<p>/api/get_image_list.htm</p>
+							</blockquote></li>
+						<li>
+							<div class="title">请求参数</div>
+							<div>
+								<table class="table table-bordered paramtab">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>是否必须</th>
+											<th>默认值</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>position</td>
+											<td>string</td>
+											<td>是</td>
+											<td>WX_HOME</td>
+											<td>banner图位置</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">响应结果</div>
+							<div>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>一定存在</th>
+											<th>示例</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>id</td>
+											<td>string</td>
+											<td>是</td>
+											<td>c47c4a18-4a8f-48ad-b094-a89f3af6d34a</td>
+											<td>唯一标识</td>
+										</tr>
+										<tr>
+											<td>title</td>
+											<td>string</td>
+											<td>否</td>
+											<td>来存吧-新年狂欢</td>
+											<td>标题</td>
+										</tr> 
+										<tr>
+											<td>imageUrl</td>
+											<td>string</td>
+											<td>是</td>
+											<td>http://www.laicunba.com/upload/images<br/>/20160107/1438580268158.png</td>
+											<td>图片地址</td>
+										</tr>
+										<tr>
+											<td>linkUrl</td>
+											<td>string</td>
+											<td>是</td>
+											<td>http://www.laicunba.com</td>
+											<td>链接地址</td>
+										</tr>
+										<tr>
+											<td>sortNum</td>
+											<td>int</td>
+											<td>是</td>
+											<td>1</td>
+											<td>排序编号</td>
+										</tr>
+										<tr>
+											<td>startDate</td>
+											<td>long</td>
+											<td>是</td>
+											<td>1451577600000</td>
+											<td>展现开始时间（毫秒数）</td>
+										</tr>
+										<tr>
+											<td>endDate</td>
+											<td>long</td>
+											<td>是</td>
+											<td>1454255999000</td>
+											<td>展现结束时间（毫秒数）</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">示例</div>
+							<div>
+
+
+								<pre class="prettyprint linenums">
+[
+    {
+        "id": "7ce80761-3db2-43ec-a1f2-5bf9ddbe97af",
+        "title": "来存吧-2016新年狂欢",
+        "imageUrl": "http://www.laicunba.com/upload/images/20151228/banner1.png",
+        "linkUrl": "http://www.laicunba.com",
+        "sortNum": 1,
+        "startDate": "1451577600000",
+        "endDate": "1454255999000"
+    },
+    {
+        "id": "a9478fcd-8e11-43f9-b7d2-6142d4314717",
+        "title": "来存吧-放马来",
+        "imageUrl": "http://www.laicunba.com/upload/images/20151228/banner2.png",
+        "linkUrl": "http://www.hzrccf.com",
+        "sortNum": 2,
+        "startDate": "1451577600000",
+        "endDate": "1454255999000"
+    },
+    {
+        "id": "e0428116-fbfc-43f9-b397-d9ba0f76b2ac",
+        "title": "来存吧-不一样的存钱罐",
+        "imageUrl": "http://www.laicunba.com/upload/images/20151228/banner3.png",
+        "linkUrl": "http://www.baidu.com",
+        "sortNum": 3,
+        "startDate": "1451577600000",
+        "endDate": "1454255999000"
+    },
+    {
+        "id": "022bbf6a-944b-4ccb-99b6-dfb552c49745",
+        "title": "来存吧-安全的投资平台",
+        "imageUrl": "http://www.laicunba.com/upload/images/20151228/banner4.png",
+        "linkUrl": "http://www.qq.com",
+        "sortNum": 4,
+        "startDate": "1451577600000",
+        "endDate": "1454255999000"
+    }
+]
+</pre>
+							</div>
+						</li>
+					</ul>
+
+
+				</div>
+			</td>
+		</tr>
+	</table>
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>

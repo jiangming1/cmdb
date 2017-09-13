@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>lcbzhanghu</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>登录密码</th>
+      <th>登陆姓名</th>
+      <th>手机</th>
+      <th>姓名</th>
+      <th>支付密码</th>
+      <th>邀请码</th>
+      <th>邀请人</th>
+      <th>状态</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lcbzhanghus.each do |lcbzhanghu| %>
+      <tr>
+        <td><%= lcbzhanghu.denglumima %></td>
+        <td><%= lcbzhanghu.dengluxingming %></td>
+        <td><%= lcbzhanghu.shouji %></td>
+        <td><%= lcbzhanghu.xingming %></td>
+        <td><%= lcbzhanghu.zhifumima %></td>
+        <td><%= lcbzhanghu.yaoqingma %></td>
+        <td><%= lcbzhanghu.yaoqingren %></td>
+        <td><%= lcbzhanghu.zhuangtai %></td>
+        <td><%= link_to 'Show', lcbzhanghu %></td>
+        <td><%= link_to 'Edit', edit_lcbzhanghu_path(lcbzhanghu) %></td>
+        <td><%= link_to 'Destroy', lcbzhanghu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建lcbzhanghu', new_lcbzhanghu_path %>

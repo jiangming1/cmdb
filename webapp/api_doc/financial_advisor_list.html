@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>获得理财顾问列表接口 - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent">
+				<div id="title">获得理财顾问列表接口</div>
+				<div id="docContent">
+
+					<ul>
+						<li><div class="title">接口地址</div>
+							<blockquote>
+								<p>/api/financial_advisor_list.htm</p>
+							</blockquote></li>
+						<li>
+							<div class="title">请求参数</div>
+							<div>
+								<table class="table table-bordered paramtab">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>是否必须</th>
+											<th>默认值</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+									
+										 
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">响应结果</div>
+							<div style="color: red">提示:该接口返回JSON数据,以下是数组中元素的描述.有些值比如:gmtCreate、gmtWrite等没有业务意义就不描述了</div>
+							<div>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>一定存在</th>
+											<th>示例</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>id</td>
+											<td>string</td>
+											<td>是</td>
+											<td></td>
+											<td>编号,一般是guid
+											</td>
+										</tr> 
+										<tr>
+											<td>name</td>
+											<td>string</td>
+											<td>是</td>
+											<td>光头强</td>
+											<td>姓名
+											</td>
+										</tr> 
+										<tr>
+											<td>mobile</td>
+											<td>string</td>
+											<td>是</td>
+											<td></td>
+											<td>手机号码
+											</td>
+										</tr>
+										<tr>
+											<td>headPic</td>
+											<td>string</td>
+											<td>是</td>
+											<td></td>
+											<td>一个头像URL<br />
+											为了扩展性强一点<br/>这个地方有可能是gif
+											</td>
+										</tr>
+										<tr>
+											<td>companyName</td>
+											<td>string</td>
+											<td></td>
+											<td>杭州满溢科技有限公司</td>
+											<td>公司名字
+											</td>
+										</tr> 
+
+										<tr>
+											<td>staff</td>
+											<td>string</td>
+											<td></td>
+											<td>高级理才顾问</td>
+											<td>职位名称
+											</td>
+										</tr>
+
+										<tr>
+											<td>experience</td>
+											<td>string</td>
+											<td></td>
+											<td>3年理才从业经验</td>
+											<td>从业经验描述
+											</td>
+										</tr>
+									 
+										
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">示例</div>
+							<div>
+
+
+								<pre class="prettyprint linenums">
+[
+    {
+        "companyName": "杭州满溢科技有限公司",
+        "createUid": "",
+        "experience": "3年理才从业经验",
+        "gmtCreate": null,
+        "gmtWrite": null,
+        "headPic": "http://img.woyaogexing.com/<br/>2014/08/15/0e0875831a1790e3!200x200.jpg",
+        "id": "",
+        "mobile": "18367156949",
+        "name": "吴波",
+        "ownerId": "",
+        "staff": "",
+        "writeUid": ""
+    },
+    {
+        "companyName": "杭州满溢科技有限公司",
+        "createUid": "",
+        "experience": "2年理才从业经验",
+        "gmtCreate": null,
+        "gmtWrite": null,
+        "headPic": "https://ss1.bdstatic.com/70cFuXSh_<br/>Q1YnxGkpoWK1HF6hhy/it/u=3270090739,231767344&fm=116&gp=0.jpg",
+        "id": "",
+        "mobile": "18367156949",
+        "name": "王鸿雁",
+        "ownerId": "",
+        "staff": "",
+        "writeUid": ""
+    },
+    {
+        "companyName": "杭州满溢科技有限公司",
+        "createUid": "",
+        "experience": "5年理才从业经验",
+        "gmtCreate": null,
+        "gmtWrite": null,
+        "headPic": "https://ss0.bdstatic.com/70cFuHSh_Q1Yn<br/>xGkpoWK1HF6hhy/it/u=3432517287,478031683&fm=116&gp=0.jpg",
+        "id": "",
+        "mobile": "10086",
+        "name": "光头强",
+        "ownerId": "",
+        "staff": "",
+        "writeUid": ""
+    }
+]
+</pre>
+							</div>
+						</li>
+					</ul>
+
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>

@@ -1,0 +1,164 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*旅游线路样式*/
+*{
+   margin: 0;
+   padding: 0;	
+   font-family: "微软雅黑","宋体",Arial;
+}
+
+a{ text-decoration:none;color: #CCC;}
+/*线路详情页行程日历*/
+.calendar{width: 100%;}
+.calendar .outer{width: 100%;}
+.calendar table{background: #FFF;border-collapse: collapse;border-spacing: 0px;width: 100%;margin: 0 auto;}
+.calendar .week th{height: 26px;line-height: 26px;overflow: hidden;width: 63px;}
+.calendar .week th.weekEnd{color: #C6C7C8;}
+.calendar .month th>div{background: #FFF;border-bottom: 1px solid #D5D5D5;height: 42px;line-height: 42px;margin-bottom: 6px;}
+.calendar .month th .prevMonth{float: left;width: 20%;}
+.calendar .month th .nextMonth{float: right;width: 20%;}
+.calendar .month th .dates{float: left;text-align: center;width: 60%;}
+.calendar .month th .dates span{font: bold 16px/22px;}
+.calendar .month th a{display: inline-block;height: 42px;color: #808080;}
+.calendar .month th a.prev{font-size: 16px; font-weight: normal;}
+.calendar .month th a.prev img,
+.calendar .month th a.prev0 img,
+.calendar .month th a.next img,
+.calendar .month th a.next0 img{width: 16px;padding-bottom: 3px;}
+.calendar .month th a.prev0{cursor: not-allowed;font-size: 16px; font-weight: normal;}
+.calendar .month th a.next{font-size: 16px; font-weight: normal;}
+.calendar .month th a.next0{cursor: not-allowed;font-size: 16px; font-weight: normal;}
+.calendar td{line-height: 10px;width: 14.2%;text-align: center;vertical-align: middle;overflow: hidden;position: relative;}
+.calendar td.hover{cursor: pointer;}
+.calendar td em{font-family: Arial;font-size: 14px;}
+.calendar td em.money{color: #F60;font-weight: bold;font-size: 14px;}
+.calendar td:first-child,.calendar td:last-child{color: #C6C7C8;}/* 周六周日的颜色样式 */
+.calendar td span{width: 28px; height: 28px;display: inline-block; line-height: 28px;}
+.calendar td span.cur{ background: #dcdcdc!important; border-radius: 50%;color: #FFF !important;position: relative;}
+.calendar td span.cur-cur{background: #c9c9c9!important; border-radius: 50%;color: #FFF!important;position: relative;}
+.cur-cur em, .cur em{
+	display: block;
+	position: absolute;
+	right: -5px;
+	top: 0px;
+	width: 6px;
+	height: 6px;
+	background: #1fb464;
+	border-radius: 50%;	
+}
+.calendar .nl{ font-size:8px; color:#03F; display: none;}
+.backcash{
+	width: 94%;
+	padding: 0 3%;
+	height: 50px;
+	line-height: 50px;
+	background: linear-gradient(to right,#FF5B2C,#FF9F2C);
+	margin-top: 28px;
+	margin-bottom: 15px;
+	color: #FFF;
+}
+img{
+    box-sizing: border-box;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clearfix:before,.clearfix:after {
+    display: table;
+	content: " ";
+	line-height: 0;
+	width: 100%;
+	visibility: hidden;
+}
+.clearfix:after { 
+  clear: both; 
+} 
+.invest{
+	background-color: #ff5a2c!important;
+	border-radius: 50%;
+	color: #FFF !important;
+}
+.expired{
+	background-color: #1FB464!important;
+	border-radius: 50%;
+	color: #FFF !important;
+}
+.invest_expired{
+	background-color: #8f8748!important;
+	border-radius: 50%;
+	color: #FFF !important;
+}
+.invest-cur{
+	background-color: #dd4122!important;
+	border-radius: 50%;
+	color: #FFF !important;
+}
+.expired-cur{
+	background-color: #33875a!important;
+	border-radius: 50%;
+	color: #FFF !important;
+}
+.invest_expired-cur{
+	background-color: #88643e;
+	border-radius: 50%;
+	color: #FFF !important;
+}
+.expired-h{
+	background-color: #33875A;
+	border-radius: 50%;
+	color: #FFF !important;
+}
+ul.expired-detail{
+	width: 100%;
+	margin: 0 auto;
+	padding: 3% 0;
+    background-color: #fff;
+    margin-top: 10px;
+}
+ul.expired-detail li{
+	line-height: 40px;
+	list-style: none;
+	border-bottom: 1px solid #CCC;
+}
+ul.expired-detail li .fl{
+	padding-left: 5%;
+}
+ul.expired-detail li .fr{
+	padding-right: 5%;
+}
+ul.expired-detail li:last-child,ul.expired-detail li:first-child{
+	border: 0;
+}
+ul.expired-detail li img{
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+.green-dot{
+	width: 10px;
+	height: 10px;
+	background: #1FB464;
+	display: inline-block;
+	border-radius: 50%;
+	margin-right: 3px;
+}
+.orange-dot{
+	width: 10px;
+	height: 10px;
+	background: #ff5a2c;
+	display: inline-block;
+	border-radius: 50%;
+	margin-right: 3px;
+}
+
+
+

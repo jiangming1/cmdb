@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>注册表查询接口 - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent">
+				<div id="title">注册表查询接口 </div>
+				<div id="docContent">
+
+					<ul>
+						<li><div class="title">接口说明</div>
+							<p>您可以通过传入一个或多个key,它会返回一组相应的数据,该接口应用非常广泛,比如:客户电话,服务时间,说明性的文字,等等</p></li>
+						<li>
+						<li><div class="title">接口地址</div>
+							<blockquote>
+								<p>/api/registry.htm</p>
+							</blockquote></li>
+						<li>
+							<div class="title">请求参数</div>
+							<div>
+								<table class="table table-bordered paramtab">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>是否必须</th>
+											<th>默认值</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>key</td>
+											<td>string</td>
+											<td></td>
+											<td></td>
+											<td>可以传入多个key比如: key=1&key=2
+											</td>
+										</tr> 
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">可用Key列表</div>
+							<div>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>Key</th> 
+											<th>例</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>sys.service.mobile</td>
+											<td></td>
+											<td>客户电话</td> 
+										</tr> 
+										<tr>
+											<td>sys.service.mobile.time</td>
+											<td></td>
+											<td>客户电话的服务时间</td> 
+										</tr> 
+										<tr>
+											<td>sys.wx</td>
+											<td></td>
+											<td>微信公众号</td> 
+										</tr> 
+										<tr>
+											<td>sys.qq</td>
+											<td></td>
+											<td>QQ交流群</td> 
+										</tr> 
+										<tr>
+											<td>sys.sina.weibo</td>
+											<td></td>
+											<td>新浪微搏</td> 
+										</tr> 
+										<tr>
+											<td>sys.service.email</td>
+											<td></td>
+											<td>客服邮箱</td> 
+										</tr> 
+										<tr>
+											<td>sys.pic.domain</td>
+											<td></td>
+											<td>图片服务器域名</td> 
+										</tr> 
+										<tr>
+											<td>sys.app.home.banner.v2</td>
+											<td>
+												<ul>
+													点击Banner动作如下:
+													<li><span class="label label-primary">无反映</span><span class="label label-default">pic</span></li>
+													<li><span class="label label-primary">h5</span>
+														<span class="label label-default">pic</span> 
+														<span class="label label-default">action="h5"</span> 
+														<span class="label label-default">href</span> 
+													</li>
+													<li style="margin-top: 20px;"><span class="label label-primary">带token h5</span>
+														<span class="label label-default">pic</span> 
+														<span class="label label-default">action="token_h5"</span> 
+														<span class="label label-default">href?app_token=XXX&device=android/ios</span> 
+													 
+													<li style="margin-top: 20px;"><span class="label label-primary">标的详情</span>
+														<span class="label label-default">pic</span> 
+														<span class="label label-default">action="financing_target_detail"</span> 
+														<span class="label label-default">financing_target_id</span> 
+														 
+													</li>
+												</ul> 
+												<div>
+													<pre style="width: 300px;">
+[{
+ "action":"h5|none|token_h5|financing_target_detail",
+ "financing_target_id":"标的id"
+ "pic":"http://***.png",
+ "href":"http://www.baidu.com",
+ "target":"self/blank"
+}]
+													</pre>	
+												</div>
+											</td>
+											<td>app首页Banner
+											<br/><span style="font-size: 25px;">宽高比1.8：1</span>
+											</td> 
+										</tr> 
+										<tr>
+											<td>sys.btn.customer_service</td>
+											<td>hide</td>
+											<td>客户服务(hide则隐藏)</td> 
+										</tr> 
+										<tr>
+											<td>sys.btn.help_center</td>
+											<td>hide</td>
+											<td>帮助中心(hide则隐藏)</td> 
+										</tr> 
+										<tr>
+											<td>sys.btn.tucao_prize</td>
+											<td>hide</td>
+											<td>吐槽有奖(hide则隐藏)</td> 
+										</tr> 
+										<tr>
+											<td>sys.btn.legality</td>
+											<td>hide</td>
+											<td>合法合规(hide则隐藏)</td> 
+										</tr> 
+										<tr>
+											<td>sys.btn.security_guarantee</td>
+											<td>hide</td>
+											<td>安全保障(hide则隐藏)</td> 
+										</tr> 
+										<tr>
+											<td>sys.btn.about_us</td>
+											<td>hide</td>
+											<td>关于我们(hide则隐藏)</td> 
+										</tr> 
+										<tr>
+											<td>sys.btn.invite_info</td>
+											<td>hide</td>
+											<td>邀请信息(hide则隐藏)</td> 
+										</tr> 
+										<tr>
+											<td>sys.cash.mark</td>
+											<td>由XXX兑付</td>
+											<td>兑付说明文字</td> 
+										</tr> 
+										<tr>
+											<td>sys.app.downloaded.tips</td>
+											<td>app下载完成后的活动提示</td>
+											<td></td> 
+										</tr> 
+										<tr>
+											<td><span style="text-decoration: line-through;;">sys.pop.ad</span>
+												<div style="color: red">替代:<a href="pop.ad.html">pop.ad.html</a></div>
+											</td>
+											<td>{"id":"XXXXX","pic":"图片全路径","href":"h5页面","target":"_blank|self"}</td>
+											<td>app弹出广告,id,pic一定会有,href,target可有可无,target:self为嵌入式Webview,target:_blank为新窗口的Webview</td> 
+										</tr> 
+										<tr>
+											<td>sys.login.ad</td>
+											<td>{"id":"XXXXX","pic":"图片全路径"}</td>
+											<td>登录页面,底部广告</td> 
+										</tr> 
+										<tr>
+											<td>sys.login.tip</td>
+											<td>平台资金由第三方支付机构XXXX</td>
+											<td>安全文字说明</td> 
+										</tr> 
+										<tr>
+											<td>sys.discovery.link</td>
+											<td>[{"id":"XXXX","pic":"XXXXX","href":"http://XXXXX"}]</td>
+											<td>发现里面的图片及链接
+												<br/><span style="font-size: 25px;">宽高比2.7:1</span>
+											</td> 
+										</tr> 
+										<tr>
+											<td>sys.h.rate</td>
+											<td>{"tenThousandDayProfit":1.92,"annualizedRates":7.0}</td>
+											<td>活期利率</td> 
+										</tr> 
+									</tbody>
+								</table>
+								<div style="color: red;">注意:需要考虑到这些数据不返回,或是返回格式不正确的情况.在出现这些情况的时候不要崩溃</div>
+							</div>
+						</li>
+						<li>
+							<div class="title">响应结果</div>
+							<div>
+							 	该结果为一个map形式的json数据,key为您传的值,value为系统中对应该key的值
+							</div>
+						</li>
+						<li>
+							<div class="title">示例</div>
+							<div>
+
+
+								<pre class="prettyprint linenums">
+{"sys.service.mobile":"400-88888","sys.service.mobile.time":"每日9:00-21:00"}
+</pre>
+							</div>
+						</li>
+					</ul>
+
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>

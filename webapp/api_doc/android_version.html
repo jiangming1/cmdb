@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>android版本信息接口 - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+<style type="text/css">
+.badge-beta{
+	background-color: blue;
+}
+.badge-release{
+	background-color: green;
+}
+.stap{  
+	margin: 10px !important;
+} 
+.stap li{
+	margin-left: 20px;
+	list-style: decimal;
+}
+</style>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent">
+				<div id="title">android版本信息接口</div>
+				<div id="docContent">
+
+					<ul>
+						<li><div class="title">Android 版本管理</div>
+							<ul>
+								<li><span class="badge">Alpha - 测试</span>  
+										<ul class="stap">
+											<li>测试环境内测版本</li>
+											<li>利用脚本,每天自动打一个包, FTP地址:http://192.168.199.254/</li>
+										</ul>
+								</li>
+								<li><span class="badge">Alpha - 正式</span>
+										<ul class="stap">
+											<li>正式环境内测版本</li>
+											<li>利用脚本,每天自动打一个包</li>
+										</ul>
+								</li>
+								<li><span class="badge badge-beta">Beta 版</span>
+										<ul class="stap">
+											<li>正式环境公测版本,开通了公测功能的用户可提示更新下载</li>
+											<li>当新功能累加到一定程序时打包</li>
+											<li>SVN代码CP相应的Tag分支</li>
+											<li>将该版本上传到后台,并标识为Beta版本</li> 
+										</ul>
+								</li>
+								<li><span class="badge badge-release">Release 版</span>
+										<ul class="stap">
+											<li>正式环境发布版本,所有的用户都会收到更新提示</li>
+											<li>利用公测时的Tag分支,打包各渠道所需要的 apk,并发给运营人员</li>
+											<li>每个Apk都上传到后台,以便不同渠道的用户最终更新的是相应渠道包</li> 
+										</ul>
+										<div style="color: red;font-size: 20px;">渠道号和包名的对应关系为: 包名=渠道号.apk,如何确保渠道号是正确的?</div>
+								  
+										<ul class="stap">
+											<li>下载 <a href="LaicunbaAPKTest.jar" target="_blank">LaicunbaAPKTest.jar</a>  文件</li>
+											<li>将所有需要检测的apk放到同一目录下</li>
+											<li>执行检测命令:java -jar LaicunbaAPKTest.jar  apk目录</li>
+											<li>观察检测结果,如下图所示</li> 
+										</ul>
+										<img src="apk_test.png" style="width: 700px;" />
+								</li> 
+							</ul>  
+							
+						</li>
+						 
+					
+						<li><div class="title">接口地址</div>
+							<blockquote>
+								<p>/api/android_version.htm</p>
+							</blockquote></li>
+						<li>
+							<div class="title">请求参数</div>
+							<div>
+								<table class="table table-bordered paramtab">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>是否必须</th>
+											<th>默认值</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>_channel</td>
+											<td>string</td>
+											<td>是</td>
+											<td></td>
+											<td>app推广渠道</td>
+										</tr>
+										<tr>
+											<td>mobile</td>
+											<td>string</td>
+											<td>否</td>
+											<td></td>
+											<td>有则传,没有则不传<br/>
+												<div style="color: red;">后台会利用它检查可否安装beta版应用</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">响应结果</div>
+							<div>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>一定存在</th>
+											<th>示例</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>versionCode</td>
+											<td>int</td>
+											<td>是</td>
+											<td>101</td>
+											<td>版本号值
+											</td>
+										</tr>
+										<tr>
+											<td>versionName</td>
+											<td>string</td>
+											<td>是</td>
+											<td>1.0.1</td>
+											<td>版本号名
+											</td>
+										</tr>
+										<tr>
+											<td>apk</td>
+											<td>string</td>
+											<td>是</td>
+											<td>http://test.laicunba.com/Lcb.apk</td>
+											<td>apk的下载地址
+											</td>
+										</tr>
+										<tr>
+											<td>force</td>
+											<td>boolean</td>
+											<td></td>
+											<td>false</td>
+											<td>是否强制安装
+											</td>
+										</tr>
+										<tr>
+											<td>summary</td>
+											<td>string</td>
+											<td></td>
+											<td>增加了XXX功能,修复了XXX BUG.</td>
+											<td>新版本的一些说明
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">示例</div>
+							<div>
+
+
+								<pre class="prettyprint linenums">
+{
+    "summary": "增加了XXX功能,修复了XXX BUG.",
+    "force": false,
+    "versionName": "1.0.1",
+    "apk": "http://test.laicunba.com/Lcb.apk",
+    "versionCode": 101
+}
+</pre>
+							</div>
+						</li>
+					</ul>
+
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>获得用户信息接口 - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent">
+				<div id="title">获得用户信息接口</div>
+				<div id="docContent">
+
+					<ul>
+						<li><div class="title">接口说明</div> 
+								<p>通过该接口在登录成功后,获取用户的信息,以便展现如:身份证,真实姓名等等</p> 
+						</li>
+							
+									
+						<li><div class="title">接口地址</div>
+							<blockquote>
+								<p>/api/get_user_profile.htm</p>
+							</blockquote></li>
+						<li>
+							<div class="title">请求参数</div>
+							<div>
+								<table class="table table-bordered paramtab">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>是否必须</th>
+											<th>默认值</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>token</td>
+											<td>string</td>
+											<td>是</td>
+											<td></td>
+											<td>身份识别信息,参考 "获得用户Token接口"</td>
+										</tr> 
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">响应结果</div>
+							<div>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>一定存在</th>
+											<th>示例</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>code</td>
+											<td>string</td>
+											<td>是</td>
+											<td>SUCCESS</td>
+											<td>SUCCESS : 获得用户成功 <br/><span style="color: red">(只有这个值,才有其它内容)</span>
+											<br />TOKEN_ERROR : token无效   
+											</td>
+										</tr>  
+										<tr>
+											<td>id</td>
+											<td>string</td>
+											<td></td>
+											<td>3e804a7d-50e7-49db-a3cd-514dbce7dbdb</td>
+											<td> 唯一标识
+											</td>
+										</tr>  
+										<tr>
+											<td>gmtRegist</td>
+											<td>long</td>
+											<td></td>
+											<td>1452231541516</td>
+											<td> 注册时间 (毫秒数)
+											</td>
+										</tr> 
+										<tr>
+											<td>mobile</td>
+											<td>string</td>
+											<td></td>
+											<td>18367156949</td>
+											<td>手机号码
+											</td>
+										</tr> 
+										<tr>
+											<td>trueName</td>
+											<td>string</td>
+											<td></td>
+											<td>张三</td>
+											<td>姓名 <br/><span style="color:red">绑定银行卡后才会存在</span>
+											</td>
+										</tr> 
+										<tr>
+											<td>pid</td>
+											<td>string</td>
+											<td></td>
+											<td></td>
+											<td>身份证号码<br/><span style="color:red">绑定银行卡后才会存在</span>
+											</td>
+										</tr>
+										<tr>
+											<td>inviteCode</td>
+											<td>string</td>
+											<td>是</td>
+											<td>888888</td>
+											<td>我的邀请码</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">示例</div>
+							<div>
+
+
+								<pre class="prettyprint linenums">
+{
+    "gmtRegist": 1452231541516,
+    "id": "16827d32-2be6-4683-85a0-78331a26fcfc",
+    "mobile": "1",
+    "pid": "352523191108241222",
+    "trueName": "张三",
+    "inviteCode": "888888",
+    "code": "SUCCESS"
+}
+</pre>
+							</div>
+						</li>
+					</ul>
+
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>

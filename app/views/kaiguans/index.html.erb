@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>开关</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>姓名</th>
+      <th>凯奇</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kaiguans.each do |kaiguan| %>
+      <tr>
+        <td><%= kaiguan.xingming %></td>
+        <td><%= kaiguan.kaiqi %></td>
+        <td><%= link_to 'Show', kaiguan %></td>
+        <td><%= link_to 'Edit', edit_kaiguan_path(kaiguan) %></td>
+        <td><%= link_to 'Destroy', kaiguan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建开关', new_kaiguan_path %>

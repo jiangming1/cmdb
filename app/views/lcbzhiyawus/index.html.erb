@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>lcbzhiyawu</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>状态</th>
+      <th>目标金额</th>
+      <th>募集金额</th>
+      <th>lilv</th>
+      <th>存款期限</th>
+      <th>名称</th>
+      <th>zuixiaoine</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lcbzhiyawus.each do |lcbzhiyawu| %>
+      <tr>
+        <td><%= lcbzhiyawu.zhuangtai %></td>
+        <td><%= lcbzhiyawu.mubiaojine %></td>
+        <td><%= lcbzhiyawu.mujijine %></td>
+        <td><%= lcbzhiyawu.lilv %></td>
+        <td><%= lcbzhiyawu.cunkuanqixian %></td>
+        <td><%= lcbzhiyawu.mingcheng %></td>
+        <td><%= lcbzhiyawu.zuixiaoine %></td>
+        <td><%= link_to 'Show', lcbzhiyawu %></td>
+        <td><%= link_to 'Edit', edit_lcbzhiyawu_path(lcbzhiyawu) %></td>
+        <td><%= link_to 'Destroy', lcbzhiyawu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建lcbzhiyawu', new_lcbzhiyawu_path %>

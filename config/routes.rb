@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :lcbzhiyawus
+  resources :lcbzhanghus
+  resources :kaiguans
+  resources :lvmaotongs
   resources :webceshis
   resources :ceshijilus
   resources :pingguoceshis

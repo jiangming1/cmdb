@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Page Not Found</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{
+	margin: 0;
+	padding: 0; 
+}
+.error{
+	text-align: center;
+	margin-top: 35%;
+}
+.word_tip{
+	margin-top: 50px;
+	color: #646464;
+}
+#btn_flesh{
+	width: 80%;
+	padding: 0.5rem;
+	border: 1px solid #C4C4C4;
+	margin: 3rem auto;
+	border-radius: 0.5rem;
+}
+</style>    
+</head>
+
+<body style="background: url(img/bg_404.png) no-repeat; background-size: 100%;width: 100%;height: 100%; ">
+<div class="error">
+     <div><img src="img/sad_hurt.png"></div>
+     <div class="word_tip">哎嘛！是谁断了我的网</div>
+     <div id="btn_flesh">重新加载</div>
+</div> 
+<script>
+	var oBtn=document.getElementById("btn_flesh");
+	    oBtn.onclick=function(){
+			setTimeout('window.location.href="http://www.laicunba.com/"',100);
+			};
+</script>
+</body>
+</html>

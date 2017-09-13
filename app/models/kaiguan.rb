@@ -1,0 +1,2 @@
+class Kaiguan < ApplicationRecord
+end

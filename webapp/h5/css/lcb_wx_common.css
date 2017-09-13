@@ -1,0 +1,202 @@
+@charset "utf-8";
+* {
+	font-family: "微软雅黑";
+	margin: 0;
+	padding: 0;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+}
+a {
+    text-decoration: none;
+}
+img{
+	box-sizing: border-box;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+	border: 0;
+}
+table{
+/* 	border-collapse:collapse; */
+	border-spacing:0;
+}
+#bottomLayout {
+	width: 100%;
+	height: 50px;
+	background-color: #fdfdfd;
+	position: fixed;
+	bottom: 0px;
+	border-top:1px solid #ddd;
+	padding-top:3px;
+	z-index: 10;
+}
+
+#bottomLayout .btn1 {
+	width: 33%;
+	float: left;
+	text-align: center;
+	height: 100%;
+}
+
+#bottomLayout .icon {
+	height: 25px;
+	margin-top: 3px;
+}
+
+#bottomLayout .text {
+	font-size: 14px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+}
+
+.btn-warning {
+	border-radius: 4px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #337ab7;
+	border-color: #337ab7;
+	color: white;
+}
+
+.backBar {
+	
+}
+
+.backBar table {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	background-color: #FFF;
+	font-size: 20px;
+	color: #000;
+	font-weight: bold;
+}
+
+.backBar table td {
+	text-align: center;
+	border-bottom: 1px solid #E6E6E6;
+	padding-top: 10px;
+}
+
+.backBar a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+}
+
+@charset "utf-8";
+.popBox {
+	position: fixed;
+	top: 25%;
+	left: 2.4%;
+	z-index: 100000;
+	display: none;
+	width: 95%;
+	border: 1px #dbdbdb solid;
+	border-radius: 4px;
+	background-color: #fff
+}
+
+.pop_header {
+	margin-top: 0;
+	margin-bottom: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 100%;
+	height: 40px;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	background-color: #ff4400;
+	color: #fff;
+	text-indent: 17px;
+	font-size: 1.7rem
+}
+
+.popconbox {
+	padding: 20px;
+	border-radius: 4px;
+	text-align: center
+}
+
+.popbtnbox {
+	margin: 0 auto;
+	width: 100%
+}
+
+.popbtnbox,.popconbox a.popbtn {
+	display: inline-block;
+	text-align: center
+}
+
+.popconbox a.popbtn {
+	width: 90pt;
+	border-radius: 2px;
+	background-color: #f37b1d;
+	color: #fff;
+	font-size: 1.6rem;
+	line-height: 40px
+}
+
+.popconbox a.popbtn.sure {
+	margin-right: 15px
+}
+
+.popconbox a.popbtn.cancel {
+	background-color: #fda35a
+}
+
+.popconc {
+	margin: 0 auto 10px;
+	vertical-align: middle;
+	font-size: 1.6rem;
+	line-height: 30px
+}
+
+.popconc,.ts-ico {
+	display: inline-block
+}
+
+.ts-ico {
+	float: left;
+	margin-right: 10px;
+	width: 30px;
+	height: 30px;
+	background-image: url(../img/ts-ico.png);
+	background-size: 26px auto;
+	background-repeat: no-repeat
+}
+
+.ts-ico.dui {
+	background-position: 0 0
+}
+
+.ts-ico.cuo {
+	background-position: 0 -35px
+}
+
+.ts-ico.jg {
+	background-position: 0 -70px
+}
+
+.ts-ico.wen {
+	background-position: 0 -105px
+}
+
+.popbg {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 99999;
+	display: inline-block;
+	display: none;
+	width: 100%;
+	height: 100%;
+	min-width: 100%;
+	min-height: 100%;
+	background: rgba(0,0,0,0.5);
+	_position: absolute;
+	filter: alpha(opacity=50);
+}

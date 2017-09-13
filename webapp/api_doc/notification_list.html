@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>获得通知列表接口 - 来存吧!</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="comm.css">
+<script type="text/javascript" src="api.list.json.js"></script>
+<script type="text/javascript" src="comm.js"></script>
+<style type="text/css">
+#methodUL{
+	list-style: decimal;
+	padding: 10px;
+	margin-left: 20px;
+}
+</style>
+</head>
+<body>
+	<iframe id="topHeader" src="top.html"></iframe>
+	<table id="inner">
+		<tr>
+			<td id="left">
+				<ul>
+				</ul>
+			</td>
+			<td id="mainContent"> 
+				<div id="title">获得通知列表接口</div>
+				<div id="docContent">
+
+					<ul>
+						<li><div class="title">app上那个红色圆点该如何显示?</div> 
+							 	<ul id="methodUL">
+							 		<li>1、当打开app的时候异步读取该接口,如果本地不存在则保存到本地(比如SQLite),并且设置 is_read == false (可以在本地多创建一个字段叫is_read)</li>
+							 		<li>2、处理完第一步后,查找本地是否有未读的数据,如果有,则显示小红点</li>
+							 		<li>3、在进入列表页面的时候直接显示本地通知即可.</li>
+							 		<li>4、在点击详情的时候,打开WebView预览详情之前,通过ID修改本地为is_read==true.</li>
+							 	</ul> 
+							 	<span style="color: red; font-size: 20px;">
+							 	注意:在读接口,存本地这些操作都加上异常捕获,不要因为网络,或无数据,使得整个app挂掉
+							 	</span>
+						<li>
+						
+						
+						<li><div class="title">接口地址</div>
+							<blockquote>
+								<p>/api/notification_list.htm</p>
+							</blockquote></li>
+						<li>
+							<div class="title">请求参数</div>
+							<div>
+								<table class="table table-bordered paramtab">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>是否必须</th>
+											<th>默认值</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>token</td>
+											<td>string</td>
+											<td>否</td>
+											<td></td>
+											<td>注意,这个token不是必须的</td>
+										</tr> 
+										<tr>
+											<td>timestamp</td>
+											<td>long</td>
+											<td>否</td>
+											<td></td>
+											<td>毫秒时间</td>
+										</tr> 
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">响应结果</div>
+							<div>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>名称</th>
+											<th>类型</th>
+											<th>一定存在</th>
+											<th>示例</th>
+											<th>说明</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>id</td>
+											<td>string</td>
+											<td>是</td>
+											<td></td>
+											<td> </td>
+										</tr>
+										<tr>
+											<td>gmtCreate</td>
+											<td>long</td>
+											<td>是</td>
+											<td>1470020552000</td>
+											<td>毫秒时间戳</td>
+										</tr>
+										<tr>
+											<td>title</td>
+											<td>string</td>
+											<td>是</td>
+											<td></td>
+											<td>标题</td>
+										</tr>
+										<tr>
+											<td>public</td>
+											<td>boolean</td>
+											<td>是</td>
+											<td></td>
+											<td>是否公开</td>
+										</tr> 
+									</tbody>
+								</table>
+							</div>
+						</li>
+						<li>
+							<div class="title">示例</div>
+							<div>
+
+
+								<pre class="prettyprint linenums">
+[
+    {
+        "content": "这是详情",
+        "createUid": "",
+        "gmtCreate": 1470020552000,
+        "gmtWrite": null,
+        "id": "XXX",
+        "ownerId": "", 
+        "title": "这是标题",
+        "userId": "XXX",
+        "writeUid": ""
+    }
+]
+</pre>
+							</div>
+						</li>
+					</ul>
+
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<iframe id="bottom" src="bottom.html"></iframe>
+</body>
+</html>
