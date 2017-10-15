@@ -157,7 +157,7 @@ argv=sys.argv[1:]
 try:
   opts, args = getopt.getopt(argv,"i:s:")
 except getopt.GetoptError:
-  print ('test.py -i <inputfile> -o <outputfile>')
+  print ('test.py -i <name> -s <canshu>')
   sys.exit(2)
 for opt, arg in opts:
   if opt in ("-i","--invite"):

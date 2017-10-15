@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dianhuahaoma: MyString
+  mingcheng: MyString
+  guanzhuchengdu: MyString
+  shuoming: MyString
+
+two:
+  dianhuahaoma: MyString
+  mingcheng: MyString
+  guanzhuchengdu: MyString
+  shuoming: MyString

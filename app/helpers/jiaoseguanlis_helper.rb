@@ -1,0 +1,2 @@
+module JiaoseguanlisHelper
+end

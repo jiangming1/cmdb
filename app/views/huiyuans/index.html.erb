@@ -1,0 +1,101 @@
+<p id="notice"><%= notice %></p>
+
+<h1>会员</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>姓名</th>
+      <th>身份证</th>
+      <th>运营商</th>
+      <th>照片</th>
+      <th>风险等级</th>
+      <th>借款次数</th>
+      <th>推荐人</th>
+      <th>qq</th>
+      <th>身份证</th>
+      <th>教育情况</th>
+      <th>居住市场</th>
+      <th>zhiye</th>
+      <th>公司名称</th>
+      <th>公司地址</th>
+      <th>情书</th>
+      <th>guanxi</th>
+      <th>银行卡号</th>
+      <th>银行名称</th>
+      <th>银行预留手机号</th>
+      <th>信息填写情况</th>
+      <th>银行卡信息填写情况</th>
+      <th>用户状态</th>
+      <th>资金借款状态</th>
+      <th>信用额度</th>
+      <th>涞源</th>
+      <th>审核人</th>
+      <th>手机号</th>
+      <th>email</th>
+      <th>婚姻状况</th>
+      <th>租住地址</th>
+      <th>收入</th>
+      <th>公司城市</th>
+      <th>公司电话</th>
+      <th>情书电话</th>
+      <th>关系电话</th>
+      <th>银行户名</th>
+      <th>所在城市</th>
+      <th>银行预留身份证号码</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @huiyuans.each do |huiyuan| %>
+      <tr>
+        <td><%= huiyuan.xingming %></td>
+        <td><%= huiyuan.shenfenzheng %></td>
+        <td><%= huiyuan.yunyingshang %></td>
+        <td><%= huiyuan.zhaopian %></td>
+        <td><%= huiyuan.fengxiandengji %></td>
+        <td><%= huiyuan.jiekuancishu %></td>
+        <td><%= huiyuan.tuijianren %></td>
+        <td><%= huiyuan.qq %></td>
+        <td><%= huiyuan.shenfenzheng %></td>
+        <td><%= huiyuan.jiaoyuqingkuang %></td>
+        <td><%= huiyuan.juzhushichang %></td>
+        <td><%= huiyuan.zhiye %></td>
+        <td><%= huiyuan.gongsimingcheng %></td>
+        <td><%= huiyuan.gongsidizhi %></td>
+        <td><%= huiyuan.qinshu %></td>
+        <td><%= huiyuan.guanxi %></td>
+        <td><%= huiyuan.yinhangkahao %></td>
+        <td><%= huiyuan.yinhangmingcheng %></td>
+        <td><%= huiyuan.yinhangyuliushoujihao %></td>
+        <td><%= huiyuan.xinxitianxieqingkuang %></td>
+        <td><%= huiyuan.yinhangkaxinxitianxieqingkuang %></td>
+        <td><%= huiyuan.yonghuzhuangtai %></td>
+        <td><%= huiyuan.zuijinjiekuanzhuangtai %></td>
+        <td><%= huiyuan.xinyongedu %></td>
+        <td><%= huiyuan.laiyuan %></td>
+        <td><%= huiyuan.shenheren %></td>
+        <td><%= huiyuan.shoujihao %></td>
+        <td><%= huiyuan.email %></td>
+        <td><%= huiyuan.hunyinzhuangkuang %></td>
+        <td><%= huiyuan.zuzhudizhi %></td>
+        <td><%= huiyuan.shouru %></td>
+        <td><%= huiyuan.gongsichengshi %></td>
+        <td><%= huiyuan.gongsidianhua %></td>
+        <td><%= huiyuan.qingshudianhua %></td>
+        <td><%= huiyuan.guanxidianhua %></td>
+        <td><%= huiyuan.yinhanghuming %></td>
+        <td><%= huiyuan.suozaichengshi %></td>
+        <td><%= huiyuan.yinhangyuliushenfengzhenghaoma %></td>
+        <td><%= link_to 'Show', huiyuan %></td>
+        <td><%= link_to 'Edit', edit_huiyuan_path(huiyuan) %></td>
+        <td><%= link_to 'Destroy', huiyuan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建会员', new_huiyuan_path %>

@@ -1,0 +1,16 @@
+<%= simple_form_for(@tuiguang) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :tuiguangfangmingcheng %>
+    <%= f.input :dangezhucejianglijin %>
+    <%= f.input :dangeziliaowanshanjianglijin %>
+    <%= f.input :dangefangkuanjianglijinjine %>
+    <%= f.input :dangefangkuangjianglijinbaifenbi %>
+    <%= f.input :dangqianzhuangtai %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

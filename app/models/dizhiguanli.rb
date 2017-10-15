@@ -1,0 +1,2 @@
+class Dizhiguanli < ApplicationRecord
+end

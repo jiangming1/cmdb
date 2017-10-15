@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>新用户贷放款列表</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>姓名</th>
+      <th>手机号</th>
+      <th>借款金额</th>
+      <th>借款利息</th>
+      <th>借款期限</th>
+      <th>借款时间</th>
+      <th>审核人</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @xinyonghudaifangkuanliebiaos.each do |xinyonghudaifangkuanliebiao| %>
+      <tr>
+        <td><%= xinyonghudaifangkuanliebiao.xingming %></td>
+        <td><%= xinyonghudaifangkuanliebiao.shoujihao %></td>
+        <td><%= xinyonghudaifangkuanliebiao.jiekuanjine %></td>
+        <td><%= xinyonghudaifangkuanliebiao.jiekuanlixi %></td>
+        <td><%= xinyonghudaifangkuanliebiao.jiekuanqixian %></td>
+        <td><%= xinyonghudaifangkuanliebiao.jiekuanshijian %></td>
+        <td><%= xinyonghudaifangkuanliebiao.shenheren %></td>
+        <td><%= link_to 'Show', xinyonghudaifangkuanliebiao %></td>
+        <td><%= link_to 'Edit', edit_xinyonghudaifangkuanliebiao_path(xinyonghudaifangkuanliebiao) %></td>
+        <td><%= link_to 'Destroy', xinyonghudaifangkuanliebiao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建新用户贷放款列表', new_xinyonghudaifangkuanliebiao_path %>

@@ -1,0 +1,2 @@
+class Xiaoximoban < ApplicationRecord
+end

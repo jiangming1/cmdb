@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>权限管理</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>权限名称</th>
+      <th>地址</th>
+      <th>所属菜单</th>
+      <th>启用</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quanxianguanlis.each do |quanxianguanli| %>
+      <tr>
+        <td><%= quanxianguanli.quanxianmingcheng %></td>
+        <td><%= quanxianguanli.dizhi %></td>
+        <td><%= quanxianguanli.suoshucaidan %></td>
+        <td><%= quanxianguanli.qiyong %></td>
+        <td><%= link_to 'Show', quanxianguanli %></td>
+        <td><%= link_to 'Edit', edit_quanxianguanli_path(quanxianguanli) %></td>
+        <td><%= link_to 'Destroy', quanxianguanli, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建权限管理', new_quanxianguanli_path %>

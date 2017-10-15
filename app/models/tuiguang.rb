@@ -1,0 +1,2 @@
+class Tuiguang < ApplicationRecord
+end

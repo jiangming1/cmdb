@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>姓名:</strong>
+  <%= @dakuanshibai.xingming %>
+</p>
+
+<p>
+  <strong>手机号:</strong>
+  <%= @dakuanshibai.shoujihao %>
+</p>
+
+<p>
+  <strong>借款金额:</strong>
+  <%= @dakuanshibai.jiekuanjine %>
+</p>
+
+<p>
+  <strong>借款利息:</strong>
+  <%= @dakuanshibai.jiekuanlixi %>
+</p>
+
+<p>
+  <strong>借款期限:</strong>
+  <%= @dakuanshibai.jiekuanqixian %>
+</p>
+
+<p>
+  <strong>借款时间:</strong>
+  <%= @dakuanshibai.jiekuanshijian %>
+</p>
+
+<p>
+  <strong>审核时间:</strong>
+  <%= @dakuanshibai.shenheshijian %>
+</p>
+
+<p>
+  <strong>审核人:</strong>
+  <%= @dakuanshibai.shenheren %>
+</p>
+
+<p>
+  <strong>操作:</strong>
+  <%= @dakuanshibai.caozuo %>
+</p>
+
+<%= link_to 'Edit', edit_dakuanshibai_path(@dakuanshibai) %> |
+<%= link_to 'Back', dakuanshibais_path %>

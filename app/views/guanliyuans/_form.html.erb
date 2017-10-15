@@ -1,0 +1,19 @@
+<%= simple_form_for(@guanliyuan) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :zhanghao %>
+    <%= f.input :xingming %>
+    <%= f.input :chuangjianshijian %>
+    <%= f.input :dengji %>
+    <%= f.input :suoshujiaose %>
+    <%= f.input :suoshujigou %>
+    <%= f.input :xingbie %>
+    <%= f.input :shouji %>
+    <%= f.input :qiyong %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

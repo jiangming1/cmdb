@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>权限名称:</strong>
+  <%= @quanxianguanli.quanxianmingcheng %>
+</p>
+
+<p>
+  <strong>地址:</strong>
+  <%= @quanxianguanli.dizhi %>
+</p>
+
+<p>
+  <strong>所属菜单:</strong>
+  <%= @quanxianguanli.suoshucaidan %>
+</p>
+
+<p>
+  <strong>启用:</strong>
+  <%= @quanxianguanli.qiyong %>
+</p>
+
+<%= link_to 'Edit', edit_quanxianguanli_path(@quanxianguanli) %> |
+<%= link_to 'Back', quanxianguanlis_path %>

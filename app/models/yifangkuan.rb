@@ -1,0 +1,2 @@
+class Yifangkuan < ApplicationRecord
+end

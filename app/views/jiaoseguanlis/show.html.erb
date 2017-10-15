@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>较色代码:</strong>
+  <%= @jiaoseguanli.jiaosedaima %>
+</p>
+
+<p>
+  <strong>角色名称:</strong>
+  <%= @jiaoseguanli.jiaosemingcheng %>
+</p>
+
+<p>
+  <strong>所属权限:</strong>
+  <%= @jiaoseguanli.suoshuquanxian %>
+</p>
+
+<p>
+  <strong>启用:</strong>
+  <%= @jiaoseguanli.qiyong %>
+</p>
+
+<%= link_to 'Edit', edit_jiaoseguanli_path(@jiaoseguanli) %> |
+<%= link_to 'Back', jiaoseguanlis_path %>

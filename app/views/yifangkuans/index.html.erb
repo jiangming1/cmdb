@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>一放宽</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>姓名</th>
+      <th>手机号</th>
+      <th>借款金额</th>
+      <th>借款利息</th>
+      <th>借款期限</th>
+      <th>借款时间</th>
+      <th>放款时间</th>
+      <th>测绘</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @yifangkuans.each do |yifangkuan| %>
+      <tr>
+        <td><%= yifangkuan.xingming %></td>
+        <td><%= yifangkuan.shoujihao %></td>
+        <td><%= yifangkuan.jiekuanjine %></td>
+        <td><%= yifangkuan.jiekuanlixi %></td>
+        <td><%= yifangkuan.jiekuanqixian %></td>
+        <td><%= yifangkuan.jiekuanshijian %></td>
+        <td><%= yifangkuan.fangkuanshijian %></td>
+        <td><%= yifangkuan.cehui %></td>
+        <td><%= link_to 'Show', yifangkuan %></td>
+        <td><%= link_to 'Edit', edit_yifangkuan_path(yifangkuan) %></td>
+        <td><%= link_to 'Destroy', yifangkuan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建一放宽', new_yifangkuan_path %>

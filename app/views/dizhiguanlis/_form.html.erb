@@ -1,0 +1,17 @@
+<%= simple_form_for(@dizhiguanli) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :daima %>
+    <%= f.input :mingcheng %>
+    <%= f.input :shangjichengshi %>
+    <%= f.input :dengji %>
+    <%= f.input :paixu %>
+    <%= f.input :pinyin %>
+    <%= f.input :jianpin %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

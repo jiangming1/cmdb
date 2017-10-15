@@ -1,0 +1,2 @@
+class Huiyuan < ApplicationRecord
+end

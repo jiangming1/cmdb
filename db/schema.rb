@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911090127) do
+ActiveRecord::Schema.define(version: 20171015154316) do
 
   create_table "androidupdates", force: :cascade do |t|
     t.string   "shichang"
@@ -84,11 +84,34 @@ ActiveRecord::Schema.define(version: 20170911090127) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "dakuanshibais", force: :cascade do |t|
+    t.string   "xingming"
+    t.string   "shoujihao"
+    t.string   "jiekuanjine"
+    t.string   "jiekuanlixi"
+    t.string   "jiekuanqixian"
+    t.string   "jiekuanshijian"
+    t.string   "shenheshijian"
+    t.string   "shenheren"
+    t.boolean  "caozuo"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "dengluzhanghus", force: :cascade do |t|
     t.string   "zhanghaomingcheng"
     t.string   "zhanghaomima"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "dianhuahuangyes", force: :cascade do |t|
+    t.string   "dianhuahaoma"
+    t.string   "mingcheng"
+    t.string   "guanzhuchengdu"
+    t.string   "shuoming"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "diannaos", force: :cascade do |t|
@@ -131,6 +154,18 @@ ActiveRecord::Schema.define(version: 20170911090127) do
     t.integer "dingshirenwu_id",   null: false
   end
 
+  create_table "dizhiguanlis", force: :cascade do |t|
+    t.string   "daima"
+    t.string   "mingcheng"
+    t.string   "shangjichengshi"
+    t.string   "dengji"
+    t.string   "paixu"
+    t.string   "pinyin"
+    t.string   "jianpin"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "dns", force: :cascade do |t|
     t.string   "mingzi"
     t.string   "zhujijilu"
@@ -157,6 +192,15 @@ ActiveRecord::Schema.define(version: 20170911090127) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "fengxianguanlis", force: :cascade do |t|
+    t.string   "xingming"
+    t.string   "shoujihao"
+    t.string   "fenxiandengji"
+    t.string   "shuoming"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "fuwus", force: :cascade do |t|
     t.string   "mingzi"
     t.string   "svn"
@@ -165,6 +209,62 @@ ActiveRecord::Schema.define(version: 20170911090127) do
     t.string   "diannao_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "guanliyuans", force: :cascade do |t|
+    t.string   "zhanghao"
+    t.string   "xingming"
+    t.date     "chuangjianshijian"
+    t.string   "dengji"
+    t.string   "suoshujiaose"
+    t.string   "suoshujigou"
+    t.string   "xingbie"
+    t.string   "shouji"
+    t.boolean  "qiyong"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "huiyuans", force: :cascade do |t|
+    t.string   "xingming"
+    t.string   "shenfenzheng"
+    t.string   "yunyingshang"
+    t.string   "zhaopian"
+    t.string   "fengxiandengji"
+    t.string   "jiekuancishu"
+    t.string   "tuijianren"
+    t.string   "qq"
+    t.string   "jiaoyuqingkuang"
+    t.string   "juzhushichang"
+    t.string   "zhiye"
+    t.string   "gongsimingcheng"
+    t.string   "gongsidizhi"
+    t.string   "qinshu"
+    t.string   "guanxi"
+    t.string   "yinhangkahao"
+    t.string   "yinhangmingcheng"
+    t.string   "yinhangyuliushoujihao"
+    t.string   "xinxitianxieqingkuang"
+    t.string   "yinhangkaxinxitianxieqingkuang"
+    t.string   "yonghuzhuangtai"
+    t.string   "zuijinjiekuanzhuangtai"
+    t.string   "xinyongedu"
+    t.string   "laiyuan"
+    t.string   "shenheren"
+    t.string   "shoujihao"
+    t.string   "email"
+    t.string   "hunyinzhuangkuang"
+    t.string   "zuzhudizhi"
+    t.string   "shouru"
+    t.string   "gongsichengshi"
+    t.string   "gongsidianhua"
+    t.string   "qingshudianhua"
+    t.string   "guanxidianhua"
+    t.string   "yinhanghuming"
+    t.string   "suozaichengshi"
+    t.string   "yinhangyuliushenfengzhenghaoma"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "ipdizhis", force: :cascade do |t|
@@ -199,6 +299,15 @@ ActiveRecord::Schema.define(version: 20170911090127) do
     t.string   "chaoshishijian"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "jiaoseguanlis", force: :cascade do |t|
+    t.string   "jiaosedaima"
+    t.string   "jiaosemingcheng"
+    t.string   "suoshuquanxian"
+    t.boolean  "qiyong"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "kaiguans", force: :cascade do |t|
@@ -332,6 +441,15 @@ ActiveRecord::Schema.define(version: 20170911090127) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "quanxianguanlis", force: :cascade do |t|
+    t.string   "quanxianmingcheng"
+    t.string   "dizhi"
+    t.string   "suoshucaidan"
+    t.boolean  "qiyong"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "shoujis", force: :cascade do |t|
     t.string   "ip"
     t.string   "myid"
@@ -409,6 +527,17 @@ ActiveRecord::Schema.define(version: 20170911090127) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tuiguangs", force: :cascade do |t|
+    t.string   "tuiguangfangmingcheng"
+    t.string   "dangezhucejianglijin"
+    t.string   "dangeziliaowanshanjianglijin"
+    t.string   "dangefangkuanjianglijinjine"
+    t.string   "dangefangkuangjianglijinbaifenbi"
+    t.boolean  "dangqianzhuangtai"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
   create_table "umengs", force: :cascade do |t|
     t.string   "yingyongming"
     t.string   "jinrixinzeng"
@@ -434,11 +563,71 @@ ActiveRecord::Schema.define(version: 20170911090127) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "xiaoxiliebiaos", force: :cascade do |t|
+    t.string   "yonghuxingming"
+    t.string   "shoujihao"
+    t.string   "xiaoxileixing"
+    t.string   "chuangjianshijian"
+    t.string   "biaoti"
+    t.string   "neirong"
+    t.string   "caozuo"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "xiaoximobans", force: :cascade do |t|
+    t.string   "bianma"
+    t.string   "biaoti"
+    t.string   "xiaoxineirong"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "xinyonghudaifangkuanliebiaos", force: :cascade do |t|
+    t.string   "xingming"
+    t.string   "shoujihao"
+    t.string   "jiekuanjine"
+    t.string   "jiekuanlixi"
+    t.string   "jiekuanqixian"
+    t.string   "jiekuanshijian"
+    t.string   "shenheren"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "xitongzhanghuguanlis", force: :cascade do |t|
     t.string   "xitongzhanghao"
     t.string   "xitongmima"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "xujiedaifangkuanliebiaos", force: :cascade do |t|
+    t.string   "xingming"
+    t.string   "shoujihao"
+    t.string   "jiekuanjine"
+    t.string   "jiekuanlixi"
+    t.string   "jiekuanqixian"
+    t.string   "jiekuanshijian"
+    t.string   "xujie"
+    t.string   "shenheshijian"
+    t.string   "shenheren"
+    t.boolean  "tongguo"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "yifangkuans", force: :cascade do |t|
+    t.string   "xingming"
+    t.string   "shoujihao"
+    t.string   "jiekuanjine"
+    t.string   "jiekuanlixi"
+    t.string   "jiekuanqixian"
+    t.string   "jiekuanshijian"
+    t.string   "fangkuanshijian"
+    t.boolean  "cehui"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "yumings", force: :cascade do |t|

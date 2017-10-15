@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jiaosedaima: MyString
+  jiaosemingcheng: MyString
+  suoshuquanxian: MyString
+  qiyong: false
+
+two:
+  jiaosedaima: MyString
+  jiaosemingcheng: MyString
+  suoshuquanxian: MyString
+  qiyong: false

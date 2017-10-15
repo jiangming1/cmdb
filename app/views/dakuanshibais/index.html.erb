@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>打款失败</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>姓名</th>
+      <th>手机号</th>
+      <th>借款金额</th>
+      <th>借款利息</th>
+      <th>借款期限</th>
+      <th>借款时间</th>
+      <th>审核时间</th>
+      <th>审核人</th>
+      <th>操作</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dakuanshibais.each do |dakuanshibai| %>
+      <tr>
+        <td><%= dakuanshibai.xingming %></td>
+        <td><%= dakuanshibai.shoujihao %></td>
+        <td><%= dakuanshibai.jiekuanjine %></td>
+        <td><%= dakuanshibai.jiekuanlixi %></td>
+        <td><%= dakuanshibai.jiekuanqixian %></td>
+        <td><%= dakuanshibai.jiekuanshijian %></td>
+        <td><%= dakuanshibai.shenheshijian %></td>
+        <td><%= dakuanshibai.shenheren %></td>
+        <td><%= dakuanshibai.caozuo %></td>
+        <td><%= link_to 'Show', dakuanshibai %></td>
+        <td><%= link_to 'Edit', edit_dakuanshibai_path(dakuanshibai) %></td>
+        <td><%= link_to 'Destroy', dakuanshibai, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建打款失败', new_dakuanshibai_path %>

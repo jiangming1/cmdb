@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>xujiedaifangkuanliebiao</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>姓名</th>
+      <th>手机号</th>
+      <th>借款金额</th>
+      <th>借款利息</th>
+      <th>借款期限</th>
+      <th>借款时间</th>
+      <th>徐杰</th>
+      <th>审核时间</th>
+      <th>审核人</th>
+      <th>通过</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @xujiedaifangkuanliebiaos.each do |xujiedaifangkuanliebiao| %>
+      <tr>
+        <td><%= xujiedaifangkuanliebiao.xingming %></td>
+        <td><%= xujiedaifangkuanliebiao.shoujihao %></td>
+        <td><%= xujiedaifangkuanliebiao.jiekuanjine %></td>
+        <td><%= xujiedaifangkuanliebiao.jiekuanlixi %></td>
+        <td><%= xujiedaifangkuanliebiao.jiekuanqixian %></td>
+        <td><%= xujiedaifangkuanliebiao.jiekuanshijian %></td>
+        <td><%= xujiedaifangkuanliebiao.xujie %></td>
+        <td><%= xujiedaifangkuanliebiao.shenheshijian %></td>
+        <td><%= xujiedaifangkuanliebiao.shenheren %></td>
+        <td><%= xujiedaifangkuanliebiao.tongguo %></td>
+        <td><%= link_to 'Show', xujiedaifangkuanliebiao %></td>
+        <td><%= link_to 'Edit', edit_xujiedaifangkuanliebiao_path(xujiedaifangkuanliebiao) %></td>
+        <td><%= link_to 'Destroy', xujiedaifangkuanliebiao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建xujiedaifangkuanliebiao', new_xujiedaifangkuanliebiao_path %>

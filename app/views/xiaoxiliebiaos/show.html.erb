@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>用户姓名:</strong>
+  <%= @xiaoxiliebiao.yonghuxingming %>
+</p>
+
+<p>
+  <strong>手机号:</strong>
+  <%= @xiaoxiliebiao.shoujihao %>
+</p>
+
+<p>
+  <strong>消息类型:</strong>
+  <%= @xiaoxiliebiao.xiaoxileixing %>
+</p>
+
+<p>
+  <strong>创建时间:</strong>
+  <%= @xiaoxiliebiao.chuangjianshijian %>
+</p>
+
+<p>
+  <strong>标题:</strong>
+  <%= @xiaoxiliebiao.biaoti %>
+</p>
+
+<p>
+  <strong>内容:</strong>
+  <%= @xiaoxiliebiao.neirong %>
+</p>
+
+<p>
+  <strong>操作:</strong>
+  <%= @xiaoxiliebiao.caozuo %>
+</p>
+
+<%= link_to 'Edit', edit_xiaoxiliebiao_path(@xiaoxiliebiao) %> |
+<%= link_to 'Back', xiaoxiliebiaos_path %>

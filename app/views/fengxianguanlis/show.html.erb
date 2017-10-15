@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>姓名:</strong>
+  <%= @fengxianguanli.xingming %>
+</p>
+
+<p>
+  <strong>手机号:</strong>
+  <%= @fengxianguanli.shoujihao %>
+</p>
+
+<p>
+  <strong>风险等级:</strong>
+  <%= @fengxianguanli.fenxiandengji %>
+</p>
+
+<p>
+  <strong>说明:</strong>
+  <%= @fengxianguanli.shuoming %>
+</p>
+
+<%= link_to 'Edit', edit_fengxianguanli_path(@fengxianguanli) %> |
+<%= link_to 'Back', fengxianguanlis_path %>

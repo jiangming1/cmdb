@@ -1,0 +1,2 @@
+class Xiaoxiliebiao < ApplicationRecord
+end

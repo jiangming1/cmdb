@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tuiguangfangmingcheng: MyString
+  dangezhucejianglijin: MyString
+  dangeziliaowanshanjianglijin: MyString
+  dangefangkuanjianglijinjine: MyString
+  dangefangkuangjianglijinbaifenbi: MyString
+  dangqianzhuangtai: false
+
+two:
+  tuiguangfangmingcheng: MyString
+  dangezhucejianglijin: MyString
+  dangeziliaowanshanjianglijin: MyString
+  dangefangkuanjianglijinjine: MyString
+  dangefangkuangjianglijinbaifenbi: MyString
+  dangqianzhuangtai: false

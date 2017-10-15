@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>电话黄页</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>电话号码</th>
+      <th>名称</th>
+      <th>关注程度</th>
+      <th>说明</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dianhuahuangyes.each do |dianhuahuangye| %>
+      <tr>
+        <td><%= dianhuahuangye.dianhuahaoma %></td>
+        <td><%= dianhuahuangye.mingcheng %></td>
+        <td><%= dianhuahuangye.guanzhuchengdu %></td>
+        <td><%= dianhuahuangye.shuoming %></td>
+        <td><%= link_to 'Show', dianhuahuangye %></td>
+        <td><%= link_to 'Edit', edit_dianhuahuangye_path(dianhuahuangye) %></td>
+        <td><%= link_to 'Destroy', dianhuahuangye, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建电话黄页', new_dianhuahuangye_path %>

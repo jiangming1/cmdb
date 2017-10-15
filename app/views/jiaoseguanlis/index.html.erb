@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>较色管理</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>较色代码</th>
+      <th>角色名称</th>
+      <th>所属权限</th>
+      <th>启用</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jiaoseguanlis.each do |jiaoseguanli| %>
+      <tr>
+        <td><%= jiaoseguanli.jiaosedaima %></td>
+        <td><%= jiaoseguanli.jiaosemingcheng %></td>
+        <td><%= jiaoseguanli.suoshuquanxian %></td>
+        <td><%= jiaoseguanli.qiyong %></td>
+        <td><%= link_to 'Show', jiaoseguanli %></td>
+        <td><%= link_to 'Edit', edit_jiaoseguanli_path(jiaoseguanli) %></td>
+        <td><%= link_to 'Destroy', jiaoseguanli, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建较色管理', new_jiaoseguanli_path %>

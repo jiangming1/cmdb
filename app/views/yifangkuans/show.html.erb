@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>姓名:</strong>
+  <%= @yifangkuan.xingming %>
+</p>
+
+<p>
+  <strong>手机号:</strong>
+  <%= @yifangkuan.shoujihao %>
+</p>
+
+<p>
+  <strong>借款金额:</strong>
+  <%= @yifangkuan.jiekuanjine %>
+</p>
+
+<p>
+  <strong>借款利息:</strong>
+  <%= @yifangkuan.jiekuanlixi %>
+</p>
+
+<p>
+  <strong>借款期限:</strong>
+  <%= @yifangkuan.jiekuanqixian %>
+</p>
+
+<p>
+  <strong>借款时间:</strong>
+  <%= @yifangkuan.jiekuanshijian %>
+</p>
+
+<p>
+  <strong>放款时间:</strong>
+  <%= @yifangkuan.fangkuanshijian %>
+</p>
+
+<p>
+  <strong>测绘:</strong>
+  <%= @yifangkuan.cehui %>
+</p>
+
+<%= link_to 'Edit', edit_yifangkuan_path(@yifangkuan) %> |
+<%= link_to 'Back', yifangkuans_path %>

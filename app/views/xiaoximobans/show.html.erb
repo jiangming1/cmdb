@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>编码:</strong>
+  <%= @xiaoximoban.bianma %>
+</p>
+
+<p>
+  <strong>标题:</strong>
+  <%= @xiaoximoban.biaoti %>
+</p>
+
+<p>
+  <strong>消息内容:</strong>
+  <%= @xiaoximoban.xiaoxineirong %>
+</p>
+
+<%= link_to 'Edit', edit_xiaoximoban_path(@xiaoximoban) %> |
+<%= link_to 'Back', xiaoximobans_path %>

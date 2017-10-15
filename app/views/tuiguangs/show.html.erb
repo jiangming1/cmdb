@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>推广方名称:</strong>
+  <%= @tuiguang.tuiguangfangmingcheng %>
+</p>
+
+<p>
+  <strong>蛋歌注册奖励金:</strong>
+  <%= @tuiguang.dangezhucejianglijin %>
+</p>
+
+<p>
+  <strong>单哥资料完善奖励金:</strong>
+  <%= @tuiguang.dangeziliaowanshanjianglijin %>
+</p>
+
+<p>
+  <strong>单个放款奖励金金额:</strong>
+  <%= @tuiguang.dangefangkuanjianglijinjine %>
+</p>
+
+<p>
+  <strong>单个方框奖励金百分比:</strong>
+  <%= @tuiguang.dangefangkuangjianglijinbaifenbi %>
+</p>
+
+<p>
+  <strong>当前状态:</strong>
+  <%= @tuiguang.dangqianzhuangtai %>
+</p>
+
+<%= link_to 'Edit', edit_tuiguang_path(@tuiguang) %> |
+<%= link_to 'Back', tuiguangs_path %>

@@ -1,0 +1,2 @@
+class Dakuanshibai < ApplicationRecord
+end

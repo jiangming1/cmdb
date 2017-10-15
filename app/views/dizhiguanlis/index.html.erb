@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>地址管理</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>代码</th>
+      <th>名称</th>
+      <th>省级城市</th>
+      <th>等级</th>
+      <th>排序</th>
+      <th>pinyin</th>
+      <th>简拼</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dizhiguanlis.each do |dizhiguanli| %>
+      <tr>
+        <td><%= dizhiguanli.daima %></td>
+        <td><%= dizhiguanli.mingcheng %></td>
+        <td><%= dizhiguanli.shangjichengshi %></td>
+        <td><%= dizhiguanli.dengji %></td>
+        <td><%= dizhiguanli.paixu %></td>
+        <td><%= dizhiguanli.pinyin %></td>
+        <td><%= dizhiguanli.jianpin %></td>
+        <td><%= link_to 'Show', dizhiguanli %></td>
+        <td><%= link_to 'Edit', edit_dizhiguanli_path(dizhiguanli) %></td>
+        <td><%= link_to 'Destroy', dizhiguanli, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建地址管理', new_dizhiguanli_path %>

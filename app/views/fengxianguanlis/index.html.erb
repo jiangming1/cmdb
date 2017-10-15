@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>风险管理</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>姓名</th>
+      <th>手机号</th>
+      <th>风险等级</th>
+      <th>说明</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fengxianguanlis.each do |fengxianguanli| %>
+      <tr>
+        <td><%= fengxianguanli.xingming %></td>
+        <td><%= fengxianguanli.shoujihao %></td>
+        <td><%= fengxianguanli.fenxiandengji %></td>
+        <td><%= fengxianguanli.shuoming %></td>
+        <td><%= link_to 'Show', fengxianguanli %></td>
+        <td><%= link_to 'Edit', edit_fengxianguanli_path(fengxianguanli) %></td>
+        <td><%= link_to 'Destroy', fengxianguanli, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建风险管理', new_fengxianguanli_path %>

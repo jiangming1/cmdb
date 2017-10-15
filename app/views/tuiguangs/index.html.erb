@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>推广</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>推广方名称</th>
+      <th>蛋歌注册奖励金</th>
+      <th>单哥资料完善奖励金</th>
+      <th>单个放款奖励金金额</th>
+      <th>单个方框奖励金百分比</th>
+      <th>当前状态</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tuiguangs.each do |tuiguang| %>
+      <tr>
+        <td><%= tuiguang.tuiguangfangmingcheng %></td>
+        <td><%= tuiguang.dangezhucejianglijin %></td>
+        <td><%= tuiguang.dangeziliaowanshanjianglijin %></td>
+        <td><%= tuiguang.dangefangkuanjianglijinjine %></td>
+        <td><%= tuiguang.dangefangkuangjianglijinbaifenbi %></td>
+        <td><%= tuiguang.dangqianzhuangtai %></td>
+        <td><%= link_to 'Show', tuiguang %></td>
+        <td><%= link_to 'Edit', edit_tuiguang_path(tuiguang) %></td>
+        <td><%= link_to 'Destroy', tuiguang, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建推广', new_tuiguang_path %>

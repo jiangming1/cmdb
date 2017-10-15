@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>代码:</strong>
+  <%= @dizhiguanli.daima %>
+</p>
+
+<p>
+  <strong>名称:</strong>
+  <%= @dizhiguanli.mingcheng %>
+</p>
+
+<p>
+  <strong>省级城市:</strong>
+  <%= @dizhiguanli.shangjichengshi %>
+</p>
+
+<p>
+  <strong>等级:</strong>
+  <%= @dizhiguanli.dengji %>
+</p>
+
+<p>
+  <strong>排序:</strong>
+  <%= @dizhiguanli.paixu %>
+</p>
+
+<p>
+  <strong>pinyin:</strong>
+  <%= @dizhiguanli.pinyin %>
+</p>
+
+<p>
+  <strong>简拼:</strong>
+  <%= @dizhiguanli.jianpin %>
+</p>
+
+<%= link_to 'Edit', edit_dizhiguanli_path(@dizhiguanli) %> |
+<%= link_to 'Back', dizhiguanlis_path %>

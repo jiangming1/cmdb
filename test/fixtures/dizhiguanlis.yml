@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  daima: MyString
+  mingcheng: MyString
+  shangjichengshi: MyString
+  dengji: MyString
+  paixu: MyString
+  pinyin: MyString
+  jianpin: MyString
+
+two:
+  daima: MyString
+  mingcheng: MyString
+  shangjichengshi: MyString
+  dengji: MyString
+  paixu: MyString
+  pinyin: MyString
+  jianpin: MyString
