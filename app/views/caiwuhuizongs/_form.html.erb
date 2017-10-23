@@ -1,0 +1,22 @@
+<%= simple_form_for(@caiwuhuizong) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :tongjiriqi,label:"统计日期" %>
+    <%= f.input :tongjileixing,label:"统计类型" %>
+    <%= f.input :jietiaozongbishu,label:"借条总笔数" %>
+    <%= f.input :jietiaojine,label:"借条金额" %>
+    <%= f.input :jietiaolixi,label:"借条利息" %>
+    <%= f.input :fangkuanzongbishu,label:"放款总笔数" %>
+    <%= f.input :fangkuanjine,label:"放款金额" %>
+    <%= f.input :fangkuanlixi,label:"放款利息" %>
+    <%= f.input :xujiezongbishu,label:"续借总笔数" %>
+    <%= f.input :xujiejine,label:"续借金额" %>
+    <%= f.input :xujielixi,label:"续借利息" %>
+    <%= f.input :zongjine,label:"续借金额" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

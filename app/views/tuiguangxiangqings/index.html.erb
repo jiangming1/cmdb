@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>推广详情</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>推广名称</th>
+      <th>注册书</th>
+      <th>申请书</th>
+      <th>放款书</th>
+      <th>放款金额</th>
+      <th>统计日期</th>
+      <th>最后刷新时间</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tuiguangxiangqings.each do |tuiguangxiangqing| %>
+      <tr>
+        <td><%= tuiguangxiangqing.tuiguangmingcheng %></td>
+        <td><%= tuiguangxiangqing.zhuceshu %></td>
+        <td><%= tuiguangxiangqing.shenqingshu %></td>
+        <td><%= tuiguangxiangqing.fangkuanshu %></td>
+        <td><%= tuiguangxiangqing.fangkuanjine %></td>
+        <td><%= tuiguangxiangqing.tongjiriqi %></td>
+        <td><%= tuiguangxiangqing.zuihoushuaxinshijian %></td>
+        <td><%= link_to 'Show', tuiguangxiangqing %></td>
+        <td><%= link_to 'Edit', edit_tuiguangxiangqing_path(tuiguangxiangqing) %></td>
+        <td><%= link_to 'Destroy', tuiguangxiangqing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建推广详情', new_tuiguangxiangqing_path %>

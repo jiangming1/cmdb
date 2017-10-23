@@ -1,0 +1,2 @@
+class Fengkongcanshu < ApplicationRecord
+end

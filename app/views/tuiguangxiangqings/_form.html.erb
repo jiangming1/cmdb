@@ -1,0 +1,17 @@
+<%= simple_form_for(@tuiguangxiangqing) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :tuiguangmingcheng,label:"推广名称" %>
+    <%= f.input :zhuceshu,label:"注册人数" %>
+    <%= f.input :shenqingshu,label:"申请数" %>
+    <%= f.input :fangkuanshu,label:"放款数" %>
+    <%= f.input :fangkuanjine,label:"放款金额" %>
+    <%= f.input :tongjiriqi,label:"统计日期" %>
+    <%= f.input :zuihoushuaxinshijian,label:"最后刷新时间" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>风控参数</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>编码</th>
+      <th>名称</th>
+      <th>zhi1</th>
+      <th>zhi2</th>
+      <th>说明</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fengkongcanshus.each do |fengkongcanshu| %>
+      <tr>
+        <td><%= fengkongcanshu.bianma %></td>
+        <td><%= fengkongcanshu.mingcheng %></td>
+        <td><%= fengkongcanshu.zhi1 %></td>
+        <td><%= fengkongcanshu.zhi2 %></td>
+        <td><%= fengkongcanshu.shuoming %></td>
+        <td><%= link_to 'Show', fengkongcanshu %></td>
+        <td><%= link_to 'Edit', edit_fengkongcanshu_path(fengkongcanshu) %></td>
+        <td><%= link_to 'Destroy', fengkongcanshu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建风控参数', new_fengkongcanshu_path %>

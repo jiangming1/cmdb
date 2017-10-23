@@ -5,7 +5,7 @@
                             <i class="fa fa-cog">
                             </i>
                             <span class="ml10">
-                                <%= menu.mingzi %>
+                                <%=menu.id.to_s+ menu.mingzi %>
                             </span>
                             <span class="caret-down">
                             </span>
@@ -15,7 +15,7 @@
                         Menu.where("menu_id = "+menu.id.to_s+"").each do |submenu| %>
                             <li>
                                 <a target=test  href=/<%= submenu.url %>>
-                                   <%= submenu.mingzi %>
+                                   <%= submenu.id.to_s+ submenu.mingzi %>
                                 </a>
                             </li>
                                 <% end %>

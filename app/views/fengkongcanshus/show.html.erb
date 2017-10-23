@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>编码:</strong>
+  <%= @fengkongcanshu.bianma %>
+</p>
+
+<p>
+  <strong>名称:</strong>
+  <%= @fengkongcanshu.mingcheng %>
+</p>
+
+<p>
+  <strong>zhi1:</strong>
+  <%= @fengkongcanshu.zhi1 %>
+</p>
+
+<p>
+  <strong>zhi2:</strong>
+  <%= @fengkongcanshu.zhi2 %>
+</p>
+
+<p>
+  <strong>说明:</strong>
+  <%= @fengkongcanshu.shuoming %>
+</p>
+
+<%= link_to 'Edit', edit_fengkongcanshu_path(@fengkongcanshu) %> |
+<%= link_to 'Back', fengkongcanshus_path %>

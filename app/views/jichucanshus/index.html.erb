@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>jichucanshu</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>类型代码</th>
+      <th>类型名称</th>
+      <th>daimazhi1</th>
+      <th>代码之2</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jichucanshus.each do |jichucanshu| %>
+      <tr>
+        <td><%= jichucanshu.leixingdaima %></td>
+        <td><%= jichucanshu.leixingmingcheng %></td>
+        <td><%= jichucanshu.daimazhi1 %></td>
+        <td><%= jichucanshu.daimazhi2 %></td>
+        <td><%= link_to 'Show', jichucanshu %></td>
+        <td><%= link_to 'Edit', edit_jichucanshu_path(jichucanshu) %></td>
+        <td><%= link_to 'Destroy', jichucanshu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建jichucanshu', new_jichucanshu_path %>

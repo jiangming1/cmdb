@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>类型代码:</strong>
+  <%= @jichucanshu.leixingdaima %>
+</p>
+
+<p>
+  <strong>类型名称:</strong>
+  <%= @jichucanshu.leixingmingcheng %>
+</p>
+
+<p>
+  <strong>daimazhi1:</strong>
+  <%= @jichucanshu.daimazhi1 %>
+</p>
+
+<p>
+  <strong>代码之2:</strong>
+  <%= @jichucanshu.daimazhi2 %>
+</p>
+
+<%= link_to 'Edit', edit_jichucanshu_path(@jichucanshu) %> |
+<%= link_to 'Back', jichucanshus_path %>

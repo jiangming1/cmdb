@@ -1,0 +1,2 @@
+class Jichucanshu < ApplicationRecord
+end

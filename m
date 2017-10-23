@@ -211,7 +211,8 @@ def fanyi(danci,filename):
     lines=re.sub(r'(?i)<th>'+key,"<th>"+dictionary[key], lines)
     lines=re.sub(r'(?i)<strong>'+key,"<strong>"+dictionary[key], lines)
     lines=re.sub(r'(?i)<%= f.label :'+key+" %>",""+dictionary[key], lines)
-    #lines=lines.replace(key,dictionary[key])
+    lines=re.sub(r'(?i)f.input :'+key,"f.input :"+key+" ,label:'"+dictionary[key]+"'%>",lines)
+#lines=lines.replace(key,dictionary[key])
   lines=filewrite("/Users/jim/cmdb/app/views/"+danci+"s/"+filename,lines)
   return lines;
 def fanyis(danci):

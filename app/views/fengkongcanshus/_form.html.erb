@@ -1,0 +1,15 @@
+<%= simple_form_for(@fengkongcanshu) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :bianma,label:"编码" %>
+    <%= f.input :mingcheng,label:"名称" %>
+    <%= f.input :zhi1,label:"值1" %>
+    <%= f.input :zhi2,label:"值2" %>
+    <%= f.input :shuoming,label:"说明" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

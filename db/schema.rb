@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171015154316) do
+ActiveRecord::Schema.define(version: 20171016022937) do
 
   create_table "androidupdates", force: :cascade do |t|
     t.string   "shichang"
@@ -35,6 +35,23 @@ ActiveRecord::Schema.define(version: 20171015154316) do
     t.string   "jiaoben"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "caiwuhuizongs", force: :cascade do |t|
+    t.string   "tongjiriqi"
+    t.string   "tongjileixing"
+    t.string   "jietiaozongbishu"
+    t.string   "jietiaojine"
+    t.string   "jietiaolixi"
+    t.string   "fangkuanzongbishu"
+    t.string   "fangkuanjine"
+    t.string   "fangkuanlixi"
+    t.string   "xujiezongbishu"
+    t.string   "xujiejine"
+    t.string   "xujielixi"
+    t.string   "zongjine"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "ceshijilus", force: :cascade do |t|
@@ -192,6 +209,16 @@ ActiveRecord::Schema.define(version: 20171015154316) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "fengkongcanshus", force: :cascade do |t|
+    t.string   "bianma"
+    t.string   "mingcheng"
+    t.string   "zhi1"
+    t.string   "zhi2"
+    t.string   "shuoming"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "fengxianguanlis", force: :cascade do |t|
     t.string   "xingming"
     t.string   "shoujihao"
@@ -308,6 +335,15 @@ ActiveRecord::Schema.define(version: 20171015154316) do
     t.boolean  "qiyong"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "jichucanshus", force: :cascade do |t|
+    t.string   "leixingdaima"
+    t.string   "leixingmingcheng"
+    t.string   "daimazhi1"
+    t.string   "daimazhi2"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "kaiguans", force: :cascade do |t|
@@ -536,6 +572,18 @@ ActiveRecord::Schema.define(version: 20171015154316) do
     t.boolean  "dangqianzhuangtai"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+  end
+
+  create_table "tuiguangxiangqings", force: :cascade do |t|
+    t.string   "tuiguangmingcheng"
+    t.string   "zhuceshu"
+    t.string   "shenqingshu"
+    t.string   "fangkuanshu"
+    t.string   "fangkuanjine"
+    t.string   "tongjiriqi"
+    t.string   "zuihoushuaxinshijian"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "umengs", force: :cascade do |t|

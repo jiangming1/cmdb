@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tongjiriqi: MyString
+  tongjileixing: MyString
+  jietiaozongbishu: MyString
+  jietiaojine: MyString
+  jietiaolixi: MyString
+  fangkuanzongbishu: MyString
+  fangkuanjine: MyString
+  fangkuanlixi: MyString
+  xujiezongbishu: MyString
+  xujiejine: MyString
+  xujielixi: MyString
+  zongjine: MyString
+
+two:
+  tongjiriqi: MyString
+  tongjileixing: MyString
+  jietiaozongbishu: MyString
+  jietiaojine: MyString
+  jietiaolixi: MyString
+  fangkuanzongbishu: MyString
+  fangkuanjine: MyString
+  fangkuanlixi: MyString
+  xujiezongbishu: MyString
+  xujiejine: MyString
+  xujielixi: MyString
+  zongjine: MyString

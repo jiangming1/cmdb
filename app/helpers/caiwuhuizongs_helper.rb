@@ -1,0 +1,2 @@
+module CaiwuhuizongsHelper
+end
