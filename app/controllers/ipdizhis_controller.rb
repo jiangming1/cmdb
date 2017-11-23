@@ -4,7 +4,7 @@ class IpdizhisController < ApplicationController
   # GET /ipdizhis
   # GET /ipdizhis.json
   def index
-    @ipdizhis = Ipdizhi.all
+	  @ipdizhis = Ipdizhi.all.order("wangduan desc").order("id")
   end
 
   # GET /ipdizhis/1

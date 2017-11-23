@@ -4,7 +4,7 @@ class DiannaosController < ApplicationController
   # GET /diannaos
   # GET /diannaos.json
   def index
-    @diannaos = Diannao.all
+	  @diannaos = Diannao.all.order("mingzi")  
   end
 
   # GET /diannaos/1
