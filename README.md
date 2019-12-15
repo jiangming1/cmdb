@@ -1,4 +1,421 @@
-# README
+
+# README 
+# 主从同步那个机器更费?
+是从服务器
+
+# PostgreSQL bgwriter,walwriter,backend process 写磁盘的实时监控
+日志写耗费磁盘
+sql写耗费磁盘.
+
+
+# PostgreSQL , DBA , 日常
+
+背景
+1、AWR 数据库健康报告，
+
+《PostgreSQL AWR报告(for 阿里云ApsaraDB PgSQL)》
+
+《如何生成和阅读EnterpriseDB (PPAS(Oracle 兼容版)) AWR诊断报告》
+
+2、查看TOP SQL，以及SQL优化方法
+
+《PostgreSQL 如何查找TOP SQL (例如IO消耗最高的SQL) (包含SQL优化内容) - 珍藏级》
+
+3、监控指标
+
+《PostgreSQL 实时健康监控 大屏 - 低频指标 - 珍藏级》
+
+《PostgreSQL 实时健康监控 大屏 - 高频指标(服务器) - 珍藏级》
+
+《PostgreSQL 实时健康监控 大屏 - 高频指标 - 珍藏级》
+
+4、排查FREEZE引入的IO和CPU飙升，
+
+《PostgreSQL Freeze 风暴预测续 - 珍藏级SQL》
+
+《PostgreSQL freeze 风暴导致的IOPS飙升 - 事后追溯》
+
+5、查看当前慢SQL，长事务，长2PC事务，
+
+例如执行时间超过5秒的QUERY
+
+select pid,state,query_start,xact_start,now()-query_start,wait_event_type,wait_event,query 
+from pg_stat_activity where now()-query_start > '5 s' order by query_start;  
+select * from pg_prepared_xacts ;  
+6、根据PID杀会话或QUERY，
+
+查询当前系统在执行的SQL，PID。（普通用户无法查看其它用户执行的QUERY）
+
+select pid,state,query_start,xact_start,now()-query_start,wait_event_type,wait_event,query from pg_stat_activity order by query_start;  
+KILL QUERY
+
+select pg_cancel_backend(pid);  
+KILL 会话
+
+select pg_terminate_backend(pid);  
+7、查看膨胀的表和索引，截取自bucardo开源的check_postgres
+
+《如何检测、清理膨胀、垃圾(含修改分布键) - 阿里云HybridDB for PG最佳实践》
+
+8、不堵塞DML的并行建索引方法，
+
+加索引时，可以使用CONCURRENTLY语法，不堵塞DML操作。
+
+Command:     CREATE INDEX     
+Description: define a new index     
+Syntax:     
+CREATE [ UNIQUE ] INDEX [ CONCURRENTLY ] [ [ IF NOT EXISTS ] name ] ON table_name [ USING method ]     
+    ( { column_name | ( expression ) } [ COLLATE collation ] [ opclass ] [ ASC | DESC ] [ NULLS { FIRST | LAST } ] [, ...] )     
+    [ WITH ( storage_parameter = value [, ... ] ) ]     
+    [ TABLESPACE tablespace_name ]     
+    [ WHERE predicate ]     
+9、索引自动推荐
+
+《PostgreSQL 商用版本EPAS(阿里云ppas(Oracle 兼容版)) 索引推荐功能使用》
+
+《PostgreSQL SQL自动优化案例 - 极简，自动推荐索引》
+
+10、系统瓶颈或数据库代码瓶颈
+
+《PostgreSQL 源码性能诊断(perf profiling)指南 - 珍藏级》
+
+《PostgreSQL 代码性能诊断之 - OProfile & Systemtap》
+
+11、锁等待排查
+
+如果你发现数据库CPU,IO都不高，但是性能不行，或者连接打满，或者SQL执行HANG死的情况，通常是锁等待造成。
+
+《PostgreSQL 锁等待监控 珍藏级SQL - 谁堵塞了谁》
+
+12、防雪崩方法
+
+设置语句超时，锁等待超级可解，特别是对于DDL语句，一定要设置锁等待超时，否则业务高峰期，如果有高并发的其他QUERY访问DDL的表可能会导致雪崩。
+
+《PostgreSQL 设置单条SQL的执行超时 - 防雪崩》
+
+《如何防止数据库雪崩(泛洪 flood)》
+
+13、GIN索引pending页，直接导致GIN索引查询效率变差
+
+《PostgreSQL pageinspect 诊断与优化GIN (倒排) 索引合并延迟导致的查询性能下降问题》
+
+通常可能是大量并发写入数据，AUTOVACUUM WORKER来不及合并GIN PENDING LIST造成。
+
+14、曾经的慢SQL为什么慢
+
+历史慢SQL，通过auto_explain可以记录慢SQL的整个执行计划，包括执行计划里面每一个步骤花费的时间，消耗的IO时间，IO命中率等。
+
+《PostgreSQL 函数调试、诊断、优化 & auto_explain & plprofiler》
+
+# PostgreSQL , 实时轨迹 , IoT , 车联网 , GIS
+
+背景
+车联网，IoT场景中，终端为传感器，采集各个指标的数据（同时包括时间、GIS位置信息，速度，油耗，温度，EDU采集指标），在运动过程中，通过GPS准实时上报到服务端。
+
+服务端则通常根据设备（比如车辆）、时间范围，查询指定设备在某个时间区间的行程。
+
+例如：
+
+1、设备轨迹点表
+
+create table tbl (  
+  id int primary key,  -- 主键  
+  sid int,  -- 传感器（车辆）ID  
+  xxx int,  -- 行程ID  
+  geo geometry,  -- 位置  
+  att jsonb,  -- 属性  
+  crt_time timestamp  -- 时间  
+);  
+2、查询
+
+select * from tbl where sid=? and crt_time between x and y;  
+这种方法的问题（一个点一条记录）：
+
+1、查询性能问题，有IO放大（因为传感器都活跃），一个行程的每个点都落在不同的BLOCK里面，查询有IO放大。
+
+2、空间占用，一个点一条记录，压缩比低。
+
+3、行程运算，行程的所有点没有合并，运算效率差。
+
+行程合并问题
+为了解决以上问题，可以新建行程表，并将点的数据合并到行程。
+
+create table tbl_agg (  
+  xxx int,  -- 行程ID  
+  geo 轨迹类型, -- 轨迹  
+  agg jsonb[]  -- 其他属性聚合  
+)  
+例如，每隔N秒，将点表的数据，按行程ID为主键更新到行程表。
+
+insert into tbl_agg on conflict (geo) do ?   
+select xxx,geo_agg(geo),jsonb_agg(jsonb) from tbl where crt_time between ? and ?;  
+这种做法有性能问题：
+
+1、锁
+
+如果并发聚合的话，很显然可能多个会话中会出现同样的xxx行程ID字段，所以会有锁冲突。
+
+2、IO放大
+
+如果要解决锁的问题，我们可以用HASH，每个会话算其中的一个HASH value，但是这样就会导致扫描时IO放大，例如8个并行，则有效数据仅八分之一。相当于IO多扫描了7次。
+
+3、CPU只能用一核
+
+为了解决第一个问题，也可以使用串行方法，串行就只能用一核。
+
+4、GAP，由于时间差的问题（例如INSERT到达的数据有错乱，那么可能导致中间出现GAP，聚合的行程缺少一些点）
+
+5、实时性，异步合并到行程表，显然，查询行程表时，可能还有一些POINT没有合并进来，那么就会导致即刻查询行程缺少最近没有合并的点（延迟）。
+
+行程合并优化
+为了解决前面提到的5个问题。行程合并的流程可以优化。
+
+1、点表分区，对点表进行分区。按行程ID HASH。
+
+create table tbl (like old_tbl including defaults) partition by list (abs(mod(hashtext(行程字段),16)));   
+  
+do language plpgsql $$  
+declare  
+begin  
+  for i in 0..15 loop  
+    execute 'create table tbl_'||i||' partition of tbl for values in ('||i||')';  
+    execute 'create index idx_tbl_'||i||'_1 on tbl_'||i||' (id)';  
+    execute 'create index idx_tbl_'||i||'_2 on tbl_'||i||' (crt_time)';  
+  end loop;  
+end;  
+$$;  
+2、由于点表分区了，而且行程ID HASH分区，每个分区一个行程合并处理进程（没有锁的问题），总共就可以开多个并行来提高合并行程的处理并行度。提高整体合并行程的性能。
+
+3、行程表，分区。解决行程表垃圾回收的问题。
+
+行程是UPDATE（APPEND POINT到行程类型中）的形式，所以UPDATE会很多，会经常需要对行程表进行VACUUM。
+
+如果行程表不分区，行程表就会很大，目前PG的VACUUM，对于单个表来说，同一时间只能一个核来进行垃圾回收，还没有支持单表并行VACUUM。
+
+所以行程表如果很大，并且需要频繁垃圾回收时，为了避免垃圾回收速度赶不上垃圾产生速度，同样也可以使用分区。
+
+与点表分区类似，最好使用一样的分区键。 
+
+
+
+
+# 根据索引对表进行聚类
+
+ 
+
+cluster指示postgresql根据index_name指定的索引对table_name指定的表进行集群。表上必须已经有索引。
+
+当表被cluster时，它将根据索引信息进行物理重新排序。cluster是一次性操作：当表随后被更新时，更新不会被cluster。也就是说，不尝试根据新行或更新行的索引顺序存储新行或更新行。如果愿意，可以通过再次发出命令来定期重新调整。此外，将表的填满因子存储参数设置为小于100%有助于在更新期间保留群集顺序，因为如果有足够的空间，更新的行将保留在同一页上。）
+
+当一个表被cluster 时，PostgreSQL会记住它被cluster 的索引。表单cluster table_name使用与以前相同的索引重新排序表。您还可以使用 cluster 或set without cluster form of alter table来设置将来cluster 操作要使用的索引，或者清除任何以前的设置。
+
+不带任何参数的CLUSTER将重新对调用用户拥有的当前数据库中以前的所有聚集表进行排序，或者对超级用户调用的所有此类表进行排序。这种形式的集群不能在事务块内执行。
+
+当一个表被cluster 时，它会获得一个访问排它锁。这将防止在集群完成之前对表进行任何其他数据库操作（读和写）。
+
+ 
+
+执行参数：
+
+table_name: 表名
+
+index_name: 索引名。
+
+berbose: 在每个表都聚集时打印进度报告。
+
+ 
+
+在随机访问表中的单行的情况下，表中数据的实际顺序并不重要。但是，如果倾向于比其他人更多地访问一些数据，并且有一个索引将这些数据分组在一起，那么将从使用cluster中获益。如果从一个表中请求一个索引值范围，或者一个索引值有多个匹配的行，那么cluster将有所帮助，因为一旦索引为第一个匹配的行标识了表页，那么所有其他匹配的行可能已经在同一个表页上，因此可以保存磁盘访问并加快查询速度。
+
+cluster 可以使用对指定索引的索引扫描，或者（如果索引是B树）顺序扫描，然后进行排序，对表进行重新排序。它将根据计划成本参数和可用的统计信息，尝试选择更快的方法。
+
+使用索引扫描时，将创建一个临时表副本，其中包含按索引顺序排列的表数据。还将创建表上每个索引的临时副本。因此，您需要磁盘上的可用空间至少等于表大小和索引大小之和。
+
+当使用顺序扫描和排序时，也会创建一个临时排序文件，以便峰值临时空间需求是表大小的两倍，加上索引大小。此方法通常比索引扫描方法快，但如果磁盘空间要求不可容忍，则可以通过暂时将“enable_sort”设置为“off”来禁用此选项。
+
+建议在cluster 之前将 maintenance_work_mem 设置为一个相当大的值（但不超过您可以专门用于集群操作的RAM数量）。
+
+因为计划器记录有关表顺序的统计信息，所以建议对新cluster 的表运行分析。否则，计划者可能会对查询计划做出错误的选择。
+
+因为cluster 记住了哪些索引是cluster 的，所以可以对第一次需要手动cluster 的表进行cluster ，然后设置一个周期性维护脚本，在不使用任何参数的情况下执行集群，以便周期性地重新集群所需的表。
+
+ 
+
+===========================================================================================
+
+ 
+
+-- 实验环境：CentOS 7 + PG 11.1
+-- 说明：实验SQL是根据 digoal 的实验，自己亲手做的。感谢德哥！！！
+-- 创建实验表，索引
+create table test (id int, val numeric);
+create index on test(id);
+create index on test(val);
+ 
+-- 插入实验数据
+insert into test select generate_series(1,10000000),random();
+ 
+-- 表信息
+\d test
+                Table "public.test"
+ Column |  Type   | Collation | Nullable | Default
+--------+---------+-----------+----------+---------
+ id     | integer |           |          |
+ val    | numeric |           |          |
+Indexes:
+    "test_id_idx" btree (id)
+    "test_val_idx" btree (val)
+ 
+-- 表文件
+select pg_relation_filepath('test'::regclass);
+ pg_relation_filepath
+----------------------
+ base/16385/64278
+(1 row)
+-- 索引文件
+select pg_relation_filepath('test_id_idx'::regclass);
+ pg_relation_filepath
+----------------------
+ base/16385/64280
+(1 row)
+-- 索引文件
+select pg_relation_filepath('test_val_idx'::regclass);
+ pg_relation_filepath
+----------------------
+ base/16385/64281
+(1 row)
+ 
+ 
+-- 查看列的离散程度，值越接近0，表示越离散，越接近1，表示存储比较有顺序
+-- 说明目前表是根据 id 有序存储的。
+select correlation from pg_stats where tablename='test' and attname='id';
+ correlation
+-------------
+           1
+ 
+select correlation from pg_stats where tablename='test' and attname='val';
+ correlation
+-------------
+  0.00781794
+(1 row)
+ 
+-- 收缩表，分析表，收集统计信息。
+vacuum analyze test;
+ 
+-- 最小的ID的存储位置
+select ctid,id,val from test where id=(select min(id) from test);
+ ctid  | id |        val
+-------+----+-------------------
+ (0,1) |  1 | 0.419486843980849
+(1 row)
+ 
+-- 最小的 VAL 的存储位置
+select ctid,id,val from test where val=(select min(val) from test);
+    ctid    |   id   |          val
+------------+--------+------------------------
+ (4361,127) | 806540 | 0.00000218348577618599
+(1 row)
+ 
+ 
+-- 根据 val 列上的索引。做cluster。
+cluster test USING test_val_idx;
+ 
+-- 查看最小 id 的存储
+select ctid,id,val from test where id=(select min(id) from test);
+   ctid   | id |        val
+----------+----+-------------------
+ (3192,7) |  1 | 0.589303761254996
+(1 row)
+ 
+-- 查看最小 val 的存储
+select ctid,id,val from test where val=(select min(val) from test);
+ ctid  |   id   |          val
+-------+--------+------------------------
+ (0,1) | 806540 | 0.00000218348577618599
+(1 row)
+ 
+-- 收缩表，分析表，收集统计信息。
+vacuum analyze test;
+ 
+-- 查看列的离散程度，值越接近0，表示越离散，越接近1，表示存储比较有顺序
+-- 说明目前表是根据 val 有序存储的。
+select correlation from pg_stats where tablename='test' and attname='val';
+ correlation
+-------------
+           1
+(1 row)
+ 
+select correlation from pg_stats where tablename='test' and attname='id';
+ correlation
+-------------
+  0.00133778
+(1 row)
+ 
+-- 查询表，索引文件，都变了。说明cluster重建表和索引。
+select pg_relation_filepath('test'::regclass);
+ pg_relation_filepath
+----------------------
+ base/16385/64283
+(1 row)
+ 
+select pg_relation_filepath('test_id_idx'::regclass);
+ pg_relation_filepath
+----------------------
+ base/16385/64289
+(1 row)
+ 
+select pg_relation_filepath('test_val_idx'::regclass);
+ pg_relation_filepath
+----------------------
+ base/16385/64290
+(1 row)
+ 
+-- 表锁
+-- session 1
+mytest=# begin;
+BEGIN
+mytest=# cluster test USING test_id_idx ;
+CLUSTER
+ 
+-- session 2
+mytest=# select * from test limit 1;
+等待......
+ 
+-- session 3
+select pid,locktype,database,relation,granted,mode,b.relname from pg_locks a,pg_class b where a.relation=b.oid;
+  pid  | locktype | database | relation | granted |        mode         |              relname
+-------+----------+----------+----------+---------+---------------------+-----------------------------------
+ 22891 | relation |    16385 |     3455 | t       | AccessShareLock     | pg_class_tblspc_relfilenode_index
+ 22891 | relation |    16385 |     2663 | t       | AccessShareLock     | pg_class_relname_nsp_index
+ 22891 | relation |    16385 |     2662 | t       | AccessShareLock     | pg_class_oid_index
+ 22891 | relation |    16385 |     1259 | t       | AccessShareLock     | pg_class
+ 22891 | relation |    16385 |    11645 | t       | AccessShareLock     | pg_locks
+ 21609 | relation |    16385 |     2679 | t       | AccessShareLock     | pg_index_indexrelid_index
+ 21609 | relation |    16385 |     2678 | t       | AccessShareLock     | pg_index_indrelid_index
+ 21609 | relation |    16385 |     2610 | t       | AccessShareLock     | pg_index
+ 21609 | relation |    16385 |     3455 | t       | AccessShareLock     | pg_class_tblspc_relfilenode_index
+ 21609 | relation |    16385 |     2663 | t       | AccessShareLock     | pg_class_relname_nsp_index
+ 21609 | relation |    16385 |     2662 | t       | AccessShareLock     | pg_class_oid_index
+ 21609 | relation |    16385 |     2685 | t       | AccessShareLock     | pg_namespace_oid_index
+ 21609 | relation |    16385 |     2684 | t       | AccessShareLock     | pg_namespace_nspname_index
+ 21609 | relation |    16385 |     2615 | t       | AccessShareLock     | pg_namespace
+ 21609 | relation |    16385 |     1259 | t       | AccessShareLock     | pg_class
+ 21609 | relation |    16385 |    64276 | t       | AccessShareLock     | test_val_idx
+ 21609 | relation |    16385 |    64276 | t       | AccessExclusiveLock | test_val_idx
+ 21609 | relation |    16385 |    64272 | t       | AccessExclusiveLock | pg_toast_64269
+ 21609 | relation |    16385 |    64275 | t       | AccessShareLock     | test_id_idx
+ 21609 | relation |    16385 |    64275 | t       | AccessExclusiveLock | test_id_idx
+ 21609 | relation |    16385 |    64269 | t       | ShareLock           | test
+ 21609 | relation |    16385 |    64269 | t       | AccessExclusiveLock | test
+ 22829 | relation |    16385 |    64269 | f       | AccessShareLock     | test
+(23 rows)
+ 
+————————————————
+版权声明：本文为CSDN博主「Chuck_Chen1222」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/chuckchen1222/article/details/85630528
+# PostgreSQL , 资源 , 性能 , 抖动 , 评估 , 稳定性
+
+
 背景
 在数据库压测过程中，经常会遇到抖动的问题。为什么数据库会出现抖动呢？
 
@@ -1521,62 +1938,4 @@ time.sleep(1)
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect("a", 22,'a', 'a')
-stdin, stdout, stderr = ssh.exec_command("tail -n 100  /opt/logs/laicunba_web/laicunba_we.log|grep -v 'rid'")
-line=stdout.read().strip().decode('utf-8')
-#print(line)
-matchObj = re.match( r'[\s\S]*\[(.{4})\]', line, re.M|re.I)
-print (matchObj)
-if matchObj:
-  d.find_element_by_id("picVerifyCodeInput").send_keys(matchObj.group(1))
-  time.sleep(1)
-  d.find_element_by_id("btnGetVerfityCode").click()
-  time.sleep(1)
-  stdin, stdout, stderr = ssh.exec_command("tail -n 100  /opt/logs/laicunba_web/laicunba_we.log|grep -v 'rid'")
-  line=stdout.read().strip().decode('utf-8')
-  ssh.close()
-  matchObj = re.match( r'[\s\S]*(\d{6})', line, re.M|re.I)
-  print (matchObj)
-  if matchObj:
-    print (matchObj.group(1))
-    d.find_element_by_id("verifyCodeInput").send_keys(matchObj.group(1))
-    d.find_element_by_id("btnRegist").click()
-    time.sleep(5)
-    print (d.current_url)
-  else:
-    d.quit()
-    exit(1)
-
-
-  
-  
-  
-
-
-
-#d.get(url+"h5/sui_cun_bao_detail.htm")
-#d.find_element_by_id("btnBuyNow").click()
-
-url="http://test.a.d_form.htm?id=f7635078-3254-46e2-8bf1-a3d120342b7a&_channel=weixin"
-d.get(url)
-d.find_element_by_id("buyAmountInput").send_keys("1000")
-d.find_element_by_id("nameInput").send_keys(u'张宝')
-d.save_screenshot('D:\\selenium\\screenshot.png')
-d.find_element_by_id("pidInput").send_keys("320301198502169142")
-Select(d.find_element_by_id("bankSelect")).select_by_index(1)
-d.find_element_by_id("bankCardNoInput").send_keys("6222020111122220000")
-d.find_element_by_id("btnSubmit").click()
-time.sleep(10)
-d.save_screenshot('c:\\screenshot1.png')
-d.find_element_by_css_selector("input#btnSms").click()
-d.find_element_by_css_selector("#iptSmscode").send_keys("201603")
-d.save_screenshot('c:\\screenshot2.png')
-time.sleep(1)
-d.find_element_by_id("btnPay").click()
-time.sleep(4)
-d.find_element_by_id("btnToMerchant").click()
-
-d.quit()
-#btnPay#btnPay
-#
-
-
+stdin, stdout
